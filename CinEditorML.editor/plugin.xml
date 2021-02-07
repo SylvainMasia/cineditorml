@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated CinEditorML -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="CinEditorML.presentation.CinEditorMLModelWizardID"
+            name="%_UI_CinEditorMLModelWizard_label"
+            class="CinEditorML.presentation.CinEditorMLModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/CinEditorMLModelFile.gif">
+         <description>%_UI_CinEditorMLModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated CinEditorML -->
+      <editor
+            id="CinEditorML.presentation.CinEditorMLEditorID"
+            name="%_UI_CinEditorMLEditor_label"
+            icon="icons/full/obj16/CinEditorMLModelFile.gif"
+            extensions="cineditorml"
+            class="CinEditorML.presentation.CinEditorMLEditor"
+            contributorClass="CinEditorML.presentation.CinEditorMLActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

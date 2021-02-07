@@ -1,0 +1,10 @@
+Movie richard_a_la_campagne position 1920 x 1080
+	Layer
+		Rectangle rec1 -> '000000' position 1920 x 1080 at 0 during 10
+		Effect e1 -> FadeOut at 8 during 2 on rec1
+		Rectangle rec2 -> 'ffffff' position 1920 x 1080 at 10 during 10
+		Effect e2 -> FadeIn at 10 during 2 on rec2
+	Layer
+		Text title -> 'C\'est notre film' position 500 x 100 (710, 780) at 0 during 20
+		
+		

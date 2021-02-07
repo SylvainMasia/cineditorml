@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Automatic-Module-Name: polytech.spaceteam.cineditor.ide
+Bundle-ManifestVersion: 2
+Bundle-Name: polytech.spaceteam.cineditor.ide
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: polytech.spaceteam.cineditor.ide; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: polytech.spaceteam.cineditor,
+ CinEditorML,
+ org.eclipse.xtext.ide,
+ org.eclipse.xtext.xbase.ide,
+ org.antlr.runtime
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: polytech.spaceteam.cineditor.ide.contentassist.antlr,
+ polytech.spaceteam.cineditor.ide.contentassist.antlr.internal
+
