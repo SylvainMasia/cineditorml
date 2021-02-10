@@ -19,4 +19,4 @@ also known as "Spaceteam"
 # Installation
 - Install [ImageMagick](https://download.imagemagick.org/ImageMagick/download/python/)
   - go to installation folder an type in cmd `./configure`
-  - add install folder to path ex : "C:\dev\courses\cineditorml\PythonMagick-0.9.19"
+  - add install folder to path ex : "C:\dev\courses\PythonMagick-0.9.19"
