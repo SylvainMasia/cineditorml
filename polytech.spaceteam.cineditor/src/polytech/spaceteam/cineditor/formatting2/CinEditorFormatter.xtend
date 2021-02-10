@@ -16,7 +16,7 @@ class CinEditorFormatter extends AbstractFormatter2 {
 
 	def dispatch void format(Movie movie, extension IFormattableDocument document) {
 		// TODO: format HiddenRegions around keywords, attributes, cross references, etc. 
-		movie.position.format
+		movie.dimension.format
 		for (layer : movie.layers) {
 			layer.format
 		}

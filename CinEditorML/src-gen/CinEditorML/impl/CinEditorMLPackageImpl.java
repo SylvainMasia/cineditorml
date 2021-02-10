@@ -4,10 +4,12 @@ package CinEditorML.impl;
 
 import CinEditorML.CinEditorMLFactory;
 import CinEditorML.CinEditorMLPackage;
+import CinEditorML.Dimension;
 import CinEditorML.Effect;
 import CinEditorML.Element;
 import CinEditorML.FadeIn;
 import CinEditorML.FadeOut;
+import CinEditorML.HexadecimalColor;
 import CinEditorML.Layer;
 import CinEditorML.Movie;
 import CinEditorML.Picture;
@@ -23,6 +25,7 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
+import org.eclipse.emf.ecore.xml.type.XMLTypePackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -123,6 +126,20 @@ public class CinEditorMLPackageImpl extends EPackageImpl implements CinEditorMLP
 	private EClass rectangleEClass = null;
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass dimensionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass hexadecimalColorEClass = null;
+
+	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
 	 * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
 	 * package URI value.
@@ -172,6 +189,9 @@ public class CinEditorMLPackageImpl extends EPackageImpl implements CinEditorMLP
 
 		isInited = true;
 
+		// Initialize simple dependencies
+		XMLTypePackage.eINSTANCE.eClass();
+
 		// Create package meta-data objects
 		theCinEditorMLPackage.createPackageContents();
 
@@ -218,7 +238,7 @@ public class CinEditorMLPackageImpl extends EPackageImpl implements CinEditorMLP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getMovie_Position() {
+	public EReference getMovie_Dimension() {
 		return (EReference) movieEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -256,6 +276,24 @@ public class CinEditorMLPackageImpl extends EPackageImpl implements CinEditorMLP
 	 */
 	public EAttribute getText_Text() {
 		return (EAttribute) textEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getText_FontSize() {
+		return (EAttribute) textEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getText_Color() {
+		return (EReference) textEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -353,6 +391,15 @@ public class CinEditorMLPackageImpl extends EPackageImpl implements CinEditorMLP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getElement_Dimension() {
+		return (EReference) elementEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getEffect() {
 		return effectEClass;
 	}
@@ -425,8 +472,8 @@ public class CinEditorMLPackageImpl extends EPackageImpl implements CinEditorMLP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getShape_HexadecimalValue() {
-		return (EAttribute) shapeEClass.getEStructuralFeatures().get(0);
+	public EReference getShape_Color() {
+		return (EReference) shapeEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -461,26 +508,53 @@ public class CinEditorMLPackageImpl extends EPackageImpl implements CinEditorMLP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getPosition_Width() {
-		return (EAttribute) positionEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getPosition_Height() {
-		return (EAttribute) positionEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getRectangle() {
 		return rectangleEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getDimension() {
+		return dimensionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getDimension_Width() {
+		return (EAttribute) dimensionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getDimension_Height() {
+		return (EAttribute) dimensionEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getHexadecimalColor() {
+		return hexadecimalColorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getHexadecimalColor_HexadecimalValue() {
+		return (EAttribute) hexadecimalColorEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -515,13 +589,15 @@ public class CinEditorMLPackageImpl extends EPackageImpl implements CinEditorMLP
 		movieEClass = createEClass(MOVIE);
 		createEReference(movieEClass, MOVIE__LAYERS);
 		createEAttribute(movieEClass, MOVIE__NAME);
-		createEReference(movieEClass, MOVIE__POSITION);
+		createEReference(movieEClass, MOVIE__DIMENSION);
 
 		layerEClass = createEClass(LAYER);
 		createEReference(layerEClass, LAYER__ELEMENTS);
 
 		textEClass = createEClass(TEXT);
 		createEAttribute(textEClass, TEXT__TEXT);
+		createEAttribute(textEClass, TEXT__FONT_SIZE);
+		createEReference(textEClass, TEXT__COLOR);
 
 		pictureEClass = createEClass(PICTURE);
 		createEAttribute(pictureEClass, PICTURE__URL);
@@ -535,6 +611,7 @@ public class CinEditorMLPackageImpl extends EPackageImpl implements CinEditorMLP
 		createEAttribute(elementEClass, ELEMENT__BEGIN_TIME);
 		createEReference(elementEClass, ELEMENT__POSITION);
 		createEAttribute(elementEClass, ELEMENT__NAME);
+		createEReference(elementEClass, ELEMENT__DIMENSION);
 
 		effectEClass = createEClass(EFFECT);
 		createEReference(effectEClass, EFFECT__ELEMENT);
@@ -548,15 +625,20 @@ public class CinEditorMLPackageImpl extends EPackageImpl implements CinEditorMLP
 		createEAttribute(translateEClass, TRANSLATE__PIXELS_TO_TRANSLATE_VERTICALLY);
 
 		shapeEClass = createEClass(SHAPE);
-		createEAttribute(shapeEClass, SHAPE__HEXADECIMAL_VALUE);
+		createEReference(shapeEClass, SHAPE__COLOR);
 
 		positionEClass = createEClass(POSITION);
 		createEAttribute(positionEClass, POSITION__X);
 		createEAttribute(positionEClass, POSITION__Y);
-		createEAttribute(positionEClass, POSITION__WIDTH);
-		createEAttribute(positionEClass, POSITION__HEIGHT);
 
 		rectangleEClass = createEClass(RECTANGLE);
+
+		dimensionEClass = createEClass(DIMENSION);
+		createEAttribute(dimensionEClass, DIMENSION__WIDTH);
+		createEAttribute(dimensionEClass, DIMENSION__HEIGHT);
+
+		hexadecimalColorEClass = createEClass(HEXADECIMAL_COLOR);
+		createEAttribute(hexadecimalColorEClass, HEXADECIMAL_COLOR__HEXADECIMAL_VALUE);
 	}
 
 	/**
@@ -583,6 +665,10 @@ public class CinEditorMLPackageImpl extends EPackageImpl implements CinEditorMLP
 		setNsPrefix(eNS_PREFIX);
 		setNsURI(eNS_URI);
 
+		// Obtain other dependent packages
+		XMLTypePackage theXMLTypePackage = (XMLTypePackage) EPackage.Registry.INSTANCE
+				.getEPackage(XMLTypePackage.eNS_URI);
+
 		// Create type parameters
 
 		// Set bounds for type parameters
@@ -605,7 +691,7 @@ public class CinEditorMLPackageImpl extends EPackageImpl implements CinEditorMLP
 				IS_ORDERED);
 		initEAttribute(getMovie_Name(), ecorePackage.getEString(), "name", null, 1, 1, Movie.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getMovie_Position(), this.getPosition(), null, "position", null, 1, 1, Movie.class,
+		initEReference(getMovie_Dimension(), this.getDimension(), null, "dimension", null, 1, 1, Movie.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -617,6 +703,11 @@ public class CinEditorMLPackageImpl extends EPackageImpl implements CinEditorMLP
 		initEClass(textEClass, Text.class, "Text", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getText_Text(), ecorePackage.getEString(), "text", "Sample text", 1, 1, Text.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getText_FontSize(), theXMLTypePackage.getInt(), "fontSize", "20", 0, 1, Text.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getText_Color(), this.getHexadecimalColor(), null, "color", null, 0, 1, Text.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(pictureEClass, Picture.class, "Picture", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getPicture_Url(), ecorePackage.getEString(), "url", null, 1, 1, Picture.class, !IS_TRANSIENT,
@@ -638,6 +729,9 @@ public class CinEditorMLPackageImpl extends EPackageImpl implements CinEditorMLP
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getElement_Name(), ecorePackage.getEString(), "name", null, 1, 1, Element.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getElement_Dimension(), this.getDimension(), null, "dimension", null, 0, 1, Element.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(effectEClass, Effect.class, "Effect", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getEffect_Element(), this.getElement(), null, "element", null, 1, 1, Effect.class, !IS_TRANSIENT,
@@ -658,9 +752,9 @@ public class CinEditorMLPackageImpl extends EPackageImpl implements CinEditorMLP
 				!IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(shapeEClass, Shape.class, "Shape", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getShape_HexadecimalValue(), ecorePackage.getEString(), "hexadecimalValue", "#000", 1, 1,
-				Shape.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
-				IS_ORDERED);
+		initEReference(getShape_Color(), this.getHexadecimalColor(), null, "color", null, 0, 1, Shape.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(positionEClass, Position.class, "Position", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
@@ -668,13 +762,22 @@ public class CinEditorMLPackageImpl extends EPackageImpl implements CinEditorMLP
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPosition_Y(), ecorePackage.getEInt(), "y", "0", 0, 1, Position.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getPosition_Width(), ecorePackage.getEInt(), "width", "0", 1, 1, Position.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getPosition_Height(), ecorePackage.getEInt(), "height", "0", 1, 1, Position.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(rectangleEClass, Rectangle.class, "Rectangle", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(dimensionEClass, Dimension.class, "Dimension", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getDimension_Width(), ecorePackage.getEInt(), "width", "0", 1, 1, Dimension.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDimension_Height(), ecorePackage.getEInt(), "height", "0", 1, 1, Dimension.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(hexadecimalColorEClass, HexadecimalColor.class, "HexadecimalColor", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getHexadecimalColor_HexadecimalValue(), ecorePackage.getEString(), "hexadecimalValue", "#000", 1,
+				1, HexadecimalColor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

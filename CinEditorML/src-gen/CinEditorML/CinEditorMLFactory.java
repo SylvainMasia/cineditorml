@@ -112,6 +112,24 @@ public interface CinEditorMLFactory extends EFactory {
 	Rectangle createRectangle();
 
 	/**
+	 * Returns a new object of class '<em>Dimension</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Dimension</em>'.
+	 * @generated
+	 */
+	Dimension createDimension();
+
+	/**
+	 * Returns a new object of class '<em>Hexadecimal Color</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Hexadecimal Color</em>'.
+	 * @generated
+	 */
+	HexadecimalColor createHexadecimalColor();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

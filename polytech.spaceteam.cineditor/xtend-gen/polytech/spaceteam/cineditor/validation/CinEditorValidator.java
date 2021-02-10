@@ -4,9 +4,9 @@
 package polytech.spaceteam.cineditor.validation;
 
 import CinEditorML.CinEditorMLPackage;
+import CinEditorML.Dimension;
 import CinEditorML.Element;
-import CinEditorML.Movie;
-import CinEditorML.Shape;
+import CinEditorML.HexadecimalColor;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.eclipse.xtext.validation.Check;
@@ -26,33 +26,19 @@ public class CinEditorValidator extends AbstractCinEditorValidator {
   public final static String INVALID_DURATION = "invalidDuration";
   
   @Check
-  public void checkMoviePosition(final Movie movie) {
-    int _width = movie.getPosition().getWidth();
+  public void checkDimension(final Dimension element) {
+    int _width = element.getWidth();
     boolean _lessThan = (_width < 0);
     if (_lessThan) {
       this.error("Movie width must be > 0", 
-        CinEditorMLPackage.Literals.MOVIE__POSITION, 
+        CinEditorMLPackage.Literals.MOVIE__DIMENSION, 
         CinEditorValidator.INVALID_POSITION);
     }
-    int _height = movie.getPosition().getHeight();
+    int _height = element.getHeight();
     boolean _lessThan_1 = (_height < 0);
     if (_lessThan_1) {
       this.error("Movie height must be > 0", 
-        CinEditorMLPackage.Literals.MOVIE__POSITION, 
-        CinEditorValidator.INVALID_POSITION);
-    }
-    int _x = movie.getPosition().getX();
-    boolean _notEquals = (_x != 0);
-    if (_notEquals) {
-      this.error("Movie x must be 0", 
-        CinEditorMLPackage.Literals.MOVIE__POSITION, 
-        CinEditorValidator.INVALID_POSITION);
-    }
-    int _y = movie.getPosition().getY();
-    boolean _notEquals_1 = (_y != 0);
-    if (_notEquals_1) {
-      this.error("Movie y must be 0", 
-        CinEditorMLPackage.Literals.MOVIE__POSITION, 
+        CinEditorMLPackage.Literals.MOVIE__DIMENSION, 
         CinEditorValidator.INVALID_POSITION);
     }
   }
@@ -69,13 +55,13 @@ public class CinEditorValidator extends AbstractCinEditorValidator {
   }
   
   @Check
-  public void checkShapeColor(final Shape shape) {
+  public void checkShapeColor(final HexadecimalColor color) {
     final Pattern p = Pattern.compile("^([a-fA-F0-9]{6}|[a-fA-F0-9]{3})$");
-    final Matcher m = p.matcher(shape.getHexadecimalValue());
+    final Matcher m = p.matcher(color.getHexadecimalValue());
     boolean b = m.matches();
     if ((!b)) {
       this.error("Shape color must be in hexadecimal", 
-        CinEditorMLPackage.Literals.SHAPE__HEXADECIMAL_VALUE, 
+        CinEditorMLPackage.Literals.HEXADECIMAL_COLOR__HEXADECIMAL_VALUE, 
         CinEditorValidator.INVALID_COLOR);
     }
   }

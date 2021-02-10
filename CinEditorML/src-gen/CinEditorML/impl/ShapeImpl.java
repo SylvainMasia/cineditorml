@@ -3,12 +3,15 @@
 package CinEditorML.impl;
 
 import CinEditorML.CinEditorMLPackage;
+import CinEditorML.HexadecimalColor;
 import CinEditorML.Shape;
 
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
@@ -19,31 +22,21 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link CinEditorML.impl.ShapeImpl#getHexadecimalValue <em>Hexadecimal Value</em>}</li>
+ *   <li>{@link CinEditorML.impl.ShapeImpl#getColor <em>Color</em>}</li>
  * </ul>
  *
  * @generated
  */
 public abstract class ShapeImpl extends ElementImpl implements Shape {
 	/**
-	 * The default value of the '{@link #getHexadecimalValue() <em>Hexadecimal Value</em>}' attribute.
+	 * The cached value of the '{@link #getColor() <em>Color</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getHexadecimalValue()
+	 * @see #getColor()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String HEXADECIMAL_VALUE_EDEFAULT = "#000";
-
-	/**
-	 * The cached value of the '{@link #getHexadecimalValue() <em>Hexadecimal Value</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getHexadecimalValue()
-	 * @generated
-	 * @ordered
-	 */
-	protected String hexadecimalValue = HEXADECIMAL_VALUE_EDEFAULT;
+	protected HexadecimalColor color;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -69,8 +62,8 @@ public abstract class ShapeImpl extends ElementImpl implements Shape {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getHexadecimalValue() {
-		return hexadecimalValue;
+	public HexadecimalColor getColor() {
+		return color;
 	}
 
 	/**
@@ -78,12 +71,53 @@ public abstract class ShapeImpl extends ElementImpl implements Shape {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setHexadecimalValue(String newHexadecimalValue) {
-		String oldHexadecimalValue = hexadecimalValue;
-		hexadecimalValue = newHexadecimalValue;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CinEditorMLPackage.SHAPE__HEXADECIMAL_VALUE,
-					oldHexadecimalValue, hexadecimalValue));
+	public NotificationChain basicSetColor(HexadecimalColor newColor, NotificationChain msgs) {
+		HexadecimalColor oldColor = color;
+		color = newColor;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+					CinEditorMLPackage.SHAPE__COLOR, oldColor, newColor);
+			if (msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setColor(HexadecimalColor newColor) {
+		if (newColor != color) {
+			NotificationChain msgs = null;
+			if (color != null)
+				msgs = ((InternalEObject) color).eInverseRemove(this,
+						EOPPOSITE_FEATURE_BASE - CinEditorMLPackage.SHAPE__COLOR, null, msgs);
+			if (newColor != null)
+				msgs = ((InternalEObject) newColor).eInverseAdd(this,
+						EOPPOSITE_FEATURE_BASE - CinEditorMLPackage.SHAPE__COLOR, null, msgs);
+			msgs = basicSetColor(newColor, msgs);
+			if (msgs != null)
+				msgs.dispatch();
+		} else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CinEditorMLPackage.SHAPE__COLOR, newColor, newColor));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+		case CinEditorMLPackage.SHAPE__COLOR:
+			return basicSetColor(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -94,8 +128,8 @@ public abstract class ShapeImpl extends ElementImpl implements Shape {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case CinEditorMLPackage.SHAPE__HEXADECIMAL_VALUE:
-			return getHexadecimalValue();
+		case CinEditorMLPackage.SHAPE__COLOR:
+			return getColor();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -108,8 +142,8 @@ public abstract class ShapeImpl extends ElementImpl implements Shape {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case CinEditorMLPackage.SHAPE__HEXADECIMAL_VALUE:
-			setHexadecimalValue((String) newValue);
+		case CinEditorMLPackage.SHAPE__COLOR:
+			setColor((HexadecimalColor) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -123,8 +157,8 @@ public abstract class ShapeImpl extends ElementImpl implements Shape {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case CinEditorMLPackage.SHAPE__HEXADECIMAL_VALUE:
-			setHexadecimalValue(HEXADECIMAL_VALUE_EDEFAULT);
+		case CinEditorMLPackage.SHAPE__COLOR:
+			setColor((HexadecimalColor) null);
 			return;
 		}
 		super.eUnset(featureID);
@@ -138,28 +172,10 @@ public abstract class ShapeImpl extends ElementImpl implements Shape {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case CinEditorMLPackage.SHAPE__HEXADECIMAL_VALUE:
-			return HEXADECIMAL_VALUE_EDEFAULT == null ? hexadecimalValue != null
-					: !HEXADECIMAL_VALUE_EDEFAULT.equals(hexadecimalValue);
+		case CinEditorMLPackage.SHAPE__COLOR:
+			return color != null;
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy())
-			return super.toString();
-
-		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (hexadecimalValue: ");
-		result.append(hexadecimalValue);
-		result.append(')');
-		return result.toString();
 	}
 
 } //ShapeImpl

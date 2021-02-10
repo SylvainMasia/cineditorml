@@ -85,13 +85,13 @@ public interface CinEditorMLPackage extends EPackage {
 	int MOVIE__NAME = 1;
 
 	/**
-	 * The feature id for the '<em><b>Position</b></em>' containment reference.
+	 * The feature id for the '<em><b>Dimension</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MOVIE__POSITION = 2;
+	int MOVIE__DIMENSION = 2;
 
 	/**
 	 * The number of structural features of the '<em>Movie</em>' class.
@@ -195,13 +195,22 @@ public interface CinEditorMLPackage extends EPackage {
 	int ELEMENT__NAME = 3;
 
 	/**
+	 * The feature id for the '<em><b>Dimension</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ELEMENT__DIMENSION = 4;
+
+	/**
 	 * The number of structural features of the '<em>Element</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_FEATURE_COUNT = 4;
+	int ELEMENT_FEATURE_COUNT = 5;
 
 	/**
 	 * The number of operations of the '<em>Element</em>' class.
@@ -259,6 +268,15 @@ public interface CinEditorMLPackage extends EPackage {
 	int TEXT__NAME = ELEMENT__NAME;
 
 	/**
+	 * The feature id for the '<em><b>Dimension</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT__DIMENSION = ELEMENT__DIMENSION;
+
+	/**
 	 * The feature id for the '<em><b>Text</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -268,13 +286,31 @@ public interface CinEditorMLPackage extends EPackage {
 	int TEXT__TEXT = ELEMENT_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Font Size</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT__FONT_SIZE = ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Color</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT__COLOR = ELEMENT_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Text</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 1;
+	int TEXT_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>Text</em>' class.
@@ -330,6 +366,15 @@ public interface CinEditorMLPackage extends EPackage {
 	 * @ordered
 	 */
 	int PICTURE__NAME = ELEMENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Dimension</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PICTURE__DIMENSION = ELEMENT__DIMENSION;
 
 	/**
 	 * The feature id for the '<em><b>Url</b></em>' attribute.
@@ -403,6 +448,15 @@ public interface CinEditorMLPackage extends EPackage {
 	 * @ordered
 	 */
 	int VIDEO__NAME = ELEMENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Dimension</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIDEO__DIMENSION = ELEMENT__DIMENSION;
 
 	/**
 	 * The feature id for the '<em><b>Url</b></em>' attribute.
@@ -487,6 +541,15 @@ public interface CinEditorMLPackage extends EPackage {
 	int EFFECT__NAME = ELEMENT__NAME;
 
 	/**
+	 * The feature id for the '<em><b>Dimension</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EFFECT__DIMENSION = ELEMENT__DIMENSION;
+
+	/**
 	 * The feature id for the '<em><b>Element</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -558,6 +621,15 @@ public interface CinEditorMLPackage extends EPackage {
 	 * @ordered
 	 */
 	int FADE_IN__NAME = EFFECT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Dimension</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FADE_IN__DIMENSION = EFFECT__DIMENSION;
 
 	/**
 	 * The feature id for the '<em><b>Element</b></em>' reference.
@@ -633,6 +705,15 @@ public interface CinEditorMLPackage extends EPackage {
 	int FADE_OUT__NAME = EFFECT__NAME;
 
 	/**
+	 * The feature id for the '<em><b>Dimension</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FADE_OUT__DIMENSION = EFFECT__DIMENSION;
+
+	/**
 	 * The feature id for the '<em><b>Element</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -704,6 +785,15 @@ public interface CinEditorMLPackage extends EPackage {
 	 * @ordered
 	 */
 	int TRANSLATE__NAME = EFFECT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Dimension</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRANSLATE__DIMENSION = EFFECT__DIMENSION;
 
 	/**
 	 * The feature id for the '<em><b>Element</b></em>' reference.
@@ -797,13 +887,22 @@ public interface CinEditorMLPackage extends EPackage {
 	int SHAPE__NAME = ELEMENT__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Hexadecimal Value</b></em>' attribute.
+	 * The feature id for the '<em><b>Dimension</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SHAPE__HEXADECIMAL_VALUE = ELEMENT_FEATURE_COUNT + 0;
+	int SHAPE__DIMENSION = ELEMENT__DIMENSION;
+
+	/**
+	 * The feature id for the '<em><b>Color</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SHAPE__COLOR = ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Shape</em>' class.
@@ -852,31 +951,13 @@ public interface CinEditorMLPackage extends EPackage {
 	int POSITION__Y = 1;
 
 	/**
-	 * The feature id for the '<em><b>Width</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int POSITION__WIDTH = 2;
-
-	/**
-	 * The feature id for the '<em><b>Height</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int POSITION__HEIGHT = 3;
-
-	/**
 	 * The number of structural features of the '<em>Position</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int POSITION_FEATURE_COUNT = 4;
+	int POSITION_FEATURE_COUNT = 2;
 
 	/**
 	 * The number of operations of the '<em>Position</em>' class.
@@ -934,13 +1015,22 @@ public interface CinEditorMLPackage extends EPackage {
 	int RECTANGLE__NAME = SHAPE__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Hexadecimal Value</b></em>' attribute.
+	 * The feature id for the '<em><b>Dimension</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RECTANGLE__HEXADECIMAL_VALUE = SHAPE__HEXADECIMAL_VALUE;
+	int RECTANGLE__DIMENSION = SHAPE__DIMENSION;
+
+	/**
+	 * The feature id for the '<em><b>Color</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RECTANGLE__COLOR = SHAPE__COLOR;
 
 	/**
 	 * The number of structural features of the '<em>Rectangle</em>' class.
@@ -959,6 +1049,89 @@ public interface CinEditorMLPackage extends EPackage {
 	 * @ordered
 	 */
 	int RECTANGLE_OPERATION_COUNT = SHAPE_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link CinEditorML.impl.DimensionImpl <em>Dimension</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see CinEditorML.impl.DimensionImpl
+	 * @see CinEditorML.impl.CinEditorMLPackageImpl#getDimension()
+	 * @generated
+	 */
+	int DIMENSION = 13;
+
+	/**
+	 * The feature id for the '<em><b>Width</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DIMENSION__WIDTH = 0;
+
+	/**
+	 * The feature id for the '<em><b>Height</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DIMENSION__HEIGHT = 1;
+
+	/**
+	 * The number of structural features of the '<em>Dimension</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DIMENSION_FEATURE_COUNT = 2;
+
+	/**
+	 * The number of operations of the '<em>Dimension</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DIMENSION_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link CinEditorML.impl.HexadecimalColorImpl <em>Hexadecimal Color</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see CinEditorML.impl.HexadecimalColorImpl
+	 * @see CinEditorML.impl.CinEditorMLPackageImpl#getHexadecimalColor()
+	 * @generated
+	 */
+	int HEXADECIMAL_COLOR = 14;
+
+	/**
+	 * The feature id for the '<em><b>Hexadecimal Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HEXADECIMAL_COLOR__HEXADECIMAL_VALUE = 0;
+
+	/**
+	 * The number of structural features of the '<em>Hexadecimal Color</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HEXADECIMAL_COLOR_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Hexadecimal Color</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HEXADECIMAL_COLOR_OPERATION_COUNT = 0;
 
 	/**
 	 * Returns the meta object for class '{@link CinEditorML.Movie <em>Movie</em>}'.
@@ -993,15 +1166,15 @@ public interface CinEditorMLPackage extends EPackage {
 	EAttribute getMovie_Name();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link CinEditorML.Movie#getPosition <em>Position</em>}'.
+	 * Returns the meta object for the containment reference '{@link CinEditorML.Movie#getDimension <em>Dimension</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Position</em>'.
-	 * @see CinEditorML.Movie#getPosition()
+	 * @return the meta object for the containment reference '<em>Dimension</em>'.
+	 * @see CinEditorML.Movie#getDimension()
 	 * @see #getMovie()
 	 * @generated
 	 */
-	EReference getMovie_Position();
+	EReference getMovie_Dimension();
 
 	/**
 	 * Returns the meta object for class '{@link CinEditorML.Layer <em>Layer</em>}'.
@@ -1044,6 +1217,28 @@ public interface CinEditorMLPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getText_Text();
+
+	/**
+	 * Returns the meta object for the attribute '{@link CinEditorML.Text#getFontSize <em>Font Size</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Font Size</em>'.
+	 * @see CinEditorML.Text#getFontSize()
+	 * @see #getText()
+	 * @generated
+	 */
+	EAttribute getText_FontSize();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link CinEditorML.Text#getColor <em>Color</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Color</em>'.
+	 * @see CinEditorML.Text#getColor()
+	 * @see #getText()
+	 * @generated
+	 */
+	EReference getText_Color();
 
 	/**
 	 * Returns the meta object for class '{@link CinEditorML.Picture <em>Picture</em>}'.
@@ -1153,6 +1348,17 @@ public interface CinEditorMLPackage extends EPackage {
 	EAttribute getElement_Name();
 
 	/**
+	 * Returns the meta object for the containment reference '{@link CinEditorML.Element#getDimension <em>Dimension</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Dimension</em>'.
+	 * @see CinEditorML.Element#getDimension()
+	 * @see #getElement()
+	 * @generated
+	 */
+	EReference getElement_Dimension();
+
+	/**
 	 * Returns the meta object for class '{@link CinEditorML.Effect <em>Effect</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1236,15 +1442,15 @@ public interface CinEditorMLPackage extends EPackage {
 	EClass getShape();
 
 	/**
-	 * Returns the meta object for the attribute '{@link CinEditorML.Shape#getHexadecimalValue <em>Hexadecimal Value</em>}'.
+	 * Returns the meta object for the containment reference '{@link CinEditorML.Shape#getColor <em>Color</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Hexadecimal Value</em>'.
-	 * @see CinEditorML.Shape#getHexadecimalValue()
+	 * @return the meta object for the containment reference '<em>Color</em>'.
+	 * @see CinEditorML.Shape#getColor()
 	 * @see #getShape()
 	 * @generated
 	 */
-	EAttribute getShape_HexadecimalValue();
+	EReference getShape_Color();
 
 	/**
 	 * Returns the meta object for class '{@link CinEditorML.Position <em>Position</em>}'.
@@ -1279,28 +1485,6 @@ public interface CinEditorMLPackage extends EPackage {
 	EAttribute getPosition_Y();
 
 	/**
-	 * Returns the meta object for the attribute '{@link CinEditorML.Position#getWidth <em>Width</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Width</em>'.
-	 * @see CinEditorML.Position#getWidth()
-	 * @see #getPosition()
-	 * @generated
-	 */
-	EAttribute getPosition_Width();
-
-	/**
-	 * Returns the meta object for the attribute '{@link CinEditorML.Position#getHeight <em>Height</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Height</em>'.
-	 * @see CinEditorML.Position#getHeight()
-	 * @see #getPosition()
-	 * @generated
-	 */
-	EAttribute getPosition_Height();
-
-	/**
 	 * Returns the meta object for class '{@link CinEditorML.Rectangle <em>Rectangle</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1309,6 +1493,59 @@ public interface CinEditorMLPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getRectangle();
+
+	/**
+	 * Returns the meta object for class '{@link CinEditorML.Dimension <em>Dimension</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Dimension</em>'.
+	 * @see CinEditorML.Dimension
+	 * @generated
+	 */
+	EClass getDimension();
+
+	/**
+	 * Returns the meta object for the attribute '{@link CinEditorML.Dimension#getWidth <em>Width</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Width</em>'.
+	 * @see CinEditorML.Dimension#getWidth()
+	 * @see #getDimension()
+	 * @generated
+	 */
+	EAttribute getDimension_Width();
+
+	/**
+	 * Returns the meta object for the attribute '{@link CinEditorML.Dimension#getHeight <em>Height</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Height</em>'.
+	 * @see CinEditorML.Dimension#getHeight()
+	 * @see #getDimension()
+	 * @generated
+	 */
+	EAttribute getDimension_Height();
+
+	/**
+	 * Returns the meta object for class '{@link CinEditorML.HexadecimalColor <em>Hexadecimal Color</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Hexadecimal Color</em>'.
+	 * @see CinEditorML.HexadecimalColor
+	 * @generated
+	 */
+	EClass getHexadecimalColor();
+
+	/**
+	 * Returns the meta object for the attribute '{@link CinEditorML.HexadecimalColor#getHexadecimalValue <em>Hexadecimal Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Hexadecimal Value</em>'.
+	 * @see CinEditorML.HexadecimalColor#getHexadecimalValue()
+	 * @see #getHexadecimalColor()
+	 * @generated
+	 */
+	EAttribute getHexadecimalColor_HexadecimalValue();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -1360,12 +1597,12 @@ public interface CinEditorMLPackage extends EPackage {
 		EAttribute MOVIE__NAME = eINSTANCE.getMovie_Name();
 
 		/**
-		 * The meta object literal for the '<em><b>Position</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Dimension</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference MOVIE__POSITION = eINSTANCE.getMovie_Position();
+		EReference MOVIE__DIMENSION = eINSTANCE.getMovie_Dimension();
 
 		/**
 		 * The meta object literal for the '{@link CinEditorML.impl.LayerImpl <em>Layer</em>}' class.
@@ -1402,6 +1639,22 @@ public interface CinEditorMLPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute TEXT__TEXT = eINSTANCE.getText_Text();
+
+		/**
+		 * The meta object literal for the '<em><b>Font Size</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TEXT__FONT_SIZE = eINSTANCE.getText_FontSize();
+
+		/**
+		 * The meta object literal for the '<em><b>Color</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TEXT__COLOR = eINSTANCE.getText_Color();
 
 		/**
 		 * The meta object literal for the '{@link CinEditorML.impl.PictureImpl <em>Picture</em>}' class.
@@ -1490,6 +1743,14 @@ public interface CinEditorMLPackage extends EPackage {
 		EAttribute ELEMENT__NAME = eINSTANCE.getElement_Name();
 
 		/**
+		 * The meta object literal for the '<em><b>Dimension</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ELEMENT__DIMENSION = eINSTANCE.getElement_Dimension();
+
+		/**
 		 * The meta object literal for the '{@link CinEditorML.impl.EffectImpl <em>Effect</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1564,12 +1825,12 @@ public interface CinEditorMLPackage extends EPackage {
 		EClass SHAPE = eINSTANCE.getShape();
 
 		/**
-		 * The meta object literal for the '<em><b>Hexadecimal Value</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Color</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute SHAPE__HEXADECIMAL_VALUE = eINSTANCE.getShape_HexadecimalValue();
+		EReference SHAPE__COLOR = eINSTANCE.getShape_Color();
 
 		/**
 		 * The meta object literal for the '{@link CinEditorML.impl.PositionImpl <em>Position</em>}' class.
@@ -1598,22 +1859,6 @@ public interface CinEditorMLPackage extends EPackage {
 		EAttribute POSITION__Y = eINSTANCE.getPosition_Y();
 
 		/**
-		 * The meta object literal for the '<em><b>Width</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute POSITION__WIDTH = eINSTANCE.getPosition_Width();
-
-		/**
-		 * The meta object literal for the '<em><b>Height</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute POSITION__HEIGHT = eINSTANCE.getPosition_Height();
-
-		/**
 		 * The meta object literal for the '{@link CinEditorML.impl.RectangleImpl <em>Rectangle</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1622,6 +1867,50 @@ public interface CinEditorMLPackage extends EPackage {
 		 * @generated
 		 */
 		EClass RECTANGLE = eINSTANCE.getRectangle();
+
+		/**
+		 * The meta object literal for the '{@link CinEditorML.impl.DimensionImpl <em>Dimension</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see CinEditorML.impl.DimensionImpl
+		 * @see CinEditorML.impl.CinEditorMLPackageImpl#getDimension()
+		 * @generated
+		 */
+		EClass DIMENSION = eINSTANCE.getDimension();
+
+		/**
+		 * The meta object literal for the '<em><b>Width</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DIMENSION__WIDTH = eINSTANCE.getDimension_Width();
+
+		/**
+		 * The meta object literal for the '<em><b>Height</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DIMENSION__HEIGHT = eINSTANCE.getDimension_Height();
+
+		/**
+		 * The meta object literal for the '{@link CinEditorML.impl.HexadecimalColorImpl <em>Hexadecimal Color</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see CinEditorML.impl.HexadecimalColorImpl
+		 * @see CinEditorML.impl.CinEditorMLPackageImpl#getHexadecimalColor()
+		 * @generated
+		 */
+		EClass HEXADECIMAL_COLOR = eINSTANCE.getHexadecimalColor();
+
+		/**
+		 * The meta object literal for the '<em><b>Hexadecimal Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute HEXADECIMAL_COLOR__HEXADECIMAL_VALUE = eINSTANCE.getHexadecimalColor_HexadecimalValue();
 
 	}
 

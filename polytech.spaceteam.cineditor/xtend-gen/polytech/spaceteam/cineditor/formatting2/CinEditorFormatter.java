@@ -3,10 +3,10 @@
  */
 package polytech.spaceteam.cineditor.formatting2;
 
+import CinEditorML.Dimension;
 import CinEditorML.Element;
 import CinEditorML.Layer;
 import CinEditorML.Movie;
-import CinEditorML.Position;
 import com.google.inject.Inject;
 import java.util.Arrays;
 import org.eclipse.emf.common.util.EList;
@@ -24,7 +24,7 @@ public class CinEditorFormatter extends AbstractFormatter2 {
   private CinEditorGrammarAccess _cinEditorGrammarAccess;
   
   protected void _format(final Movie movie, @Extension final IFormattableDocument document) {
-    document.<Position>format(movie.getPosition());
+    document.<Dimension>format(movie.getDimension());
     EList<Layer> _layers = movie.getLayers();
     for (final Layer layer : _layers) {
       document.<Layer>format(layer);

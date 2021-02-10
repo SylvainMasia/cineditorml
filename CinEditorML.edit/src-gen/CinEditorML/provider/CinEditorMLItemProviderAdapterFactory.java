@@ -303,6 +303,52 @@ public class CinEditorMLItemProviderAdapterFactory extends CinEditorMLAdapterFac
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link CinEditorML.Dimension} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected DimensionItemProvider dimensionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link CinEditorML.Dimension}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createDimensionAdapter() {
+		if (dimensionItemProvider == null) {
+			dimensionItemProvider = new DimensionItemProvider(this);
+		}
+
+		return dimensionItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link CinEditorML.HexadecimalColor} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected HexadecimalColorItemProvider hexadecimalColorItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link CinEditorML.HexadecimalColor}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createHexadecimalColorAdapter() {
+		if (hexadecimalColorItemProvider == null) {
+			hexadecimalColorItemProvider = new HexadecimalColorItemProvider(this);
+		}
+
+		return hexadecimalColorItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -421,6 +467,10 @@ public class CinEditorMLItemProviderAdapterFactory extends CinEditorMLAdapterFac
 			positionItemProvider.dispose();
 		if (rectangleItemProvider != null)
 			rectangleItemProvider.dispose();
+		if (dimensionItemProvider != null)
+			dimensionItemProvider.dispose();
+		if (hexadecimalColorItemProvider != null)
+			hexadecimalColorItemProvider.dispose();
 	}
 
 }

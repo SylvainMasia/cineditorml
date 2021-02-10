@@ -89,7 +89,7 @@ public class MovieItemProvider extends ItemProviderAdapter implements IEditingDo
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(CinEditorMLPackage.Literals.MOVIE__LAYERS);
-			childrenFeatures.add(CinEditorMLPackage.Literals.MOVIE__POSITION);
+			childrenFeatures.add(CinEditorMLPackage.Literals.MOVIE__DIMENSION);
 		}
 		return childrenFeatures;
 	}
@@ -157,7 +157,7 @@ public class MovieItemProvider extends ItemProviderAdapter implements IEditingDo
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 			return;
 		case CinEditorMLPackage.MOVIE__LAYERS:
-		case CinEditorMLPackage.MOVIE__POSITION:
+		case CinEditorMLPackage.MOVIE__DIMENSION:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 			return;
 		}
@@ -178,8 +178,8 @@ public class MovieItemProvider extends ItemProviderAdapter implements IEditingDo
 		newChildDescriptors.add(createChildParameter(CinEditorMLPackage.Literals.MOVIE__LAYERS,
 				CinEditorMLFactory.eINSTANCE.createLayer()));
 
-		newChildDescriptors.add(createChildParameter(CinEditorMLPackage.Literals.MOVIE__POSITION,
-				CinEditorMLFactory.eINSTANCE.createPosition()));
+		newChildDescriptors.add(createChildParameter(CinEditorMLPackage.Literals.MOVIE__DIMENSION,
+				CinEditorMLFactory.eINSTANCE.createDimension()));
 	}
 
 	/**

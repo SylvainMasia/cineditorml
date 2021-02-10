@@ -11,7 +11,7 @@ package CinEditorML;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link CinEditorML.Shape#getHexadecimalValue <em>Hexadecimal Value</em>}</li>
+ *   <li>{@link CinEditorML.Shape#getColor <em>Color</em>}</li>
  * </ul>
  *
  * @see CinEditorML.CinEditorMLPackage#getShape()
@@ -20,30 +20,29 @@ package CinEditorML;
  */
 public interface Shape extends Element {
 	/**
-	 * Returns the value of the '<em><b>Hexadecimal Value</b></em>' attribute.
-	 * The default value is <code>"#000"</code>.
+	 * Returns the value of the '<em><b>Color</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Hexadecimal Value</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Color</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Hexadecimal Value</em>' attribute.
-	 * @see #setHexadecimalValue(String)
-	 * @see CinEditorML.CinEditorMLPackage#getShape_HexadecimalValue()
-	 * @model default="#000" required="true"
+	 * @return the value of the '<em>Color</em>' containment reference.
+	 * @see #setColor(HexadecimalColor)
+	 * @see CinEditorML.CinEditorMLPackage#getShape_Color()
+	 * @model containment="true"
 	 * @generated
 	 */
-	String getHexadecimalValue();
+	HexadecimalColor getColor();
 
 	/**
-	 * Sets the value of the '{@link CinEditorML.Shape#getHexadecimalValue <em>Hexadecimal Value</em>}' attribute.
+	 * Sets the value of the '{@link CinEditorML.Shape#getColor <em>Color</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Hexadecimal Value</em>' attribute.
-	 * @see #getHexadecimalValue()
+	 * @param value the new value of the '<em>Color</em>' containment reference.
+	 * @see #getColor()
 	 * @generated
 	 */
-	void setHexadecimalValue(String value);
+	void setColor(HexadecimalColor value);
 
 } // Shape

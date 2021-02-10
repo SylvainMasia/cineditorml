@@ -17,7 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link CinEditorML.Movie#getLayers <em>Layers</em>}</li>
  *   <li>{@link CinEditorML.Movie#getName <em>Name</em>}</li>
- *   <li>{@link CinEditorML.Movie#getPosition <em>Position</em>}</li>
+ *   <li>{@link CinEditorML.Movie#getDimension <em>Dimension</em>}</li>
  * </ul>
  *
  * @see CinEditorML.CinEditorMLPackage#getMovie()
@@ -68,29 +68,29 @@ public interface Movie extends EObject {
 	void setName(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Position</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Dimension</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Position</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>Dimension</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Position</em>' containment reference.
-	 * @see #setPosition(Position)
-	 * @see CinEditorML.CinEditorMLPackage#getMovie_Position()
+	 * @return the value of the '<em>Dimension</em>' containment reference.
+	 * @see #setDimension(Dimension)
+	 * @see CinEditorML.CinEditorMLPackage#getMovie_Dimension()
 	 * @model containment="true" required="true"
 	 * @generated
 	 */
-	Position getPosition();
+	Dimension getDimension();
 
 	/**
-	 * Sets the value of the '{@link CinEditorML.Movie#getPosition <em>Position</em>}' containment reference.
+	 * Sets the value of the '{@link CinEditorML.Movie#getDimension <em>Dimension</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Position</em>' containment reference.
-	 * @see #getPosition()
+	 * @param value the new value of the '<em>Dimension</em>' containment reference.
+	 * @see #getDimension()
 	 * @generated
 	 */
-	void setPosition(Position value);
+	void setDimension(Dimension value);
 
 } // Movie

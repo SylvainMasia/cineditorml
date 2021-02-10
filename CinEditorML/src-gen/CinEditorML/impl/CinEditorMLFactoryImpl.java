@@ -76,6 +76,10 @@ public class CinEditorMLFactoryImpl extends EFactoryImpl implements CinEditorMLF
 			return createPosition();
 		case CinEditorMLPackage.RECTANGLE:
 			return createRectangle();
+		case CinEditorMLPackage.DIMENSION:
+			return createDimension();
+		case CinEditorMLPackage.HEXADECIMAL_COLOR:
+			return createHexadecimalColor();
 		default:
 			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -179,6 +183,26 @@ public class CinEditorMLFactoryImpl extends EFactoryImpl implements CinEditorMLF
 	public Rectangle createRectangle() {
 		RectangleImpl rectangle = new RectangleImpl();
 		return rectangle;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Dimension createDimension() {
+		DimensionImpl dimension = new DimensionImpl();
+		return dimension;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public HexadecimalColor createHexadecimalColor() {
+		HexadecimalColorImpl hexadecimalColor = new HexadecimalColorImpl();
+		return hexadecimalColor;
 	}
 
 	/**

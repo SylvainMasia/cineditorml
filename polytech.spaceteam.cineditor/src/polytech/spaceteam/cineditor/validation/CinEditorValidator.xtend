@@ -5,10 +5,10 @@ package polytech.spaceteam.cineditor.validation
 
 import org.eclipse.xtext.validation.Check
 import CinEditorML.CinEditorMLPackage
-import CinEditorML.Movie
 import java.util.regex.Pattern
-import CinEditorML.Shape
 import CinEditorML.Element
+import CinEditorML.HexadecimalColor
+import CinEditorML.Dimension
 
 /**
  * This class contains custom validation rules. 
@@ -22,25 +22,15 @@ class CinEditorValidator extends AbstractCinEditorValidator {
 	public static val INVALID_DURATION = 'invalidDuration'
 
 	@Check
-	def checkMoviePosition(Movie movie) {
-		if (movie.position.width < 0) {
+	def checkDimension(Dimension element) {
+		if (element.width < 0) {
 			error('Movie width must be > 0', 
-					CinEditorMLPackage.Literals.MOVIE__POSITION,
+					CinEditorMLPackage.Literals.MOVIE__DIMENSION,
 					INVALID_POSITION)
 		}
-		if (movie.position.height < 0) {
+		if (element.height < 0) {
 			error('Movie height must be > 0', 
-					CinEditorMLPackage.Literals.MOVIE__POSITION,
-					INVALID_POSITION)
-		}
-		if (movie.position.x != 0) {
-			error('Movie x must be 0', 
-					CinEditorMLPackage.Literals.MOVIE__POSITION,
-					INVALID_POSITION)
-		}
-		if (movie.position.y != 0) {
-			error('Movie y must be 0', 
-					CinEditorMLPackage.Literals.MOVIE__POSITION,
+					CinEditorMLPackage.Literals.MOVIE__DIMENSION,
 					INVALID_POSITION)
 		}
 	}
@@ -55,13 +45,13 @@ class CinEditorValidator extends AbstractCinEditorValidator {
 	}
 	
 	@Check
-	def checkShapeColor(Shape shape) {
+	def checkShapeColor(HexadecimalColor color) {
 		val p = Pattern.compile("^([a-fA-F0-9]{6}|[a-fA-F0-9]{3})$");      
-		val m = p.matcher(shape.hexadecimalValue) ;    
+		val m = p.matcher(color.hexadecimalValue) ;    
  		var b = m.matches();
  		if (!b) {
  			error('Shape color must be in hexadecimal', 
-					CinEditorMLPackage.Literals.SHAPE__HEXADECIMAL_VALUE,
+					CinEditorMLPackage.Literals.HEXADECIMAL_COLOR__HEXADECIMAL_VALUE,
 					INVALID_COLOR)
  		}
 	}

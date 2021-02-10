@@ -3,10 +3,9 @@
 package CinEditorML.impl;
 
 import CinEditorML.CinEditorMLPackage;
+import CinEditorML.Dimension;
 import CinEditorML.Layer;
 import CinEditorML.Movie;
-import CinEditorML.Position;
-
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -33,7 +32,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link CinEditorML.impl.MovieImpl#getLayers <em>Layers</em>}</li>
  *   <li>{@link CinEditorML.impl.MovieImpl#getName <em>Name</em>}</li>
- *   <li>{@link CinEditorML.impl.MovieImpl#getPosition <em>Position</em>}</li>
+ *   <li>{@link CinEditorML.impl.MovieImpl#getDimension <em>Dimension</em>}</li>
  * </ul>
  *
  * @generated
@@ -70,14 +69,14 @@ public class MovieImpl extends MinimalEObjectImpl.Container implements Movie {
 	protected String name = NAME_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getPosition() <em>Position</em>}' containment reference.
+	 * The cached value of the '{@link #getDimension() <em>Dimension</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getPosition()
+	 * @see #getDimension()
 	 * @generated
 	 * @ordered
 	 */
-	protected Position position;
+	protected Dimension dimension;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -136,8 +135,8 @@ public class MovieImpl extends MinimalEObjectImpl.Container implements Movie {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Position getPosition() {
-		return position;
+	public Dimension getDimension() {
+		return dimension;
 	}
 
 	/**
@@ -145,12 +144,12 @@ public class MovieImpl extends MinimalEObjectImpl.Container implements Movie {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetPosition(Position newPosition, NotificationChain msgs) {
-		Position oldPosition = position;
-		position = newPosition;
+	public NotificationChain basicSetDimension(Dimension newDimension, NotificationChain msgs) {
+		Dimension oldDimension = dimension;
+		dimension = newDimension;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-					CinEditorMLPackage.MOVIE__POSITION, oldPosition, newPosition);
+					CinEditorMLPackage.MOVIE__DIMENSION, oldDimension, newDimension);
 			if (msgs == null)
 				msgs = notification;
 			else
@@ -164,21 +163,21 @@ public class MovieImpl extends MinimalEObjectImpl.Container implements Movie {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setPosition(Position newPosition) {
-		if (newPosition != position) {
+	public void setDimension(Dimension newDimension) {
+		if (newDimension != dimension) {
 			NotificationChain msgs = null;
-			if (position != null)
-				msgs = ((InternalEObject) position).eInverseRemove(this,
-						EOPPOSITE_FEATURE_BASE - CinEditorMLPackage.MOVIE__POSITION, null, msgs);
-			if (newPosition != null)
-				msgs = ((InternalEObject) newPosition).eInverseAdd(this,
-						EOPPOSITE_FEATURE_BASE - CinEditorMLPackage.MOVIE__POSITION, null, msgs);
-			msgs = basicSetPosition(newPosition, msgs);
+			if (dimension != null)
+				msgs = ((InternalEObject) dimension).eInverseRemove(this,
+						EOPPOSITE_FEATURE_BASE - CinEditorMLPackage.MOVIE__DIMENSION, null, msgs);
+			if (newDimension != null)
+				msgs = ((InternalEObject) newDimension).eInverseAdd(this,
+						EOPPOSITE_FEATURE_BASE - CinEditorMLPackage.MOVIE__DIMENSION, null, msgs);
+			msgs = basicSetDimension(newDimension, msgs);
 			if (msgs != null)
 				msgs.dispatch();
 		} else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CinEditorMLPackage.MOVIE__POSITION, newPosition,
-					newPosition));
+			eNotify(new ENotificationImpl(this, Notification.SET, CinEditorMLPackage.MOVIE__DIMENSION, newDimension,
+					newDimension));
 	}
 
 	/**
@@ -191,8 +190,8 @@ public class MovieImpl extends MinimalEObjectImpl.Container implements Movie {
 		switch (featureID) {
 		case CinEditorMLPackage.MOVIE__LAYERS:
 			return ((InternalEList<?>) getLayers()).basicRemove(otherEnd, msgs);
-		case CinEditorMLPackage.MOVIE__POSITION:
-			return basicSetPosition(null, msgs);
+		case CinEditorMLPackage.MOVIE__DIMENSION:
+			return basicSetDimension(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -209,8 +208,8 @@ public class MovieImpl extends MinimalEObjectImpl.Container implements Movie {
 			return getLayers();
 		case CinEditorMLPackage.MOVIE__NAME:
 			return getName();
-		case CinEditorMLPackage.MOVIE__POSITION:
-			return getPosition();
+		case CinEditorMLPackage.MOVIE__DIMENSION:
+			return getDimension();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -231,8 +230,8 @@ public class MovieImpl extends MinimalEObjectImpl.Container implements Movie {
 		case CinEditorMLPackage.MOVIE__NAME:
 			setName((String) newValue);
 			return;
-		case CinEditorMLPackage.MOVIE__POSITION:
-			setPosition((Position) newValue);
+		case CinEditorMLPackage.MOVIE__DIMENSION:
+			setDimension((Dimension) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -252,8 +251,8 @@ public class MovieImpl extends MinimalEObjectImpl.Container implements Movie {
 		case CinEditorMLPackage.MOVIE__NAME:
 			setName(NAME_EDEFAULT);
 			return;
-		case CinEditorMLPackage.MOVIE__POSITION:
-			setPosition((Position) null);
+		case CinEditorMLPackage.MOVIE__DIMENSION:
+			setDimension((Dimension) null);
 			return;
 		}
 		super.eUnset(featureID);
@@ -271,8 +270,8 @@ public class MovieImpl extends MinimalEObjectImpl.Container implements Movie {
 			return layers != null && !layers.isEmpty();
 		case CinEditorMLPackage.MOVIE__NAME:
 			return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-		case CinEditorMLPackage.MOVIE__POSITION:
-			return position != null;
+		case CinEditorMLPackage.MOVIE__DIMENSION:
+			return dimension != null;
 		}
 		return super.eIsSet(featureID);
 	}

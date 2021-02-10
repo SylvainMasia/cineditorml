@@ -123,6 +123,7 @@ public class ElementItemProvider extends ItemProviderAdapter implements IEditing
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(CinEditorMLPackage.Literals.ELEMENT__POSITION);
+			childrenFeatures.add(CinEditorMLPackage.Literals.ELEMENT__DIMENSION);
 		}
 		return childrenFeatures;
 	}
@@ -192,6 +193,7 @@ public class ElementItemProvider extends ItemProviderAdapter implements IEditing
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 			return;
 		case CinEditorMLPackage.ELEMENT__POSITION:
+		case CinEditorMLPackage.ELEMENT__DIMENSION:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 			return;
 		}
@@ -211,6 +213,9 @@ public class ElementItemProvider extends ItemProviderAdapter implements IEditing
 
 		newChildDescriptors.add(createChildParameter(CinEditorMLPackage.Literals.ELEMENT__POSITION,
 				CinEditorMLFactory.eINSTANCE.createPosition()));
+
+		newChildDescriptors.add(createChildParameter(CinEditorMLPackage.Literals.ELEMENT__DIMENSION,
+				CinEditorMLFactory.eINSTANCE.createDimension()));
 	}
 
 	/**

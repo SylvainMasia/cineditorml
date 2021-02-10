@@ -4,8 +4,10 @@
 package polytech.spaceteam.cineditor.serializer;
 
 import CinEditorML.CinEditorMLPackage;
+import CinEditorML.Dimension;
 import CinEditorML.FadeIn;
 import CinEditorML.FadeOut;
+import CinEditorML.HexadecimalColor;
 import CinEditorML.Layer;
 import CinEditorML.Movie;
 import CinEditorML.Picture;
@@ -41,11 +43,17 @@ public class CinEditorSemanticSequencer extends AbstractDelegatingSemanticSequen
 		Set<Parameter> parameters = context.getEnabledBooleanParameters();
 		if (epackage == CinEditorMLPackage.eINSTANCE)
 			switch (semanticObject.eClass().getClassifierID()) {
+			case CinEditorMLPackage.DIMENSION:
+				sequence_Dimension(context, (Dimension) semanticObject); 
+				return; 
 			case CinEditorMLPackage.FADE_IN:
 				sequence_FadeIn(context, (FadeIn) semanticObject); 
 				return; 
 			case CinEditorMLPackage.FADE_OUT:
 				sequence_FadeOut(context, (FadeOut) semanticObject); 
+				return; 
+			case CinEditorMLPackage.HEXADECIMAL_COLOR:
+				sequence_HexadecimalColor(context, (HexadecimalColor) semanticObject); 
 				return; 
 			case CinEditorMLPackage.LAYER:
 				sequence_Layer(context, (Layer) semanticObject); 
@@ -78,18 +86,37 @@ public class CinEditorSemanticSequencer extends AbstractDelegatingSemanticSequen
 	
 	/**
 	 * Contexts:
+	 *     Dimension returns Dimension
+	 *
+	 * Constraint:
+	 *     (width=EInt height=EInt)
+	 */
+	protected void sequence_Dimension(ISerializationContext context, Dimension semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, CinEditorMLPackage.Literals.DIMENSION__WIDTH) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CinEditorMLPackage.Literals.DIMENSION__WIDTH));
+			if (transientValues.isValueTransient(semanticObject, CinEditorMLPackage.Literals.DIMENSION__HEIGHT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CinEditorMLPackage.Literals.DIMENSION__HEIGHT));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getDimensionAccess().getWidthEIntParserRuleCall_1_0(), semanticObject.getWidth());
+		feeder.accept(grammarAccess.getDimensionAccess().getHeightEIntParserRuleCall_3_0(), semanticObject.getHeight());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     Element returns FadeIn
 	 *     FadeIn returns FadeIn
 	 *
 	 * Constraint:
-	 *     (name=EString beginTime=EInt duration=EInt element=[Element|ID])
+	 *     (name=EString duration=EInt element=[Element|ID])
 	 */
 	protected void sequence_FadeIn(ISerializationContext context, FadeIn semanticObject) {
 		if (errorAcceptor != null) {
 			if (transientValues.isValueTransient(semanticObject, CinEditorMLPackage.Literals.ELEMENT__NAME) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CinEditorMLPackage.Literals.ELEMENT__NAME));
-			if (transientValues.isValueTransient(semanticObject, CinEditorMLPackage.Literals.ELEMENT__BEGIN_TIME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CinEditorMLPackage.Literals.ELEMENT__BEGIN_TIME));
 			if (transientValues.isValueTransient(semanticObject, CinEditorMLPackage.Literals.ELEMENT__DURATION) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CinEditorMLPackage.Literals.ELEMENT__DURATION));
 			if (transientValues.isValueTransient(semanticObject, CinEditorMLPackage.Literals.EFFECT__ELEMENT) == ValueTransient.YES)
@@ -97,9 +124,8 @@ public class CinEditorSemanticSequencer extends AbstractDelegatingSemanticSequen
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getFadeInAccess().getNameEStringParserRuleCall_1_0(), semanticObject.getName());
-		feeder.accept(grammarAccess.getFadeInAccess().getBeginTimeEIntParserRuleCall_5_0(), semanticObject.getBeginTime());
-		feeder.accept(grammarAccess.getFadeInAccess().getDurationEIntParserRuleCall_7_0(), semanticObject.getDuration());
-		feeder.accept(grammarAccess.getFadeInAccess().getElementElementIDTerminalRuleCall_9_0_1(), semanticObject.eGet(CinEditorMLPackage.Literals.EFFECT__ELEMENT, false));
+		feeder.accept(grammarAccess.getFadeInAccess().getDurationEIntParserRuleCall_5_0(), semanticObject.getDuration());
+		feeder.accept(grammarAccess.getFadeInAccess().getElementElementIDTerminalRuleCall_7_0_1(), semanticObject.eGet(CinEditorMLPackage.Literals.EFFECT__ELEMENT, false));
 		feeder.finish();
 	}
 	
@@ -110,14 +136,12 @@ public class CinEditorSemanticSequencer extends AbstractDelegatingSemanticSequen
 	 *     FadeOut returns FadeOut
 	 *
 	 * Constraint:
-	 *     (name=EString beginTime=EInt duration=EInt element=[Element|ID])
+	 *     (name=EString duration=EInt element=[Element|ID])
 	 */
 	protected void sequence_FadeOut(ISerializationContext context, FadeOut semanticObject) {
 		if (errorAcceptor != null) {
 			if (transientValues.isValueTransient(semanticObject, CinEditorMLPackage.Literals.ELEMENT__NAME) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CinEditorMLPackage.Literals.ELEMENT__NAME));
-			if (transientValues.isValueTransient(semanticObject, CinEditorMLPackage.Literals.ELEMENT__BEGIN_TIME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CinEditorMLPackage.Literals.ELEMENT__BEGIN_TIME));
 			if (transientValues.isValueTransient(semanticObject, CinEditorMLPackage.Literals.ELEMENT__DURATION) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CinEditorMLPackage.Literals.ELEMENT__DURATION));
 			if (transientValues.isValueTransient(semanticObject, CinEditorMLPackage.Literals.EFFECT__ELEMENT) == ValueTransient.YES)
@@ -125,9 +149,26 @@ public class CinEditorSemanticSequencer extends AbstractDelegatingSemanticSequen
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getFadeOutAccess().getNameEStringParserRuleCall_1_0(), semanticObject.getName());
-		feeder.accept(grammarAccess.getFadeOutAccess().getBeginTimeEIntParserRuleCall_5_0(), semanticObject.getBeginTime());
-		feeder.accept(grammarAccess.getFadeOutAccess().getDurationEIntParserRuleCall_7_0(), semanticObject.getDuration());
-		feeder.accept(grammarAccess.getFadeOutAccess().getElementElementIDTerminalRuleCall_9_0_1(), semanticObject.eGet(CinEditorMLPackage.Literals.EFFECT__ELEMENT, false));
+		feeder.accept(grammarAccess.getFadeOutAccess().getDurationEIntParserRuleCall_5_0(), semanticObject.getDuration());
+		feeder.accept(grammarAccess.getFadeOutAccess().getElementElementIDTerminalRuleCall_7_0_1(), semanticObject.eGet(CinEditorMLPackage.Literals.EFFECT__ELEMENT, false));
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     HexadecimalColor returns HexadecimalColor
+	 *
+	 * Constraint:
+	 *     hexadecimalValue=EString
+	 */
+	protected void sequence_HexadecimalColor(ISerializationContext context, HexadecimalColor semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, CinEditorMLPackage.Literals.HEXADECIMAL_COLOR__HEXADECIMAL_VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CinEditorMLPackage.Literals.HEXADECIMAL_COLOR__HEXADECIMAL_VALUE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getHexadecimalColorAccess().getHexadecimalValueEStringParserRuleCall_1_0(), semanticObject.getHexadecimalValue());
 		feeder.finish();
 	}
 	
@@ -149,7 +190,7 @@ public class CinEditorSemanticSequencer extends AbstractDelegatingSemanticSequen
 	 *     Movie returns Movie
 	 *
 	 * Constraint:
-	 *     (name=EString position=Position layers+=Layer+)
+	 *     (name=EString dimension=Dimension layers+=Layer+)
 	 */
 	protected void sequence_Movie(ISerializationContext context, Movie semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -162,28 +203,17 @@ public class CinEditorSemanticSequencer extends AbstractDelegatingSemanticSequen
 	 *     Picture returns Picture
 	 *
 	 * Constraint:
-	 *     (name=EString url=EString position=Position beginTime=EInt duration=EInt)
+	 *     (
+	 *         name=EString 
+	 *         url=EString 
+	 *         position=Position? 
+	 *         dimension=Dimension? 
+	 *         beginTime=EInt 
+	 *         duration=EInt
+	 *     )
 	 */
 	protected void sequence_Picture(ISerializationContext context, Picture semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, CinEditorMLPackage.Literals.ELEMENT__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CinEditorMLPackage.Literals.ELEMENT__NAME));
-			if (transientValues.isValueTransient(semanticObject, CinEditorMLPackage.Literals.PICTURE__URL) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CinEditorMLPackage.Literals.PICTURE__URL));
-			if (transientValues.isValueTransient(semanticObject, CinEditorMLPackage.Literals.ELEMENT__POSITION) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CinEditorMLPackage.Literals.ELEMENT__POSITION));
-			if (transientValues.isValueTransient(semanticObject, CinEditorMLPackage.Literals.ELEMENT__BEGIN_TIME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CinEditorMLPackage.Literals.ELEMENT__BEGIN_TIME));
-			if (transientValues.isValueTransient(semanticObject, CinEditorMLPackage.Literals.ELEMENT__DURATION) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CinEditorMLPackage.Literals.ELEMENT__DURATION));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getPictureAccess().getNameEStringParserRuleCall_1_0(), semanticObject.getName());
-		feeder.accept(grammarAccess.getPictureAccess().getUrlEStringParserRuleCall_4_0(), semanticObject.getUrl());
-		feeder.accept(grammarAccess.getPictureAccess().getPositionPositionParserRuleCall_6_0(), semanticObject.getPosition());
-		feeder.accept(grammarAccess.getPictureAccess().getBeginTimeEIntParserRuleCall_8_0(), semanticObject.getBeginTime());
-		feeder.accept(grammarAccess.getPictureAccess().getDurationEIntParserRuleCall_10_0(), semanticObject.getDuration());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -192,10 +222,19 @@ public class CinEditorSemanticSequencer extends AbstractDelegatingSemanticSequen
 	 *     Position returns Position
 	 *
 	 * Constraint:
-	 *     (width=EInt height=EInt (x=EInt y=EInt)?)
+	 *     (x=EInt y=EInt)
 	 */
 	protected void sequence_Position(ISerializationContext context, Position semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, CinEditorMLPackage.Literals.POSITION__X) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CinEditorMLPackage.Literals.POSITION__X));
+			if (transientValues.isValueTransient(semanticObject, CinEditorMLPackage.Literals.POSITION__Y) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CinEditorMLPackage.Literals.POSITION__Y));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getPositionAccess().getXEIntParserRuleCall_1_1_0(), semanticObject.getX());
+		feeder.accept(grammarAccess.getPositionAccess().getYEIntParserRuleCall_1_3_0(), semanticObject.getY());
+		feeder.finish();
 	}
 	
 	
@@ -205,28 +244,17 @@ public class CinEditorSemanticSequencer extends AbstractDelegatingSemanticSequen
 	 *     Rectangle returns Rectangle
 	 *
 	 * Constraint:
-	 *     (name=EString hexadecimalValue=EString position=Position beginTime=EInt duration=EInt)
+	 *     (
+	 *         name=EString 
+	 *         color=HexadecimalColor 
+	 *         position=Position? 
+	 *         dimension=Dimension? 
+	 *         beginTime=EInt 
+	 *         duration=EInt
+	 *     )
 	 */
 	protected void sequence_Rectangle(ISerializationContext context, Rectangle semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, CinEditorMLPackage.Literals.ELEMENT__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CinEditorMLPackage.Literals.ELEMENT__NAME));
-			if (transientValues.isValueTransient(semanticObject, CinEditorMLPackage.Literals.SHAPE__HEXADECIMAL_VALUE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CinEditorMLPackage.Literals.SHAPE__HEXADECIMAL_VALUE));
-			if (transientValues.isValueTransient(semanticObject, CinEditorMLPackage.Literals.ELEMENT__POSITION) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CinEditorMLPackage.Literals.ELEMENT__POSITION));
-			if (transientValues.isValueTransient(semanticObject, CinEditorMLPackage.Literals.ELEMENT__BEGIN_TIME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CinEditorMLPackage.Literals.ELEMENT__BEGIN_TIME));
-			if (transientValues.isValueTransient(semanticObject, CinEditorMLPackage.Literals.ELEMENT__DURATION) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CinEditorMLPackage.Literals.ELEMENT__DURATION));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getRectangleAccess().getNameEStringParserRuleCall_1_0(), semanticObject.getName());
-		feeder.accept(grammarAccess.getRectangleAccess().getHexadecimalValueEStringParserRuleCall_3_0(), semanticObject.getHexadecimalValue());
-		feeder.accept(grammarAccess.getRectangleAccess().getPositionPositionParserRuleCall_4_0(), semanticObject.getPosition());
-		feeder.accept(grammarAccess.getRectangleAccess().getBeginTimeEIntParserRuleCall_6_0(), semanticObject.getBeginTime());
-		feeder.accept(grammarAccess.getRectangleAccess().getDurationEIntParserRuleCall_8_0(), semanticObject.getDuration());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -236,28 +264,18 @@ public class CinEditorSemanticSequencer extends AbstractDelegatingSemanticSequen
 	 *     Text returns Text
 	 *
 	 * Constraint:
-	 *     (name=EString text=EString position=Position beginTime=EInt duration=EInt)
+	 *     (
+	 *         name=EString 
+	 *         text=EString 
+	 *         fontSize=EInt? 
+	 *         position=Position? 
+	 *         beginTime=EInt 
+	 *         duration=EInt 
+	 *         color=HexadecimalColor
+	 *     )
 	 */
 	protected void sequence_Text(ISerializationContext context, Text semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, CinEditorMLPackage.Literals.ELEMENT__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CinEditorMLPackage.Literals.ELEMENT__NAME));
-			if (transientValues.isValueTransient(semanticObject, CinEditorMLPackage.Literals.TEXT__TEXT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CinEditorMLPackage.Literals.TEXT__TEXT));
-			if (transientValues.isValueTransient(semanticObject, CinEditorMLPackage.Literals.ELEMENT__POSITION) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CinEditorMLPackage.Literals.ELEMENT__POSITION));
-			if (transientValues.isValueTransient(semanticObject, CinEditorMLPackage.Literals.ELEMENT__BEGIN_TIME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CinEditorMLPackage.Literals.ELEMENT__BEGIN_TIME));
-			if (transientValues.isValueTransient(semanticObject, CinEditorMLPackage.Literals.ELEMENT__DURATION) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CinEditorMLPackage.Literals.ELEMENT__DURATION));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getTextAccess().getNameEStringParserRuleCall_1_0(), semanticObject.getName());
-		feeder.accept(grammarAccess.getTextAccess().getTextEStringParserRuleCall_3_0(), semanticObject.getText());
-		feeder.accept(grammarAccess.getTextAccess().getPositionPositionParserRuleCall_4_0(), semanticObject.getPosition());
-		feeder.accept(grammarAccess.getTextAccess().getBeginTimeEIntParserRuleCall_6_0(), semanticObject.getBeginTime());
-		feeder.accept(grammarAccess.getTextAccess().getDurationEIntParserRuleCall_8_0(), semanticObject.getDuration());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -312,34 +330,14 @@ public class CinEditorSemanticSequencer extends AbstractDelegatingSemanticSequen
 	 *         name=EString 
 	 *         url=EString 
 	 *         beginCropTime=EInt 
-	 *         position=Position 
+	 *         position=Position? 
+	 *         dimension=Dimension? 
 	 *         beginTime=EInt 
 	 *         duration=EInt
 	 *     )
 	 */
 	protected void sequence_Video(ISerializationContext context, Video semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, CinEditorMLPackage.Literals.ELEMENT__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CinEditorMLPackage.Literals.ELEMENT__NAME));
-			if (transientValues.isValueTransient(semanticObject, CinEditorMLPackage.Literals.VIDEO__URL) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CinEditorMLPackage.Literals.VIDEO__URL));
-			if (transientValues.isValueTransient(semanticObject, CinEditorMLPackage.Literals.VIDEO__BEGIN_CROP_TIME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CinEditorMLPackage.Literals.VIDEO__BEGIN_CROP_TIME));
-			if (transientValues.isValueTransient(semanticObject, CinEditorMLPackage.Literals.ELEMENT__POSITION) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CinEditorMLPackage.Literals.ELEMENT__POSITION));
-			if (transientValues.isValueTransient(semanticObject, CinEditorMLPackage.Literals.ELEMENT__BEGIN_TIME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CinEditorMLPackage.Literals.ELEMENT__BEGIN_TIME));
-			if (transientValues.isValueTransient(semanticObject, CinEditorMLPackage.Literals.ELEMENT__DURATION) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CinEditorMLPackage.Literals.ELEMENT__DURATION));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getVideoAccess().getNameEStringParserRuleCall_1_0(), semanticObject.getName());
-		feeder.accept(grammarAccess.getVideoAccess().getUrlEStringParserRuleCall_4_0(), semanticObject.getUrl());
-		feeder.accept(grammarAccess.getVideoAccess().getBeginCropTimeEIntParserRuleCall_7_0(), semanticObject.getBeginCropTime());
-		feeder.accept(grammarAccess.getVideoAccess().getPositionPositionParserRuleCall_8_0(), semanticObject.getPosition());
-		feeder.accept(grammarAccess.getVideoAccess().getBeginTimeEIntParserRuleCall_10_0(), semanticObject.getBeginTime());
-		feeder.accept(grammarAccess.getVideoAccess().getDurationEIntParserRuleCall_12_0(), semanticObject.getDuration());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	

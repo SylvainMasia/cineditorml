@@ -30,17 +30,17 @@ public class CinEditorGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cMovieKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cNameEStringParserRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
-		private final Assignment cPositionAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cPositionPositionParserRuleCall_2_0 = (RuleCall)cPositionAssignment_2.eContents().get(0);
+		private final Assignment cDimensionAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cDimensionDimensionParserRuleCall_2_0 = (RuleCall)cDimensionAssignment_2.eContents().get(0);
 		private final Assignment cLayersAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final RuleCall cLayersLayerParserRuleCall_3_0 = (RuleCall)cLayersAssignment_3.eContents().get(0);
 		
 		//Movie:
-		//	'Movie' name=EString position=Position
+		//	'Movie' name=EString dimension=Dimension
 		//	layers+=Layer+;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'Movie' name=EString position=Position layers+=Layer+
+		//'Movie' name=EString dimension=Dimension layers+=Layer+
 		public Group getGroup() { return cGroup; }
 		
 		//'Movie'
@@ -52,11 +52,11 @@ public class CinEditorGrammarAccess extends AbstractGrammarElementFinder {
 		//EString
 		public RuleCall getNameEStringParserRuleCall_1_0() { return cNameEStringParserRuleCall_1_0; }
 		
-		//position=Position
-		public Assignment getPositionAssignment_2() { return cPositionAssignment_2; }
+		//dimension=Dimension
+		public Assignment getDimensionAssignment_2() { return cDimensionAssignment_2; }
 		
-		//Position
-		public RuleCall getPositionPositionParserRuleCall_2_0() { return cPositionPositionParserRuleCall_2_0; }
+		//Dimension
+		public RuleCall getDimensionDimensionParserRuleCall_2_0() { return cDimensionDimensionParserRuleCall_2_0; }
 		
 		//layers+=Layer+
 		public Assignment getLayersAssignment_3() { return cLayersAssignment_3; }
@@ -155,29 +155,68 @@ public class CinEditorGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "polytech.spaceteam.cineditor.CinEditor.Position");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cPositionKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
+		private final Keyword cLeftParenthesisKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
+		private final Assignment cXAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
+		private final RuleCall cXEIntParserRuleCall_1_1_0 = (RuleCall)cXAssignment_1_1.eContents().get(0);
+		private final Keyword cCommaKeyword_1_2 = (Keyword)cGroup_1.eContents().get(2);
+		private final Assignment cYAssignment_1_3 = (Assignment)cGroup_1.eContents().get(3);
+		private final RuleCall cYEIntParserRuleCall_1_3_0 = (RuleCall)cYAssignment_1_3.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_1_4 = (Keyword)cGroup_1.eContents().get(4);
+		
+		//Position:
+		//	'position' ('(' x=EInt ',' y=EInt ')');
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'position' ('(' x=EInt ',' y=EInt ')')
+		public Group getGroup() { return cGroup; }
+		
+		//'position'
+		public Keyword getPositionKeyword_0() { return cPositionKeyword_0; }
+		
+		//'(' x=EInt ',' y=EInt ')'
+		public Group getGroup_1() { return cGroup_1; }
+		
+		//'('
+		public Keyword getLeftParenthesisKeyword_1_0() { return cLeftParenthesisKeyword_1_0; }
+		
+		//x=EInt
+		public Assignment getXAssignment_1_1() { return cXAssignment_1_1; }
+		
+		//EInt
+		public RuleCall getXEIntParserRuleCall_1_1_0() { return cXEIntParserRuleCall_1_1_0; }
+		
+		//','
+		public Keyword getCommaKeyword_1_2() { return cCommaKeyword_1_2; }
+		
+		//y=EInt
+		public Assignment getYAssignment_1_3() { return cYAssignment_1_3; }
+		
+		//EInt
+		public RuleCall getYEIntParserRuleCall_1_3_0() { return cYEIntParserRuleCall_1_3_0; }
+		
+		//')'
+		public Keyword getRightParenthesisKeyword_1_4() { return cRightParenthesisKeyword_1_4; }
+	}
+	public class DimensionElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "polytech.spaceteam.cineditor.CinEditor.Dimension");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cDimensionKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cWidthAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cWidthEIntParserRuleCall_1_0 = (RuleCall)cWidthAssignment_1.eContents().get(0);
 		private final Keyword cXKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Assignment cHeightAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final RuleCall cHeightEIntParserRuleCall_3_0 = (RuleCall)cHeightAssignment_3.eContents().get(0);
-		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
-		private final Keyword cLeftParenthesisKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
-		private final Assignment cXAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
-		private final RuleCall cXEIntParserRuleCall_4_1_0 = (RuleCall)cXAssignment_4_1.eContents().get(0);
-		private final Keyword cCommaKeyword_4_2 = (Keyword)cGroup_4.eContents().get(2);
-		private final Assignment cYAssignment_4_3 = (Assignment)cGroup_4.eContents().get(3);
-		private final RuleCall cYEIntParserRuleCall_4_3_0 = (RuleCall)cYAssignment_4_3.eContents().get(0);
-		private final Keyword cRightParenthesisKeyword_4_4 = (Keyword)cGroup_4.eContents().get(4);
 		
-		//Position:
-		//	'position' width=EInt 'x' height=EInt ('(' x=EInt ',' y=EInt ')')?;
+		//Dimension:
+		//	'dimension' width=EInt 'x' height=EInt;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'position' width=EInt 'x' height=EInt ('(' x=EInt ',' y=EInt ')')?
+		//'dimension' width=EInt 'x' height=EInt
 		public Group getGroup() { return cGroup; }
 		
-		//'position'
-		public Keyword getPositionKeyword_0() { return cPositionKeyword_0; }
+		//'dimension'
+		public Keyword getDimensionKeyword_0() { return cDimensionKeyword_0; }
 		
 		//width=EInt
 		public Assignment getWidthAssignment_1() { return cWidthAssignment_1; }
@@ -193,30 +232,29 @@ public class CinEditorGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//EInt
 		public RuleCall getHeightEIntParserRuleCall_3_0() { return cHeightEIntParserRuleCall_3_0; }
+	}
+	public class HexadecimalColorElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "polytech.spaceteam.cineditor.CinEditor.HexadecimalColor");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cColorKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cHexadecimalValueAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cHexadecimalValueEStringParserRuleCall_1_0 = (RuleCall)cHexadecimalValueAssignment_1.eContents().get(0);
 		
-		//('(' x=EInt ',' y=EInt ')')?
-		public Group getGroup_4() { return cGroup_4; }
+		//HexadecimalColor:
+		//	'color' hexadecimalValue=EString;
+		@Override public ParserRule getRule() { return rule; }
 		
-		//'('
-		public Keyword getLeftParenthesisKeyword_4_0() { return cLeftParenthesisKeyword_4_0; }
+		//'color' hexadecimalValue=EString
+		public Group getGroup() { return cGroup; }
 		
-		//x=EInt
-		public Assignment getXAssignment_4_1() { return cXAssignment_4_1; }
+		//'color'
+		public Keyword getColorKeyword_0() { return cColorKeyword_0; }
 		
-		//EInt
-		public RuleCall getXEIntParserRuleCall_4_1_0() { return cXEIntParserRuleCall_4_1_0; }
+		//hexadecimalValue=EString
+		public Assignment getHexadecimalValueAssignment_1() { return cHexadecimalValueAssignment_1; }
 		
-		//','
-		public Keyword getCommaKeyword_4_2() { return cCommaKeyword_4_2; }
-		
-		//y=EInt
-		public Assignment getYAssignment_4_3() { return cYAssignment_4_3; }
-		
-		//EInt
-		public RuleCall getYEIntParserRuleCall_4_3_0() { return cYEIntParserRuleCall_4_3_0; }
-		
-		//')'
-		public Keyword getRightParenthesisKeyword_4_4() { return cRightParenthesisKeyword_4_4; }
+		//EString
+		public RuleCall getHexadecimalValueEStringParserRuleCall_1_0() { return cHexadecimalValueEStringParserRuleCall_1_0; }
 	}
 	public class EIntElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "polytech.spaceteam.cineditor.CinEditor.EInt");
@@ -246,20 +284,28 @@ public class CinEditorGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cHyphenMinusGreaterThanSignKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Assignment cTextAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final RuleCall cTextEStringParserRuleCall_3_0 = (RuleCall)cTextAssignment_3.eContents().get(0);
-		private final Assignment cPositionAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cPositionPositionParserRuleCall_4_0 = (RuleCall)cPositionAssignment_4.eContents().get(0);
-		private final Keyword cAtKeyword_5 = (Keyword)cGroup.eContents().get(5);
-		private final Assignment cBeginTimeAssignment_6 = (Assignment)cGroup.eContents().get(6);
-		private final RuleCall cBeginTimeEIntParserRuleCall_6_0 = (RuleCall)cBeginTimeAssignment_6.eContents().get(0);
-		private final Keyword cDuringKeyword_7 = (Keyword)cGroup.eContents().get(7);
-		private final Assignment cDurationAssignment_8 = (Assignment)cGroup.eContents().get(8);
-		private final RuleCall cDurationEIntParserRuleCall_8_0 = (RuleCall)cDurationAssignment_8.eContents().get(0);
+		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
+		private final Keyword cFontSizeKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
+		private final Assignment cFontSizeAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
+		private final RuleCall cFontSizeEIntParserRuleCall_4_1_0 = (RuleCall)cFontSizeAssignment_4_1.eContents().get(0);
+		private final Assignment cPositionAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cPositionPositionParserRuleCall_5_0 = (RuleCall)cPositionAssignment_5.eContents().get(0);
+		private final Keyword cAtKeyword_6 = (Keyword)cGroup.eContents().get(6);
+		private final Assignment cBeginTimeAssignment_7 = (Assignment)cGroup.eContents().get(7);
+		private final RuleCall cBeginTimeEIntParserRuleCall_7_0 = (RuleCall)cBeginTimeAssignment_7.eContents().get(0);
+		private final Keyword cDuringKeyword_8 = (Keyword)cGroup.eContents().get(8);
+		private final Assignment cDurationAssignment_9 = (Assignment)cGroup.eContents().get(9);
+		private final RuleCall cDurationEIntParserRuleCall_9_0 = (RuleCall)cDurationAssignment_9.eContents().get(0);
+		private final Assignment cColorAssignment_10 = (Assignment)cGroup.eContents().get(10);
+		private final RuleCall cColorHexadecimalColorParserRuleCall_10_0 = (RuleCall)cColorAssignment_10.eContents().get(0);
 		
 		//Text:
-		//	'Text' name=EString '->' text=EString position=Position 'at' beginTime=EInt 'during' duration=EInt;
+		//	'Text' name=EString '->' text=EString ('fontSize' fontSize=EInt)? position=Position? 'at' beginTime=EInt 'during'
+		//	duration=EInt color=HexadecimalColor;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'Text' name=EString '->' text=EString position=Position 'at' beginTime=EInt 'during' duration=EInt
+		//'Text' name=EString '->' text=EString ('fontSize' fontSize=EInt)? position=Position? 'at' beginTime=EInt 'during'
+		//duration=EInt color=HexadecimalColor
 		public Group getGroup() { return cGroup; }
 		
 		//'Text'
@@ -280,29 +326,47 @@ public class CinEditorGrammarAccess extends AbstractGrammarElementFinder {
 		//EString
 		public RuleCall getTextEStringParserRuleCall_3_0() { return cTextEStringParserRuleCall_3_0; }
 		
-		//position=Position
-		public Assignment getPositionAssignment_4() { return cPositionAssignment_4; }
+		//('fontSize' fontSize=EInt)?
+		public Group getGroup_4() { return cGroup_4; }
+		
+		//'fontSize'
+		public Keyword getFontSizeKeyword_4_0() { return cFontSizeKeyword_4_0; }
+		
+		//fontSize=EInt
+		public Assignment getFontSizeAssignment_4_1() { return cFontSizeAssignment_4_1; }
+		
+		//EInt
+		public RuleCall getFontSizeEIntParserRuleCall_4_1_0() { return cFontSizeEIntParserRuleCall_4_1_0; }
+		
+		//position=Position?
+		public Assignment getPositionAssignment_5() { return cPositionAssignment_5; }
 		
 		//Position
-		public RuleCall getPositionPositionParserRuleCall_4_0() { return cPositionPositionParserRuleCall_4_0; }
+		public RuleCall getPositionPositionParserRuleCall_5_0() { return cPositionPositionParserRuleCall_5_0; }
 		
 		//'at'
-		public Keyword getAtKeyword_5() { return cAtKeyword_5; }
+		public Keyword getAtKeyword_6() { return cAtKeyword_6; }
 		
 		//beginTime=EInt
-		public Assignment getBeginTimeAssignment_6() { return cBeginTimeAssignment_6; }
+		public Assignment getBeginTimeAssignment_7() { return cBeginTimeAssignment_7; }
 		
 		//EInt
-		public RuleCall getBeginTimeEIntParserRuleCall_6_0() { return cBeginTimeEIntParserRuleCall_6_0; }
+		public RuleCall getBeginTimeEIntParserRuleCall_7_0() { return cBeginTimeEIntParserRuleCall_7_0; }
 		
 		//'during'
-		public Keyword getDuringKeyword_7() { return cDuringKeyword_7; }
+		public Keyword getDuringKeyword_8() { return cDuringKeyword_8; }
 		
 		//duration=EInt
-		public Assignment getDurationAssignment_8() { return cDurationAssignment_8; }
+		public Assignment getDurationAssignment_9() { return cDurationAssignment_9; }
 		
 		//EInt
-		public RuleCall getDurationEIntParserRuleCall_8_0() { return cDurationEIntParserRuleCall_8_0; }
+		public RuleCall getDurationEIntParserRuleCall_9_0() { return cDurationEIntParserRuleCall_9_0; }
+		
+		//color=HexadecimalColor
+		public Assignment getColorAssignment_10() { return cColorAssignment_10; }
+		
+		//HexadecimalColor
+		public RuleCall getColorHexadecimalColorParserRuleCall_10_0() { return cColorHexadecimalColorParserRuleCall_10_0; }
 	}
 	public class PictureElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "polytech.spaceteam.cineditor.CinEditor.Picture");
@@ -317,18 +381,22 @@ public class CinEditorGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cQuotationMarkKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		private final Assignment cPositionAssignment_6 = (Assignment)cGroup.eContents().get(6);
 		private final RuleCall cPositionPositionParserRuleCall_6_0 = (RuleCall)cPositionAssignment_6.eContents().get(0);
-		private final Keyword cAtKeyword_7 = (Keyword)cGroup.eContents().get(7);
-		private final Assignment cBeginTimeAssignment_8 = (Assignment)cGroup.eContents().get(8);
-		private final RuleCall cBeginTimeEIntParserRuleCall_8_0 = (RuleCall)cBeginTimeAssignment_8.eContents().get(0);
-		private final Keyword cDuringKeyword_9 = (Keyword)cGroup.eContents().get(9);
-		private final Assignment cDurationAssignment_10 = (Assignment)cGroup.eContents().get(10);
-		private final RuleCall cDurationEIntParserRuleCall_10_0 = (RuleCall)cDurationAssignment_10.eContents().get(0);
+		private final Assignment cDimensionAssignment_7 = (Assignment)cGroup.eContents().get(7);
+		private final RuleCall cDimensionDimensionParserRuleCall_7_0 = (RuleCall)cDimensionAssignment_7.eContents().get(0);
+		private final Keyword cAtKeyword_8 = (Keyword)cGroup.eContents().get(8);
+		private final Assignment cBeginTimeAssignment_9 = (Assignment)cGroup.eContents().get(9);
+		private final RuleCall cBeginTimeEIntParserRuleCall_9_0 = (RuleCall)cBeginTimeAssignment_9.eContents().get(0);
+		private final Keyword cDuringKeyword_10 = (Keyword)cGroup.eContents().get(10);
+		private final Assignment cDurationAssignment_11 = (Assignment)cGroup.eContents().get(11);
+		private final RuleCall cDurationEIntParserRuleCall_11_0 = (RuleCall)cDurationAssignment_11.eContents().get(0);
 		
 		//Picture:
-		//	'Picture' name=EString '->' '"' url=EString '"' position=Position 'at' beginTime=EInt 'during' duration=EInt;
+		//	'Picture' name=EString '->' '"' url=EString '"' position=Position? dimension=Dimension? 'at' beginTime=EInt 'during'
+		//	duration=EInt;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'Picture' name=EString '->' '"' url=EString '"' position=Position 'at' beginTime=EInt 'during' duration=EInt
+		//'Picture' name=EString '->' '"' url=EString '"' position=Position? dimension=Dimension? 'at' beginTime=EInt 'during'
+		//duration=EInt
 		public Group getGroup() { return cGroup; }
 		
 		//'Picture'
@@ -355,29 +423,35 @@ public class CinEditorGrammarAccess extends AbstractGrammarElementFinder {
 		//'"'
 		public Keyword getQuotationMarkKeyword_5() { return cQuotationMarkKeyword_5; }
 		
-		//position=Position
+		//position=Position?
 		public Assignment getPositionAssignment_6() { return cPositionAssignment_6; }
 		
 		//Position
 		public RuleCall getPositionPositionParserRuleCall_6_0() { return cPositionPositionParserRuleCall_6_0; }
 		
+		//dimension=Dimension?
+		public Assignment getDimensionAssignment_7() { return cDimensionAssignment_7; }
+		
+		//Dimension
+		public RuleCall getDimensionDimensionParserRuleCall_7_0() { return cDimensionDimensionParserRuleCall_7_0; }
+		
 		//'at'
-		public Keyword getAtKeyword_7() { return cAtKeyword_7; }
+		public Keyword getAtKeyword_8() { return cAtKeyword_8; }
 		
 		//beginTime=EInt
-		public Assignment getBeginTimeAssignment_8() { return cBeginTimeAssignment_8; }
+		public Assignment getBeginTimeAssignment_9() { return cBeginTimeAssignment_9; }
 		
 		//EInt
-		public RuleCall getBeginTimeEIntParserRuleCall_8_0() { return cBeginTimeEIntParserRuleCall_8_0; }
+		public RuleCall getBeginTimeEIntParserRuleCall_9_0() { return cBeginTimeEIntParserRuleCall_9_0; }
 		
 		//'during'
-		public Keyword getDuringKeyword_9() { return cDuringKeyword_9; }
+		public Keyword getDuringKeyword_10() { return cDuringKeyword_10; }
 		
 		//duration=EInt
-		public Assignment getDurationAssignment_10() { return cDurationAssignment_10; }
+		public Assignment getDurationAssignment_11() { return cDurationAssignment_11; }
 		
 		//EInt
-		public RuleCall getDurationEIntParserRuleCall_10_0() { return cDurationEIntParserRuleCall_10_0; }
+		public RuleCall getDurationEIntParserRuleCall_11_0() { return cDurationEIntParserRuleCall_11_0; }
 	}
 	public class VideoElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "polytech.spaceteam.cineditor.CinEditor.Video");
@@ -395,20 +469,22 @@ public class CinEditorGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cBeginCropTimeEIntParserRuleCall_7_0 = (RuleCall)cBeginCropTimeAssignment_7.eContents().get(0);
 		private final Assignment cPositionAssignment_8 = (Assignment)cGroup.eContents().get(8);
 		private final RuleCall cPositionPositionParserRuleCall_8_0 = (RuleCall)cPositionAssignment_8.eContents().get(0);
-		private final Keyword cAtKeyword_9 = (Keyword)cGroup.eContents().get(9);
-		private final Assignment cBeginTimeAssignment_10 = (Assignment)cGroup.eContents().get(10);
-		private final RuleCall cBeginTimeEIntParserRuleCall_10_0 = (RuleCall)cBeginTimeAssignment_10.eContents().get(0);
-		private final Keyword cDuringKeyword_11 = (Keyword)cGroup.eContents().get(11);
-		private final Assignment cDurationAssignment_12 = (Assignment)cGroup.eContents().get(12);
-		private final RuleCall cDurationEIntParserRuleCall_12_0 = (RuleCall)cDurationAssignment_12.eContents().get(0);
+		private final Assignment cDimensionAssignment_9 = (Assignment)cGroup.eContents().get(9);
+		private final RuleCall cDimensionDimensionParserRuleCall_9_0 = (RuleCall)cDimensionAssignment_9.eContents().get(0);
+		private final Keyword cAtKeyword_10 = (Keyword)cGroup.eContents().get(10);
+		private final Assignment cBeginTimeAssignment_11 = (Assignment)cGroup.eContents().get(11);
+		private final RuleCall cBeginTimeEIntParserRuleCall_11_0 = (RuleCall)cBeginTimeAssignment_11.eContents().get(0);
+		private final Keyword cDuringKeyword_12 = (Keyword)cGroup.eContents().get(12);
+		private final Assignment cDurationAssignment_13 = (Assignment)cGroup.eContents().get(13);
+		private final RuleCall cDurationEIntParserRuleCall_13_0 = (RuleCall)cDurationAssignment_13.eContents().get(0);
 		
 		//Video:
-		//	'Video' name=EString '->' '"' url=EString '"' 'from' beginCropTime=EInt position=Position 'at' beginTime=EInt
-		//	'during' duration=EInt;
+		//	'Video' name=EString '->' '"' url=EString '"' 'from' beginCropTime=EInt position=Position? dimension=Dimension? 'at'
+		//	beginTime=EInt 'during' duration=EInt;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'Video' name=EString '->' '"' url=EString '"' 'from' beginCropTime=EInt position=Position 'at' beginTime=EInt 'during'
-		//duration=EInt
+		//'Video' name=EString '->' '"' url=EString '"' 'from' beginCropTime=EInt position=Position? dimension=Dimension? 'at'
+		//beginTime=EInt 'during' duration=EInt
 		public Group getGroup() { return cGroup; }
 		
 		//'Video'
@@ -444,29 +520,35 @@ public class CinEditorGrammarAccess extends AbstractGrammarElementFinder {
 		//EInt
 		public RuleCall getBeginCropTimeEIntParserRuleCall_7_0() { return cBeginCropTimeEIntParserRuleCall_7_0; }
 		
-		//position=Position
+		//position=Position?
 		public Assignment getPositionAssignment_8() { return cPositionAssignment_8; }
 		
 		//Position
 		public RuleCall getPositionPositionParserRuleCall_8_0() { return cPositionPositionParserRuleCall_8_0; }
 		
+		//dimension=Dimension?
+		public Assignment getDimensionAssignment_9() { return cDimensionAssignment_9; }
+		
+		//Dimension
+		public RuleCall getDimensionDimensionParserRuleCall_9_0() { return cDimensionDimensionParserRuleCall_9_0; }
+		
 		//'at'
-		public Keyword getAtKeyword_9() { return cAtKeyword_9; }
+		public Keyword getAtKeyword_10() { return cAtKeyword_10; }
 		
 		//beginTime=EInt
-		public Assignment getBeginTimeAssignment_10() { return cBeginTimeAssignment_10; }
+		public Assignment getBeginTimeAssignment_11() { return cBeginTimeAssignment_11; }
 		
 		//EInt
-		public RuleCall getBeginTimeEIntParserRuleCall_10_0() { return cBeginTimeEIntParserRuleCall_10_0; }
+		public RuleCall getBeginTimeEIntParserRuleCall_11_0() { return cBeginTimeEIntParserRuleCall_11_0; }
 		
 		//'during'
-		public Keyword getDuringKeyword_11() { return cDuringKeyword_11; }
+		public Keyword getDuringKeyword_12() { return cDuringKeyword_12; }
 		
 		//duration=EInt
-		public Assignment getDurationAssignment_12() { return cDurationAssignment_12; }
+		public Assignment getDurationAssignment_13() { return cDurationAssignment_13; }
 		
 		//EInt
-		public RuleCall getDurationEIntParserRuleCall_12_0() { return cDurationEIntParserRuleCall_12_0; }
+		public RuleCall getDurationEIntParserRuleCall_13_0() { return cDurationEIntParserRuleCall_13_0; }
 	}
 	public class FadeInElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "polytech.spaceteam.cineditor.CinEditor.FadeIn");
@@ -476,22 +558,19 @@ public class CinEditorGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cNameEStringParserRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		private final Keyword cHyphenMinusGreaterThanSignKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Keyword cFadeInKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Keyword cAtKeyword_4 = (Keyword)cGroup.eContents().get(4);
-		private final Assignment cBeginTimeAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final RuleCall cBeginTimeEIntParserRuleCall_5_0 = (RuleCall)cBeginTimeAssignment_5.eContents().get(0);
-		private final Keyword cDuringKeyword_6 = (Keyword)cGroup.eContents().get(6);
-		private final Assignment cDurationAssignment_7 = (Assignment)cGroup.eContents().get(7);
-		private final RuleCall cDurationEIntParserRuleCall_7_0 = (RuleCall)cDurationAssignment_7.eContents().get(0);
-		private final Keyword cOnKeyword_8 = (Keyword)cGroup.eContents().get(8);
-		private final Assignment cElementAssignment_9 = (Assignment)cGroup.eContents().get(9);
-		private final CrossReference cElementElementCrossReference_9_0 = (CrossReference)cElementAssignment_9.eContents().get(0);
-		private final RuleCall cElementElementIDTerminalRuleCall_9_0_1 = (RuleCall)cElementElementCrossReference_9_0.eContents().get(1);
+		private final Keyword cDuringKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Assignment cDurationAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cDurationEIntParserRuleCall_5_0 = (RuleCall)cDurationAssignment_5.eContents().get(0);
+		private final Keyword cOnKeyword_6 = (Keyword)cGroup.eContents().get(6);
+		private final Assignment cElementAssignment_7 = (Assignment)cGroup.eContents().get(7);
+		private final CrossReference cElementElementCrossReference_7_0 = (CrossReference)cElementAssignment_7.eContents().get(0);
+		private final RuleCall cElementElementIDTerminalRuleCall_7_0_1 = (RuleCall)cElementElementCrossReference_7_0.eContents().get(1);
 		
 		//FadeIn:
-		//	'Effect' name=EString '->' 'FadeIn' 'at' beginTime=EInt 'during' duration=EInt 'on' element=[Element];
+		//	'Effect' name=EString '->' 'FadeIn' 'during' duration=EInt 'on' element=[Element];
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'Effect' name=EString '->' 'FadeIn' 'at' beginTime=EInt 'during' duration=EInt 'on' element=[Element]
+		//'Effect' name=EString '->' 'FadeIn' 'during' duration=EInt 'on' element=[Element]
 		public Group getGroup() { return cGroup; }
 		
 		//'Effect'
@@ -509,35 +588,26 @@ public class CinEditorGrammarAccess extends AbstractGrammarElementFinder {
 		//'FadeIn'
 		public Keyword getFadeInKeyword_3() { return cFadeInKeyword_3; }
 		
-		//'at'
-		public Keyword getAtKeyword_4() { return cAtKeyword_4; }
-		
-		//beginTime=EInt
-		public Assignment getBeginTimeAssignment_5() { return cBeginTimeAssignment_5; }
-		
-		//EInt
-		public RuleCall getBeginTimeEIntParserRuleCall_5_0() { return cBeginTimeEIntParserRuleCall_5_0; }
-		
 		//'during'
-		public Keyword getDuringKeyword_6() { return cDuringKeyword_6; }
+		public Keyword getDuringKeyword_4() { return cDuringKeyword_4; }
 		
 		//duration=EInt
-		public Assignment getDurationAssignment_7() { return cDurationAssignment_7; }
+		public Assignment getDurationAssignment_5() { return cDurationAssignment_5; }
 		
 		//EInt
-		public RuleCall getDurationEIntParserRuleCall_7_0() { return cDurationEIntParserRuleCall_7_0; }
+		public RuleCall getDurationEIntParserRuleCall_5_0() { return cDurationEIntParserRuleCall_5_0; }
 		
 		//'on'
-		public Keyword getOnKeyword_8() { return cOnKeyword_8; }
+		public Keyword getOnKeyword_6() { return cOnKeyword_6; }
 		
 		//element=[Element]
-		public Assignment getElementAssignment_9() { return cElementAssignment_9; }
+		public Assignment getElementAssignment_7() { return cElementAssignment_7; }
 		
 		//[Element]
-		public CrossReference getElementElementCrossReference_9_0() { return cElementElementCrossReference_9_0; }
+		public CrossReference getElementElementCrossReference_7_0() { return cElementElementCrossReference_7_0; }
 		
 		//ID
-		public RuleCall getElementElementIDTerminalRuleCall_9_0_1() { return cElementElementIDTerminalRuleCall_9_0_1; }
+		public RuleCall getElementElementIDTerminalRuleCall_7_0_1() { return cElementElementIDTerminalRuleCall_7_0_1; }
 	}
 	public class FadeOutElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "polytech.spaceteam.cineditor.CinEditor.FadeOut");
@@ -547,22 +617,19 @@ public class CinEditorGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cNameEStringParserRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		private final Keyword cHyphenMinusGreaterThanSignKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Keyword cFadeOutKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Keyword cAtKeyword_4 = (Keyword)cGroup.eContents().get(4);
-		private final Assignment cBeginTimeAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final RuleCall cBeginTimeEIntParserRuleCall_5_0 = (RuleCall)cBeginTimeAssignment_5.eContents().get(0);
-		private final Keyword cDuringKeyword_6 = (Keyword)cGroup.eContents().get(6);
-		private final Assignment cDurationAssignment_7 = (Assignment)cGroup.eContents().get(7);
-		private final RuleCall cDurationEIntParserRuleCall_7_0 = (RuleCall)cDurationAssignment_7.eContents().get(0);
-		private final Keyword cOnKeyword_8 = (Keyword)cGroup.eContents().get(8);
-		private final Assignment cElementAssignment_9 = (Assignment)cGroup.eContents().get(9);
-		private final CrossReference cElementElementCrossReference_9_0 = (CrossReference)cElementAssignment_9.eContents().get(0);
-		private final RuleCall cElementElementIDTerminalRuleCall_9_0_1 = (RuleCall)cElementElementCrossReference_9_0.eContents().get(1);
+		private final Keyword cDuringKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Assignment cDurationAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cDurationEIntParserRuleCall_5_0 = (RuleCall)cDurationAssignment_5.eContents().get(0);
+		private final Keyword cOnKeyword_6 = (Keyword)cGroup.eContents().get(6);
+		private final Assignment cElementAssignment_7 = (Assignment)cGroup.eContents().get(7);
+		private final CrossReference cElementElementCrossReference_7_0 = (CrossReference)cElementAssignment_7.eContents().get(0);
+		private final RuleCall cElementElementIDTerminalRuleCall_7_0_1 = (RuleCall)cElementElementCrossReference_7_0.eContents().get(1);
 		
 		//FadeOut:
-		//	'Effect' name=EString '->' 'FadeOut' 'at' beginTime=EInt 'during' duration=EInt 'on' element=[Element];
+		//	'Effect' name=EString '->' 'FadeOut' 'during' duration=EInt 'on' element=[Element];
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'Effect' name=EString '->' 'FadeOut' 'at' beginTime=EInt 'during' duration=EInt 'on' element=[Element]
+		//'Effect' name=EString '->' 'FadeOut' 'during' duration=EInt 'on' element=[Element]
 		public Group getGroup() { return cGroup; }
 		
 		//'Effect'
@@ -580,35 +647,26 @@ public class CinEditorGrammarAccess extends AbstractGrammarElementFinder {
 		//'FadeOut'
 		public Keyword getFadeOutKeyword_3() { return cFadeOutKeyword_3; }
 		
-		//'at'
-		public Keyword getAtKeyword_4() { return cAtKeyword_4; }
-		
-		//beginTime=EInt
-		public Assignment getBeginTimeAssignment_5() { return cBeginTimeAssignment_5; }
-		
-		//EInt
-		public RuleCall getBeginTimeEIntParserRuleCall_5_0() { return cBeginTimeEIntParserRuleCall_5_0; }
-		
 		//'during'
-		public Keyword getDuringKeyword_6() { return cDuringKeyword_6; }
+		public Keyword getDuringKeyword_4() { return cDuringKeyword_4; }
 		
 		//duration=EInt
-		public Assignment getDurationAssignment_7() { return cDurationAssignment_7; }
+		public Assignment getDurationAssignment_5() { return cDurationAssignment_5; }
 		
 		//EInt
-		public RuleCall getDurationEIntParserRuleCall_7_0() { return cDurationEIntParserRuleCall_7_0; }
+		public RuleCall getDurationEIntParserRuleCall_5_0() { return cDurationEIntParserRuleCall_5_0; }
 		
 		//'on'
-		public Keyword getOnKeyword_8() { return cOnKeyword_8; }
+		public Keyword getOnKeyword_6() { return cOnKeyword_6; }
 		
 		//element=[Element]
-		public Assignment getElementAssignment_9() { return cElementAssignment_9; }
+		public Assignment getElementAssignment_7() { return cElementAssignment_7; }
 		
 		//[Element]
-		public CrossReference getElementElementCrossReference_9_0() { return cElementElementCrossReference_9_0; }
+		public CrossReference getElementElementCrossReference_7_0() { return cElementElementCrossReference_7_0; }
 		
 		//ID
-		public RuleCall getElementElementIDTerminalRuleCall_9_0_1() { return cElementElementIDTerminalRuleCall_9_0_1; }
+		public RuleCall getElementElementIDTerminalRuleCall_7_0_1() { return cElementElementIDTerminalRuleCall_7_0_1; }
 	}
 	public class TranslateElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "polytech.spaceteam.cineditor.CinEditor.Translate");
@@ -718,22 +776,26 @@ public class CinEditorGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cNameEStringParserRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		private final Keyword cHyphenMinusGreaterThanSignKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cHexadecimalValueAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cHexadecimalValueEStringParserRuleCall_3_0 = (RuleCall)cHexadecimalValueAssignment_3.eContents().get(0);
+		private final Assignment cColorAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cColorHexadecimalColorParserRuleCall_3_0 = (RuleCall)cColorAssignment_3.eContents().get(0);
 		private final Assignment cPositionAssignment_4 = (Assignment)cGroup.eContents().get(4);
 		private final RuleCall cPositionPositionParserRuleCall_4_0 = (RuleCall)cPositionAssignment_4.eContents().get(0);
-		private final Keyword cAtKeyword_5 = (Keyword)cGroup.eContents().get(5);
-		private final Assignment cBeginTimeAssignment_6 = (Assignment)cGroup.eContents().get(6);
-		private final RuleCall cBeginTimeEIntParserRuleCall_6_0 = (RuleCall)cBeginTimeAssignment_6.eContents().get(0);
-		private final Keyword cDuringKeyword_7 = (Keyword)cGroup.eContents().get(7);
-		private final Assignment cDurationAssignment_8 = (Assignment)cGroup.eContents().get(8);
-		private final RuleCall cDurationEIntParserRuleCall_8_0 = (RuleCall)cDurationAssignment_8.eContents().get(0);
+		private final Assignment cDimensionAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cDimensionDimensionParserRuleCall_5_0 = (RuleCall)cDimensionAssignment_5.eContents().get(0);
+		private final Keyword cAtKeyword_6 = (Keyword)cGroup.eContents().get(6);
+		private final Assignment cBeginTimeAssignment_7 = (Assignment)cGroup.eContents().get(7);
+		private final RuleCall cBeginTimeEIntParserRuleCall_7_0 = (RuleCall)cBeginTimeAssignment_7.eContents().get(0);
+		private final Keyword cDuringKeyword_8 = (Keyword)cGroup.eContents().get(8);
+		private final Assignment cDurationAssignment_9 = (Assignment)cGroup.eContents().get(9);
+		private final RuleCall cDurationEIntParserRuleCall_9_0 = (RuleCall)cDurationAssignment_9.eContents().get(0);
 		
 		//Rectangle:
-		//	'Rectangle' name=EString '->' hexadecimalValue=EString position=Position 'at' beginTime=EInt 'during' duration=EInt;
+		//	'Rectangle' name=EString '->' color=HexadecimalColor position=Position? dimension=Dimension? 'at' beginTime=EInt
+		//	'during' duration=EInt;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'Rectangle' name=EString '->' hexadecimalValue=EString position=Position 'at' beginTime=EInt 'during' duration=EInt
+		//'Rectangle' name=EString '->' color=HexadecimalColor position=Position? dimension=Dimension? 'at' beginTime=EInt
+		//'during' duration=EInt
 		public Group getGroup() { return cGroup; }
 		
 		//'Rectangle'
@@ -748,35 +810,41 @@ public class CinEditorGrammarAccess extends AbstractGrammarElementFinder {
 		//'->'
 		public Keyword getHyphenMinusGreaterThanSignKeyword_2() { return cHyphenMinusGreaterThanSignKeyword_2; }
 		
-		//hexadecimalValue=EString
-		public Assignment getHexadecimalValueAssignment_3() { return cHexadecimalValueAssignment_3; }
+		//color=HexadecimalColor
+		public Assignment getColorAssignment_3() { return cColorAssignment_3; }
 		
-		//EString
-		public RuleCall getHexadecimalValueEStringParserRuleCall_3_0() { return cHexadecimalValueEStringParserRuleCall_3_0; }
+		//HexadecimalColor
+		public RuleCall getColorHexadecimalColorParserRuleCall_3_0() { return cColorHexadecimalColorParserRuleCall_3_0; }
 		
-		//position=Position
+		//position=Position?
 		public Assignment getPositionAssignment_4() { return cPositionAssignment_4; }
 		
 		//Position
 		public RuleCall getPositionPositionParserRuleCall_4_0() { return cPositionPositionParserRuleCall_4_0; }
 		
+		//dimension=Dimension?
+		public Assignment getDimensionAssignment_5() { return cDimensionAssignment_5; }
+		
+		//Dimension
+		public RuleCall getDimensionDimensionParserRuleCall_5_0() { return cDimensionDimensionParserRuleCall_5_0; }
+		
 		//'at'
-		public Keyword getAtKeyword_5() { return cAtKeyword_5; }
+		public Keyword getAtKeyword_6() { return cAtKeyword_6; }
 		
 		//beginTime=EInt
-		public Assignment getBeginTimeAssignment_6() { return cBeginTimeAssignment_6; }
+		public Assignment getBeginTimeAssignment_7() { return cBeginTimeAssignment_7; }
 		
 		//EInt
-		public RuleCall getBeginTimeEIntParserRuleCall_6_0() { return cBeginTimeEIntParserRuleCall_6_0; }
+		public RuleCall getBeginTimeEIntParserRuleCall_7_0() { return cBeginTimeEIntParserRuleCall_7_0; }
 		
 		//'during'
-		public Keyword getDuringKeyword_7() { return cDuringKeyword_7; }
+		public Keyword getDuringKeyword_8() { return cDuringKeyword_8; }
 		
 		//duration=EInt
-		public Assignment getDurationAssignment_8() { return cDurationAssignment_8; }
+		public Assignment getDurationAssignment_9() { return cDurationAssignment_9; }
 		
 		//EInt
-		public RuleCall getDurationEIntParserRuleCall_8_0() { return cDurationEIntParserRuleCall_8_0; }
+		public RuleCall getDurationEIntParserRuleCall_9_0() { return cDurationEIntParserRuleCall_9_0; }
 	}
 	
 	
@@ -785,6 +853,8 @@ public class CinEditorGrammarAccess extends AbstractGrammarElementFinder {
 	private final LayerElements pLayer;
 	private final EStringElements pEString;
 	private final PositionElements pPosition;
+	private final DimensionElements pDimension;
+	private final HexadecimalColorElements pHexadecimalColor;
 	private final EIntElements pEInt;
 	private final TextElements pText;
 	private final PictureElements pPicture;
@@ -808,6 +878,8 @@ public class CinEditorGrammarAccess extends AbstractGrammarElementFinder {
 		this.pLayer = new LayerElements();
 		this.pEString = new EStringElements();
 		this.pPosition = new PositionElements();
+		this.pDimension = new DimensionElements();
+		this.pHexadecimalColor = new HexadecimalColorElements();
 		this.pEInt = new EIntElements();
 		this.pText = new TextElements();
 		this.pPicture = new PictureElements();
@@ -846,7 +918,7 @@ public class CinEditorGrammarAccess extends AbstractGrammarElementFinder {
 
 	
 	//Movie:
-	//	'Movie' name=EString position=Position
+	//	'Movie' name=EString dimension=Dimension
 	//	layers+=Layer+;
 	public MovieElements getMovieAccess() {
 		return pMovie;
@@ -889,13 +961,33 @@ public class CinEditorGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Position:
-	//	'position' width=EInt 'x' height=EInt ('(' x=EInt ',' y=EInt ')')?;
+	//	'position' ('(' x=EInt ',' y=EInt ')');
 	public PositionElements getPositionAccess() {
 		return pPosition;
 	}
 	
 	public ParserRule getPositionRule() {
 		return getPositionAccess().getRule();
+	}
+	
+	//Dimension:
+	//	'dimension' width=EInt 'x' height=EInt;
+	public DimensionElements getDimensionAccess() {
+		return pDimension;
+	}
+	
+	public ParserRule getDimensionRule() {
+		return getDimensionAccess().getRule();
+	}
+	
+	//HexadecimalColor:
+	//	'color' hexadecimalValue=EString;
+	public HexadecimalColorElements getHexadecimalColorAccess() {
+		return pHexadecimalColor;
+	}
+	
+	public ParserRule getHexadecimalColorRule() {
+		return getHexadecimalColorAccess().getRule();
 	}
 	
 	//EInt ecore::EInt:
@@ -909,7 +1001,8 @@ public class CinEditorGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Text:
-	//	'Text' name=EString '->' text=EString position=Position 'at' beginTime=EInt 'during' duration=EInt;
+	//	'Text' name=EString '->' text=EString ('fontSize' fontSize=EInt)? position=Position? 'at' beginTime=EInt 'during'
+	//	duration=EInt color=HexadecimalColor;
 	public TextElements getTextAccess() {
 		return pText;
 	}
@@ -919,7 +1012,8 @@ public class CinEditorGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Picture:
-	//	'Picture' name=EString '->' '"' url=EString '"' position=Position 'at' beginTime=EInt 'during' duration=EInt;
+	//	'Picture' name=EString '->' '"' url=EString '"' position=Position? dimension=Dimension? 'at' beginTime=EInt 'during'
+	//	duration=EInt;
 	public PictureElements getPictureAccess() {
 		return pPicture;
 	}
@@ -929,8 +1023,8 @@ public class CinEditorGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Video:
-	//	'Video' name=EString '->' '"' url=EString '"' 'from' beginCropTime=EInt position=Position 'at' beginTime=EInt
-	//	'during' duration=EInt;
+	//	'Video' name=EString '->' '"' url=EString '"' 'from' beginCropTime=EInt position=Position? dimension=Dimension? 'at'
+	//	beginTime=EInt 'during' duration=EInt;
 	public VideoElements getVideoAccess() {
 		return pVideo;
 	}
@@ -940,7 +1034,7 @@ public class CinEditorGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//FadeIn:
-	//	'Effect' name=EString '->' 'FadeIn' 'at' beginTime=EInt 'during' duration=EInt 'on' element=[Element];
+	//	'Effect' name=EString '->' 'FadeIn' 'during' duration=EInt 'on' element=[Element];
 	public FadeInElements getFadeInAccess() {
 		return pFadeIn;
 	}
@@ -950,7 +1044,7 @@ public class CinEditorGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//FadeOut:
-	//	'Effect' name=EString '->' 'FadeOut' 'at' beginTime=EInt 'during' duration=EInt 'on' element=[Element];
+	//	'Effect' name=EString '->' 'FadeOut' 'during' duration=EInt 'on' element=[Element];
 	public FadeOutElements getFadeOutAccess() {
 		return pFadeOut;
 	}
@@ -971,7 +1065,8 @@ public class CinEditorGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Rectangle:
-	//	'Rectangle' name=EString '->' hexadecimalValue=EString position=Position 'at' beginTime=EInt 'during' duration=EInt;
+	//	'Rectangle' name=EString '->' color=HexadecimalColor position=Position? dimension=Dimension? 'at' beginTime=EInt
+	//	'during' duration=EInt;
 	public RectangleElements getRectangleAccess() {
 		return pRectangle;
 	}

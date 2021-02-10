@@ -1,10 +1,8 @@
-Movie richard_a_la_campagne position 1920 x 1080
+Movie richard_a_la_campagne dimension 1920 x 1080
 	Layer
-		Rectangle rec1 -> '000000' position 1920 x 1080 at 0 during 10
-		Effect e1 -> FadeOut at 8 during 2 on rec1
-		Rectangle rec2 -> 'ffffff' position 1920 x 1080 at 10 during 10
-		Effect e2 -> FadeIn at 10 during 2 on rec2
+		Rectangle rec1 -> color '000000' dimension 1920 x 1080 at 0 during 10
+		Effect e1 -> FadeOut during 2 on rec1
+		Rectangle rec2 -> color 'ffffff' dimension 1920 x 1080 at 10 during 10
+		Effect e2 -> FadeIn during 2 on rec2
 	Layer
-		Text title -> 'C\'est notre film' position 500 x 100 (710, 780) at 0 during 20
-		
-		
+		Text title -> 'C\'est notre film' position (710, 780) at 0 during 20 color 'ffffff'

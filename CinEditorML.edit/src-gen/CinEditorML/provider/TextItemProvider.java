@@ -2,6 +2,7 @@
  */
 package CinEditorML.provider;
 
+import CinEditorML.CinEditorMLFactory;
 import CinEditorML.CinEditorMLPackage;
 import CinEditorML.Text;
 
@@ -11,6 +12,7 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
@@ -45,6 +47,7 @@ public class TextItemProvider extends ElementItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addTextPropertyDescriptor(object);
+			addFontSizePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -62,6 +65,51 @@ public class TextItemProvider extends ElementItemProvider {
 						getString("_UI_PropertyDescriptor_description", "_UI_Text_text_feature", "_UI_Text_type"),
 						CinEditorMLPackage.Literals.TEXT__TEXT, true, false, false,
 						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Font Size feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addFontSizePropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_Text_fontSize_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Text_fontSize_feature", "_UI_Text_type"),
+						CinEditorMLPackage.Literals.TEXT__FONT_SIZE, true, false, false,
+						ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
+	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
+	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
+		if (childrenFeatures == null) {
+			super.getChildrenFeatures(object);
+			childrenFeatures.add(CinEditorMLPackage.Literals.TEXT__COLOR);
+		}
+		return childrenFeatures;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected EStructuralFeature getChildFeature(Object object, Object child) {
+		// Check the type of the specified child object and return the proper feature to use for
+		// adding (see {@link AddCommand}) it as a child.
+
+		return super.getChildFeature(object, child);
 	}
 
 	/**
@@ -111,7 +159,11 @@ public class TextItemProvider extends ElementItemProvider {
 
 		switch (notification.getFeatureID(Text.class)) {
 		case CinEditorMLPackage.TEXT__TEXT:
+		case CinEditorMLPackage.TEXT__FONT_SIZE:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+			return;
+		case CinEditorMLPackage.TEXT__COLOR:
+			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 			return;
 		}
 		super.notifyChanged(notification);
@@ -127,6 +179,9 @@ public class TextItemProvider extends ElementItemProvider {
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+
+		newChildDescriptors.add(createChildParameter(CinEditorMLPackage.Literals.TEXT__COLOR,
+				CinEditorMLFactory.eINSTANCE.createHexadecimalColor()));
 	}
 
 }

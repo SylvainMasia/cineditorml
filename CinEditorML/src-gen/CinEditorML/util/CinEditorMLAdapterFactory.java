@@ -132,6 +132,16 @@ public class CinEditorMLAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
+		public Adapter caseDimension(Dimension object) {
+			return createDimensionAdapter();
+		}
+
+		@Override
+		public Adapter caseHexadecimalColor(HexadecimalColor object) {
+			return createHexadecimalColorAdapter();
+		}
+
+		@Override
 		public Adapter defaultCase(EObject object) {
 			return createEObjectAdapter();
 		}
@@ -329,6 +339,34 @@ public class CinEditorMLAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createRectangleAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link CinEditorML.Dimension <em>Dimension</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see CinEditorML.Dimension
+	 * @generated
+	 */
+	public Adapter createDimensionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link CinEditorML.HexadecimalColor <em>Hexadecimal Color</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see CinEditorML.HexadecimalColor
+	 * @generated
+	 */
+	public Adapter createHexadecimalColorAdapter() {
 		return null;
 	}
 
