@@ -18,7 +18,7 @@ package CinEditorML;
  * @model
  * @generated
  */
-public interface Picture extends Element {
+public interface Picture extends GraphicalElement {
 	/**
 	 * Returns the value of the '<em><b>Url</b></em>' attribute.
 	 * <!-- begin-user-doc -->

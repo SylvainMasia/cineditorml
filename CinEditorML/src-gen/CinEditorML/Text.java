@@ -20,7 +20,7 @@ package CinEditorML;
  * @model
  * @generated
  */
-public interface Text extends Element {
+public interface Text extends GraphicalElement {
 	/**
 	 * Returns the value of the '<em><b>Text</b></em>' attribute.
 	 * The default value is <code>"Sample text"</code>.

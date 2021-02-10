@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel"
+    modelDirectory="/CinEditorML/src-gen" creationIcons="false" editDirectory="/CinEditorML.edit/src-gen"
+    editorDirectory="/CinEditorML.editor/src-gen" modelPluginID="CinEditorML" modelName="CinEditorML"
+    rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" codeFormatting="true"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="8.0" copyrightFields="false"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>CinEditorML.ecore</foreignModel>
+  <testsDirectory xsi:nil="true"/>
+  <genPackages prefix="CinEditorML" disposableProviderFactory="true" ecorePackage="CinEditorML.ecore#/">
+    <genClasses ecoreClass="CinEditorML.ecore#//Movie">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CinEditorML.ecore#//Movie/layers"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CinEditorML.ecore#//Movie/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CinEditorML.ecore#//Movie/dimension"/>
+    </genClasses>
+    <genClasses ecoreClass="CinEditorML.ecore#//Layer">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CinEditorML.ecore#//Layer/elements"/>
+    </genClasses>
+    <genClasses ecoreClass="CinEditorML.ecore#//Text">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CinEditorML.ecore#//Text/text"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CinEditorML.ecore#//Text/fontSize"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CinEditorML.ecore#//Text/color"/>
+    </genClasses>
+    <genClasses ecoreClass="CinEditorML.ecore#//Picture">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CinEditorML.ecore#//Picture/url"/>
+    </genClasses>
+    <genClasses ecoreClass="CinEditorML.ecore#//Video">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CinEditorML.ecore#//Video/url"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CinEditorML.ecore#//Video/beginCropTime"/>
+    </genClasses>
+    <genClasses ecoreClass="CinEditorML.ecore#//Element">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CinEditorML.ecore#//Element/duration"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CinEditorML.ecore#//Element/beginTime"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CinEditorML.ecore#//Element/position"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CinEditorML.ecore#//Element/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CinEditorML.ecore#//Element/dimension"/>
+    </genClasses>
+    <genClasses ecoreClass="CinEditorML.ecore#//Effect">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference CinEditorML.ecore#//Effect/element"/>
+    </genClasses>
+    <genClasses ecoreClass="CinEditorML.ecore#//FadeIn"/>
+    <genClasses ecoreClass="CinEditorML.ecore#//FadeOut"/>
+    <genClasses ecoreClass="CinEditorML.ecore#//Translate">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CinEditorML.ecore#//Translate/positionToTranslate"/>
+    </genClasses>
+    <genClasses ecoreClass="CinEditorML.ecore#//Shape">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CinEditorML.ecore#//Shape/color"/>
+    </genClasses>
+    <genClasses ecoreClass="CinEditorML.ecore#//Position">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CinEditorML.ecore#//Position/x"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CinEditorML.ecore#//Position/y"/>
+    </genClasses>
+    <genClasses ecoreClass="CinEditorML.ecore#//Rectangle"/>
+    <genClasses ecoreClass="CinEditorML.ecore#//Dimension">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CinEditorML.ecore#//Dimension/width"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CinEditorML.ecore#//Dimension/height"/>
+    </genClasses>
+    <genClasses ecoreClass="CinEditorML.ecore#//HexadecimalColor">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CinEditorML.ecore#//HexadecimalColor/hexadecimalValue"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

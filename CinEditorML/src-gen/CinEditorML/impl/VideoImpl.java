@@ -23,7 +23,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class VideoImpl extends ElementImpl implements Video {
+public class VideoImpl extends GraphicalElementImpl implements Video {
 	/**
 	 * The default value of the '{@link #getUrl() <em>Url</em>}' attribute.
 	 * <!-- begin-user-doc -->

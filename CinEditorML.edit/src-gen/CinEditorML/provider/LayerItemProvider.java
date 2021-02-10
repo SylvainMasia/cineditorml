@@ -151,6 +151,9 @@ public class LayerItemProvider extends ItemProviderAdapter implements IEditingDo
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
 		newChildDescriptors.add(createChildParameter(CinEditorMLPackage.Literals.LAYER__ELEMENTS,
+				CinEditorMLFactory.eINSTANCE.createGraphicalElement()));
+
+		newChildDescriptors.add(createChildParameter(CinEditorMLPackage.Literals.LAYER__ELEMENTS,
 				CinEditorMLFactory.eINSTANCE.createText()));
 
 		newChildDescriptors.add(createChildParameter(CinEditorMLPackage.Literals.LAYER__ELEMENTS,

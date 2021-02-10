@@ -19,7 +19,7 @@ package CinEditorML;
  * @model
  * @generated
  */
-public interface Video extends Element {
+public interface Video extends GraphicalElement {
 
 	/**
 	 * Returns the value of the '<em><b>Url</b></em>' attribute.

@@ -2,6 +2,7 @@
  */
 package CinEditorML.provider;
 
+import CinEditorML.CinEditorMLFactory;
 import CinEditorML.CinEditorMLPackage;
 import CinEditorML.Translate;
 
@@ -11,9 +12,8 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
-import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
@@ -44,42 +44,38 @@ public class TranslateItemProvider extends EffectItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addPixelsToTranslateHorizontallyPropertyDescriptor(object);
-			addPixelsToTranslateVerticallyPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Pixels To Translate Horizontally feature.
+	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
+	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
+	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addPixelsToTranslateHorizontallyPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_Translate_pixelsToTranslateHorizontally_feature"),
-				getString("_UI_PropertyDescriptor_description", "_UI_Translate_pixelsToTranslateHorizontally_feature",
-						"_UI_Translate_type"),
-				CinEditorMLPackage.Literals.TRANSLATE__PIXELS_TO_TRANSLATE_HORIZONTALLY, true, false, false,
-				ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null));
+	@Override
+	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
+		if (childrenFeatures == null) {
+			super.getChildrenFeatures(object);
+			childrenFeatures.add(CinEditorMLPackage.Literals.TRANSLATE__POSITION_TO_TRANSLATE);
+		}
+		return childrenFeatures;
 	}
 
 	/**
-	 * This adds a property descriptor for the Pixels To Translate Vertically feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addPixelsToTranslateVerticallyPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-				getString("_UI_Translate_pixelsToTranslateVertically_feature"),
-				getString("_UI_PropertyDescriptor_description", "_UI_Translate_pixelsToTranslateVertically_feature",
-						"_UI_Translate_type"),
-				CinEditorMLPackage.Literals.TRANSLATE__PIXELS_TO_TRANSLATE_VERTICALLY, true, false, false,
-				ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null));
+	@Override
+	protected EStructuralFeature getChildFeature(Object object, Object child) {
+		// Check the type of the specified child object and return the proper feature to use for
+		// adding (see {@link AddCommand}) it as a child.
+
+		return super.getChildFeature(object, child);
 	}
 
 	/**
@@ -128,9 +124,8 @@ public class TranslateItemProvider extends EffectItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Translate.class)) {
-		case CinEditorMLPackage.TRANSLATE__PIXELS_TO_TRANSLATE_HORIZONTALLY:
-		case CinEditorMLPackage.TRANSLATE__PIXELS_TO_TRANSLATE_VERTICALLY:
-			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+		case CinEditorMLPackage.TRANSLATE__POSITION_TO_TRANSLATE:
+			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 			return;
 		}
 		super.notifyChanged(notification);
@@ -146,6 +141,9 @@ public class TranslateItemProvider extends EffectItemProvider {
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+
+		newChildDescriptors.add(createChildParameter(CinEditorMLPackage.Literals.TRANSLATE__POSITION_TO_TRANSLATE,
+				CinEditorMLFactory.eINSTANCE.createPosition()));
 	}
 
 }

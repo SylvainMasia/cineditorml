@@ -1,2 +1,21 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<qualifiedTypeNameHistroy/>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="org.eclipse.xtext.xbase.lib.Extension"/>
+<fullyQualifiedTypeName name="javax.inject.Inject"/>
+<fullyQualifiedTypeName name="org.eclipse.xtext.naming.IQualifiedNameProvider"/>
+<fullyQualifiedTypeName name="CinEditorML.Movie"/>
+<fullyQualifiedTypeName name="org.eclipse.xtext.xbase.lib.IteratorExtensions"/>
+<fullyQualifiedTypeName name="org.eclipse.emf.ecore.EObject"/>
+<fullyQualifiedTypeName name="org.eclipse.xtext.naming.QualifiedName"/>
+<fullyQualifiedTypeName name="com.google.common.collect.Iterables"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="CinEditorML.Layer"/>
+<fullyQualifiedTypeName name="CinEditorML.Picture"/>
+<fullyQualifiedTypeName name="CinEditorML.Video"/>
+<fullyQualifiedTypeName name="CinEditorML.Effect"/>
+<fullyQualifiedTypeName name="CinEditorML.Translate"/>
+<fullyQualifiedTypeName name="CinEditorML.FadeOut"/>
+<fullyQualifiedTypeName name="CinEditorML.FadeIn"/>
+<fullyQualifiedTypeName name="CinEditorML.GraphicalElement"/>
+</qualifiedTypeNameHistroy>

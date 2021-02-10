@@ -4,10 +4,8 @@ package CinEditorML.impl;
 
 import CinEditorML.CinEditorMLPackage;
 import CinEditorML.Effect;
-import CinEditorML.Element;
-
+import CinEditorML.GraphicalElement;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
@@ -35,7 +33,7 @@ public abstract class EffectImpl extends ElementImpl implements Effect {
 	 * @generated
 	 * @ordered
 	 */
-	protected Element element;
+	protected GraphicalElement element;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -61,10 +59,10 @@ public abstract class EffectImpl extends ElementImpl implements Effect {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Element getElement() {
+	public GraphicalElement getElement() {
 		if (element != null && element.eIsProxy()) {
 			InternalEObject oldElement = (InternalEObject) element;
-			element = (Element) eResolveProxy(oldElement);
+			element = (GraphicalElement) eResolveProxy(oldElement);
 			if (element != oldElement) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, CinEditorMLPackage.EFFECT__ELEMENT,
@@ -79,7 +77,7 @@ public abstract class EffectImpl extends ElementImpl implements Effect {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Element basicGetElement() {
+	public GraphicalElement basicGetElement() {
 		return element;
 	}
 
@@ -88,8 +86,8 @@ public abstract class EffectImpl extends ElementImpl implements Effect {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setElement(Element newElement) {
-		Element oldElement = element;
+	public void setElement(GraphicalElement newElement) {
+		GraphicalElement oldElement = element;
 		element = newElement;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, CinEditorMLPackage.EFFECT__ELEMENT, oldElement,
@@ -121,7 +119,7 @@ public abstract class EffectImpl extends ElementImpl implements Effect {
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 		case CinEditorMLPackage.EFFECT__ELEMENT:
-			setElement((Element) newValue);
+			setElement((GraphicalElement) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -136,7 +134,7 @@ public abstract class EffectImpl extends ElementImpl implements Effect {
 	public void eUnset(int featureID) {
 		switch (featureID) {
 		case CinEditorMLPackage.EFFECT__ELEMENT:
-			setElement((Element) null);
+			setElement((GraphicalElement) null);
 			return;
 		}
 		super.eUnset(featureID);

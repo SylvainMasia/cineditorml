@@ -111,7 +111,7 @@ public class CinEditorSemanticSequencer extends AbstractDelegatingSemanticSequen
 	 *     FadeIn returns FadeIn
 	 *
 	 * Constraint:
-	 *     (name=EString duration=EInt element=[Element|ID])
+	 *     (name=EString duration=EInt element=[GraphicalElement|ID])
 	 */
 	protected void sequence_FadeIn(ISerializationContext context, FadeIn semanticObject) {
 		if (errorAcceptor != null) {
@@ -125,7 +125,7 @@ public class CinEditorSemanticSequencer extends AbstractDelegatingSemanticSequen
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getFadeInAccess().getNameEStringParserRuleCall_1_0(), semanticObject.getName());
 		feeder.accept(grammarAccess.getFadeInAccess().getDurationEIntParserRuleCall_5_0(), semanticObject.getDuration());
-		feeder.accept(grammarAccess.getFadeInAccess().getElementElementIDTerminalRuleCall_7_0_1(), semanticObject.eGet(CinEditorMLPackage.Literals.EFFECT__ELEMENT, false));
+		feeder.accept(grammarAccess.getFadeInAccess().getElementGraphicalElementIDTerminalRuleCall_7_0_1(), semanticObject.eGet(CinEditorMLPackage.Literals.EFFECT__ELEMENT, false));
 		feeder.finish();
 	}
 	
@@ -136,7 +136,7 @@ public class CinEditorSemanticSequencer extends AbstractDelegatingSemanticSequen
 	 *     FadeOut returns FadeOut
 	 *
 	 * Constraint:
-	 *     (name=EString duration=EInt element=[Element|ID])
+	 *     (name=EString duration=EInt element=[GraphicalElement|ID])
 	 */
 	protected void sequence_FadeOut(ISerializationContext context, FadeOut semanticObject) {
 		if (errorAcceptor != null) {
@@ -150,7 +150,7 @@ public class CinEditorSemanticSequencer extends AbstractDelegatingSemanticSequen
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getFadeOutAccess().getNameEStringParserRuleCall_1_0(), semanticObject.getName());
 		feeder.accept(grammarAccess.getFadeOutAccess().getDurationEIntParserRuleCall_5_0(), semanticObject.getDuration());
-		feeder.accept(grammarAccess.getFadeOutAccess().getElementElementIDTerminalRuleCall_7_0_1(), semanticObject.eGet(CinEditorMLPackage.Literals.EFFECT__ELEMENT, false));
+		feeder.accept(grammarAccess.getFadeOutAccess().getElementGraphicalElementIDTerminalRuleCall_7_0_1(), semanticObject.eGet(CinEditorMLPackage.Literals.EFFECT__ELEMENT, false));
 		feeder.finish();
 	}
 	
@@ -200,6 +200,7 @@ public class CinEditorSemanticSequencer extends AbstractDelegatingSemanticSequen
 	/**
 	 * Contexts:
 	 *     Element returns Picture
+	 *     GraphicalElement returns Picture
 	 *     Picture returns Picture
 	 *
 	 * Constraint:
@@ -209,7 +210,7 @@ public class CinEditorSemanticSequencer extends AbstractDelegatingSemanticSequen
 	 *         position=Position? 
 	 *         dimension=Dimension? 
 	 *         beginTime=EInt 
-	 *         duration=EInt
+	 *         duration=EInt?
 	 *     )
 	 */
 	protected void sequence_Picture(ISerializationContext context, Picture semanticObject) {
@@ -241,6 +242,7 @@ public class CinEditorSemanticSequencer extends AbstractDelegatingSemanticSequen
 	/**
 	 * Contexts:
 	 *     Element returns Rectangle
+	 *     GraphicalElement returns Rectangle
 	 *     Rectangle returns Rectangle
 	 *
 	 * Constraint:
@@ -250,7 +252,7 @@ public class CinEditorSemanticSequencer extends AbstractDelegatingSemanticSequen
 	 *         position=Position? 
 	 *         dimension=Dimension? 
 	 *         beginTime=EInt 
-	 *         duration=EInt
+	 *         duration=EInt?
 	 *     )
 	 */
 	protected void sequence_Rectangle(ISerializationContext context, Rectangle semanticObject) {
@@ -261,6 +263,7 @@ public class CinEditorSemanticSequencer extends AbstractDelegatingSemanticSequen
 	/**
 	 * Contexts:
 	 *     Element returns Text
+	 *     GraphicalElement returns Text
 	 *     Text returns Text
 	 *
 	 * Constraint:
@@ -270,7 +273,7 @@ public class CinEditorSemanticSequencer extends AbstractDelegatingSemanticSequen
 	 *         fontSize=EInt? 
 	 *         position=Position? 
 	 *         beginTime=EInt 
-	 *         duration=EInt 
+	 *         duration=EInt? 
 	 *         color=HexadecimalColor
 	 *     )
 	 */
@@ -285,23 +288,14 @@ public class CinEditorSemanticSequencer extends AbstractDelegatingSemanticSequen
 	 *     Translate returns Translate
 	 *
 	 * Constraint:
-	 *     (
-	 *         name=EString 
-	 *         pixelsToTranslateHorizontally=EInt 
-	 *         pixelsToTranslateVertically=EInt 
-	 *         beginTime=EInt 
-	 *         duration=EInt 
-	 *         element=[Element|ID]
-	 *     )
+	 *     (name=EString positionToTranslate=Position beginTime=EInt duration=EInt element=[GraphicalElement|ID])
 	 */
 	protected void sequence_Translate(ISerializationContext context, Translate semanticObject) {
 		if (errorAcceptor != null) {
 			if (transientValues.isValueTransient(semanticObject, CinEditorMLPackage.Literals.ELEMENT__NAME) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CinEditorMLPackage.Literals.ELEMENT__NAME));
-			if (transientValues.isValueTransient(semanticObject, CinEditorMLPackage.Literals.TRANSLATE__PIXELS_TO_TRANSLATE_HORIZONTALLY) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CinEditorMLPackage.Literals.TRANSLATE__PIXELS_TO_TRANSLATE_HORIZONTALLY));
-			if (transientValues.isValueTransient(semanticObject, CinEditorMLPackage.Literals.TRANSLATE__PIXELS_TO_TRANSLATE_VERTICALLY) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CinEditorMLPackage.Literals.TRANSLATE__PIXELS_TO_TRANSLATE_VERTICALLY));
+			if (transientValues.isValueTransient(semanticObject, CinEditorMLPackage.Literals.TRANSLATE__POSITION_TO_TRANSLATE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CinEditorMLPackage.Literals.TRANSLATE__POSITION_TO_TRANSLATE));
 			if (transientValues.isValueTransient(semanticObject, CinEditorMLPackage.Literals.ELEMENT__BEGIN_TIME) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CinEditorMLPackage.Literals.ELEMENT__BEGIN_TIME));
 			if (transientValues.isValueTransient(semanticObject, CinEditorMLPackage.Literals.ELEMENT__DURATION) == ValueTransient.YES)
@@ -311,11 +305,10 @@ public class CinEditorSemanticSequencer extends AbstractDelegatingSemanticSequen
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getTranslateAccess().getNameEStringParserRuleCall_1_0(), semanticObject.getName());
-		feeder.accept(grammarAccess.getTranslateAccess().getPixelsToTranslateHorizontallyEIntParserRuleCall_5_0(), semanticObject.getPixelsToTranslateHorizontally());
-		feeder.accept(grammarAccess.getTranslateAccess().getPixelsToTranslateVerticallyEIntParserRuleCall_7_0(), semanticObject.getPixelsToTranslateVertically());
-		feeder.accept(grammarAccess.getTranslateAccess().getBeginTimeEIntParserRuleCall_10_0(), semanticObject.getBeginTime());
-		feeder.accept(grammarAccess.getTranslateAccess().getDurationEIntParserRuleCall_12_0(), semanticObject.getDuration());
-		feeder.accept(grammarAccess.getTranslateAccess().getElementElementIDTerminalRuleCall_14_0_1(), semanticObject.eGet(CinEditorMLPackage.Literals.EFFECT__ELEMENT, false));
+		feeder.accept(grammarAccess.getTranslateAccess().getPositionToTranslatePositionParserRuleCall_4_0(), semanticObject.getPositionToTranslate());
+		feeder.accept(grammarAccess.getTranslateAccess().getBeginTimeEIntParserRuleCall_6_0(), semanticObject.getBeginTime());
+		feeder.accept(grammarAccess.getTranslateAccess().getDurationEIntParserRuleCall_8_0(), semanticObject.getDuration());
+		feeder.accept(grammarAccess.getTranslateAccess().getElementGraphicalElementIDTerminalRuleCall_10_0_1(), semanticObject.eGet(CinEditorMLPackage.Literals.EFFECT__ELEMENT, false));
 		feeder.finish();
 	}
 	
@@ -323,6 +316,7 @@ public class CinEditorSemanticSequencer extends AbstractDelegatingSemanticSequen
 	/**
 	 * Contexts:
 	 *     Element returns Video
+	 *     GraphicalElement returns Video
 	 *     Video returns Video
 	 *
 	 * Constraint:
@@ -333,7 +327,7 @@ public class CinEditorSemanticSequencer extends AbstractDelegatingSemanticSequen
 	 *         position=Position? 
 	 *         dimension=Dimension? 
 	 *         beginTime=EInt 
-	 *         duration=EInt
+	 *         duration=EInt?
 	 *     )
 	 */
 	protected void sequence_Video(ISerializationContext context, Video semanticObject) {

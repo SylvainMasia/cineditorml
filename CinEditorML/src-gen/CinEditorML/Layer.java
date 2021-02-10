@@ -34,7 +34,7 @@ public interface Layer extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Elements</em>' containment reference list.
 	 * @see CinEditorML.CinEditorMLPackage#getLayer_Elements()
-	 * @model containment="true"
+	 * @model containment="true" required="true"
 	 * @generated
 	 */
 	EList<Element> getElements();

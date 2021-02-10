@@ -15,3 +15,8 @@ also known as "Spaceteam"
 - CinEditorML : contient la syntaxe abstraite (.ecore)
 - polytech.spaceteam.cineditor : contient la syntaxe concrete (.xtext)
 - extension des fichiers : .space
+
+# Installation
+- Install [ImageMagick](https://download.imagemagick.org/ImageMagick/download/python/)
+  - go to installation folder an type in cmd `./configure`
+  - add install folder to path ex : "C:\dev\courses\cineditorml\PythonMagick-0.9.19"

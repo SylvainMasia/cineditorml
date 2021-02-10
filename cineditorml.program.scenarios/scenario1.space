@@ -6,3 +6,4 @@ Movie richard_a_la_campagne dimension 1920 x 1080
 		Effect e2 -> FadeIn during 2 on rec2
 	Layer
 		Text title -> 'C\'est notre film' position (710, 780) at 0 during 20 color 'ffffff'
+		Text bonjour -> 'Bonjour' position (-1, 20) at 0 color 'e3e3e3'

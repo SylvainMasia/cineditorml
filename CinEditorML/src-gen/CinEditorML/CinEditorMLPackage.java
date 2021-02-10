@@ -177,31 +177,13 @@ public interface CinEditorMLPackage extends EPackage {
 	int ELEMENT__BEGIN_TIME = 1;
 
 	/**
-	 * The feature id for the '<em><b>Position</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ELEMENT__POSITION = 2;
-
-	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT__NAME = 3;
-
-	/**
-	 * The feature id for the '<em><b>Dimension</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ELEMENT__DIMENSION = 4;
+	int ELEMENT__NAME = 2;
 
 	/**
 	 * The number of structural features of the '<em>Element</em>' class.
@@ -210,7 +192,7 @@ public interface CinEditorMLPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_FEATURE_COUNT = 5;
+	int ELEMENT_FEATURE_COUNT = 3;
 
 	/**
 	 * The number of operations of the '<em>Element</em>' class.
@@ -220,6 +202,79 @@ public interface CinEditorMLPackage extends EPackage {
 	 * @ordered
 	 */
 	int ELEMENT_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link CinEditorML.impl.GraphicalElementImpl <em>Graphical Element</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see CinEditorML.impl.GraphicalElementImpl
+	 * @see CinEditorML.impl.CinEditorMLPackageImpl#getGraphicalElement()
+	 * @generated
+	 */
+	int GRAPHICAL_ELEMENT = 15;
+
+	/**
+	 * The feature id for the '<em><b>Duration</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GRAPHICAL_ELEMENT__DURATION = ELEMENT__DURATION;
+
+	/**
+	 * The feature id for the '<em><b>Begin Time</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GRAPHICAL_ELEMENT__BEGIN_TIME = ELEMENT__BEGIN_TIME;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GRAPHICAL_ELEMENT__NAME = ELEMENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Position</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GRAPHICAL_ELEMENT__POSITION = ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Dimension</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GRAPHICAL_ELEMENT__DIMENSION = ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Graphical Element</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GRAPHICAL_ELEMENT_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of operations of the '<em>Graphical Element</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GRAPHICAL_ELEMENT_OPERATION_COUNT = ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link CinEditorML.impl.TextImpl <em>Text</em>}' class.
@@ -238,7 +293,7 @@ public interface CinEditorMLPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT__DURATION = ELEMENT__DURATION;
+	int TEXT__DURATION = GRAPHICAL_ELEMENT__DURATION;
 
 	/**
 	 * The feature id for the '<em><b>Begin Time</b></em>' attribute.
@@ -247,16 +302,7 @@ public interface CinEditorMLPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT__BEGIN_TIME = ELEMENT__BEGIN_TIME;
-
-	/**
-	 * The feature id for the '<em><b>Position</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TEXT__POSITION = ELEMENT__POSITION;
+	int TEXT__BEGIN_TIME = GRAPHICAL_ELEMENT__BEGIN_TIME;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -265,7 +311,16 @@ public interface CinEditorMLPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT__NAME = ELEMENT__NAME;
+	int TEXT__NAME = GRAPHICAL_ELEMENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Position</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT__POSITION = GRAPHICAL_ELEMENT__POSITION;
 
 	/**
 	 * The feature id for the '<em><b>Dimension</b></em>' containment reference.
@@ -274,7 +329,7 @@ public interface CinEditorMLPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT__DIMENSION = ELEMENT__DIMENSION;
+	int TEXT__DIMENSION = GRAPHICAL_ELEMENT__DIMENSION;
 
 	/**
 	 * The feature id for the '<em><b>Text</b></em>' attribute.
@@ -283,7 +338,7 @@ public interface CinEditorMLPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT__TEXT = ELEMENT_FEATURE_COUNT + 0;
+	int TEXT__TEXT = GRAPHICAL_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Font Size</b></em>' attribute.
@@ -292,7 +347,7 @@ public interface CinEditorMLPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT__FONT_SIZE = ELEMENT_FEATURE_COUNT + 1;
+	int TEXT__FONT_SIZE = GRAPHICAL_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Color</b></em>' containment reference.
@@ -301,7 +356,7 @@ public interface CinEditorMLPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT__COLOR = ELEMENT_FEATURE_COUNT + 2;
+	int TEXT__COLOR = GRAPHICAL_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Text</em>' class.
@@ -310,7 +365,7 @@ public interface CinEditorMLPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 3;
+	int TEXT_FEATURE_COUNT = GRAPHICAL_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>Text</em>' class.
@@ -319,7 +374,7 @@ public interface CinEditorMLPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_OPERATION_COUNT = ELEMENT_OPERATION_COUNT + 0;
+	int TEXT_OPERATION_COUNT = GRAPHICAL_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link CinEditorML.impl.PictureImpl <em>Picture</em>}' class.
@@ -338,7 +393,7 @@ public interface CinEditorMLPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PICTURE__DURATION = ELEMENT__DURATION;
+	int PICTURE__DURATION = GRAPHICAL_ELEMENT__DURATION;
 
 	/**
 	 * The feature id for the '<em><b>Begin Time</b></em>' attribute.
@@ -347,16 +402,7 @@ public interface CinEditorMLPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PICTURE__BEGIN_TIME = ELEMENT__BEGIN_TIME;
-
-	/**
-	 * The feature id for the '<em><b>Position</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PICTURE__POSITION = ELEMENT__POSITION;
+	int PICTURE__BEGIN_TIME = GRAPHICAL_ELEMENT__BEGIN_TIME;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -365,7 +411,16 @@ public interface CinEditorMLPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PICTURE__NAME = ELEMENT__NAME;
+	int PICTURE__NAME = GRAPHICAL_ELEMENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Position</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PICTURE__POSITION = GRAPHICAL_ELEMENT__POSITION;
 
 	/**
 	 * The feature id for the '<em><b>Dimension</b></em>' containment reference.
@@ -374,7 +429,7 @@ public interface CinEditorMLPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PICTURE__DIMENSION = ELEMENT__DIMENSION;
+	int PICTURE__DIMENSION = GRAPHICAL_ELEMENT__DIMENSION;
 
 	/**
 	 * The feature id for the '<em><b>Url</b></em>' attribute.
@@ -383,7 +438,7 @@ public interface CinEditorMLPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PICTURE__URL = ELEMENT_FEATURE_COUNT + 0;
+	int PICTURE__URL = GRAPHICAL_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Picture</em>' class.
@@ -392,7 +447,7 @@ public interface CinEditorMLPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PICTURE_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 1;
+	int PICTURE_FEATURE_COUNT = GRAPHICAL_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Picture</em>' class.
@@ -401,7 +456,7 @@ public interface CinEditorMLPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PICTURE_OPERATION_COUNT = ELEMENT_OPERATION_COUNT + 0;
+	int PICTURE_OPERATION_COUNT = GRAPHICAL_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link CinEditorML.impl.VideoImpl <em>Video</em>}' class.
@@ -420,7 +475,7 @@ public interface CinEditorMLPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VIDEO__DURATION = ELEMENT__DURATION;
+	int VIDEO__DURATION = GRAPHICAL_ELEMENT__DURATION;
 
 	/**
 	 * The feature id for the '<em><b>Begin Time</b></em>' attribute.
@@ -429,16 +484,7 @@ public interface CinEditorMLPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VIDEO__BEGIN_TIME = ELEMENT__BEGIN_TIME;
-
-	/**
-	 * The feature id for the '<em><b>Position</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VIDEO__POSITION = ELEMENT__POSITION;
+	int VIDEO__BEGIN_TIME = GRAPHICAL_ELEMENT__BEGIN_TIME;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -447,7 +493,16 @@ public interface CinEditorMLPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VIDEO__NAME = ELEMENT__NAME;
+	int VIDEO__NAME = GRAPHICAL_ELEMENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Position</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIDEO__POSITION = GRAPHICAL_ELEMENT__POSITION;
 
 	/**
 	 * The feature id for the '<em><b>Dimension</b></em>' containment reference.
@@ -456,7 +511,7 @@ public interface CinEditorMLPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VIDEO__DIMENSION = ELEMENT__DIMENSION;
+	int VIDEO__DIMENSION = GRAPHICAL_ELEMENT__DIMENSION;
 
 	/**
 	 * The feature id for the '<em><b>Url</b></em>' attribute.
@@ -465,7 +520,7 @@ public interface CinEditorMLPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VIDEO__URL = ELEMENT_FEATURE_COUNT + 0;
+	int VIDEO__URL = GRAPHICAL_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Begin Crop Time</b></em>' attribute.
@@ -474,7 +529,7 @@ public interface CinEditorMLPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VIDEO__BEGIN_CROP_TIME = ELEMENT_FEATURE_COUNT + 1;
+	int VIDEO__BEGIN_CROP_TIME = GRAPHICAL_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Video</em>' class.
@@ -483,7 +538,7 @@ public interface CinEditorMLPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VIDEO_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 2;
+	int VIDEO_FEATURE_COUNT = GRAPHICAL_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Video</em>' class.
@@ -492,7 +547,7 @@ public interface CinEditorMLPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VIDEO_OPERATION_COUNT = ELEMENT_OPERATION_COUNT + 0;
+	int VIDEO_OPERATION_COUNT = GRAPHICAL_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link CinEditorML.impl.EffectImpl <em>Effect</em>}' class.
@@ -523,15 +578,6 @@ public interface CinEditorMLPackage extends EPackage {
 	int EFFECT__BEGIN_TIME = ELEMENT__BEGIN_TIME;
 
 	/**
-	 * The feature id for the '<em><b>Position</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EFFECT__POSITION = ELEMENT__POSITION;
-
-	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -539,15 +585,6 @@ public interface CinEditorMLPackage extends EPackage {
 	 * @ordered
 	 */
 	int EFFECT__NAME = ELEMENT__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Dimension</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EFFECT__DIMENSION = ELEMENT__DIMENSION;
 
 	/**
 	 * The feature id for the '<em><b>Element</b></em>' reference.
@@ -605,15 +642,6 @@ public interface CinEditorMLPackage extends EPackage {
 	int FADE_IN__BEGIN_TIME = EFFECT__BEGIN_TIME;
 
 	/**
-	 * The feature id for the '<em><b>Position</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FADE_IN__POSITION = EFFECT__POSITION;
-
-	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -621,15 +649,6 @@ public interface CinEditorMLPackage extends EPackage {
 	 * @ordered
 	 */
 	int FADE_IN__NAME = EFFECT__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Dimension</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FADE_IN__DIMENSION = EFFECT__DIMENSION;
 
 	/**
 	 * The feature id for the '<em><b>Element</b></em>' reference.
@@ -687,15 +706,6 @@ public interface CinEditorMLPackage extends EPackage {
 	int FADE_OUT__BEGIN_TIME = EFFECT__BEGIN_TIME;
 
 	/**
-	 * The feature id for the '<em><b>Position</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FADE_OUT__POSITION = EFFECT__POSITION;
-
-	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -703,15 +713,6 @@ public interface CinEditorMLPackage extends EPackage {
 	 * @ordered
 	 */
 	int FADE_OUT__NAME = EFFECT__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Dimension</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FADE_OUT__DIMENSION = EFFECT__DIMENSION;
 
 	/**
 	 * The feature id for the '<em><b>Element</b></em>' reference.
@@ -769,15 +770,6 @@ public interface CinEditorMLPackage extends EPackage {
 	int TRANSLATE__BEGIN_TIME = EFFECT__BEGIN_TIME;
 
 	/**
-	 * The feature id for the '<em><b>Position</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRANSLATE__POSITION = EFFECT__POSITION;
-
-	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -785,15 +777,6 @@ public interface CinEditorMLPackage extends EPackage {
 	 * @ordered
 	 */
 	int TRANSLATE__NAME = EFFECT__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Dimension</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRANSLATE__DIMENSION = EFFECT__DIMENSION;
 
 	/**
 	 * The feature id for the '<em><b>Element</b></em>' reference.
@@ -805,22 +788,13 @@ public interface CinEditorMLPackage extends EPackage {
 	int TRANSLATE__ELEMENT = EFFECT__ELEMENT;
 
 	/**
-	 * The feature id for the '<em><b>Pixels To Translate Horizontally</b></em>' attribute.
+	 * The feature id for the '<em><b>Position To Translate</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TRANSLATE__PIXELS_TO_TRANSLATE_HORIZONTALLY = EFFECT_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Pixels To Translate Vertically</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRANSLATE__PIXELS_TO_TRANSLATE_VERTICALLY = EFFECT_FEATURE_COUNT + 1;
+	int TRANSLATE__POSITION_TO_TRANSLATE = EFFECT_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Translate</em>' class.
@@ -829,7 +803,7 @@ public interface CinEditorMLPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TRANSLATE_FEATURE_COUNT = EFFECT_FEATURE_COUNT + 2;
+	int TRANSLATE_FEATURE_COUNT = EFFECT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Translate</em>' class.
@@ -857,7 +831,7 @@ public interface CinEditorMLPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SHAPE__DURATION = ELEMENT__DURATION;
+	int SHAPE__DURATION = GRAPHICAL_ELEMENT__DURATION;
 
 	/**
 	 * The feature id for the '<em><b>Begin Time</b></em>' attribute.
@@ -866,16 +840,7 @@ public interface CinEditorMLPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SHAPE__BEGIN_TIME = ELEMENT__BEGIN_TIME;
-
-	/**
-	 * The feature id for the '<em><b>Position</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SHAPE__POSITION = ELEMENT__POSITION;
+	int SHAPE__BEGIN_TIME = GRAPHICAL_ELEMENT__BEGIN_TIME;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -884,7 +849,16 @@ public interface CinEditorMLPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SHAPE__NAME = ELEMENT__NAME;
+	int SHAPE__NAME = GRAPHICAL_ELEMENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Position</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SHAPE__POSITION = GRAPHICAL_ELEMENT__POSITION;
 
 	/**
 	 * The feature id for the '<em><b>Dimension</b></em>' containment reference.
@@ -893,7 +867,7 @@ public interface CinEditorMLPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SHAPE__DIMENSION = ELEMENT__DIMENSION;
+	int SHAPE__DIMENSION = GRAPHICAL_ELEMENT__DIMENSION;
 
 	/**
 	 * The feature id for the '<em><b>Color</b></em>' containment reference.
@@ -902,7 +876,7 @@ public interface CinEditorMLPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SHAPE__COLOR = ELEMENT_FEATURE_COUNT + 0;
+	int SHAPE__COLOR = GRAPHICAL_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Shape</em>' class.
@@ -911,7 +885,7 @@ public interface CinEditorMLPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SHAPE_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 1;
+	int SHAPE_FEATURE_COUNT = GRAPHICAL_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Shape</em>' class.
@@ -920,7 +894,7 @@ public interface CinEditorMLPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SHAPE_OPERATION_COUNT = ELEMENT_OPERATION_COUNT + 0;
+	int SHAPE_OPERATION_COUNT = GRAPHICAL_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link CinEditorML.impl.PositionImpl <em>Position</em>}' class.
@@ -997,15 +971,6 @@ public interface CinEditorMLPackage extends EPackage {
 	int RECTANGLE__BEGIN_TIME = SHAPE__BEGIN_TIME;
 
 	/**
-	 * The feature id for the '<em><b>Position</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RECTANGLE__POSITION = SHAPE__POSITION;
-
-	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1013,6 +978,15 @@ public interface CinEditorMLPackage extends EPackage {
 	 * @ordered
 	 */
 	int RECTANGLE__NAME = SHAPE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Position</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RECTANGLE__POSITION = SHAPE__POSITION;
 
 	/**
 	 * The feature id for the '<em><b>Dimension</b></em>' containment reference.
@@ -1326,17 +1300,6 @@ public interface CinEditorMLPackage extends EPackage {
 	EAttribute getElement_BeginTime();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link CinEditorML.Element#getPosition <em>Position</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Position</em>'.
-	 * @see CinEditorML.Element#getPosition()
-	 * @see #getElement()
-	 * @generated
-	 */
-	EReference getElement_Position();
-
-	/**
 	 * Returns the meta object for the attribute '{@link CinEditorML.Element#getName <em>Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1346,17 +1309,6 @@ public interface CinEditorMLPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getElement_Name();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link CinEditorML.Element#getDimension <em>Dimension</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Dimension</em>'.
-	 * @see CinEditorML.Element#getDimension()
-	 * @see #getElement()
-	 * @generated
-	 */
-	EReference getElement_Dimension();
 
 	/**
 	 * Returns the meta object for class '{@link CinEditorML.Effect <em>Effect</em>}'.
@@ -1410,26 +1362,15 @@ public interface CinEditorMLPackage extends EPackage {
 	EClass getTranslate();
 
 	/**
-	 * Returns the meta object for the attribute '{@link CinEditorML.Translate#getPixelsToTranslateHorizontally <em>Pixels To Translate Horizontally</em>}'.
+	 * Returns the meta object for the containment reference '{@link CinEditorML.Translate#getPositionToTranslate <em>Position To Translate</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Pixels To Translate Horizontally</em>'.
-	 * @see CinEditorML.Translate#getPixelsToTranslateHorizontally()
+	 * @return the meta object for the containment reference '<em>Position To Translate</em>'.
+	 * @see CinEditorML.Translate#getPositionToTranslate()
 	 * @see #getTranslate()
 	 * @generated
 	 */
-	EAttribute getTranslate_PixelsToTranslateHorizontally();
-
-	/**
-	 * Returns the meta object for the attribute '{@link CinEditorML.Translate#getPixelsToTranslateVertically <em>Pixels To Translate Vertically</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Pixels To Translate Vertically</em>'.
-	 * @see CinEditorML.Translate#getPixelsToTranslateVertically()
-	 * @see #getTranslate()
-	 * @generated
-	 */
-	EAttribute getTranslate_PixelsToTranslateVertically();
+	EReference getTranslate_PositionToTranslate();
 
 	/**
 	 * Returns the meta object for class '{@link CinEditorML.Shape <em>Shape</em>}'.
@@ -1546,6 +1487,38 @@ public interface CinEditorMLPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getHexadecimalColor_HexadecimalValue();
+
+	/**
+	 * Returns the meta object for class '{@link CinEditorML.GraphicalElement <em>Graphical Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Graphical Element</em>'.
+	 * @see CinEditorML.GraphicalElement
+	 * @generated
+	 */
+	EClass getGraphicalElement();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link CinEditorML.GraphicalElement#getPosition <em>Position</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Position</em>'.
+	 * @see CinEditorML.GraphicalElement#getPosition()
+	 * @see #getGraphicalElement()
+	 * @generated
+	 */
+	EReference getGraphicalElement_Position();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link CinEditorML.GraphicalElement#getDimension <em>Dimension</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Dimension</em>'.
+	 * @see CinEditorML.GraphicalElement#getDimension()
+	 * @see #getGraphicalElement()
+	 * @generated
+	 */
+	EReference getGraphicalElement_Dimension();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -1727,28 +1700,12 @@ public interface CinEditorMLPackage extends EPackage {
 		EAttribute ELEMENT__BEGIN_TIME = eINSTANCE.getElement_BeginTime();
 
 		/**
-		 * The meta object literal for the '<em><b>Position</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ELEMENT__POSITION = eINSTANCE.getElement_Position();
-
-		/**
 		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EAttribute ELEMENT__NAME = eINSTANCE.getElement_Name();
-
-		/**
-		 * The meta object literal for the '<em><b>Dimension</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ELEMENT__DIMENSION = eINSTANCE.getElement_Dimension();
 
 		/**
 		 * The meta object literal for the '{@link CinEditorML.impl.EffectImpl <em>Effect</em>}' class.
@@ -1799,20 +1756,12 @@ public interface CinEditorMLPackage extends EPackage {
 		EClass TRANSLATE = eINSTANCE.getTranslate();
 
 		/**
-		 * The meta object literal for the '<em><b>Pixels To Translate Horizontally</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Position To Translate</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute TRANSLATE__PIXELS_TO_TRANSLATE_HORIZONTALLY = eINSTANCE.getTranslate_PixelsToTranslateHorizontally();
-
-		/**
-		 * The meta object literal for the '<em><b>Pixels To Translate Vertically</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute TRANSLATE__PIXELS_TO_TRANSLATE_VERTICALLY = eINSTANCE.getTranslate_PixelsToTranslateVertically();
+		EReference TRANSLATE__POSITION_TO_TRANSLATE = eINSTANCE.getTranslate_PositionToTranslate();
 
 		/**
 		 * The meta object literal for the '{@link CinEditorML.impl.ShapeImpl <em>Shape</em>}' class.
@@ -1911,6 +1860,32 @@ public interface CinEditorMLPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute HEXADECIMAL_COLOR__HEXADECIMAL_VALUE = eINSTANCE.getHexadecimalColor_HexadecimalValue();
+
+		/**
+		 * The meta object literal for the '{@link CinEditorML.impl.GraphicalElementImpl <em>Graphical Element</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see CinEditorML.impl.GraphicalElementImpl
+		 * @see CinEditorML.impl.CinEditorMLPackageImpl#getGraphicalElement()
+		 * @generated
+		 */
+		EClass GRAPHICAL_ELEMENT = eINSTANCE.getGraphicalElement();
+
+		/**
+		 * The meta object literal for the '<em><b>Position</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference GRAPHICAL_ELEMENT__POSITION = eINSTANCE.getGraphicalElement_Position();
+
+		/**
+		 * The meta object literal for the '<em><b>Dimension</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference GRAPHICAL_ELEMENT__DIMENSION = eINSTANCE.getGraphicalElement_Dimension();
 
 	}
 

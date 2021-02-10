@@ -6,9 +6,10 @@ package polytech.spaceteam.cineditor.validation
 import org.eclipse.xtext.validation.Check
 import CinEditorML.CinEditorMLPackage
 import java.util.regex.Pattern
-import CinEditorML.Element
 import CinEditorML.HexadecimalColor
 import CinEditorML.Dimension
+import CinEditorML.Movie
+import java.util.HashSet
 
 /**
  * This class contains custom validation rules. 
@@ -22,6 +23,25 @@ class CinEditorValidator extends AbstractCinEditorValidator {
 	public static val INVALID_DURATION = 'invalidDuration'
 
 	@Check
+	def checkElementNames(Movie movie) {
+		val names = new HashSet<String>();
+		for (var i = 0; i < movie.layers.size; i++) {
+			val layer = movie.layers.get(i);
+			for (var j = 0; j < layer.elements.size; j++) {
+				val element = layer.elements.get(j);
+				if (!names.contains(element.name)) {
+					names.add(element.name);
+				} else {
+					error('Element name "' + element.name + '" must be unique', 
+					CinEditorMLPackage.Literals.MOVIE__LAYERS,
+					i,
+					INVALID_POSITION)
+				}
+			}
+		}
+	}
+
+	@Check
 	def checkDimension(Dimension element) {
 		if (element.width < 0) {
 			error('Movie width must be > 0', 
@@ -33,15 +53,6 @@ class CinEditorValidator extends AbstractCinEditorValidator {
 					CinEditorMLPackage.Literals.MOVIE__DIMENSION,
 					INVALID_POSITION)
 		}
-	}
-	
-	@Check
-	def checkElementDuration(Element element) {
- 		if (element.duration < 0) {
- 			error('Element duration must be > 0', 
-					CinEditorMLPackage.Literals.ELEMENT__DURATION,
-					INVALID_DURATION)
- 		}
 	}
 	
 	@Check

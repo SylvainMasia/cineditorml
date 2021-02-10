@@ -84,6 +84,8 @@ public class CinEditorMLSwitch<T> extends Switch<T> {
 			Text text = (Text) theEObject;
 			T result = caseText(text);
 			if (result == null)
+				result = caseGraphicalElement(text);
+			if (result == null)
 				result = caseElement(text);
 			if (result == null)
 				result = defaultCase(theEObject);
@@ -93,6 +95,8 @@ public class CinEditorMLSwitch<T> extends Switch<T> {
 			Picture picture = (Picture) theEObject;
 			T result = casePicture(picture);
 			if (result == null)
+				result = caseGraphicalElement(picture);
+			if (result == null)
 				result = caseElement(picture);
 			if (result == null)
 				result = defaultCase(theEObject);
@@ -101,6 +105,8 @@ public class CinEditorMLSwitch<T> extends Switch<T> {
 		case CinEditorMLPackage.VIDEO: {
 			Video video = (Video) theEObject;
 			T result = caseVideo(video);
+			if (result == null)
+				result = caseGraphicalElement(video);
 			if (result == null)
 				result = caseElement(video);
 			if (result == null)
@@ -160,6 +166,8 @@ public class CinEditorMLSwitch<T> extends Switch<T> {
 			Shape shape = (Shape) theEObject;
 			T result = caseShape(shape);
 			if (result == null)
+				result = caseGraphicalElement(shape);
+			if (result == null)
 				result = caseElement(shape);
 			if (result == null)
 				result = defaultCase(theEObject);
@@ -178,6 +186,8 @@ public class CinEditorMLSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseShape(rectangle);
 			if (result == null)
+				result = caseGraphicalElement(rectangle);
+			if (result == null)
 				result = caseElement(rectangle);
 			if (result == null)
 				result = defaultCase(theEObject);
@@ -193,6 +203,15 @@ public class CinEditorMLSwitch<T> extends Switch<T> {
 		case CinEditorMLPackage.HEXADECIMAL_COLOR: {
 			HexadecimalColor hexadecimalColor = (HexadecimalColor) theEObject;
 			T result = caseHexadecimalColor(hexadecimalColor);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case CinEditorMLPackage.GRAPHICAL_ELEMENT: {
+			GraphicalElement graphicalElement = (GraphicalElement) theEObject;
+			T result = caseGraphicalElement(graphicalElement);
+			if (result == null)
+				result = caseElement(graphicalElement);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -424,6 +443,21 @@ public class CinEditorMLSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseHexadecimalColor(HexadecimalColor object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Graphical Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Graphical Element</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseGraphicalElement(GraphicalElement object) {
 		return null;
 	}
 

@@ -22,7 +22,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class PictureItemProvider extends ElementItemProvider {
+public class PictureItemProvider extends GraphicalElementItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->

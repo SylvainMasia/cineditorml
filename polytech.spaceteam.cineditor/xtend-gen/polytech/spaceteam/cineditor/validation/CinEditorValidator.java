@@ -7,6 +7,9 @@ import CinEditorML.CinEditorMLPackage;
 import CinEditorML.Dimension;
 import CinEditorML.Element;
 import CinEditorML.HexadecimalColor;
+import CinEditorML.Layer;
+import CinEditorML.Movie;
+import java.util.HashSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.eclipse.xtext.validation.Check;
@@ -26,6 +29,33 @@ public class CinEditorValidator extends AbstractCinEditorValidator {
   public final static String INVALID_DURATION = "invalidDuration";
   
   @Check
+  public void checkElementNames(final Movie movie) {
+    final HashSet<String> names = new HashSet<String>();
+    for (int i = 0; (i < movie.getLayers().size()); i++) {
+      {
+        final Layer layer = movie.getLayers().get(i);
+        for (int j = 0; (j < layer.getElements().size()); j++) {
+          {
+            final Element element = layer.getElements().get(j);
+            boolean _contains = names.contains(element.getName());
+            boolean _not = (!_contains);
+            if (_not) {
+              names.add(element.getName());
+            } else {
+              String _name = element.getName();
+              String _plus = ("Element name \"" + _name);
+              String _plus_1 = (_plus + "\" must be unique");
+              this.error(_plus_1, 
+                CinEditorMLPackage.Literals.MOVIE__LAYERS, i, 
+                CinEditorValidator.INVALID_POSITION);
+            }
+          }
+        }
+      }
+    }
+  }
+  
+  @Check
   public void checkDimension(final Dimension element) {
     int _width = element.getWidth();
     boolean _lessThan = (_width < 0);
@@ -40,17 +70,6 @@ public class CinEditorValidator extends AbstractCinEditorValidator {
       this.error("Movie height must be > 0", 
         CinEditorMLPackage.Literals.MOVIE__DIMENSION, 
         CinEditorValidator.INVALID_POSITION);
-    }
-  }
-  
-  @Check
-  public void checkElementDuration(final Element element) {
-    int _duration = element.getDuration();
-    boolean _lessThan = (_duration < 0);
-    if (_lessThan) {
-      this.error("Element duration must be > 0", 
-        CinEditorMLPackage.Literals.ELEMENT__DURATION, 
-        CinEditorValidator.INVALID_DURATION);
     }
   }
   

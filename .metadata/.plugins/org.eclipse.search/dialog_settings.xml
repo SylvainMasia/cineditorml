@@ -11,7 +11,8 @@
 		<item value="false" key="SEARCH_DERIVED"/>
 		<item value="false" key="SEARCH_IN_BINARIES"/>
 		<section name="EXTENSIONS">
-			<item value="*.xtext" key="0"/>
+			<item value="*" key="0"/>
+			<item value="*.xtext" key="1"/>
 		</section>
 	</section>
 	<section name="Search">

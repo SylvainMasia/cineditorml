@@ -28,12 +28,12 @@ public interface Effect extends Element {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Element</em>' reference.
-	 * @see #setElement(Element)
+	 * @see #setElement(GraphicalElement)
 	 * @see CinEditorML.CinEditorMLPackage#getEffect_Element()
 	 * @model required="true"
 	 * @generated
 	 */
-	Element getElement();
+	GraphicalElement getElement();
 
 	/**
 	 * Sets the value of the '{@link CinEditorML.Effect#getElement <em>Element</em>}' reference.
@@ -43,6 +43,6 @@ public interface Effect extends Element {
 	 * @see #getElement()
 	 * @generated
 	 */
-	void setElement(Element value);
+	void setElement(GraphicalElement value);
 
 } // Effect

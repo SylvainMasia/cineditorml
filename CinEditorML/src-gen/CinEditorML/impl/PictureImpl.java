@@ -24,7 +24,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class PictureImpl extends ElementImpl implements Picture {
+public class PictureImpl extends GraphicalElementImpl implements Picture {
 	/**
 	 * The default value of the '{@link #getUrl() <em>Url</em>}' attribute.
 	 * <!-- begin-user-doc -->

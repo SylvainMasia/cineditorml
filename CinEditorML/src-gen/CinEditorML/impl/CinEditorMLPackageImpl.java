@@ -9,6 +9,7 @@ import CinEditorML.Effect;
 import CinEditorML.Element;
 import CinEditorML.FadeIn;
 import CinEditorML.FadeOut;
+import CinEditorML.GraphicalElement;
 import CinEditorML.HexadecimalColor;
 import CinEditorML.Layer;
 import CinEditorML.Movie;
@@ -138,6 +139,13 @@ public class CinEditorMLPackageImpl extends EPackageImpl implements CinEditorMLP
 	 * @generated
 	 */
 	private EClass hexadecimalColorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass graphicalElementEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -373,26 +381,8 @@ public class CinEditorMLPackageImpl extends EPackageImpl implements CinEditorMLP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getElement_Position() {
-		return (EReference) elementEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getElement_Name() {
-		return (EAttribute) elementEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getElement_Dimension() {
-		return (EReference) elementEClass.getEStructuralFeatures().get(4);
+		return (EAttribute) elementEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -445,17 +435,8 @@ public class CinEditorMLPackageImpl extends EPackageImpl implements CinEditorMLP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getTranslate_PixelsToTranslateHorizontally() {
-		return (EAttribute) translateEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getTranslate_PixelsToTranslateVertically() {
-		return (EAttribute) translateEClass.getEStructuralFeatures().get(1);
+	public EReference getTranslate_PositionToTranslate() {
+		return (EReference) translateEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -562,6 +543,33 @@ public class CinEditorMLPackageImpl extends EPackageImpl implements CinEditorMLP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getGraphicalElement() {
+		return graphicalElementEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getGraphicalElement_Position() {
+		return (EReference) graphicalElementEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getGraphicalElement_Dimension() {
+		return (EReference) graphicalElementEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public CinEditorMLFactory getCinEditorMLFactory() {
 		return (CinEditorMLFactory) getEFactoryInstance();
 	}
@@ -609,9 +617,7 @@ public class CinEditorMLPackageImpl extends EPackageImpl implements CinEditorMLP
 		elementEClass = createEClass(ELEMENT);
 		createEAttribute(elementEClass, ELEMENT__DURATION);
 		createEAttribute(elementEClass, ELEMENT__BEGIN_TIME);
-		createEReference(elementEClass, ELEMENT__POSITION);
 		createEAttribute(elementEClass, ELEMENT__NAME);
-		createEReference(elementEClass, ELEMENT__DIMENSION);
 
 		effectEClass = createEClass(EFFECT);
 		createEReference(effectEClass, EFFECT__ELEMENT);
@@ -621,8 +627,7 @@ public class CinEditorMLPackageImpl extends EPackageImpl implements CinEditorMLP
 		fadeOutEClass = createEClass(FADE_OUT);
 
 		translateEClass = createEClass(TRANSLATE);
-		createEAttribute(translateEClass, TRANSLATE__PIXELS_TO_TRANSLATE_HORIZONTALLY);
-		createEAttribute(translateEClass, TRANSLATE__PIXELS_TO_TRANSLATE_VERTICALLY);
+		createEReference(translateEClass, TRANSLATE__POSITION_TO_TRANSLATE);
 
 		shapeEClass = createEClass(SHAPE);
 		createEReference(shapeEClass, SHAPE__COLOR);
@@ -639,6 +644,10 @@ public class CinEditorMLPackageImpl extends EPackageImpl implements CinEditorMLP
 
 		hexadecimalColorEClass = createEClass(HEXADECIMAL_COLOR);
 		createEAttribute(hexadecimalColorEClass, HEXADECIMAL_COLOR__HEXADECIMAL_VALUE);
+
+		graphicalElementEClass = createEClass(GRAPHICAL_ELEMENT);
+		createEReference(graphicalElementEClass, GRAPHICAL_ELEMENT__POSITION);
+		createEReference(graphicalElementEClass, GRAPHICAL_ELEMENT__DIMENSION);
 	}
 
 	/**
@@ -674,15 +683,16 @@ public class CinEditorMLPackageImpl extends EPackageImpl implements CinEditorMLP
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		textEClass.getESuperTypes().add(this.getElement());
-		pictureEClass.getESuperTypes().add(this.getElement());
-		videoEClass.getESuperTypes().add(this.getElement());
+		textEClass.getESuperTypes().add(this.getGraphicalElement());
+		pictureEClass.getESuperTypes().add(this.getGraphicalElement());
+		videoEClass.getESuperTypes().add(this.getGraphicalElement());
 		effectEClass.getESuperTypes().add(this.getElement());
 		fadeInEClass.getESuperTypes().add(this.getEffect());
 		fadeOutEClass.getESuperTypes().add(this.getEffect());
 		translateEClass.getESuperTypes().add(this.getEffect());
-		shapeEClass.getESuperTypes().add(this.getElement());
+		shapeEClass.getESuperTypes().add(this.getGraphicalElement());
 		rectangleEClass.getESuperTypes().add(this.getShape());
+		graphicalElementEClass.getESuperTypes().add(this.getElement());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(movieEClass, Movie.class, "Movie", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -696,7 +706,7 @@ public class CinEditorMLPackageImpl extends EPackageImpl implements CinEditorMLP
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(layerEClass, Layer.class, "Layer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getLayer_Elements(), this.getElement(), null, "elements", null, 0, -1, Layer.class,
+		initEReference(getLayer_Elements(), this.getElement(), null, "elements", null, 1, -1, Layer.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -720,23 +730,17 @@ public class CinEditorMLPackageImpl extends EPackageImpl implements CinEditorMLP
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(elementEClass, Element.class, "Element", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getElement_Duration(), ecorePackage.getEInt(), "duration", "10", 0, 1, Element.class,
+		initEAttribute(getElement_Duration(), ecorePackage.getEInt(), "duration", "-1", 0, 1, Element.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getElement_BeginTime(), ecorePackage.getEInt(), "beginTime", "0", 1, 1, Element.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getElement_Position(), this.getPosition(), null, "position", null, 0, 1, Element.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
-				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getElement_Name(), ecorePackage.getEString(), "name", null, 1, 1, Element.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getElement_Dimension(), this.getDimension(), null, "dimension", null, 0, 1, Element.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
-				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(effectEClass, Effect.class, "Effect", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getEffect_Element(), this.getElement(), null, "element", null, 1, 1, Effect.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
-				IS_ORDERED);
+		initEReference(getEffect_Element(), this.getGraphicalElement(), null, "element", null, 1, 1, Effect.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(fadeInEClass, FadeIn.class, "FadeIn", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -744,12 +748,9 @@ public class CinEditorMLPackageImpl extends EPackageImpl implements CinEditorMLP
 
 		initEClass(translateEClass, Translate.class, "Translate", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getTranslate_PixelsToTranslateHorizontally(), ecorePackage.getEInt(),
-				"pixelsToTranslateHorizontally", "0", 0, 1, Translate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-				!IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getTranslate_PixelsToTranslateVertically(), ecorePackage.getEInt(),
-				"pixelsToTranslateVertically", "0", 0, 1, Translate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-				!IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTranslate_PositionToTranslate(), this.getPosition(), null, "positionToTranslate", null, 1, 1,
+				Translate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(shapeEClass, Shape.class, "Shape", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getShape_Color(), this.getHexadecimalColor(), null, "color", null, 0, 1, Shape.class,
@@ -778,6 +779,15 @@ public class CinEditorMLPackageImpl extends EPackageImpl implements CinEditorMLP
 		initEAttribute(getHexadecimalColor_HexadecimalValue(), ecorePackage.getEString(), "hexadecimalValue", "#000", 1,
 				1, HexadecimalColor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(graphicalElementEClass, GraphicalElement.class, "GraphicalElement", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getGraphicalElement_Position(), this.getPosition(), null, "position", null, 0, 1,
+				GraphicalElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getGraphicalElement_Dimension(), this.getDimension(), null, "dimension", null, 0, 1,
+				GraphicalElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

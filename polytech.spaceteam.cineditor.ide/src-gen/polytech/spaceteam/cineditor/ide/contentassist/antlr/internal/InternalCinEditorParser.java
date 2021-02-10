@@ -22,7 +22,7 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalCinEditorParser extends AbstractInternalContentAssistParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_STRING", "RULE_ID", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'Movie'", "'Layer'", "'position'", "'('", "','", "')'", "'dimension'", "'x'", "'color'", "'-'", "'Text'", "'->'", "'at'", "'during'", "'fontSize'", "'Picture'", "'\"'", "'Video'", "'from'", "'Effect'", "'FadeIn'", "'on'", "'FadeOut'", "'Translate'", "'Rectangle'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_STRING", "RULE_ID", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'Movie'", "'Layer'", "'position'", "'('", "','", "')'", "'dimension'", "'x'", "'color'", "'-'", "'Text'", "'->'", "'at'", "'fontSize'", "'during'", "'Picture'", "'\"'", "'Video'", "'from'", "'Rectangle'", "'Effect'", "'FadeIn'", "'on'", "'FadeOut'", "'Translate'"
     };
     public static final int RULE_STRING=4;
     public static final int RULE_SL_COMMENT=8;
@@ -940,12 +940,89 @@ public class InternalCinEditorParser extends AbstractInternalContentAssistParser
     // $ANTLR end "ruleVideo"
 
 
+    // $ANTLR start "entryRuleRectangle"
+    // InternalCinEditor.g:328:1: entryRuleRectangle : ruleRectangle EOF ;
+    public final void entryRuleRectangle() throws RecognitionException {
+        try {
+            // InternalCinEditor.g:329:1: ( ruleRectangle EOF )
+            // InternalCinEditor.g:330:1: ruleRectangle EOF
+            {
+             before(grammarAccess.getRectangleRule()); 
+            pushFollow(FOLLOW_1);
+            ruleRectangle();
+
+            state._fsp--;
+
+             after(grammarAccess.getRectangleRule()); 
+            match(input,EOF,FOLLOW_2); 
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+        }
+        return ;
+    }
+    // $ANTLR end "entryRuleRectangle"
+
+
+    // $ANTLR start "ruleRectangle"
+    // InternalCinEditor.g:337:1: ruleRectangle : ( ( rule__Rectangle__Group__0 ) ) ;
+    public final void ruleRectangle() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalCinEditor.g:341:2: ( ( ( rule__Rectangle__Group__0 ) ) )
+            // InternalCinEditor.g:342:2: ( ( rule__Rectangle__Group__0 ) )
+            {
+            // InternalCinEditor.g:342:2: ( ( rule__Rectangle__Group__0 ) )
+            // InternalCinEditor.g:343:3: ( rule__Rectangle__Group__0 )
+            {
+             before(grammarAccess.getRectangleAccess().getGroup()); 
+            // InternalCinEditor.g:344:3: ( rule__Rectangle__Group__0 )
+            // InternalCinEditor.g:344:4: rule__Rectangle__Group__0
+            {
+            pushFollow(FOLLOW_2);
+            rule__Rectangle__Group__0();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getRectangleAccess().getGroup()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "ruleRectangle"
+
+
     // $ANTLR start "entryRuleFadeIn"
-    // InternalCinEditor.g:328:1: entryRuleFadeIn : ruleFadeIn EOF ;
+    // InternalCinEditor.g:353:1: entryRuleFadeIn : ruleFadeIn EOF ;
     public final void entryRuleFadeIn() throws RecognitionException {
         try {
-            // InternalCinEditor.g:329:1: ( ruleFadeIn EOF )
-            // InternalCinEditor.g:330:1: ruleFadeIn EOF
+            // InternalCinEditor.g:354:1: ( ruleFadeIn EOF )
+            // InternalCinEditor.g:355:1: ruleFadeIn EOF
             {
              before(grammarAccess.getFadeInRule()); 
             pushFollow(FOLLOW_1);
@@ -971,21 +1048,21 @@ public class InternalCinEditorParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "ruleFadeIn"
-    // InternalCinEditor.g:337:1: ruleFadeIn : ( ( rule__FadeIn__Group__0 ) ) ;
+    // InternalCinEditor.g:362:1: ruleFadeIn : ( ( rule__FadeIn__Group__0 ) ) ;
     public final void ruleFadeIn() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCinEditor.g:341:2: ( ( ( rule__FadeIn__Group__0 ) ) )
-            // InternalCinEditor.g:342:2: ( ( rule__FadeIn__Group__0 ) )
+            // InternalCinEditor.g:366:2: ( ( ( rule__FadeIn__Group__0 ) ) )
+            // InternalCinEditor.g:367:2: ( ( rule__FadeIn__Group__0 ) )
             {
-            // InternalCinEditor.g:342:2: ( ( rule__FadeIn__Group__0 ) )
-            // InternalCinEditor.g:343:3: ( rule__FadeIn__Group__0 )
+            // InternalCinEditor.g:367:2: ( ( rule__FadeIn__Group__0 ) )
+            // InternalCinEditor.g:368:3: ( rule__FadeIn__Group__0 )
             {
              before(grammarAccess.getFadeInAccess().getGroup()); 
-            // InternalCinEditor.g:344:3: ( rule__FadeIn__Group__0 )
-            // InternalCinEditor.g:344:4: rule__FadeIn__Group__0
+            // InternalCinEditor.g:369:3: ( rule__FadeIn__Group__0 )
+            // InternalCinEditor.g:369:4: rule__FadeIn__Group__0
             {
             pushFollow(FOLLOW_2);
             rule__FadeIn__Group__0();
@@ -1018,11 +1095,11 @@ public class InternalCinEditorParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "entryRuleFadeOut"
-    // InternalCinEditor.g:353:1: entryRuleFadeOut : ruleFadeOut EOF ;
+    // InternalCinEditor.g:378:1: entryRuleFadeOut : ruleFadeOut EOF ;
     public final void entryRuleFadeOut() throws RecognitionException {
         try {
-            // InternalCinEditor.g:354:1: ( ruleFadeOut EOF )
-            // InternalCinEditor.g:355:1: ruleFadeOut EOF
+            // InternalCinEditor.g:379:1: ( ruleFadeOut EOF )
+            // InternalCinEditor.g:380:1: ruleFadeOut EOF
             {
              before(grammarAccess.getFadeOutRule()); 
             pushFollow(FOLLOW_1);
@@ -1048,21 +1125,21 @@ public class InternalCinEditorParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "ruleFadeOut"
-    // InternalCinEditor.g:362:1: ruleFadeOut : ( ( rule__FadeOut__Group__0 ) ) ;
+    // InternalCinEditor.g:387:1: ruleFadeOut : ( ( rule__FadeOut__Group__0 ) ) ;
     public final void ruleFadeOut() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCinEditor.g:366:2: ( ( ( rule__FadeOut__Group__0 ) ) )
-            // InternalCinEditor.g:367:2: ( ( rule__FadeOut__Group__0 ) )
+            // InternalCinEditor.g:391:2: ( ( ( rule__FadeOut__Group__0 ) ) )
+            // InternalCinEditor.g:392:2: ( ( rule__FadeOut__Group__0 ) )
             {
-            // InternalCinEditor.g:367:2: ( ( rule__FadeOut__Group__0 ) )
-            // InternalCinEditor.g:368:3: ( rule__FadeOut__Group__0 )
+            // InternalCinEditor.g:392:2: ( ( rule__FadeOut__Group__0 ) )
+            // InternalCinEditor.g:393:3: ( rule__FadeOut__Group__0 )
             {
              before(grammarAccess.getFadeOutAccess().getGroup()); 
-            // InternalCinEditor.g:369:3: ( rule__FadeOut__Group__0 )
-            // InternalCinEditor.g:369:4: rule__FadeOut__Group__0
+            // InternalCinEditor.g:394:3: ( rule__FadeOut__Group__0 )
+            // InternalCinEditor.g:394:4: rule__FadeOut__Group__0
             {
             pushFollow(FOLLOW_2);
             rule__FadeOut__Group__0();
@@ -1095,11 +1172,11 @@ public class InternalCinEditorParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "entryRuleTranslate"
-    // InternalCinEditor.g:378:1: entryRuleTranslate : ruleTranslate EOF ;
+    // InternalCinEditor.g:403:1: entryRuleTranslate : ruleTranslate EOF ;
     public final void entryRuleTranslate() throws RecognitionException {
         try {
-            // InternalCinEditor.g:379:1: ( ruleTranslate EOF )
-            // InternalCinEditor.g:380:1: ruleTranslate EOF
+            // InternalCinEditor.g:404:1: ( ruleTranslate EOF )
+            // InternalCinEditor.g:405:1: ruleTranslate EOF
             {
              before(grammarAccess.getTranslateRule()); 
             pushFollow(FOLLOW_1);
@@ -1125,21 +1202,21 @@ public class InternalCinEditorParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "ruleTranslate"
-    // InternalCinEditor.g:387:1: ruleTranslate : ( ( rule__Translate__Group__0 ) ) ;
+    // InternalCinEditor.g:412:1: ruleTranslate : ( ( rule__Translate__Group__0 ) ) ;
     public final void ruleTranslate() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCinEditor.g:391:2: ( ( ( rule__Translate__Group__0 ) ) )
-            // InternalCinEditor.g:392:2: ( ( rule__Translate__Group__0 ) )
+            // InternalCinEditor.g:416:2: ( ( ( rule__Translate__Group__0 ) ) )
+            // InternalCinEditor.g:417:2: ( ( rule__Translate__Group__0 ) )
             {
-            // InternalCinEditor.g:392:2: ( ( rule__Translate__Group__0 ) )
-            // InternalCinEditor.g:393:3: ( rule__Translate__Group__0 )
+            // InternalCinEditor.g:417:2: ( ( rule__Translate__Group__0 ) )
+            // InternalCinEditor.g:418:3: ( rule__Translate__Group__0 )
             {
              before(grammarAccess.getTranslateAccess().getGroup()); 
-            // InternalCinEditor.g:394:3: ( rule__Translate__Group__0 )
-            // InternalCinEditor.g:394:4: rule__Translate__Group__0
+            // InternalCinEditor.g:419:3: ( rule__Translate__Group__0 )
+            // InternalCinEditor.g:419:4: rule__Translate__Group__0
             {
             pushFollow(FOLLOW_2);
             rule__Translate__Group__0();
@@ -1169,83 +1246,6 @@ public class InternalCinEditorParser extends AbstractInternalContentAssistParser
         return ;
     }
     // $ANTLR end "ruleTranslate"
-
-
-    // $ANTLR start "entryRuleRectangle"
-    // InternalCinEditor.g:403:1: entryRuleRectangle : ruleRectangle EOF ;
-    public final void entryRuleRectangle() throws RecognitionException {
-        try {
-            // InternalCinEditor.g:404:1: ( ruleRectangle EOF )
-            // InternalCinEditor.g:405:1: ruleRectangle EOF
-            {
-             before(grammarAccess.getRectangleRule()); 
-            pushFollow(FOLLOW_1);
-            ruleRectangle();
-
-            state._fsp--;
-
-             after(grammarAccess.getRectangleRule()); 
-            match(input,EOF,FOLLOW_2); 
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-        }
-        return ;
-    }
-    // $ANTLR end "entryRuleRectangle"
-
-
-    // $ANTLR start "ruleRectangle"
-    // InternalCinEditor.g:412:1: ruleRectangle : ( ( rule__Rectangle__Group__0 ) ) ;
-    public final void ruleRectangle() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalCinEditor.g:416:2: ( ( ( rule__Rectangle__Group__0 ) ) )
-            // InternalCinEditor.g:417:2: ( ( rule__Rectangle__Group__0 ) )
-            {
-            // InternalCinEditor.g:417:2: ( ( rule__Rectangle__Group__0 ) )
-            // InternalCinEditor.g:418:3: ( rule__Rectangle__Group__0 )
-            {
-             before(grammarAccess.getRectangleAccess().getGroup()); 
-            // InternalCinEditor.g:419:3: ( rule__Rectangle__Group__0 )
-            // InternalCinEditor.g:419:4: rule__Rectangle__Group__0
-            {
-            pushFollow(FOLLOW_2);
-            rule__Rectangle__Group__0();
-
-            state._fsp--;
-
-
-            }
-
-             after(grammarAccess.getRectangleAccess().getGroup()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "ruleRectangle"
 
 
     // $ANTLR start "rule__Element__Alternatives"
@@ -2073,7 +2073,7 @@ public class InternalCinEditorParser extends AbstractInternalContentAssistParser
                 int alt4=2;
                 int LA4_0 = input.LA(1);
 
-                if ( (LA4_0==21||LA4_0==26||LA4_0==28||LA4_0==30||LA4_0==35) ) {
+                if ( (LA4_0==21||LA4_0==26||LA4_0==28||(LA4_0>=30 && LA4_0<=31)) ) {
                     alt4=1;
                 }
 
@@ -3674,7 +3674,7 @@ public class InternalCinEditorParser extends AbstractInternalContentAssistParser
             int alt6=2;
             int LA6_0 = input.LA(1);
 
-            if ( (LA6_0==25) ) {
+            if ( (LA6_0==24) ) {
                 alt6=1;
             }
             switch (alt6) {
@@ -3980,7 +3980,7 @@ public class InternalCinEditorParser extends AbstractInternalContentAssistParser
             // InternalCinEditor.g:1327:1: ( rule__Text__Group__8__Impl rule__Text__Group__9 )
             // InternalCinEditor.g:1328:2: rule__Text__Group__8__Impl rule__Text__Group__9
             {
-            pushFollow(FOLLOW_10);
+            pushFollow(FOLLOW_16);
             rule__Text__Group__8__Impl();
 
             state._fsp--;
@@ -4009,21 +4009,42 @@ public class InternalCinEditorParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Text__Group__8__Impl"
-    // InternalCinEditor.g:1335:1: rule__Text__Group__8__Impl : ( 'during' ) ;
+    // InternalCinEditor.g:1335:1: rule__Text__Group__8__Impl : ( ( rule__Text__Group_8__0 )? ) ;
     public final void rule__Text__Group__8__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCinEditor.g:1339:1: ( ( 'during' ) )
-            // InternalCinEditor.g:1340:1: ( 'during' )
+            // InternalCinEditor.g:1339:1: ( ( ( rule__Text__Group_8__0 )? ) )
+            // InternalCinEditor.g:1340:1: ( ( rule__Text__Group_8__0 )? )
             {
-            // InternalCinEditor.g:1340:1: ( 'during' )
-            // InternalCinEditor.g:1341:2: 'during'
+            // InternalCinEditor.g:1340:1: ( ( rule__Text__Group_8__0 )? )
+            // InternalCinEditor.g:1341:2: ( rule__Text__Group_8__0 )?
             {
-             before(grammarAccess.getTextAccess().getDuringKeyword_8()); 
-            match(input,24,FOLLOW_2); 
-             after(grammarAccess.getTextAccess().getDuringKeyword_8()); 
+             before(grammarAccess.getTextAccess().getGroup_8()); 
+            // InternalCinEditor.g:1342:2: ( rule__Text__Group_8__0 )?
+            int alt8=2;
+            int LA8_0 = input.LA(1);
+
+            if ( (LA8_0==25) ) {
+                alt8=1;
+            }
+            switch (alt8) {
+                case 1 :
+                    // InternalCinEditor.g:1342:3: rule__Text__Group_8__0
+                    {
+                    pushFollow(FOLLOW_2);
+                    rule__Text__Group_8__0();
+
+                    state._fsp--;
+
+
+                    }
+                    break;
+
+            }
+
+             after(grammarAccess.getTextAccess().getGroup_8()); 
 
             }
 
@@ -4046,22 +4067,17 @@ public class InternalCinEditorParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Text__Group__9"
-    // InternalCinEditor.g:1350:1: rule__Text__Group__9 : rule__Text__Group__9__Impl rule__Text__Group__10 ;
+    // InternalCinEditor.g:1350:1: rule__Text__Group__9 : rule__Text__Group__9__Impl ;
     public final void rule__Text__Group__9() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCinEditor.g:1354:1: ( rule__Text__Group__9__Impl rule__Text__Group__10 )
-            // InternalCinEditor.g:1355:2: rule__Text__Group__9__Impl rule__Text__Group__10
+            // InternalCinEditor.g:1354:1: ( rule__Text__Group__9__Impl )
+            // InternalCinEditor.g:1355:2: rule__Text__Group__9__Impl
             {
-            pushFollow(FOLLOW_17);
-            rule__Text__Group__9__Impl();
-
-            state._fsp--;
-
             pushFollow(FOLLOW_2);
-            rule__Text__Group__10();
+            rule__Text__Group__9__Impl();
 
             state._fsp--;
 
@@ -4084,31 +4100,31 @@ public class InternalCinEditorParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Text__Group__9__Impl"
-    // InternalCinEditor.g:1362:1: rule__Text__Group__9__Impl : ( ( rule__Text__DurationAssignment_9 ) ) ;
+    // InternalCinEditor.g:1361:1: rule__Text__Group__9__Impl : ( ( rule__Text__ColorAssignment_9 ) ) ;
     public final void rule__Text__Group__9__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCinEditor.g:1366:1: ( ( ( rule__Text__DurationAssignment_9 ) ) )
-            // InternalCinEditor.g:1367:1: ( ( rule__Text__DurationAssignment_9 ) )
+            // InternalCinEditor.g:1365:1: ( ( ( rule__Text__ColorAssignment_9 ) ) )
+            // InternalCinEditor.g:1366:1: ( ( rule__Text__ColorAssignment_9 ) )
             {
-            // InternalCinEditor.g:1367:1: ( ( rule__Text__DurationAssignment_9 ) )
-            // InternalCinEditor.g:1368:2: ( rule__Text__DurationAssignment_9 )
+            // InternalCinEditor.g:1366:1: ( ( rule__Text__ColorAssignment_9 ) )
+            // InternalCinEditor.g:1367:2: ( rule__Text__ColorAssignment_9 )
             {
-             before(grammarAccess.getTextAccess().getDurationAssignment_9()); 
-            // InternalCinEditor.g:1369:2: ( rule__Text__DurationAssignment_9 )
-            // InternalCinEditor.g:1369:3: rule__Text__DurationAssignment_9
+             before(grammarAccess.getTextAccess().getColorAssignment_9()); 
+            // InternalCinEditor.g:1368:2: ( rule__Text__ColorAssignment_9 )
+            // InternalCinEditor.g:1368:3: rule__Text__ColorAssignment_9
             {
             pushFollow(FOLLOW_2);
-            rule__Text__DurationAssignment_9();
+            rule__Text__ColorAssignment_9();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getTextAccess().getDurationAssignment_9()); 
+             after(grammarAccess.getTextAccess().getColorAssignment_9()); 
 
             }
 
@@ -4130,95 +4146,15 @@ public class InternalCinEditorParser extends AbstractInternalContentAssistParser
     // $ANTLR end "rule__Text__Group__9__Impl"
 
 
-    // $ANTLR start "rule__Text__Group__10"
-    // InternalCinEditor.g:1377:1: rule__Text__Group__10 : rule__Text__Group__10__Impl ;
-    public final void rule__Text__Group__10() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalCinEditor.g:1381:1: ( rule__Text__Group__10__Impl )
-            // InternalCinEditor.g:1382:2: rule__Text__Group__10__Impl
-            {
-            pushFollow(FOLLOW_2);
-            rule__Text__Group__10__Impl();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Text__Group__10"
-
-
-    // $ANTLR start "rule__Text__Group__10__Impl"
-    // InternalCinEditor.g:1388:1: rule__Text__Group__10__Impl : ( ( rule__Text__ColorAssignment_10 ) ) ;
-    public final void rule__Text__Group__10__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalCinEditor.g:1392:1: ( ( ( rule__Text__ColorAssignment_10 ) ) )
-            // InternalCinEditor.g:1393:1: ( ( rule__Text__ColorAssignment_10 ) )
-            {
-            // InternalCinEditor.g:1393:1: ( ( rule__Text__ColorAssignment_10 ) )
-            // InternalCinEditor.g:1394:2: ( rule__Text__ColorAssignment_10 )
-            {
-             before(grammarAccess.getTextAccess().getColorAssignment_10()); 
-            // InternalCinEditor.g:1395:2: ( rule__Text__ColorAssignment_10 )
-            // InternalCinEditor.g:1395:3: rule__Text__ColorAssignment_10
-            {
-            pushFollow(FOLLOW_2);
-            rule__Text__ColorAssignment_10();
-
-            state._fsp--;
-
-
-            }
-
-             after(grammarAccess.getTextAccess().getColorAssignment_10()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Text__Group__10__Impl"
-
-
     // $ANTLR start "rule__Text__Group_4__0"
-    // InternalCinEditor.g:1404:1: rule__Text__Group_4__0 : rule__Text__Group_4__0__Impl rule__Text__Group_4__1 ;
+    // InternalCinEditor.g:1377:1: rule__Text__Group_4__0 : rule__Text__Group_4__0__Impl rule__Text__Group_4__1 ;
     public final void rule__Text__Group_4__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCinEditor.g:1408:1: ( rule__Text__Group_4__0__Impl rule__Text__Group_4__1 )
-            // InternalCinEditor.g:1409:2: rule__Text__Group_4__0__Impl rule__Text__Group_4__1
+            // InternalCinEditor.g:1381:1: ( rule__Text__Group_4__0__Impl rule__Text__Group_4__1 )
+            // InternalCinEditor.g:1382:2: rule__Text__Group_4__0__Impl rule__Text__Group_4__1
             {
             pushFollow(FOLLOW_10);
             rule__Text__Group_4__0__Impl();
@@ -4249,20 +4185,20 @@ public class InternalCinEditorParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Text__Group_4__0__Impl"
-    // InternalCinEditor.g:1416:1: rule__Text__Group_4__0__Impl : ( 'fontSize' ) ;
+    // InternalCinEditor.g:1389:1: rule__Text__Group_4__0__Impl : ( 'fontSize' ) ;
     public final void rule__Text__Group_4__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCinEditor.g:1420:1: ( ( 'fontSize' ) )
-            // InternalCinEditor.g:1421:1: ( 'fontSize' )
+            // InternalCinEditor.g:1393:1: ( ( 'fontSize' ) )
+            // InternalCinEditor.g:1394:1: ( 'fontSize' )
             {
-            // InternalCinEditor.g:1421:1: ( 'fontSize' )
-            // InternalCinEditor.g:1422:2: 'fontSize'
+            // InternalCinEditor.g:1394:1: ( 'fontSize' )
+            // InternalCinEditor.g:1395:2: 'fontSize'
             {
              before(grammarAccess.getTextAccess().getFontSizeKeyword_4_0()); 
-            match(input,25,FOLLOW_2); 
+            match(input,24,FOLLOW_2); 
              after(grammarAccess.getTextAccess().getFontSizeKeyword_4_0()); 
 
             }
@@ -4286,14 +4222,14 @@ public class InternalCinEditorParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Text__Group_4__1"
-    // InternalCinEditor.g:1431:1: rule__Text__Group_4__1 : rule__Text__Group_4__1__Impl ;
+    // InternalCinEditor.g:1404:1: rule__Text__Group_4__1 : rule__Text__Group_4__1__Impl ;
     public final void rule__Text__Group_4__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCinEditor.g:1435:1: ( rule__Text__Group_4__1__Impl )
-            // InternalCinEditor.g:1436:2: rule__Text__Group_4__1__Impl
+            // InternalCinEditor.g:1408:1: ( rule__Text__Group_4__1__Impl )
+            // InternalCinEditor.g:1409:2: rule__Text__Group_4__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Text__Group_4__1__Impl();
@@ -4319,21 +4255,21 @@ public class InternalCinEditorParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Text__Group_4__1__Impl"
-    // InternalCinEditor.g:1442:1: rule__Text__Group_4__1__Impl : ( ( rule__Text__FontSizeAssignment_4_1 ) ) ;
+    // InternalCinEditor.g:1415:1: rule__Text__Group_4__1__Impl : ( ( rule__Text__FontSizeAssignment_4_1 ) ) ;
     public final void rule__Text__Group_4__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCinEditor.g:1446:1: ( ( ( rule__Text__FontSizeAssignment_4_1 ) ) )
-            // InternalCinEditor.g:1447:1: ( ( rule__Text__FontSizeAssignment_4_1 ) )
+            // InternalCinEditor.g:1419:1: ( ( ( rule__Text__FontSizeAssignment_4_1 ) ) )
+            // InternalCinEditor.g:1420:1: ( ( rule__Text__FontSizeAssignment_4_1 ) )
             {
-            // InternalCinEditor.g:1447:1: ( ( rule__Text__FontSizeAssignment_4_1 ) )
-            // InternalCinEditor.g:1448:2: ( rule__Text__FontSizeAssignment_4_1 )
+            // InternalCinEditor.g:1420:1: ( ( rule__Text__FontSizeAssignment_4_1 ) )
+            // InternalCinEditor.g:1421:2: ( rule__Text__FontSizeAssignment_4_1 )
             {
              before(grammarAccess.getTextAccess().getFontSizeAssignment_4_1()); 
-            // InternalCinEditor.g:1449:2: ( rule__Text__FontSizeAssignment_4_1 )
-            // InternalCinEditor.g:1449:3: rule__Text__FontSizeAssignment_4_1
+            // InternalCinEditor.g:1422:2: ( rule__Text__FontSizeAssignment_4_1 )
+            // InternalCinEditor.g:1422:3: rule__Text__FontSizeAssignment_4_1
             {
             pushFollow(FOLLOW_2);
             rule__Text__FontSizeAssignment_4_1();
@@ -4365,15 +4301,170 @@ public class InternalCinEditorParser extends AbstractInternalContentAssistParser
     // $ANTLR end "rule__Text__Group_4__1__Impl"
 
 
+    // $ANTLR start "rule__Text__Group_8__0"
+    // InternalCinEditor.g:1431:1: rule__Text__Group_8__0 : rule__Text__Group_8__0__Impl rule__Text__Group_8__1 ;
+    public final void rule__Text__Group_8__0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalCinEditor.g:1435:1: ( rule__Text__Group_8__0__Impl rule__Text__Group_8__1 )
+            // InternalCinEditor.g:1436:2: rule__Text__Group_8__0__Impl rule__Text__Group_8__1
+            {
+            pushFollow(FOLLOW_10);
+            rule__Text__Group_8__0__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__Text__Group_8__1();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Text__Group_8__0"
+
+
+    // $ANTLR start "rule__Text__Group_8__0__Impl"
+    // InternalCinEditor.g:1443:1: rule__Text__Group_8__0__Impl : ( 'during' ) ;
+    public final void rule__Text__Group_8__0__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalCinEditor.g:1447:1: ( ( 'during' ) )
+            // InternalCinEditor.g:1448:1: ( 'during' )
+            {
+            // InternalCinEditor.g:1448:1: ( 'during' )
+            // InternalCinEditor.g:1449:2: 'during'
+            {
+             before(grammarAccess.getTextAccess().getDuringKeyword_8_0()); 
+            match(input,25,FOLLOW_2); 
+             after(grammarAccess.getTextAccess().getDuringKeyword_8_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Text__Group_8__0__Impl"
+
+
+    // $ANTLR start "rule__Text__Group_8__1"
+    // InternalCinEditor.g:1458:1: rule__Text__Group_8__1 : rule__Text__Group_8__1__Impl ;
+    public final void rule__Text__Group_8__1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalCinEditor.g:1462:1: ( rule__Text__Group_8__1__Impl )
+            // InternalCinEditor.g:1463:2: rule__Text__Group_8__1__Impl
+            {
+            pushFollow(FOLLOW_2);
+            rule__Text__Group_8__1__Impl();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Text__Group_8__1"
+
+
+    // $ANTLR start "rule__Text__Group_8__1__Impl"
+    // InternalCinEditor.g:1469:1: rule__Text__Group_8__1__Impl : ( ( rule__Text__DurationAssignment_8_1 ) ) ;
+    public final void rule__Text__Group_8__1__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalCinEditor.g:1473:1: ( ( ( rule__Text__DurationAssignment_8_1 ) ) )
+            // InternalCinEditor.g:1474:1: ( ( rule__Text__DurationAssignment_8_1 ) )
+            {
+            // InternalCinEditor.g:1474:1: ( ( rule__Text__DurationAssignment_8_1 ) )
+            // InternalCinEditor.g:1475:2: ( rule__Text__DurationAssignment_8_1 )
+            {
+             before(grammarAccess.getTextAccess().getDurationAssignment_8_1()); 
+            // InternalCinEditor.g:1476:2: ( rule__Text__DurationAssignment_8_1 )
+            // InternalCinEditor.g:1476:3: rule__Text__DurationAssignment_8_1
+            {
+            pushFollow(FOLLOW_2);
+            rule__Text__DurationAssignment_8_1();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getTextAccess().getDurationAssignment_8_1()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Text__Group_8__1__Impl"
+
+
     // $ANTLR start "rule__Picture__Group__0"
-    // InternalCinEditor.g:1458:1: rule__Picture__Group__0 : rule__Picture__Group__0__Impl rule__Picture__Group__1 ;
+    // InternalCinEditor.g:1485:1: rule__Picture__Group__0 : rule__Picture__Group__0__Impl rule__Picture__Group__1 ;
     public final void rule__Picture__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCinEditor.g:1462:1: ( rule__Picture__Group__0__Impl rule__Picture__Group__1 )
-            // InternalCinEditor.g:1463:2: rule__Picture__Group__0__Impl rule__Picture__Group__1
+            // InternalCinEditor.g:1489:1: ( rule__Picture__Group__0__Impl rule__Picture__Group__1 )
+            // InternalCinEditor.g:1490:2: rule__Picture__Group__0__Impl rule__Picture__Group__1
             {
             pushFollow(FOLLOW_3);
             rule__Picture__Group__0__Impl();
@@ -4404,17 +4495,17 @@ public class InternalCinEditorParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Picture__Group__0__Impl"
-    // InternalCinEditor.g:1470:1: rule__Picture__Group__0__Impl : ( 'Picture' ) ;
+    // InternalCinEditor.g:1497:1: rule__Picture__Group__0__Impl : ( 'Picture' ) ;
     public final void rule__Picture__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCinEditor.g:1474:1: ( ( 'Picture' ) )
-            // InternalCinEditor.g:1475:1: ( 'Picture' )
+            // InternalCinEditor.g:1501:1: ( ( 'Picture' ) )
+            // InternalCinEditor.g:1502:1: ( 'Picture' )
             {
-            // InternalCinEditor.g:1475:1: ( 'Picture' )
-            // InternalCinEditor.g:1476:2: 'Picture'
+            // InternalCinEditor.g:1502:1: ( 'Picture' )
+            // InternalCinEditor.g:1503:2: 'Picture'
             {
              before(grammarAccess.getPictureAccess().getPictureKeyword_0()); 
             match(input,26,FOLLOW_2); 
@@ -4441,14 +4532,14 @@ public class InternalCinEditorParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Picture__Group__1"
-    // InternalCinEditor.g:1485:1: rule__Picture__Group__1 : rule__Picture__Group__1__Impl rule__Picture__Group__2 ;
+    // InternalCinEditor.g:1512:1: rule__Picture__Group__1 : rule__Picture__Group__1__Impl rule__Picture__Group__2 ;
     public final void rule__Picture__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCinEditor.g:1489:1: ( rule__Picture__Group__1__Impl rule__Picture__Group__2 )
-            // InternalCinEditor.g:1490:2: rule__Picture__Group__1__Impl rule__Picture__Group__2
+            // InternalCinEditor.g:1516:1: ( rule__Picture__Group__1__Impl rule__Picture__Group__2 )
+            // InternalCinEditor.g:1517:2: rule__Picture__Group__1__Impl rule__Picture__Group__2
             {
             pushFollow(FOLLOW_14);
             rule__Picture__Group__1__Impl();
@@ -4479,21 +4570,21 @@ public class InternalCinEditorParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Picture__Group__1__Impl"
-    // InternalCinEditor.g:1497:1: rule__Picture__Group__1__Impl : ( ( rule__Picture__NameAssignment_1 ) ) ;
+    // InternalCinEditor.g:1524:1: rule__Picture__Group__1__Impl : ( ( rule__Picture__NameAssignment_1 ) ) ;
     public final void rule__Picture__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCinEditor.g:1501:1: ( ( ( rule__Picture__NameAssignment_1 ) ) )
-            // InternalCinEditor.g:1502:1: ( ( rule__Picture__NameAssignment_1 ) )
+            // InternalCinEditor.g:1528:1: ( ( ( rule__Picture__NameAssignment_1 ) ) )
+            // InternalCinEditor.g:1529:1: ( ( rule__Picture__NameAssignment_1 ) )
             {
-            // InternalCinEditor.g:1502:1: ( ( rule__Picture__NameAssignment_1 ) )
-            // InternalCinEditor.g:1503:2: ( rule__Picture__NameAssignment_1 )
+            // InternalCinEditor.g:1529:1: ( ( rule__Picture__NameAssignment_1 ) )
+            // InternalCinEditor.g:1530:2: ( rule__Picture__NameAssignment_1 )
             {
              before(grammarAccess.getPictureAccess().getNameAssignment_1()); 
-            // InternalCinEditor.g:1504:2: ( rule__Picture__NameAssignment_1 )
-            // InternalCinEditor.g:1504:3: rule__Picture__NameAssignment_1
+            // InternalCinEditor.g:1531:2: ( rule__Picture__NameAssignment_1 )
+            // InternalCinEditor.g:1531:3: rule__Picture__NameAssignment_1
             {
             pushFollow(FOLLOW_2);
             rule__Picture__NameAssignment_1();
@@ -4526,16 +4617,16 @@ public class InternalCinEditorParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Picture__Group__2"
-    // InternalCinEditor.g:1512:1: rule__Picture__Group__2 : rule__Picture__Group__2__Impl rule__Picture__Group__3 ;
+    // InternalCinEditor.g:1539:1: rule__Picture__Group__2 : rule__Picture__Group__2__Impl rule__Picture__Group__3 ;
     public final void rule__Picture__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCinEditor.g:1516:1: ( rule__Picture__Group__2__Impl rule__Picture__Group__3 )
-            // InternalCinEditor.g:1517:2: rule__Picture__Group__2__Impl rule__Picture__Group__3
+            // InternalCinEditor.g:1543:1: ( rule__Picture__Group__2__Impl rule__Picture__Group__3 )
+            // InternalCinEditor.g:1544:2: rule__Picture__Group__2__Impl rule__Picture__Group__3
             {
-            pushFollow(FOLLOW_18);
+            pushFollow(FOLLOW_17);
             rule__Picture__Group__2__Impl();
 
             state._fsp--;
@@ -4564,17 +4655,17 @@ public class InternalCinEditorParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Picture__Group__2__Impl"
-    // InternalCinEditor.g:1524:1: rule__Picture__Group__2__Impl : ( '->' ) ;
+    // InternalCinEditor.g:1551:1: rule__Picture__Group__2__Impl : ( '->' ) ;
     public final void rule__Picture__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCinEditor.g:1528:1: ( ( '->' ) )
-            // InternalCinEditor.g:1529:1: ( '->' )
+            // InternalCinEditor.g:1555:1: ( ( '->' ) )
+            // InternalCinEditor.g:1556:1: ( '->' )
             {
-            // InternalCinEditor.g:1529:1: ( '->' )
-            // InternalCinEditor.g:1530:2: '->'
+            // InternalCinEditor.g:1556:1: ( '->' )
+            // InternalCinEditor.g:1557:2: '->'
             {
              before(grammarAccess.getPictureAccess().getHyphenMinusGreaterThanSignKeyword_2()); 
             match(input,22,FOLLOW_2); 
@@ -4601,14 +4692,14 @@ public class InternalCinEditorParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Picture__Group__3"
-    // InternalCinEditor.g:1539:1: rule__Picture__Group__3 : rule__Picture__Group__3__Impl rule__Picture__Group__4 ;
+    // InternalCinEditor.g:1566:1: rule__Picture__Group__3 : rule__Picture__Group__3__Impl rule__Picture__Group__4 ;
     public final void rule__Picture__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCinEditor.g:1543:1: ( rule__Picture__Group__3__Impl rule__Picture__Group__4 )
-            // InternalCinEditor.g:1544:2: rule__Picture__Group__3__Impl rule__Picture__Group__4
+            // InternalCinEditor.g:1570:1: ( rule__Picture__Group__3__Impl rule__Picture__Group__4 )
+            // InternalCinEditor.g:1571:2: rule__Picture__Group__3__Impl rule__Picture__Group__4
             {
             pushFollow(FOLLOW_3);
             rule__Picture__Group__3__Impl();
@@ -4639,17 +4730,17 @@ public class InternalCinEditorParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Picture__Group__3__Impl"
-    // InternalCinEditor.g:1551:1: rule__Picture__Group__3__Impl : ( '\"' ) ;
+    // InternalCinEditor.g:1578:1: rule__Picture__Group__3__Impl : ( '\"' ) ;
     public final void rule__Picture__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCinEditor.g:1555:1: ( ( '\"' ) )
-            // InternalCinEditor.g:1556:1: ( '\"' )
+            // InternalCinEditor.g:1582:1: ( ( '\"' ) )
+            // InternalCinEditor.g:1583:1: ( '\"' )
             {
-            // InternalCinEditor.g:1556:1: ( '\"' )
-            // InternalCinEditor.g:1557:2: '\"'
+            // InternalCinEditor.g:1583:1: ( '\"' )
+            // InternalCinEditor.g:1584:2: '\"'
             {
              before(grammarAccess.getPictureAccess().getQuotationMarkKeyword_3()); 
             match(input,27,FOLLOW_2); 
@@ -4676,16 +4767,16 @@ public class InternalCinEditorParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Picture__Group__4"
-    // InternalCinEditor.g:1566:1: rule__Picture__Group__4 : rule__Picture__Group__4__Impl rule__Picture__Group__5 ;
+    // InternalCinEditor.g:1593:1: rule__Picture__Group__4 : rule__Picture__Group__4__Impl rule__Picture__Group__5 ;
     public final void rule__Picture__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCinEditor.g:1570:1: ( rule__Picture__Group__4__Impl rule__Picture__Group__5 )
-            // InternalCinEditor.g:1571:2: rule__Picture__Group__4__Impl rule__Picture__Group__5
+            // InternalCinEditor.g:1597:1: ( rule__Picture__Group__4__Impl rule__Picture__Group__5 )
+            // InternalCinEditor.g:1598:2: rule__Picture__Group__4__Impl rule__Picture__Group__5
             {
-            pushFollow(FOLLOW_18);
+            pushFollow(FOLLOW_17);
             rule__Picture__Group__4__Impl();
 
             state._fsp--;
@@ -4714,21 +4805,21 @@ public class InternalCinEditorParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Picture__Group__4__Impl"
-    // InternalCinEditor.g:1578:1: rule__Picture__Group__4__Impl : ( ( rule__Picture__UrlAssignment_4 ) ) ;
+    // InternalCinEditor.g:1605:1: rule__Picture__Group__4__Impl : ( ( rule__Picture__UrlAssignment_4 ) ) ;
     public final void rule__Picture__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCinEditor.g:1582:1: ( ( ( rule__Picture__UrlAssignment_4 ) ) )
-            // InternalCinEditor.g:1583:1: ( ( rule__Picture__UrlAssignment_4 ) )
+            // InternalCinEditor.g:1609:1: ( ( ( rule__Picture__UrlAssignment_4 ) ) )
+            // InternalCinEditor.g:1610:1: ( ( rule__Picture__UrlAssignment_4 ) )
             {
-            // InternalCinEditor.g:1583:1: ( ( rule__Picture__UrlAssignment_4 ) )
-            // InternalCinEditor.g:1584:2: ( rule__Picture__UrlAssignment_4 )
+            // InternalCinEditor.g:1610:1: ( ( rule__Picture__UrlAssignment_4 ) )
+            // InternalCinEditor.g:1611:2: ( rule__Picture__UrlAssignment_4 )
             {
              before(grammarAccess.getPictureAccess().getUrlAssignment_4()); 
-            // InternalCinEditor.g:1585:2: ( rule__Picture__UrlAssignment_4 )
-            // InternalCinEditor.g:1585:3: rule__Picture__UrlAssignment_4
+            // InternalCinEditor.g:1612:2: ( rule__Picture__UrlAssignment_4 )
+            // InternalCinEditor.g:1612:3: rule__Picture__UrlAssignment_4
             {
             pushFollow(FOLLOW_2);
             rule__Picture__UrlAssignment_4();
@@ -4761,16 +4852,16 @@ public class InternalCinEditorParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Picture__Group__5"
-    // InternalCinEditor.g:1593:1: rule__Picture__Group__5 : rule__Picture__Group__5__Impl rule__Picture__Group__6 ;
+    // InternalCinEditor.g:1620:1: rule__Picture__Group__5 : rule__Picture__Group__5__Impl rule__Picture__Group__6 ;
     public final void rule__Picture__Group__5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCinEditor.g:1597:1: ( rule__Picture__Group__5__Impl rule__Picture__Group__6 )
-            // InternalCinEditor.g:1598:2: rule__Picture__Group__5__Impl rule__Picture__Group__6
+            // InternalCinEditor.g:1624:1: ( rule__Picture__Group__5__Impl rule__Picture__Group__6 )
+            // InternalCinEditor.g:1625:2: rule__Picture__Group__5__Impl rule__Picture__Group__6
             {
-            pushFollow(FOLLOW_19);
+            pushFollow(FOLLOW_18);
             rule__Picture__Group__5__Impl();
 
             state._fsp--;
@@ -4799,17 +4890,17 @@ public class InternalCinEditorParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Picture__Group__5__Impl"
-    // InternalCinEditor.g:1605:1: rule__Picture__Group__5__Impl : ( '\"' ) ;
+    // InternalCinEditor.g:1632:1: rule__Picture__Group__5__Impl : ( '\"' ) ;
     public final void rule__Picture__Group__5__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCinEditor.g:1609:1: ( ( '\"' ) )
-            // InternalCinEditor.g:1610:1: ( '\"' )
+            // InternalCinEditor.g:1636:1: ( ( '\"' ) )
+            // InternalCinEditor.g:1637:1: ( '\"' )
             {
-            // InternalCinEditor.g:1610:1: ( '\"' )
-            // InternalCinEditor.g:1611:2: '\"'
+            // InternalCinEditor.g:1637:1: ( '\"' )
+            // InternalCinEditor.g:1638:2: '\"'
             {
              before(grammarAccess.getPictureAccess().getQuotationMarkKeyword_5()); 
             match(input,27,FOLLOW_2); 
@@ -4836,16 +4927,16 @@ public class InternalCinEditorParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Picture__Group__6"
-    // InternalCinEditor.g:1620:1: rule__Picture__Group__6 : rule__Picture__Group__6__Impl rule__Picture__Group__7 ;
+    // InternalCinEditor.g:1647:1: rule__Picture__Group__6 : rule__Picture__Group__6__Impl rule__Picture__Group__7 ;
     public final void rule__Picture__Group__6() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCinEditor.g:1624:1: ( rule__Picture__Group__6__Impl rule__Picture__Group__7 )
-            // InternalCinEditor.g:1625:2: rule__Picture__Group__6__Impl rule__Picture__Group__7
+            // InternalCinEditor.g:1651:1: ( rule__Picture__Group__6__Impl rule__Picture__Group__7 )
+            // InternalCinEditor.g:1652:2: rule__Picture__Group__6__Impl rule__Picture__Group__7
             {
-            pushFollow(FOLLOW_19);
+            pushFollow(FOLLOW_18);
             rule__Picture__Group__6__Impl();
 
             state._fsp--;
@@ -4874,29 +4965,29 @@ public class InternalCinEditorParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Picture__Group__6__Impl"
-    // InternalCinEditor.g:1632:1: rule__Picture__Group__6__Impl : ( ( rule__Picture__PositionAssignment_6 )? ) ;
+    // InternalCinEditor.g:1659:1: rule__Picture__Group__6__Impl : ( ( rule__Picture__PositionAssignment_6 )? ) ;
     public final void rule__Picture__Group__6__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCinEditor.g:1636:1: ( ( ( rule__Picture__PositionAssignment_6 )? ) )
-            // InternalCinEditor.g:1637:1: ( ( rule__Picture__PositionAssignment_6 )? )
+            // InternalCinEditor.g:1663:1: ( ( ( rule__Picture__PositionAssignment_6 )? ) )
+            // InternalCinEditor.g:1664:1: ( ( rule__Picture__PositionAssignment_6 )? )
             {
-            // InternalCinEditor.g:1637:1: ( ( rule__Picture__PositionAssignment_6 )? )
-            // InternalCinEditor.g:1638:2: ( rule__Picture__PositionAssignment_6 )?
+            // InternalCinEditor.g:1664:1: ( ( rule__Picture__PositionAssignment_6 )? )
+            // InternalCinEditor.g:1665:2: ( rule__Picture__PositionAssignment_6 )?
             {
              before(grammarAccess.getPictureAccess().getPositionAssignment_6()); 
-            // InternalCinEditor.g:1639:2: ( rule__Picture__PositionAssignment_6 )?
-            int alt8=2;
-            int LA8_0 = input.LA(1);
+            // InternalCinEditor.g:1666:2: ( rule__Picture__PositionAssignment_6 )?
+            int alt9=2;
+            int LA9_0 = input.LA(1);
 
-            if ( (LA8_0==13) ) {
-                alt8=1;
+            if ( (LA9_0==13) ) {
+                alt9=1;
             }
-            switch (alt8) {
+            switch (alt9) {
                 case 1 :
-                    // InternalCinEditor.g:1639:3: rule__Picture__PositionAssignment_6
+                    // InternalCinEditor.g:1666:3: rule__Picture__PositionAssignment_6
                     {
                     pushFollow(FOLLOW_2);
                     rule__Picture__PositionAssignment_6();
@@ -4932,16 +5023,16 @@ public class InternalCinEditorParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Picture__Group__7"
-    // InternalCinEditor.g:1647:1: rule__Picture__Group__7 : rule__Picture__Group__7__Impl rule__Picture__Group__8 ;
+    // InternalCinEditor.g:1674:1: rule__Picture__Group__7 : rule__Picture__Group__7__Impl rule__Picture__Group__8 ;
     public final void rule__Picture__Group__7() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCinEditor.g:1651:1: ( rule__Picture__Group__7__Impl rule__Picture__Group__8 )
-            // InternalCinEditor.g:1652:2: rule__Picture__Group__7__Impl rule__Picture__Group__8
+            // InternalCinEditor.g:1678:1: ( rule__Picture__Group__7__Impl rule__Picture__Group__8 )
+            // InternalCinEditor.g:1679:2: rule__Picture__Group__7__Impl rule__Picture__Group__8
             {
-            pushFollow(FOLLOW_19);
+            pushFollow(FOLLOW_18);
             rule__Picture__Group__7__Impl();
 
             state._fsp--;
@@ -4970,29 +5061,29 @@ public class InternalCinEditorParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Picture__Group__7__Impl"
-    // InternalCinEditor.g:1659:1: rule__Picture__Group__7__Impl : ( ( rule__Picture__DimensionAssignment_7 )? ) ;
+    // InternalCinEditor.g:1686:1: rule__Picture__Group__7__Impl : ( ( rule__Picture__DimensionAssignment_7 )? ) ;
     public final void rule__Picture__Group__7__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCinEditor.g:1663:1: ( ( ( rule__Picture__DimensionAssignment_7 )? ) )
-            // InternalCinEditor.g:1664:1: ( ( rule__Picture__DimensionAssignment_7 )? )
+            // InternalCinEditor.g:1690:1: ( ( ( rule__Picture__DimensionAssignment_7 )? ) )
+            // InternalCinEditor.g:1691:1: ( ( rule__Picture__DimensionAssignment_7 )? )
             {
-            // InternalCinEditor.g:1664:1: ( ( rule__Picture__DimensionAssignment_7 )? )
-            // InternalCinEditor.g:1665:2: ( rule__Picture__DimensionAssignment_7 )?
+            // InternalCinEditor.g:1691:1: ( ( rule__Picture__DimensionAssignment_7 )? )
+            // InternalCinEditor.g:1692:2: ( rule__Picture__DimensionAssignment_7 )?
             {
              before(grammarAccess.getPictureAccess().getDimensionAssignment_7()); 
-            // InternalCinEditor.g:1666:2: ( rule__Picture__DimensionAssignment_7 )?
-            int alt9=2;
-            int LA9_0 = input.LA(1);
+            // InternalCinEditor.g:1693:2: ( rule__Picture__DimensionAssignment_7 )?
+            int alt10=2;
+            int LA10_0 = input.LA(1);
 
-            if ( (LA9_0==17) ) {
-                alt9=1;
+            if ( (LA10_0==17) ) {
+                alt10=1;
             }
-            switch (alt9) {
+            switch (alt10) {
                 case 1 :
-                    // InternalCinEditor.g:1666:3: rule__Picture__DimensionAssignment_7
+                    // InternalCinEditor.g:1693:3: rule__Picture__DimensionAssignment_7
                     {
                     pushFollow(FOLLOW_2);
                     rule__Picture__DimensionAssignment_7();
@@ -5028,14 +5119,14 @@ public class InternalCinEditorParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Picture__Group__8"
-    // InternalCinEditor.g:1674:1: rule__Picture__Group__8 : rule__Picture__Group__8__Impl rule__Picture__Group__9 ;
+    // InternalCinEditor.g:1701:1: rule__Picture__Group__8 : rule__Picture__Group__8__Impl rule__Picture__Group__9 ;
     public final void rule__Picture__Group__8() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCinEditor.g:1678:1: ( rule__Picture__Group__8__Impl rule__Picture__Group__9 )
-            // InternalCinEditor.g:1679:2: rule__Picture__Group__8__Impl rule__Picture__Group__9
+            // InternalCinEditor.g:1705:1: ( rule__Picture__Group__8__Impl rule__Picture__Group__9 )
+            // InternalCinEditor.g:1706:2: rule__Picture__Group__8__Impl rule__Picture__Group__9
             {
             pushFollow(FOLLOW_10);
             rule__Picture__Group__8__Impl();
@@ -5066,17 +5157,17 @@ public class InternalCinEditorParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Picture__Group__8__Impl"
-    // InternalCinEditor.g:1686:1: rule__Picture__Group__8__Impl : ( 'at' ) ;
+    // InternalCinEditor.g:1713:1: rule__Picture__Group__8__Impl : ( 'at' ) ;
     public final void rule__Picture__Group__8__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCinEditor.g:1690:1: ( ( 'at' ) )
-            // InternalCinEditor.g:1691:1: ( 'at' )
+            // InternalCinEditor.g:1717:1: ( ( 'at' ) )
+            // InternalCinEditor.g:1718:1: ( 'at' )
             {
-            // InternalCinEditor.g:1691:1: ( 'at' )
-            // InternalCinEditor.g:1692:2: 'at'
+            // InternalCinEditor.g:1718:1: ( 'at' )
+            // InternalCinEditor.g:1719:2: 'at'
             {
              before(grammarAccess.getPictureAccess().getAtKeyword_8()); 
             match(input,23,FOLLOW_2); 
@@ -5103,16 +5194,16 @@ public class InternalCinEditorParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Picture__Group__9"
-    // InternalCinEditor.g:1701:1: rule__Picture__Group__9 : rule__Picture__Group__9__Impl rule__Picture__Group__10 ;
+    // InternalCinEditor.g:1728:1: rule__Picture__Group__9 : rule__Picture__Group__9__Impl rule__Picture__Group__10 ;
     public final void rule__Picture__Group__9() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCinEditor.g:1705:1: ( rule__Picture__Group__9__Impl rule__Picture__Group__10 )
-            // InternalCinEditor.g:1706:2: rule__Picture__Group__9__Impl rule__Picture__Group__10
+            // InternalCinEditor.g:1732:1: ( rule__Picture__Group__9__Impl rule__Picture__Group__10 )
+            // InternalCinEditor.g:1733:2: rule__Picture__Group__9__Impl rule__Picture__Group__10
             {
-            pushFollow(FOLLOW_16);
+            pushFollow(FOLLOW_19);
             rule__Picture__Group__9__Impl();
 
             state._fsp--;
@@ -5141,21 +5232,21 @@ public class InternalCinEditorParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Picture__Group__9__Impl"
-    // InternalCinEditor.g:1713:1: rule__Picture__Group__9__Impl : ( ( rule__Picture__BeginTimeAssignment_9 ) ) ;
+    // InternalCinEditor.g:1740:1: rule__Picture__Group__9__Impl : ( ( rule__Picture__BeginTimeAssignment_9 ) ) ;
     public final void rule__Picture__Group__9__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCinEditor.g:1717:1: ( ( ( rule__Picture__BeginTimeAssignment_9 ) ) )
-            // InternalCinEditor.g:1718:1: ( ( rule__Picture__BeginTimeAssignment_9 ) )
+            // InternalCinEditor.g:1744:1: ( ( ( rule__Picture__BeginTimeAssignment_9 ) ) )
+            // InternalCinEditor.g:1745:1: ( ( rule__Picture__BeginTimeAssignment_9 ) )
             {
-            // InternalCinEditor.g:1718:1: ( ( rule__Picture__BeginTimeAssignment_9 ) )
-            // InternalCinEditor.g:1719:2: ( rule__Picture__BeginTimeAssignment_9 )
+            // InternalCinEditor.g:1745:1: ( ( rule__Picture__BeginTimeAssignment_9 ) )
+            // InternalCinEditor.g:1746:2: ( rule__Picture__BeginTimeAssignment_9 )
             {
              before(grammarAccess.getPictureAccess().getBeginTimeAssignment_9()); 
-            // InternalCinEditor.g:1720:2: ( rule__Picture__BeginTimeAssignment_9 )
-            // InternalCinEditor.g:1720:3: rule__Picture__BeginTimeAssignment_9
+            // InternalCinEditor.g:1747:2: ( rule__Picture__BeginTimeAssignment_9 )
+            // InternalCinEditor.g:1747:3: rule__Picture__BeginTimeAssignment_9
             {
             pushFollow(FOLLOW_2);
             rule__Picture__BeginTimeAssignment_9();
@@ -5188,22 +5279,17 @@ public class InternalCinEditorParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Picture__Group__10"
-    // InternalCinEditor.g:1728:1: rule__Picture__Group__10 : rule__Picture__Group__10__Impl rule__Picture__Group__11 ;
+    // InternalCinEditor.g:1755:1: rule__Picture__Group__10 : rule__Picture__Group__10__Impl ;
     public final void rule__Picture__Group__10() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCinEditor.g:1732:1: ( rule__Picture__Group__10__Impl rule__Picture__Group__11 )
-            // InternalCinEditor.g:1733:2: rule__Picture__Group__10__Impl rule__Picture__Group__11
+            // InternalCinEditor.g:1759:1: ( rule__Picture__Group__10__Impl )
+            // InternalCinEditor.g:1760:2: rule__Picture__Group__10__Impl
             {
-            pushFollow(FOLLOW_10);
-            rule__Picture__Group__10__Impl();
-
-            state._fsp--;
-
             pushFollow(FOLLOW_2);
-            rule__Picture__Group__11();
+            rule__Picture__Group__10__Impl();
 
             state._fsp--;
 
@@ -5226,21 +5312,42 @@ public class InternalCinEditorParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Picture__Group__10__Impl"
-    // InternalCinEditor.g:1740:1: rule__Picture__Group__10__Impl : ( 'during' ) ;
+    // InternalCinEditor.g:1766:1: rule__Picture__Group__10__Impl : ( ( rule__Picture__Group_10__0 )? ) ;
     public final void rule__Picture__Group__10__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCinEditor.g:1744:1: ( ( 'during' ) )
-            // InternalCinEditor.g:1745:1: ( 'during' )
+            // InternalCinEditor.g:1770:1: ( ( ( rule__Picture__Group_10__0 )? ) )
+            // InternalCinEditor.g:1771:1: ( ( rule__Picture__Group_10__0 )? )
             {
-            // InternalCinEditor.g:1745:1: ( 'during' )
-            // InternalCinEditor.g:1746:2: 'during'
+            // InternalCinEditor.g:1771:1: ( ( rule__Picture__Group_10__0 )? )
+            // InternalCinEditor.g:1772:2: ( rule__Picture__Group_10__0 )?
             {
-             before(grammarAccess.getPictureAccess().getDuringKeyword_10()); 
-            match(input,24,FOLLOW_2); 
-             after(grammarAccess.getPictureAccess().getDuringKeyword_10()); 
+             before(grammarAccess.getPictureAccess().getGroup_10()); 
+            // InternalCinEditor.g:1773:2: ( rule__Picture__Group_10__0 )?
+            int alt11=2;
+            int LA11_0 = input.LA(1);
+
+            if ( (LA11_0==25) ) {
+                alt11=1;
+            }
+            switch (alt11) {
+                case 1 :
+                    // InternalCinEditor.g:1773:3: rule__Picture__Group_10__0
+                    {
+                    pushFollow(FOLLOW_2);
+                    rule__Picture__Group_10__0();
+
+                    state._fsp--;
+
+
+                    }
+                    break;
+
+            }
+
+             after(grammarAccess.getPictureAccess().getGroup_10()); 
 
             }
 
@@ -5262,18 +5369,23 @@ public class InternalCinEditorParser extends AbstractInternalContentAssistParser
     // $ANTLR end "rule__Picture__Group__10__Impl"
 
 
-    // $ANTLR start "rule__Picture__Group__11"
-    // InternalCinEditor.g:1755:1: rule__Picture__Group__11 : rule__Picture__Group__11__Impl ;
-    public final void rule__Picture__Group__11() throws RecognitionException {
+    // $ANTLR start "rule__Picture__Group_10__0"
+    // InternalCinEditor.g:1782:1: rule__Picture__Group_10__0 : rule__Picture__Group_10__0__Impl rule__Picture__Group_10__1 ;
+    public final void rule__Picture__Group_10__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCinEditor.g:1759:1: ( rule__Picture__Group__11__Impl )
-            // InternalCinEditor.g:1760:2: rule__Picture__Group__11__Impl
+            // InternalCinEditor.g:1786:1: ( rule__Picture__Group_10__0__Impl rule__Picture__Group_10__1 )
+            // InternalCinEditor.g:1787:2: rule__Picture__Group_10__0__Impl rule__Picture__Group_10__1
             {
+            pushFollow(FOLLOW_10);
+            rule__Picture__Group_10__0__Impl();
+
+            state._fsp--;
+
             pushFollow(FOLLOW_2);
-            rule__Picture__Group__11__Impl();
+            rule__Picture__Group_10__1();
 
             state._fsp--;
 
@@ -5292,35 +5404,25 @@ public class InternalCinEditorParser extends AbstractInternalContentAssistParser
         }
         return ;
     }
-    // $ANTLR end "rule__Picture__Group__11"
+    // $ANTLR end "rule__Picture__Group_10__0"
 
 
-    // $ANTLR start "rule__Picture__Group__11__Impl"
-    // InternalCinEditor.g:1766:1: rule__Picture__Group__11__Impl : ( ( rule__Picture__DurationAssignment_11 ) ) ;
-    public final void rule__Picture__Group__11__Impl() throws RecognitionException {
+    // $ANTLR start "rule__Picture__Group_10__0__Impl"
+    // InternalCinEditor.g:1794:1: rule__Picture__Group_10__0__Impl : ( 'during' ) ;
+    public final void rule__Picture__Group_10__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCinEditor.g:1770:1: ( ( ( rule__Picture__DurationAssignment_11 ) ) )
-            // InternalCinEditor.g:1771:1: ( ( rule__Picture__DurationAssignment_11 ) )
+            // InternalCinEditor.g:1798:1: ( ( 'during' ) )
+            // InternalCinEditor.g:1799:1: ( 'during' )
             {
-            // InternalCinEditor.g:1771:1: ( ( rule__Picture__DurationAssignment_11 ) )
-            // InternalCinEditor.g:1772:2: ( rule__Picture__DurationAssignment_11 )
+            // InternalCinEditor.g:1799:1: ( 'during' )
+            // InternalCinEditor.g:1800:2: 'during'
             {
-             before(grammarAccess.getPictureAccess().getDurationAssignment_11()); 
-            // InternalCinEditor.g:1773:2: ( rule__Picture__DurationAssignment_11 )
-            // InternalCinEditor.g:1773:3: rule__Picture__DurationAssignment_11
-            {
-            pushFollow(FOLLOW_2);
-            rule__Picture__DurationAssignment_11();
-
-            state._fsp--;
-
-
-            }
-
-             after(grammarAccess.getPictureAccess().getDurationAssignment_11()); 
+             before(grammarAccess.getPictureAccess().getDuringKeyword_10_0()); 
+            match(input,25,FOLLOW_2); 
+             after(grammarAccess.getPictureAccess().getDuringKeyword_10_0()); 
 
             }
 
@@ -5339,18 +5441,98 @@ public class InternalCinEditorParser extends AbstractInternalContentAssistParser
         }
         return ;
     }
-    // $ANTLR end "rule__Picture__Group__11__Impl"
+    // $ANTLR end "rule__Picture__Group_10__0__Impl"
+
+
+    // $ANTLR start "rule__Picture__Group_10__1"
+    // InternalCinEditor.g:1809:1: rule__Picture__Group_10__1 : rule__Picture__Group_10__1__Impl ;
+    public final void rule__Picture__Group_10__1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalCinEditor.g:1813:1: ( rule__Picture__Group_10__1__Impl )
+            // InternalCinEditor.g:1814:2: rule__Picture__Group_10__1__Impl
+            {
+            pushFollow(FOLLOW_2);
+            rule__Picture__Group_10__1__Impl();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Picture__Group_10__1"
+
+
+    // $ANTLR start "rule__Picture__Group_10__1__Impl"
+    // InternalCinEditor.g:1820:1: rule__Picture__Group_10__1__Impl : ( ( rule__Picture__DurationAssignment_10_1 ) ) ;
+    public final void rule__Picture__Group_10__1__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalCinEditor.g:1824:1: ( ( ( rule__Picture__DurationAssignment_10_1 ) ) )
+            // InternalCinEditor.g:1825:1: ( ( rule__Picture__DurationAssignment_10_1 ) )
+            {
+            // InternalCinEditor.g:1825:1: ( ( rule__Picture__DurationAssignment_10_1 ) )
+            // InternalCinEditor.g:1826:2: ( rule__Picture__DurationAssignment_10_1 )
+            {
+             before(grammarAccess.getPictureAccess().getDurationAssignment_10_1()); 
+            // InternalCinEditor.g:1827:2: ( rule__Picture__DurationAssignment_10_1 )
+            // InternalCinEditor.g:1827:3: rule__Picture__DurationAssignment_10_1
+            {
+            pushFollow(FOLLOW_2);
+            rule__Picture__DurationAssignment_10_1();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getPictureAccess().getDurationAssignment_10_1()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Picture__Group_10__1__Impl"
 
 
     // $ANTLR start "rule__Video__Group__0"
-    // InternalCinEditor.g:1782:1: rule__Video__Group__0 : rule__Video__Group__0__Impl rule__Video__Group__1 ;
+    // InternalCinEditor.g:1836:1: rule__Video__Group__0 : rule__Video__Group__0__Impl rule__Video__Group__1 ;
     public final void rule__Video__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCinEditor.g:1786:1: ( rule__Video__Group__0__Impl rule__Video__Group__1 )
-            // InternalCinEditor.g:1787:2: rule__Video__Group__0__Impl rule__Video__Group__1
+            // InternalCinEditor.g:1840:1: ( rule__Video__Group__0__Impl rule__Video__Group__1 )
+            // InternalCinEditor.g:1841:2: rule__Video__Group__0__Impl rule__Video__Group__1
             {
             pushFollow(FOLLOW_3);
             rule__Video__Group__0__Impl();
@@ -5381,17 +5563,17 @@ public class InternalCinEditorParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Video__Group__0__Impl"
-    // InternalCinEditor.g:1794:1: rule__Video__Group__0__Impl : ( 'Video' ) ;
+    // InternalCinEditor.g:1848:1: rule__Video__Group__0__Impl : ( 'Video' ) ;
     public final void rule__Video__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCinEditor.g:1798:1: ( ( 'Video' ) )
-            // InternalCinEditor.g:1799:1: ( 'Video' )
+            // InternalCinEditor.g:1852:1: ( ( 'Video' ) )
+            // InternalCinEditor.g:1853:1: ( 'Video' )
             {
-            // InternalCinEditor.g:1799:1: ( 'Video' )
-            // InternalCinEditor.g:1800:2: 'Video'
+            // InternalCinEditor.g:1853:1: ( 'Video' )
+            // InternalCinEditor.g:1854:2: 'Video'
             {
              before(grammarAccess.getVideoAccess().getVideoKeyword_0()); 
             match(input,28,FOLLOW_2); 
@@ -5418,14 +5600,14 @@ public class InternalCinEditorParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Video__Group__1"
-    // InternalCinEditor.g:1809:1: rule__Video__Group__1 : rule__Video__Group__1__Impl rule__Video__Group__2 ;
+    // InternalCinEditor.g:1863:1: rule__Video__Group__1 : rule__Video__Group__1__Impl rule__Video__Group__2 ;
     public final void rule__Video__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCinEditor.g:1813:1: ( rule__Video__Group__1__Impl rule__Video__Group__2 )
-            // InternalCinEditor.g:1814:2: rule__Video__Group__1__Impl rule__Video__Group__2
+            // InternalCinEditor.g:1867:1: ( rule__Video__Group__1__Impl rule__Video__Group__2 )
+            // InternalCinEditor.g:1868:2: rule__Video__Group__1__Impl rule__Video__Group__2
             {
             pushFollow(FOLLOW_14);
             rule__Video__Group__1__Impl();
@@ -5456,21 +5638,21 @@ public class InternalCinEditorParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Video__Group__1__Impl"
-    // InternalCinEditor.g:1821:1: rule__Video__Group__1__Impl : ( ( rule__Video__NameAssignment_1 ) ) ;
+    // InternalCinEditor.g:1875:1: rule__Video__Group__1__Impl : ( ( rule__Video__NameAssignment_1 ) ) ;
     public final void rule__Video__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCinEditor.g:1825:1: ( ( ( rule__Video__NameAssignment_1 ) ) )
-            // InternalCinEditor.g:1826:1: ( ( rule__Video__NameAssignment_1 ) )
+            // InternalCinEditor.g:1879:1: ( ( ( rule__Video__NameAssignment_1 ) ) )
+            // InternalCinEditor.g:1880:1: ( ( rule__Video__NameAssignment_1 ) )
             {
-            // InternalCinEditor.g:1826:1: ( ( rule__Video__NameAssignment_1 ) )
-            // InternalCinEditor.g:1827:2: ( rule__Video__NameAssignment_1 )
+            // InternalCinEditor.g:1880:1: ( ( rule__Video__NameAssignment_1 ) )
+            // InternalCinEditor.g:1881:2: ( rule__Video__NameAssignment_1 )
             {
              before(grammarAccess.getVideoAccess().getNameAssignment_1()); 
-            // InternalCinEditor.g:1828:2: ( rule__Video__NameAssignment_1 )
-            // InternalCinEditor.g:1828:3: rule__Video__NameAssignment_1
+            // InternalCinEditor.g:1882:2: ( rule__Video__NameAssignment_1 )
+            // InternalCinEditor.g:1882:3: rule__Video__NameAssignment_1
             {
             pushFollow(FOLLOW_2);
             rule__Video__NameAssignment_1();
@@ -5503,16 +5685,16 @@ public class InternalCinEditorParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Video__Group__2"
-    // InternalCinEditor.g:1836:1: rule__Video__Group__2 : rule__Video__Group__2__Impl rule__Video__Group__3 ;
+    // InternalCinEditor.g:1890:1: rule__Video__Group__2 : rule__Video__Group__2__Impl rule__Video__Group__3 ;
     public final void rule__Video__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCinEditor.g:1840:1: ( rule__Video__Group__2__Impl rule__Video__Group__3 )
-            // InternalCinEditor.g:1841:2: rule__Video__Group__2__Impl rule__Video__Group__3
+            // InternalCinEditor.g:1894:1: ( rule__Video__Group__2__Impl rule__Video__Group__3 )
+            // InternalCinEditor.g:1895:2: rule__Video__Group__2__Impl rule__Video__Group__3
             {
-            pushFollow(FOLLOW_18);
+            pushFollow(FOLLOW_17);
             rule__Video__Group__2__Impl();
 
             state._fsp--;
@@ -5541,17 +5723,17 @@ public class InternalCinEditorParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Video__Group__2__Impl"
-    // InternalCinEditor.g:1848:1: rule__Video__Group__2__Impl : ( '->' ) ;
+    // InternalCinEditor.g:1902:1: rule__Video__Group__2__Impl : ( '->' ) ;
     public final void rule__Video__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCinEditor.g:1852:1: ( ( '->' ) )
-            // InternalCinEditor.g:1853:1: ( '->' )
+            // InternalCinEditor.g:1906:1: ( ( '->' ) )
+            // InternalCinEditor.g:1907:1: ( '->' )
             {
-            // InternalCinEditor.g:1853:1: ( '->' )
-            // InternalCinEditor.g:1854:2: '->'
+            // InternalCinEditor.g:1907:1: ( '->' )
+            // InternalCinEditor.g:1908:2: '->'
             {
              before(grammarAccess.getVideoAccess().getHyphenMinusGreaterThanSignKeyword_2()); 
             match(input,22,FOLLOW_2); 
@@ -5578,14 +5760,14 @@ public class InternalCinEditorParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Video__Group__3"
-    // InternalCinEditor.g:1863:1: rule__Video__Group__3 : rule__Video__Group__3__Impl rule__Video__Group__4 ;
+    // InternalCinEditor.g:1917:1: rule__Video__Group__3 : rule__Video__Group__3__Impl rule__Video__Group__4 ;
     public final void rule__Video__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCinEditor.g:1867:1: ( rule__Video__Group__3__Impl rule__Video__Group__4 )
-            // InternalCinEditor.g:1868:2: rule__Video__Group__3__Impl rule__Video__Group__4
+            // InternalCinEditor.g:1921:1: ( rule__Video__Group__3__Impl rule__Video__Group__4 )
+            // InternalCinEditor.g:1922:2: rule__Video__Group__3__Impl rule__Video__Group__4
             {
             pushFollow(FOLLOW_3);
             rule__Video__Group__3__Impl();
@@ -5616,17 +5798,17 @@ public class InternalCinEditorParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Video__Group__3__Impl"
-    // InternalCinEditor.g:1875:1: rule__Video__Group__3__Impl : ( '\"' ) ;
+    // InternalCinEditor.g:1929:1: rule__Video__Group__3__Impl : ( '\"' ) ;
     public final void rule__Video__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCinEditor.g:1879:1: ( ( '\"' ) )
-            // InternalCinEditor.g:1880:1: ( '\"' )
+            // InternalCinEditor.g:1933:1: ( ( '\"' ) )
+            // InternalCinEditor.g:1934:1: ( '\"' )
             {
-            // InternalCinEditor.g:1880:1: ( '\"' )
-            // InternalCinEditor.g:1881:2: '\"'
+            // InternalCinEditor.g:1934:1: ( '\"' )
+            // InternalCinEditor.g:1935:2: '\"'
             {
              before(grammarAccess.getVideoAccess().getQuotationMarkKeyword_3()); 
             match(input,27,FOLLOW_2); 
@@ -5653,16 +5835,16 @@ public class InternalCinEditorParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Video__Group__4"
-    // InternalCinEditor.g:1890:1: rule__Video__Group__4 : rule__Video__Group__4__Impl rule__Video__Group__5 ;
+    // InternalCinEditor.g:1944:1: rule__Video__Group__4 : rule__Video__Group__4__Impl rule__Video__Group__5 ;
     public final void rule__Video__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCinEditor.g:1894:1: ( rule__Video__Group__4__Impl rule__Video__Group__5 )
-            // InternalCinEditor.g:1895:2: rule__Video__Group__4__Impl rule__Video__Group__5
+            // InternalCinEditor.g:1948:1: ( rule__Video__Group__4__Impl rule__Video__Group__5 )
+            // InternalCinEditor.g:1949:2: rule__Video__Group__4__Impl rule__Video__Group__5
             {
-            pushFollow(FOLLOW_18);
+            pushFollow(FOLLOW_17);
             rule__Video__Group__4__Impl();
 
             state._fsp--;
@@ -5691,21 +5873,21 @@ public class InternalCinEditorParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Video__Group__4__Impl"
-    // InternalCinEditor.g:1902:1: rule__Video__Group__4__Impl : ( ( rule__Video__UrlAssignment_4 ) ) ;
+    // InternalCinEditor.g:1956:1: rule__Video__Group__4__Impl : ( ( rule__Video__UrlAssignment_4 ) ) ;
     public final void rule__Video__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCinEditor.g:1906:1: ( ( ( rule__Video__UrlAssignment_4 ) ) )
-            // InternalCinEditor.g:1907:1: ( ( rule__Video__UrlAssignment_4 ) )
+            // InternalCinEditor.g:1960:1: ( ( ( rule__Video__UrlAssignment_4 ) ) )
+            // InternalCinEditor.g:1961:1: ( ( rule__Video__UrlAssignment_4 ) )
             {
-            // InternalCinEditor.g:1907:1: ( ( rule__Video__UrlAssignment_4 ) )
-            // InternalCinEditor.g:1908:2: ( rule__Video__UrlAssignment_4 )
+            // InternalCinEditor.g:1961:1: ( ( rule__Video__UrlAssignment_4 ) )
+            // InternalCinEditor.g:1962:2: ( rule__Video__UrlAssignment_4 )
             {
              before(grammarAccess.getVideoAccess().getUrlAssignment_4()); 
-            // InternalCinEditor.g:1909:2: ( rule__Video__UrlAssignment_4 )
-            // InternalCinEditor.g:1909:3: rule__Video__UrlAssignment_4
+            // InternalCinEditor.g:1963:2: ( rule__Video__UrlAssignment_4 )
+            // InternalCinEditor.g:1963:3: rule__Video__UrlAssignment_4
             {
             pushFollow(FOLLOW_2);
             rule__Video__UrlAssignment_4();
@@ -5738,14 +5920,14 @@ public class InternalCinEditorParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Video__Group__5"
-    // InternalCinEditor.g:1917:1: rule__Video__Group__5 : rule__Video__Group__5__Impl rule__Video__Group__6 ;
+    // InternalCinEditor.g:1971:1: rule__Video__Group__5 : rule__Video__Group__5__Impl rule__Video__Group__6 ;
     public final void rule__Video__Group__5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCinEditor.g:1921:1: ( rule__Video__Group__5__Impl rule__Video__Group__6 )
-            // InternalCinEditor.g:1922:2: rule__Video__Group__5__Impl rule__Video__Group__6
+            // InternalCinEditor.g:1975:1: ( rule__Video__Group__5__Impl rule__Video__Group__6 )
+            // InternalCinEditor.g:1976:2: rule__Video__Group__5__Impl rule__Video__Group__6
             {
             pushFollow(FOLLOW_20);
             rule__Video__Group__5__Impl();
@@ -5776,17 +5958,17 @@ public class InternalCinEditorParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Video__Group__5__Impl"
-    // InternalCinEditor.g:1929:1: rule__Video__Group__5__Impl : ( '\"' ) ;
+    // InternalCinEditor.g:1983:1: rule__Video__Group__5__Impl : ( '\"' ) ;
     public final void rule__Video__Group__5__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCinEditor.g:1933:1: ( ( '\"' ) )
-            // InternalCinEditor.g:1934:1: ( '\"' )
+            // InternalCinEditor.g:1987:1: ( ( '\"' ) )
+            // InternalCinEditor.g:1988:1: ( '\"' )
             {
-            // InternalCinEditor.g:1934:1: ( '\"' )
-            // InternalCinEditor.g:1935:2: '\"'
+            // InternalCinEditor.g:1988:1: ( '\"' )
+            // InternalCinEditor.g:1989:2: '\"'
             {
              before(grammarAccess.getVideoAccess().getQuotationMarkKeyword_5()); 
             match(input,27,FOLLOW_2); 
@@ -5813,14 +5995,14 @@ public class InternalCinEditorParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Video__Group__6"
-    // InternalCinEditor.g:1944:1: rule__Video__Group__6 : rule__Video__Group__6__Impl rule__Video__Group__7 ;
+    // InternalCinEditor.g:1998:1: rule__Video__Group__6 : rule__Video__Group__6__Impl rule__Video__Group__7 ;
     public final void rule__Video__Group__6() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCinEditor.g:1948:1: ( rule__Video__Group__6__Impl rule__Video__Group__7 )
-            // InternalCinEditor.g:1949:2: rule__Video__Group__6__Impl rule__Video__Group__7
+            // InternalCinEditor.g:2002:1: ( rule__Video__Group__6__Impl rule__Video__Group__7 )
+            // InternalCinEditor.g:2003:2: rule__Video__Group__6__Impl rule__Video__Group__7
             {
             pushFollow(FOLLOW_10);
             rule__Video__Group__6__Impl();
@@ -5851,17 +6033,17 @@ public class InternalCinEditorParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Video__Group__6__Impl"
-    // InternalCinEditor.g:1956:1: rule__Video__Group__6__Impl : ( 'from' ) ;
+    // InternalCinEditor.g:2010:1: rule__Video__Group__6__Impl : ( 'from' ) ;
     public final void rule__Video__Group__6__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCinEditor.g:1960:1: ( ( 'from' ) )
-            // InternalCinEditor.g:1961:1: ( 'from' )
+            // InternalCinEditor.g:2014:1: ( ( 'from' ) )
+            // InternalCinEditor.g:2015:1: ( 'from' )
             {
-            // InternalCinEditor.g:1961:1: ( 'from' )
-            // InternalCinEditor.g:1962:2: 'from'
+            // InternalCinEditor.g:2015:1: ( 'from' )
+            // InternalCinEditor.g:2016:2: 'from'
             {
              before(grammarAccess.getVideoAccess().getFromKeyword_6()); 
             match(input,29,FOLLOW_2); 
@@ -5888,16 +6070,16 @@ public class InternalCinEditorParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Video__Group__7"
-    // InternalCinEditor.g:1971:1: rule__Video__Group__7 : rule__Video__Group__7__Impl rule__Video__Group__8 ;
+    // InternalCinEditor.g:2025:1: rule__Video__Group__7 : rule__Video__Group__7__Impl rule__Video__Group__8 ;
     public final void rule__Video__Group__7() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCinEditor.g:1975:1: ( rule__Video__Group__7__Impl rule__Video__Group__8 )
-            // InternalCinEditor.g:1976:2: rule__Video__Group__7__Impl rule__Video__Group__8
+            // InternalCinEditor.g:2029:1: ( rule__Video__Group__7__Impl rule__Video__Group__8 )
+            // InternalCinEditor.g:2030:2: rule__Video__Group__7__Impl rule__Video__Group__8
             {
-            pushFollow(FOLLOW_19);
+            pushFollow(FOLLOW_18);
             rule__Video__Group__7__Impl();
 
             state._fsp--;
@@ -5926,21 +6108,21 @@ public class InternalCinEditorParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Video__Group__7__Impl"
-    // InternalCinEditor.g:1983:1: rule__Video__Group__7__Impl : ( ( rule__Video__BeginCropTimeAssignment_7 ) ) ;
+    // InternalCinEditor.g:2037:1: rule__Video__Group__7__Impl : ( ( rule__Video__BeginCropTimeAssignment_7 ) ) ;
     public final void rule__Video__Group__7__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCinEditor.g:1987:1: ( ( ( rule__Video__BeginCropTimeAssignment_7 ) ) )
-            // InternalCinEditor.g:1988:1: ( ( rule__Video__BeginCropTimeAssignment_7 ) )
+            // InternalCinEditor.g:2041:1: ( ( ( rule__Video__BeginCropTimeAssignment_7 ) ) )
+            // InternalCinEditor.g:2042:1: ( ( rule__Video__BeginCropTimeAssignment_7 ) )
             {
-            // InternalCinEditor.g:1988:1: ( ( rule__Video__BeginCropTimeAssignment_7 ) )
-            // InternalCinEditor.g:1989:2: ( rule__Video__BeginCropTimeAssignment_7 )
+            // InternalCinEditor.g:2042:1: ( ( rule__Video__BeginCropTimeAssignment_7 ) )
+            // InternalCinEditor.g:2043:2: ( rule__Video__BeginCropTimeAssignment_7 )
             {
              before(grammarAccess.getVideoAccess().getBeginCropTimeAssignment_7()); 
-            // InternalCinEditor.g:1990:2: ( rule__Video__BeginCropTimeAssignment_7 )
-            // InternalCinEditor.g:1990:3: rule__Video__BeginCropTimeAssignment_7
+            // InternalCinEditor.g:2044:2: ( rule__Video__BeginCropTimeAssignment_7 )
+            // InternalCinEditor.g:2044:3: rule__Video__BeginCropTimeAssignment_7
             {
             pushFollow(FOLLOW_2);
             rule__Video__BeginCropTimeAssignment_7();
@@ -5973,16 +6155,16 @@ public class InternalCinEditorParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Video__Group__8"
-    // InternalCinEditor.g:1998:1: rule__Video__Group__8 : rule__Video__Group__8__Impl rule__Video__Group__9 ;
+    // InternalCinEditor.g:2052:1: rule__Video__Group__8 : rule__Video__Group__8__Impl rule__Video__Group__9 ;
     public final void rule__Video__Group__8() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCinEditor.g:2002:1: ( rule__Video__Group__8__Impl rule__Video__Group__9 )
-            // InternalCinEditor.g:2003:2: rule__Video__Group__8__Impl rule__Video__Group__9
+            // InternalCinEditor.g:2056:1: ( rule__Video__Group__8__Impl rule__Video__Group__9 )
+            // InternalCinEditor.g:2057:2: rule__Video__Group__8__Impl rule__Video__Group__9
             {
-            pushFollow(FOLLOW_19);
+            pushFollow(FOLLOW_18);
             rule__Video__Group__8__Impl();
 
             state._fsp--;
@@ -6011,29 +6193,29 @@ public class InternalCinEditorParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Video__Group__8__Impl"
-    // InternalCinEditor.g:2010:1: rule__Video__Group__8__Impl : ( ( rule__Video__PositionAssignment_8 )? ) ;
+    // InternalCinEditor.g:2064:1: rule__Video__Group__8__Impl : ( ( rule__Video__PositionAssignment_8 )? ) ;
     public final void rule__Video__Group__8__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCinEditor.g:2014:1: ( ( ( rule__Video__PositionAssignment_8 )? ) )
-            // InternalCinEditor.g:2015:1: ( ( rule__Video__PositionAssignment_8 )? )
+            // InternalCinEditor.g:2068:1: ( ( ( rule__Video__PositionAssignment_8 )? ) )
+            // InternalCinEditor.g:2069:1: ( ( rule__Video__PositionAssignment_8 )? )
             {
-            // InternalCinEditor.g:2015:1: ( ( rule__Video__PositionAssignment_8 )? )
-            // InternalCinEditor.g:2016:2: ( rule__Video__PositionAssignment_8 )?
+            // InternalCinEditor.g:2069:1: ( ( rule__Video__PositionAssignment_8 )? )
+            // InternalCinEditor.g:2070:2: ( rule__Video__PositionAssignment_8 )?
             {
              before(grammarAccess.getVideoAccess().getPositionAssignment_8()); 
-            // InternalCinEditor.g:2017:2: ( rule__Video__PositionAssignment_8 )?
-            int alt10=2;
-            int LA10_0 = input.LA(1);
+            // InternalCinEditor.g:2071:2: ( rule__Video__PositionAssignment_8 )?
+            int alt12=2;
+            int LA12_0 = input.LA(1);
 
-            if ( (LA10_0==13) ) {
-                alt10=1;
+            if ( (LA12_0==13) ) {
+                alt12=1;
             }
-            switch (alt10) {
+            switch (alt12) {
                 case 1 :
-                    // InternalCinEditor.g:2017:3: rule__Video__PositionAssignment_8
+                    // InternalCinEditor.g:2071:3: rule__Video__PositionAssignment_8
                     {
                     pushFollow(FOLLOW_2);
                     rule__Video__PositionAssignment_8();
@@ -6069,16 +6251,16 @@ public class InternalCinEditorParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Video__Group__9"
-    // InternalCinEditor.g:2025:1: rule__Video__Group__9 : rule__Video__Group__9__Impl rule__Video__Group__10 ;
+    // InternalCinEditor.g:2079:1: rule__Video__Group__9 : rule__Video__Group__9__Impl rule__Video__Group__10 ;
     public final void rule__Video__Group__9() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCinEditor.g:2029:1: ( rule__Video__Group__9__Impl rule__Video__Group__10 )
-            // InternalCinEditor.g:2030:2: rule__Video__Group__9__Impl rule__Video__Group__10
+            // InternalCinEditor.g:2083:1: ( rule__Video__Group__9__Impl rule__Video__Group__10 )
+            // InternalCinEditor.g:2084:2: rule__Video__Group__9__Impl rule__Video__Group__10
             {
-            pushFollow(FOLLOW_19);
+            pushFollow(FOLLOW_18);
             rule__Video__Group__9__Impl();
 
             state._fsp--;
@@ -6107,29 +6289,29 @@ public class InternalCinEditorParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Video__Group__9__Impl"
-    // InternalCinEditor.g:2037:1: rule__Video__Group__9__Impl : ( ( rule__Video__DimensionAssignment_9 )? ) ;
+    // InternalCinEditor.g:2091:1: rule__Video__Group__9__Impl : ( ( rule__Video__DimensionAssignment_9 )? ) ;
     public final void rule__Video__Group__9__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCinEditor.g:2041:1: ( ( ( rule__Video__DimensionAssignment_9 )? ) )
-            // InternalCinEditor.g:2042:1: ( ( rule__Video__DimensionAssignment_9 )? )
+            // InternalCinEditor.g:2095:1: ( ( ( rule__Video__DimensionAssignment_9 )? ) )
+            // InternalCinEditor.g:2096:1: ( ( rule__Video__DimensionAssignment_9 )? )
             {
-            // InternalCinEditor.g:2042:1: ( ( rule__Video__DimensionAssignment_9 )? )
-            // InternalCinEditor.g:2043:2: ( rule__Video__DimensionAssignment_9 )?
+            // InternalCinEditor.g:2096:1: ( ( rule__Video__DimensionAssignment_9 )? )
+            // InternalCinEditor.g:2097:2: ( rule__Video__DimensionAssignment_9 )?
             {
              before(grammarAccess.getVideoAccess().getDimensionAssignment_9()); 
-            // InternalCinEditor.g:2044:2: ( rule__Video__DimensionAssignment_9 )?
-            int alt11=2;
-            int LA11_0 = input.LA(1);
+            // InternalCinEditor.g:2098:2: ( rule__Video__DimensionAssignment_9 )?
+            int alt13=2;
+            int LA13_0 = input.LA(1);
 
-            if ( (LA11_0==17) ) {
-                alt11=1;
+            if ( (LA13_0==17) ) {
+                alt13=1;
             }
-            switch (alt11) {
+            switch (alt13) {
                 case 1 :
-                    // InternalCinEditor.g:2044:3: rule__Video__DimensionAssignment_9
+                    // InternalCinEditor.g:2098:3: rule__Video__DimensionAssignment_9
                     {
                     pushFollow(FOLLOW_2);
                     rule__Video__DimensionAssignment_9();
@@ -6165,14 +6347,14 @@ public class InternalCinEditorParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Video__Group__10"
-    // InternalCinEditor.g:2052:1: rule__Video__Group__10 : rule__Video__Group__10__Impl rule__Video__Group__11 ;
+    // InternalCinEditor.g:2106:1: rule__Video__Group__10 : rule__Video__Group__10__Impl rule__Video__Group__11 ;
     public final void rule__Video__Group__10() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCinEditor.g:2056:1: ( rule__Video__Group__10__Impl rule__Video__Group__11 )
-            // InternalCinEditor.g:2057:2: rule__Video__Group__10__Impl rule__Video__Group__11
+            // InternalCinEditor.g:2110:1: ( rule__Video__Group__10__Impl rule__Video__Group__11 )
+            // InternalCinEditor.g:2111:2: rule__Video__Group__10__Impl rule__Video__Group__11
             {
             pushFollow(FOLLOW_10);
             rule__Video__Group__10__Impl();
@@ -6203,17 +6385,17 @@ public class InternalCinEditorParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Video__Group__10__Impl"
-    // InternalCinEditor.g:2064:1: rule__Video__Group__10__Impl : ( 'at' ) ;
+    // InternalCinEditor.g:2118:1: rule__Video__Group__10__Impl : ( 'at' ) ;
     public final void rule__Video__Group__10__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCinEditor.g:2068:1: ( ( 'at' ) )
-            // InternalCinEditor.g:2069:1: ( 'at' )
+            // InternalCinEditor.g:2122:1: ( ( 'at' ) )
+            // InternalCinEditor.g:2123:1: ( 'at' )
             {
-            // InternalCinEditor.g:2069:1: ( 'at' )
-            // InternalCinEditor.g:2070:2: 'at'
+            // InternalCinEditor.g:2123:1: ( 'at' )
+            // InternalCinEditor.g:2124:2: 'at'
             {
              before(grammarAccess.getVideoAccess().getAtKeyword_10()); 
             match(input,23,FOLLOW_2); 
@@ -6240,16 +6422,16 @@ public class InternalCinEditorParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Video__Group__11"
-    // InternalCinEditor.g:2079:1: rule__Video__Group__11 : rule__Video__Group__11__Impl rule__Video__Group__12 ;
+    // InternalCinEditor.g:2133:1: rule__Video__Group__11 : rule__Video__Group__11__Impl rule__Video__Group__12 ;
     public final void rule__Video__Group__11() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCinEditor.g:2083:1: ( rule__Video__Group__11__Impl rule__Video__Group__12 )
-            // InternalCinEditor.g:2084:2: rule__Video__Group__11__Impl rule__Video__Group__12
+            // InternalCinEditor.g:2137:1: ( rule__Video__Group__11__Impl rule__Video__Group__12 )
+            // InternalCinEditor.g:2138:2: rule__Video__Group__11__Impl rule__Video__Group__12
             {
-            pushFollow(FOLLOW_16);
+            pushFollow(FOLLOW_19);
             rule__Video__Group__11__Impl();
 
             state._fsp--;
@@ -6278,21 +6460,21 @@ public class InternalCinEditorParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Video__Group__11__Impl"
-    // InternalCinEditor.g:2091:1: rule__Video__Group__11__Impl : ( ( rule__Video__BeginTimeAssignment_11 ) ) ;
+    // InternalCinEditor.g:2145:1: rule__Video__Group__11__Impl : ( ( rule__Video__BeginTimeAssignment_11 ) ) ;
     public final void rule__Video__Group__11__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCinEditor.g:2095:1: ( ( ( rule__Video__BeginTimeAssignment_11 ) ) )
-            // InternalCinEditor.g:2096:1: ( ( rule__Video__BeginTimeAssignment_11 ) )
+            // InternalCinEditor.g:2149:1: ( ( ( rule__Video__BeginTimeAssignment_11 ) ) )
+            // InternalCinEditor.g:2150:1: ( ( rule__Video__BeginTimeAssignment_11 ) )
             {
-            // InternalCinEditor.g:2096:1: ( ( rule__Video__BeginTimeAssignment_11 ) )
-            // InternalCinEditor.g:2097:2: ( rule__Video__BeginTimeAssignment_11 )
+            // InternalCinEditor.g:2150:1: ( ( rule__Video__BeginTimeAssignment_11 ) )
+            // InternalCinEditor.g:2151:2: ( rule__Video__BeginTimeAssignment_11 )
             {
              before(grammarAccess.getVideoAccess().getBeginTimeAssignment_11()); 
-            // InternalCinEditor.g:2098:2: ( rule__Video__BeginTimeAssignment_11 )
-            // InternalCinEditor.g:2098:3: rule__Video__BeginTimeAssignment_11
+            // InternalCinEditor.g:2152:2: ( rule__Video__BeginTimeAssignment_11 )
+            // InternalCinEditor.g:2152:3: rule__Video__BeginTimeAssignment_11
             {
             pushFollow(FOLLOW_2);
             rule__Video__BeginTimeAssignment_11();
@@ -6325,22 +6507,17 @@ public class InternalCinEditorParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Video__Group__12"
-    // InternalCinEditor.g:2106:1: rule__Video__Group__12 : rule__Video__Group__12__Impl rule__Video__Group__13 ;
+    // InternalCinEditor.g:2160:1: rule__Video__Group__12 : rule__Video__Group__12__Impl ;
     public final void rule__Video__Group__12() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCinEditor.g:2110:1: ( rule__Video__Group__12__Impl rule__Video__Group__13 )
-            // InternalCinEditor.g:2111:2: rule__Video__Group__12__Impl rule__Video__Group__13
+            // InternalCinEditor.g:2164:1: ( rule__Video__Group__12__Impl )
+            // InternalCinEditor.g:2165:2: rule__Video__Group__12__Impl
             {
-            pushFollow(FOLLOW_10);
-            rule__Video__Group__12__Impl();
-
-            state._fsp--;
-
             pushFollow(FOLLOW_2);
-            rule__Video__Group__13();
+            rule__Video__Group__12__Impl();
 
             state._fsp--;
 
@@ -6363,21 +6540,42 @@ public class InternalCinEditorParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Video__Group__12__Impl"
-    // InternalCinEditor.g:2118:1: rule__Video__Group__12__Impl : ( 'during' ) ;
+    // InternalCinEditor.g:2171:1: rule__Video__Group__12__Impl : ( ( rule__Video__Group_12__0 )? ) ;
     public final void rule__Video__Group__12__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCinEditor.g:2122:1: ( ( 'during' ) )
-            // InternalCinEditor.g:2123:1: ( 'during' )
+            // InternalCinEditor.g:2175:1: ( ( ( rule__Video__Group_12__0 )? ) )
+            // InternalCinEditor.g:2176:1: ( ( rule__Video__Group_12__0 )? )
             {
-            // InternalCinEditor.g:2123:1: ( 'during' )
-            // InternalCinEditor.g:2124:2: 'during'
+            // InternalCinEditor.g:2176:1: ( ( rule__Video__Group_12__0 )? )
+            // InternalCinEditor.g:2177:2: ( rule__Video__Group_12__0 )?
             {
-             before(grammarAccess.getVideoAccess().getDuringKeyword_12()); 
-            match(input,24,FOLLOW_2); 
-             after(grammarAccess.getVideoAccess().getDuringKeyword_12()); 
+             before(grammarAccess.getVideoAccess().getGroup_12()); 
+            // InternalCinEditor.g:2178:2: ( rule__Video__Group_12__0 )?
+            int alt14=2;
+            int LA14_0 = input.LA(1);
+
+            if ( (LA14_0==25) ) {
+                alt14=1;
+            }
+            switch (alt14) {
+                case 1 :
+                    // InternalCinEditor.g:2178:3: rule__Video__Group_12__0
+                    {
+                    pushFollow(FOLLOW_2);
+                    rule__Video__Group_12__0();
+
+                    state._fsp--;
+
+
+                    }
+                    break;
+
+            }
+
+             after(grammarAccess.getVideoAccess().getGroup_12()); 
 
             }
 
@@ -6399,413 +6597,23 @@ public class InternalCinEditorParser extends AbstractInternalContentAssistParser
     // $ANTLR end "rule__Video__Group__12__Impl"
 
 
-    // $ANTLR start "rule__Video__Group__13"
-    // InternalCinEditor.g:2133:1: rule__Video__Group__13 : rule__Video__Group__13__Impl ;
-    public final void rule__Video__Group__13() throws RecognitionException {
+    // $ANTLR start "rule__Video__Group_12__0"
+    // InternalCinEditor.g:2187:1: rule__Video__Group_12__0 : rule__Video__Group_12__0__Impl rule__Video__Group_12__1 ;
+    public final void rule__Video__Group_12__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCinEditor.g:2137:1: ( rule__Video__Group__13__Impl )
-            // InternalCinEditor.g:2138:2: rule__Video__Group__13__Impl
-            {
-            pushFollow(FOLLOW_2);
-            rule__Video__Group__13__Impl();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Video__Group__13"
-
-
-    // $ANTLR start "rule__Video__Group__13__Impl"
-    // InternalCinEditor.g:2144:1: rule__Video__Group__13__Impl : ( ( rule__Video__DurationAssignment_13 ) ) ;
-    public final void rule__Video__Group__13__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalCinEditor.g:2148:1: ( ( ( rule__Video__DurationAssignment_13 ) ) )
-            // InternalCinEditor.g:2149:1: ( ( rule__Video__DurationAssignment_13 ) )
-            {
-            // InternalCinEditor.g:2149:1: ( ( rule__Video__DurationAssignment_13 ) )
-            // InternalCinEditor.g:2150:2: ( rule__Video__DurationAssignment_13 )
-            {
-             before(grammarAccess.getVideoAccess().getDurationAssignment_13()); 
-            // InternalCinEditor.g:2151:2: ( rule__Video__DurationAssignment_13 )
-            // InternalCinEditor.g:2151:3: rule__Video__DurationAssignment_13
-            {
-            pushFollow(FOLLOW_2);
-            rule__Video__DurationAssignment_13();
-
-            state._fsp--;
-
-
-            }
-
-             after(grammarAccess.getVideoAccess().getDurationAssignment_13()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Video__Group__13__Impl"
-
-
-    // $ANTLR start "rule__FadeIn__Group__0"
-    // InternalCinEditor.g:2160:1: rule__FadeIn__Group__0 : rule__FadeIn__Group__0__Impl rule__FadeIn__Group__1 ;
-    public final void rule__FadeIn__Group__0() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalCinEditor.g:2164:1: ( rule__FadeIn__Group__0__Impl rule__FadeIn__Group__1 )
-            // InternalCinEditor.g:2165:2: rule__FadeIn__Group__0__Impl rule__FadeIn__Group__1
-            {
-            pushFollow(FOLLOW_3);
-            rule__FadeIn__Group__0__Impl();
-
-            state._fsp--;
-
-            pushFollow(FOLLOW_2);
-            rule__FadeIn__Group__1();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__FadeIn__Group__0"
-
-
-    // $ANTLR start "rule__FadeIn__Group__0__Impl"
-    // InternalCinEditor.g:2172:1: rule__FadeIn__Group__0__Impl : ( 'Effect' ) ;
-    public final void rule__FadeIn__Group__0__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalCinEditor.g:2176:1: ( ( 'Effect' ) )
-            // InternalCinEditor.g:2177:1: ( 'Effect' )
-            {
-            // InternalCinEditor.g:2177:1: ( 'Effect' )
-            // InternalCinEditor.g:2178:2: 'Effect'
-            {
-             before(grammarAccess.getFadeInAccess().getEffectKeyword_0()); 
-            match(input,30,FOLLOW_2); 
-             after(grammarAccess.getFadeInAccess().getEffectKeyword_0()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__FadeIn__Group__0__Impl"
-
-
-    // $ANTLR start "rule__FadeIn__Group__1"
-    // InternalCinEditor.g:2187:1: rule__FadeIn__Group__1 : rule__FadeIn__Group__1__Impl rule__FadeIn__Group__2 ;
-    public final void rule__FadeIn__Group__1() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalCinEditor.g:2191:1: ( rule__FadeIn__Group__1__Impl rule__FadeIn__Group__2 )
-            // InternalCinEditor.g:2192:2: rule__FadeIn__Group__1__Impl rule__FadeIn__Group__2
-            {
-            pushFollow(FOLLOW_14);
-            rule__FadeIn__Group__1__Impl();
-
-            state._fsp--;
-
-            pushFollow(FOLLOW_2);
-            rule__FadeIn__Group__2();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__FadeIn__Group__1"
-
-
-    // $ANTLR start "rule__FadeIn__Group__1__Impl"
-    // InternalCinEditor.g:2199:1: rule__FadeIn__Group__1__Impl : ( ( rule__FadeIn__NameAssignment_1 ) ) ;
-    public final void rule__FadeIn__Group__1__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalCinEditor.g:2203:1: ( ( ( rule__FadeIn__NameAssignment_1 ) ) )
-            // InternalCinEditor.g:2204:1: ( ( rule__FadeIn__NameAssignment_1 ) )
-            {
-            // InternalCinEditor.g:2204:1: ( ( rule__FadeIn__NameAssignment_1 ) )
-            // InternalCinEditor.g:2205:2: ( rule__FadeIn__NameAssignment_1 )
-            {
-             before(grammarAccess.getFadeInAccess().getNameAssignment_1()); 
-            // InternalCinEditor.g:2206:2: ( rule__FadeIn__NameAssignment_1 )
-            // InternalCinEditor.g:2206:3: rule__FadeIn__NameAssignment_1
-            {
-            pushFollow(FOLLOW_2);
-            rule__FadeIn__NameAssignment_1();
-
-            state._fsp--;
-
-
-            }
-
-             after(grammarAccess.getFadeInAccess().getNameAssignment_1()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__FadeIn__Group__1__Impl"
-
-
-    // $ANTLR start "rule__FadeIn__Group__2"
-    // InternalCinEditor.g:2214:1: rule__FadeIn__Group__2 : rule__FadeIn__Group__2__Impl rule__FadeIn__Group__3 ;
-    public final void rule__FadeIn__Group__2() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalCinEditor.g:2218:1: ( rule__FadeIn__Group__2__Impl rule__FadeIn__Group__3 )
-            // InternalCinEditor.g:2219:2: rule__FadeIn__Group__2__Impl rule__FadeIn__Group__3
-            {
-            pushFollow(FOLLOW_21);
-            rule__FadeIn__Group__2__Impl();
-
-            state._fsp--;
-
-            pushFollow(FOLLOW_2);
-            rule__FadeIn__Group__3();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__FadeIn__Group__2"
-
-
-    // $ANTLR start "rule__FadeIn__Group__2__Impl"
-    // InternalCinEditor.g:2226:1: rule__FadeIn__Group__2__Impl : ( '->' ) ;
-    public final void rule__FadeIn__Group__2__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalCinEditor.g:2230:1: ( ( '->' ) )
-            // InternalCinEditor.g:2231:1: ( '->' )
-            {
-            // InternalCinEditor.g:2231:1: ( '->' )
-            // InternalCinEditor.g:2232:2: '->'
-            {
-             before(grammarAccess.getFadeInAccess().getHyphenMinusGreaterThanSignKeyword_2()); 
-            match(input,22,FOLLOW_2); 
-             after(grammarAccess.getFadeInAccess().getHyphenMinusGreaterThanSignKeyword_2()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__FadeIn__Group__2__Impl"
-
-
-    // $ANTLR start "rule__FadeIn__Group__3"
-    // InternalCinEditor.g:2241:1: rule__FadeIn__Group__3 : rule__FadeIn__Group__3__Impl rule__FadeIn__Group__4 ;
-    public final void rule__FadeIn__Group__3() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalCinEditor.g:2245:1: ( rule__FadeIn__Group__3__Impl rule__FadeIn__Group__4 )
-            // InternalCinEditor.g:2246:2: rule__FadeIn__Group__3__Impl rule__FadeIn__Group__4
-            {
-            pushFollow(FOLLOW_16);
-            rule__FadeIn__Group__3__Impl();
-
-            state._fsp--;
-
-            pushFollow(FOLLOW_2);
-            rule__FadeIn__Group__4();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__FadeIn__Group__3"
-
-
-    // $ANTLR start "rule__FadeIn__Group__3__Impl"
-    // InternalCinEditor.g:2253:1: rule__FadeIn__Group__3__Impl : ( 'FadeIn' ) ;
-    public final void rule__FadeIn__Group__3__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalCinEditor.g:2257:1: ( ( 'FadeIn' ) )
-            // InternalCinEditor.g:2258:1: ( 'FadeIn' )
-            {
-            // InternalCinEditor.g:2258:1: ( 'FadeIn' )
-            // InternalCinEditor.g:2259:2: 'FadeIn'
-            {
-             before(grammarAccess.getFadeInAccess().getFadeInKeyword_3()); 
-            match(input,31,FOLLOW_2); 
-             after(grammarAccess.getFadeInAccess().getFadeInKeyword_3()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__FadeIn__Group__3__Impl"
-
-
-    // $ANTLR start "rule__FadeIn__Group__4"
-    // InternalCinEditor.g:2268:1: rule__FadeIn__Group__4 : rule__FadeIn__Group__4__Impl rule__FadeIn__Group__5 ;
-    public final void rule__FadeIn__Group__4() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalCinEditor.g:2272:1: ( rule__FadeIn__Group__4__Impl rule__FadeIn__Group__5 )
-            // InternalCinEditor.g:2273:2: rule__FadeIn__Group__4__Impl rule__FadeIn__Group__5
+            // InternalCinEditor.g:2191:1: ( rule__Video__Group_12__0__Impl rule__Video__Group_12__1 )
+            // InternalCinEditor.g:2192:2: rule__Video__Group_12__0__Impl rule__Video__Group_12__1
             {
             pushFollow(FOLLOW_10);
-            rule__FadeIn__Group__4__Impl();
+            rule__Video__Group_12__0__Impl();
 
             state._fsp--;
 
             pushFollow(FOLLOW_2);
-            rule__FadeIn__Group__5();
+            rule__Video__Group_12__1();
 
             state._fsp--;
 
@@ -6824,25 +6632,25 @@ public class InternalCinEditorParser extends AbstractInternalContentAssistParser
         }
         return ;
     }
-    // $ANTLR end "rule__FadeIn__Group__4"
+    // $ANTLR end "rule__Video__Group_12__0"
 
 
-    // $ANTLR start "rule__FadeIn__Group__4__Impl"
-    // InternalCinEditor.g:2280:1: rule__FadeIn__Group__4__Impl : ( 'during' ) ;
-    public final void rule__FadeIn__Group__4__Impl() throws RecognitionException {
+    // $ANTLR start "rule__Video__Group_12__0__Impl"
+    // InternalCinEditor.g:2199:1: rule__Video__Group_12__0__Impl : ( 'during' ) ;
+    public final void rule__Video__Group_12__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCinEditor.g:2284:1: ( ( 'during' ) )
-            // InternalCinEditor.g:2285:1: ( 'during' )
+            // InternalCinEditor.g:2203:1: ( ( 'during' ) )
+            // InternalCinEditor.g:2204:1: ( 'during' )
             {
-            // InternalCinEditor.g:2285:1: ( 'during' )
-            // InternalCinEditor.g:2286:2: 'during'
+            // InternalCinEditor.g:2204:1: ( 'during' )
+            // InternalCinEditor.g:2205:2: 'during'
             {
-             before(grammarAccess.getFadeInAccess().getDuringKeyword_4()); 
-            match(input,24,FOLLOW_2); 
-             after(grammarAccess.getFadeInAccess().getDuringKeyword_4()); 
+             before(grammarAccess.getVideoAccess().getDuringKeyword_12_0()); 
+            match(input,25,FOLLOW_2); 
+             after(grammarAccess.getVideoAccess().getDuringKeyword_12_0()); 
 
             }
 
@@ -6861,111 +6669,21 @@ public class InternalCinEditorParser extends AbstractInternalContentAssistParser
         }
         return ;
     }
-    // $ANTLR end "rule__FadeIn__Group__4__Impl"
+    // $ANTLR end "rule__Video__Group_12__0__Impl"
 
 
-    // $ANTLR start "rule__FadeIn__Group__5"
-    // InternalCinEditor.g:2295:1: rule__FadeIn__Group__5 : rule__FadeIn__Group__5__Impl rule__FadeIn__Group__6 ;
-    public final void rule__FadeIn__Group__5() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalCinEditor.g:2299:1: ( rule__FadeIn__Group__5__Impl rule__FadeIn__Group__6 )
-            // InternalCinEditor.g:2300:2: rule__FadeIn__Group__5__Impl rule__FadeIn__Group__6
-            {
-            pushFollow(FOLLOW_22);
-            rule__FadeIn__Group__5__Impl();
-
-            state._fsp--;
-
-            pushFollow(FOLLOW_2);
-            rule__FadeIn__Group__6();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__FadeIn__Group__5"
-
-
-    // $ANTLR start "rule__FadeIn__Group__5__Impl"
-    // InternalCinEditor.g:2307:1: rule__FadeIn__Group__5__Impl : ( ( rule__FadeIn__DurationAssignment_5 ) ) ;
-    public final void rule__FadeIn__Group__5__Impl() throws RecognitionException {
+    // $ANTLR start "rule__Video__Group_12__1"
+    // InternalCinEditor.g:2214:1: rule__Video__Group_12__1 : rule__Video__Group_12__1__Impl ;
+    public final void rule__Video__Group_12__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCinEditor.g:2311:1: ( ( ( rule__FadeIn__DurationAssignment_5 ) ) )
-            // InternalCinEditor.g:2312:1: ( ( rule__FadeIn__DurationAssignment_5 ) )
-            {
-            // InternalCinEditor.g:2312:1: ( ( rule__FadeIn__DurationAssignment_5 ) )
-            // InternalCinEditor.g:2313:2: ( rule__FadeIn__DurationAssignment_5 )
-            {
-             before(grammarAccess.getFadeInAccess().getDurationAssignment_5()); 
-            // InternalCinEditor.g:2314:2: ( rule__FadeIn__DurationAssignment_5 )
-            // InternalCinEditor.g:2314:3: rule__FadeIn__DurationAssignment_5
+            // InternalCinEditor.g:2218:1: ( rule__Video__Group_12__1__Impl )
+            // InternalCinEditor.g:2219:2: rule__Video__Group_12__1__Impl
             {
             pushFollow(FOLLOW_2);
-            rule__FadeIn__DurationAssignment_5();
-
-            state._fsp--;
-
-
-            }
-
-             after(grammarAccess.getFadeInAccess().getDurationAssignment_5()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__FadeIn__Group__5__Impl"
-
-
-    // $ANTLR start "rule__FadeIn__Group__6"
-    // InternalCinEditor.g:2322:1: rule__FadeIn__Group__6 : rule__FadeIn__Group__6__Impl rule__FadeIn__Group__7 ;
-    public final void rule__FadeIn__Group__6() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalCinEditor.g:2326:1: ( rule__FadeIn__Group__6__Impl rule__FadeIn__Group__7 )
-            // InternalCinEditor.g:2327:2: rule__FadeIn__Group__6__Impl rule__FadeIn__Group__7
-            {
-            pushFollow(FOLLOW_23);
-            rule__FadeIn__Group__6__Impl();
-
-            state._fsp--;
-
-            pushFollow(FOLLOW_2);
-            rule__FadeIn__Group__7();
+            rule__Video__Group_12__1__Impl();
 
             state._fsp--;
 
@@ -6984,105 +6702,35 @@ public class InternalCinEditorParser extends AbstractInternalContentAssistParser
         }
         return ;
     }
-    // $ANTLR end "rule__FadeIn__Group__6"
+    // $ANTLR end "rule__Video__Group_12__1"
 
 
-    // $ANTLR start "rule__FadeIn__Group__6__Impl"
-    // InternalCinEditor.g:2334:1: rule__FadeIn__Group__6__Impl : ( 'on' ) ;
-    public final void rule__FadeIn__Group__6__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalCinEditor.g:2338:1: ( ( 'on' ) )
-            // InternalCinEditor.g:2339:1: ( 'on' )
-            {
-            // InternalCinEditor.g:2339:1: ( 'on' )
-            // InternalCinEditor.g:2340:2: 'on'
-            {
-             before(grammarAccess.getFadeInAccess().getOnKeyword_6()); 
-            match(input,32,FOLLOW_2); 
-             after(grammarAccess.getFadeInAccess().getOnKeyword_6()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__FadeIn__Group__6__Impl"
-
-
-    // $ANTLR start "rule__FadeIn__Group__7"
-    // InternalCinEditor.g:2349:1: rule__FadeIn__Group__7 : rule__FadeIn__Group__7__Impl ;
-    public final void rule__FadeIn__Group__7() throws RecognitionException {
+    // $ANTLR start "rule__Video__Group_12__1__Impl"
+    // InternalCinEditor.g:2225:1: rule__Video__Group_12__1__Impl : ( ( rule__Video__DurationAssignment_12_1 ) ) ;
+    public final void rule__Video__Group_12__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCinEditor.g:2353:1: ( rule__FadeIn__Group__7__Impl )
-            // InternalCinEditor.g:2354:2: rule__FadeIn__Group__7__Impl
+            // InternalCinEditor.g:2229:1: ( ( ( rule__Video__DurationAssignment_12_1 ) ) )
+            // InternalCinEditor.g:2230:1: ( ( rule__Video__DurationAssignment_12_1 ) )
+            {
+            // InternalCinEditor.g:2230:1: ( ( rule__Video__DurationAssignment_12_1 ) )
+            // InternalCinEditor.g:2231:2: ( rule__Video__DurationAssignment_12_1 )
+            {
+             before(grammarAccess.getVideoAccess().getDurationAssignment_12_1()); 
+            // InternalCinEditor.g:2232:2: ( rule__Video__DurationAssignment_12_1 )
+            // InternalCinEditor.g:2232:3: rule__Video__DurationAssignment_12_1
             {
             pushFollow(FOLLOW_2);
-            rule__FadeIn__Group__7__Impl();
+            rule__Video__DurationAssignment_12_1();
 
             state._fsp--;
 
 
             }
 
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__FadeIn__Group__7"
-
-
-    // $ANTLR start "rule__FadeIn__Group__7__Impl"
-    // InternalCinEditor.g:2360:1: rule__FadeIn__Group__7__Impl : ( ( rule__FadeIn__ElementAssignment_7 ) ) ;
-    public final void rule__FadeIn__Group__7__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalCinEditor.g:2364:1: ( ( ( rule__FadeIn__ElementAssignment_7 ) ) )
-            // InternalCinEditor.g:2365:1: ( ( rule__FadeIn__ElementAssignment_7 ) )
-            {
-            // InternalCinEditor.g:2365:1: ( ( rule__FadeIn__ElementAssignment_7 ) )
-            // InternalCinEditor.g:2366:2: ( rule__FadeIn__ElementAssignment_7 )
-            {
-             before(grammarAccess.getFadeInAccess().getElementAssignment_7()); 
-            // InternalCinEditor.g:2367:2: ( rule__FadeIn__ElementAssignment_7 )
-            // InternalCinEditor.g:2367:3: rule__FadeIn__ElementAssignment_7
-            {
-            pushFollow(FOLLOW_2);
-            rule__FadeIn__ElementAssignment_7();
-
-            state._fsp--;
-
-
-            }
-
-             after(grammarAccess.getFadeInAccess().getElementAssignment_7()); 
+             after(grammarAccess.getVideoAccess().getDurationAssignment_12_1()); 
 
             }
 
@@ -7101,1823 +6749,18 @@ public class InternalCinEditorParser extends AbstractInternalContentAssistParser
         }
         return ;
     }
-    // $ANTLR end "rule__FadeIn__Group__7__Impl"
-
-
-    // $ANTLR start "rule__FadeOut__Group__0"
-    // InternalCinEditor.g:2376:1: rule__FadeOut__Group__0 : rule__FadeOut__Group__0__Impl rule__FadeOut__Group__1 ;
-    public final void rule__FadeOut__Group__0() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalCinEditor.g:2380:1: ( rule__FadeOut__Group__0__Impl rule__FadeOut__Group__1 )
-            // InternalCinEditor.g:2381:2: rule__FadeOut__Group__0__Impl rule__FadeOut__Group__1
-            {
-            pushFollow(FOLLOW_3);
-            rule__FadeOut__Group__0__Impl();
-
-            state._fsp--;
-
-            pushFollow(FOLLOW_2);
-            rule__FadeOut__Group__1();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__FadeOut__Group__0"
-
-
-    // $ANTLR start "rule__FadeOut__Group__0__Impl"
-    // InternalCinEditor.g:2388:1: rule__FadeOut__Group__0__Impl : ( 'Effect' ) ;
-    public final void rule__FadeOut__Group__0__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalCinEditor.g:2392:1: ( ( 'Effect' ) )
-            // InternalCinEditor.g:2393:1: ( 'Effect' )
-            {
-            // InternalCinEditor.g:2393:1: ( 'Effect' )
-            // InternalCinEditor.g:2394:2: 'Effect'
-            {
-             before(grammarAccess.getFadeOutAccess().getEffectKeyword_0()); 
-            match(input,30,FOLLOW_2); 
-             after(grammarAccess.getFadeOutAccess().getEffectKeyword_0()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__FadeOut__Group__0__Impl"
-
-
-    // $ANTLR start "rule__FadeOut__Group__1"
-    // InternalCinEditor.g:2403:1: rule__FadeOut__Group__1 : rule__FadeOut__Group__1__Impl rule__FadeOut__Group__2 ;
-    public final void rule__FadeOut__Group__1() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalCinEditor.g:2407:1: ( rule__FadeOut__Group__1__Impl rule__FadeOut__Group__2 )
-            // InternalCinEditor.g:2408:2: rule__FadeOut__Group__1__Impl rule__FadeOut__Group__2
-            {
-            pushFollow(FOLLOW_14);
-            rule__FadeOut__Group__1__Impl();
-
-            state._fsp--;
-
-            pushFollow(FOLLOW_2);
-            rule__FadeOut__Group__2();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__FadeOut__Group__1"
-
-
-    // $ANTLR start "rule__FadeOut__Group__1__Impl"
-    // InternalCinEditor.g:2415:1: rule__FadeOut__Group__1__Impl : ( ( rule__FadeOut__NameAssignment_1 ) ) ;
-    public final void rule__FadeOut__Group__1__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalCinEditor.g:2419:1: ( ( ( rule__FadeOut__NameAssignment_1 ) ) )
-            // InternalCinEditor.g:2420:1: ( ( rule__FadeOut__NameAssignment_1 ) )
-            {
-            // InternalCinEditor.g:2420:1: ( ( rule__FadeOut__NameAssignment_1 ) )
-            // InternalCinEditor.g:2421:2: ( rule__FadeOut__NameAssignment_1 )
-            {
-             before(grammarAccess.getFadeOutAccess().getNameAssignment_1()); 
-            // InternalCinEditor.g:2422:2: ( rule__FadeOut__NameAssignment_1 )
-            // InternalCinEditor.g:2422:3: rule__FadeOut__NameAssignment_1
-            {
-            pushFollow(FOLLOW_2);
-            rule__FadeOut__NameAssignment_1();
-
-            state._fsp--;
-
-
-            }
-
-             after(grammarAccess.getFadeOutAccess().getNameAssignment_1()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__FadeOut__Group__1__Impl"
-
-
-    // $ANTLR start "rule__FadeOut__Group__2"
-    // InternalCinEditor.g:2430:1: rule__FadeOut__Group__2 : rule__FadeOut__Group__2__Impl rule__FadeOut__Group__3 ;
-    public final void rule__FadeOut__Group__2() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalCinEditor.g:2434:1: ( rule__FadeOut__Group__2__Impl rule__FadeOut__Group__3 )
-            // InternalCinEditor.g:2435:2: rule__FadeOut__Group__2__Impl rule__FadeOut__Group__3
-            {
-            pushFollow(FOLLOW_24);
-            rule__FadeOut__Group__2__Impl();
-
-            state._fsp--;
-
-            pushFollow(FOLLOW_2);
-            rule__FadeOut__Group__3();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__FadeOut__Group__2"
-
-
-    // $ANTLR start "rule__FadeOut__Group__2__Impl"
-    // InternalCinEditor.g:2442:1: rule__FadeOut__Group__2__Impl : ( '->' ) ;
-    public final void rule__FadeOut__Group__2__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalCinEditor.g:2446:1: ( ( '->' ) )
-            // InternalCinEditor.g:2447:1: ( '->' )
-            {
-            // InternalCinEditor.g:2447:1: ( '->' )
-            // InternalCinEditor.g:2448:2: '->'
-            {
-             before(grammarAccess.getFadeOutAccess().getHyphenMinusGreaterThanSignKeyword_2()); 
-            match(input,22,FOLLOW_2); 
-             after(grammarAccess.getFadeOutAccess().getHyphenMinusGreaterThanSignKeyword_2()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__FadeOut__Group__2__Impl"
-
-
-    // $ANTLR start "rule__FadeOut__Group__3"
-    // InternalCinEditor.g:2457:1: rule__FadeOut__Group__3 : rule__FadeOut__Group__3__Impl rule__FadeOut__Group__4 ;
-    public final void rule__FadeOut__Group__3() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalCinEditor.g:2461:1: ( rule__FadeOut__Group__3__Impl rule__FadeOut__Group__4 )
-            // InternalCinEditor.g:2462:2: rule__FadeOut__Group__3__Impl rule__FadeOut__Group__4
-            {
-            pushFollow(FOLLOW_16);
-            rule__FadeOut__Group__3__Impl();
-
-            state._fsp--;
-
-            pushFollow(FOLLOW_2);
-            rule__FadeOut__Group__4();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__FadeOut__Group__3"
-
-
-    // $ANTLR start "rule__FadeOut__Group__3__Impl"
-    // InternalCinEditor.g:2469:1: rule__FadeOut__Group__3__Impl : ( 'FadeOut' ) ;
-    public final void rule__FadeOut__Group__3__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalCinEditor.g:2473:1: ( ( 'FadeOut' ) )
-            // InternalCinEditor.g:2474:1: ( 'FadeOut' )
-            {
-            // InternalCinEditor.g:2474:1: ( 'FadeOut' )
-            // InternalCinEditor.g:2475:2: 'FadeOut'
-            {
-             before(grammarAccess.getFadeOutAccess().getFadeOutKeyword_3()); 
-            match(input,33,FOLLOW_2); 
-             after(grammarAccess.getFadeOutAccess().getFadeOutKeyword_3()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__FadeOut__Group__3__Impl"
-
-
-    // $ANTLR start "rule__FadeOut__Group__4"
-    // InternalCinEditor.g:2484:1: rule__FadeOut__Group__4 : rule__FadeOut__Group__4__Impl rule__FadeOut__Group__5 ;
-    public final void rule__FadeOut__Group__4() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalCinEditor.g:2488:1: ( rule__FadeOut__Group__4__Impl rule__FadeOut__Group__5 )
-            // InternalCinEditor.g:2489:2: rule__FadeOut__Group__4__Impl rule__FadeOut__Group__5
-            {
-            pushFollow(FOLLOW_10);
-            rule__FadeOut__Group__4__Impl();
-
-            state._fsp--;
-
-            pushFollow(FOLLOW_2);
-            rule__FadeOut__Group__5();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__FadeOut__Group__4"
-
-
-    // $ANTLR start "rule__FadeOut__Group__4__Impl"
-    // InternalCinEditor.g:2496:1: rule__FadeOut__Group__4__Impl : ( 'during' ) ;
-    public final void rule__FadeOut__Group__4__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalCinEditor.g:2500:1: ( ( 'during' ) )
-            // InternalCinEditor.g:2501:1: ( 'during' )
-            {
-            // InternalCinEditor.g:2501:1: ( 'during' )
-            // InternalCinEditor.g:2502:2: 'during'
-            {
-             before(grammarAccess.getFadeOutAccess().getDuringKeyword_4()); 
-            match(input,24,FOLLOW_2); 
-             after(grammarAccess.getFadeOutAccess().getDuringKeyword_4()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__FadeOut__Group__4__Impl"
-
-
-    // $ANTLR start "rule__FadeOut__Group__5"
-    // InternalCinEditor.g:2511:1: rule__FadeOut__Group__5 : rule__FadeOut__Group__5__Impl rule__FadeOut__Group__6 ;
-    public final void rule__FadeOut__Group__5() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalCinEditor.g:2515:1: ( rule__FadeOut__Group__5__Impl rule__FadeOut__Group__6 )
-            // InternalCinEditor.g:2516:2: rule__FadeOut__Group__5__Impl rule__FadeOut__Group__6
-            {
-            pushFollow(FOLLOW_22);
-            rule__FadeOut__Group__5__Impl();
-
-            state._fsp--;
-
-            pushFollow(FOLLOW_2);
-            rule__FadeOut__Group__6();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__FadeOut__Group__5"
-
-
-    // $ANTLR start "rule__FadeOut__Group__5__Impl"
-    // InternalCinEditor.g:2523:1: rule__FadeOut__Group__5__Impl : ( ( rule__FadeOut__DurationAssignment_5 ) ) ;
-    public final void rule__FadeOut__Group__5__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalCinEditor.g:2527:1: ( ( ( rule__FadeOut__DurationAssignment_5 ) ) )
-            // InternalCinEditor.g:2528:1: ( ( rule__FadeOut__DurationAssignment_5 ) )
-            {
-            // InternalCinEditor.g:2528:1: ( ( rule__FadeOut__DurationAssignment_5 ) )
-            // InternalCinEditor.g:2529:2: ( rule__FadeOut__DurationAssignment_5 )
-            {
-             before(grammarAccess.getFadeOutAccess().getDurationAssignment_5()); 
-            // InternalCinEditor.g:2530:2: ( rule__FadeOut__DurationAssignment_5 )
-            // InternalCinEditor.g:2530:3: rule__FadeOut__DurationAssignment_5
-            {
-            pushFollow(FOLLOW_2);
-            rule__FadeOut__DurationAssignment_5();
-
-            state._fsp--;
-
-
-            }
-
-             after(grammarAccess.getFadeOutAccess().getDurationAssignment_5()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__FadeOut__Group__5__Impl"
-
-
-    // $ANTLR start "rule__FadeOut__Group__6"
-    // InternalCinEditor.g:2538:1: rule__FadeOut__Group__6 : rule__FadeOut__Group__6__Impl rule__FadeOut__Group__7 ;
-    public final void rule__FadeOut__Group__6() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalCinEditor.g:2542:1: ( rule__FadeOut__Group__6__Impl rule__FadeOut__Group__7 )
-            // InternalCinEditor.g:2543:2: rule__FadeOut__Group__6__Impl rule__FadeOut__Group__7
-            {
-            pushFollow(FOLLOW_23);
-            rule__FadeOut__Group__6__Impl();
-
-            state._fsp--;
-
-            pushFollow(FOLLOW_2);
-            rule__FadeOut__Group__7();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__FadeOut__Group__6"
-
-
-    // $ANTLR start "rule__FadeOut__Group__6__Impl"
-    // InternalCinEditor.g:2550:1: rule__FadeOut__Group__6__Impl : ( 'on' ) ;
-    public final void rule__FadeOut__Group__6__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalCinEditor.g:2554:1: ( ( 'on' ) )
-            // InternalCinEditor.g:2555:1: ( 'on' )
-            {
-            // InternalCinEditor.g:2555:1: ( 'on' )
-            // InternalCinEditor.g:2556:2: 'on'
-            {
-             before(grammarAccess.getFadeOutAccess().getOnKeyword_6()); 
-            match(input,32,FOLLOW_2); 
-             after(grammarAccess.getFadeOutAccess().getOnKeyword_6()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__FadeOut__Group__6__Impl"
-
-
-    // $ANTLR start "rule__FadeOut__Group__7"
-    // InternalCinEditor.g:2565:1: rule__FadeOut__Group__7 : rule__FadeOut__Group__7__Impl ;
-    public final void rule__FadeOut__Group__7() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalCinEditor.g:2569:1: ( rule__FadeOut__Group__7__Impl )
-            // InternalCinEditor.g:2570:2: rule__FadeOut__Group__7__Impl
-            {
-            pushFollow(FOLLOW_2);
-            rule__FadeOut__Group__7__Impl();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__FadeOut__Group__7"
-
-
-    // $ANTLR start "rule__FadeOut__Group__7__Impl"
-    // InternalCinEditor.g:2576:1: rule__FadeOut__Group__7__Impl : ( ( rule__FadeOut__ElementAssignment_7 ) ) ;
-    public final void rule__FadeOut__Group__7__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalCinEditor.g:2580:1: ( ( ( rule__FadeOut__ElementAssignment_7 ) ) )
-            // InternalCinEditor.g:2581:1: ( ( rule__FadeOut__ElementAssignment_7 ) )
-            {
-            // InternalCinEditor.g:2581:1: ( ( rule__FadeOut__ElementAssignment_7 ) )
-            // InternalCinEditor.g:2582:2: ( rule__FadeOut__ElementAssignment_7 )
-            {
-             before(grammarAccess.getFadeOutAccess().getElementAssignment_7()); 
-            // InternalCinEditor.g:2583:2: ( rule__FadeOut__ElementAssignment_7 )
-            // InternalCinEditor.g:2583:3: rule__FadeOut__ElementAssignment_7
-            {
-            pushFollow(FOLLOW_2);
-            rule__FadeOut__ElementAssignment_7();
-
-            state._fsp--;
-
-
-            }
-
-             after(grammarAccess.getFadeOutAccess().getElementAssignment_7()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__FadeOut__Group__7__Impl"
-
-
-    // $ANTLR start "rule__Translate__Group__0"
-    // InternalCinEditor.g:2592:1: rule__Translate__Group__0 : rule__Translate__Group__0__Impl rule__Translate__Group__1 ;
-    public final void rule__Translate__Group__0() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalCinEditor.g:2596:1: ( rule__Translate__Group__0__Impl rule__Translate__Group__1 )
-            // InternalCinEditor.g:2597:2: rule__Translate__Group__0__Impl rule__Translate__Group__1
-            {
-            pushFollow(FOLLOW_3);
-            rule__Translate__Group__0__Impl();
-
-            state._fsp--;
-
-            pushFollow(FOLLOW_2);
-            rule__Translate__Group__1();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Translate__Group__0"
-
-
-    // $ANTLR start "rule__Translate__Group__0__Impl"
-    // InternalCinEditor.g:2604:1: rule__Translate__Group__0__Impl : ( 'Effect' ) ;
-    public final void rule__Translate__Group__0__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalCinEditor.g:2608:1: ( ( 'Effect' ) )
-            // InternalCinEditor.g:2609:1: ( 'Effect' )
-            {
-            // InternalCinEditor.g:2609:1: ( 'Effect' )
-            // InternalCinEditor.g:2610:2: 'Effect'
-            {
-             before(grammarAccess.getTranslateAccess().getEffectKeyword_0()); 
-            match(input,30,FOLLOW_2); 
-             after(grammarAccess.getTranslateAccess().getEffectKeyword_0()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Translate__Group__0__Impl"
-
-
-    // $ANTLR start "rule__Translate__Group__1"
-    // InternalCinEditor.g:2619:1: rule__Translate__Group__1 : rule__Translate__Group__1__Impl rule__Translate__Group__2 ;
-    public final void rule__Translate__Group__1() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalCinEditor.g:2623:1: ( rule__Translate__Group__1__Impl rule__Translate__Group__2 )
-            // InternalCinEditor.g:2624:2: rule__Translate__Group__1__Impl rule__Translate__Group__2
-            {
-            pushFollow(FOLLOW_14);
-            rule__Translate__Group__1__Impl();
-
-            state._fsp--;
-
-            pushFollow(FOLLOW_2);
-            rule__Translate__Group__2();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Translate__Group__1"
-
-
-    // $ANTLR start "rule__Translate__Group__1__Impl"
-    // InternalCinEditor.g:2631:1: rule__Translate__Group__1__Impl : ( ( rule__Translate__NameAssignment_1 ) ) ;
-    public final void rule__Translate__Group__1__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalCinEditor.g:2635:1: ( ( ( rule__Translate__NameAssignment_1 ) ) )
-            // InternalCinEditor.g:2636:1: ( ( rule__Translate__NameAssignment_1 ) )
-            {
-            // InternalCinEditor.g:2636:1: ( ( rule__Translate__NameAssignment_1 ) )
-            // InternalCinEditor.g:2637:2: ( rule__Translate__NameAssignment_1 )
-            {
-             before(grammarAccess.getTranslateAccess().getNameAssignment_1()); 
-            // InternalCinEditor.g:2638:2: ( rule__Translate__NameAssignment_1 )
-            // InternalCinEditor.g:2638:3: rule__Translate__NameAssignment_1
-            {
-            pushFollow(FOLLOW_2);
-            rule__Translate__NameAssignment_1();
-
-            state._fsp--;
-
-
-            }
-
-             after(grammarAccess.getTranslateAccess().getNameAssignment_1()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Translate__Group__1__Impl"
-
-
-    // $ANTLR start "rule__Translate__Group__2"
-    // InternalCinEditor.g:2646:1: rule__Translate__Group__2 : rule__Translate__Group__2__Impl rule__Translate__Group__3 ;
-    public final void rule__Translate__Group__2() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalCinEditor.g:2650:1: ( rule__Translate__Group__2__Impl rule__Translate__Group__3 )
-            // InternalCinEditor.g:2651:2: rule__Translate__Group__2__Impl rule__Translate__Group__3
-            {
-            pushFollow(FOLLOW_25);
-            rule__Translate__Group__2__Impl();
-
-            state._fsp--;
-
-            pushFollow(FOLLOW_2);
-            rule__Translate__Group__3();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Translate__Group__2"
-
-
-    // $ANTLR start "rule__Translate__Group__2__Impl"
-    // InternalCinEditor.g:2658:1: rule__Translate__Group__2__Impl : ( '->' ) ;
-    public final void rule__Translate__Group__2__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalCinEditor.g:2662:1: ( ( '->' ) )
-            // InternalCinEditor.g:2663:1: ( '->' )
-            {
-            // InternalCinEditor.g:2663:1: ( '->' )
-            // InternalCinEditor.g:2664:2: '->'
-            {
-             before(grammarAccess.getTranslateAccess().getHyphenMinusGreaterThanSignKeyword_2()); 
-            match(input,22,FOLLOW_2); 
-             after(grammarAccess.getTranslateAccess().getHyphenMinusGreaterThanSignKeyword_2()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Translate__Group__2__Impl"
-
-
-    // $ANTLR start "rule__Translate__Group__3"
-    // InternalCinEditor.g:2673:1: rule__Translate__Group__3 : rule__Translate__Group__3__Impl rule__Translate__Group__4 ;
-    public final void rule__Translate__Group__3() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalCinEditor.g:2677:1: ( rule__Translate__Group__3__Impl rule__Translate__Group__4 )
-            // InternalCinEditor.g:2678:2: rule__Translate__Group__3__Impl rule__Translate__Group__4
-            {
-            pushFollow(FOLLOW_9);
-            rule__Translate__Group__3__Impl();
-
-            state._fsp--;
-
-            pushFollow(FOLLOW_2);
-            rule__Translate__Group__4();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Translate__Group__3"
-
-
-    // $ANTLR start "rule__Translate__Group__3__Impl"
-    // InternalCinEditor.g:2685:1: rule__Translate__Group__3__Impl : ( 'Translate' ) ;
-    public final void rule__Translate__Group__3__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalCinEditor.g:2689:1: ( ( 'Translate' ) )
-            // InternalCinEditor.g:2690:1: ( 'Translate' )
-            {
-            // InternalCinEditor.g:2690:1: ( 'Translate' )
-            // InternalCinEditor.g:2691:2: 'Translate'
-            {
-             before(grammarAccess.getTranslateAccess().getTranslateKeyword_3()); 
-            match(input,34,FOLLOW_2); 
-             after(grammarAccess.getTranslateAccess().getTranslateKeyword_3()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Translate__Group__3__Impl"
-
-
-    // $ANTLR start "rule__Translate__Group__4"
-    // InternalCinEditor.g:2700:1: rule__Translate__Group__4 : rule__Translate__Group__4__Impl rule__Translate__Group__5 ;
-    public final void rule__Translate__Group__4() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalCinEditor.g:2704:1: ( rule__Translate__Group__4__Impl rule__Translate__Group__5 )
-            // InternalCinEditor.g:2705:2: rule__Translate__Group__4__Impl rule__Translate__Group__5
-            {
-            pushFollow(FOLLOW_10);
-            rule__Translate__Group__4__Impl();
-
-            state._fsp--;
-
-            pushFollow(FOLLOW_2);
-            rule__Translate__Group__5();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Translate__Group__4"
-
-
-    // $ANTLR start "rule__Translate__Group__4__Impl"
-    // InternalCinEditor.g:2712:1: rule__Translate__Group__4__Impl : ( '(' ) ;
-    public final void rule__Translate__Group__4__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalCinEditor.g:2716:1: ( ( '(' ) )
-            // InternalCinEditor.g:2717:1: ( '(' )
-            {
-            // InternalCinEditor.g:2717:1: ( '(' )
-            // InternalCinEditor.g:2718:2: '('
-            {
-             before(grammarAccess.getTranslateAccess().getLeftParenthesisKeyword_4()); 
-            match(input,14,FOLLOW_2); 
-             after(grammarAccess.getTranslateAccess().getLeftParenthesisKeyword_4()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Translate__Group__4__Impl"
-
-
-    // $ANTLR start "rule__Translate__Group__5"
-    // InternalCinEditor.g:2727:1: rule__Translate__Group__5 : rule__Translate__Group__5__Impl rule__Translate__Group__6 ;
-    public final void rule__Translate__Group__5() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalCinEditor.g:2731:1: ( rule__Translate__Group__5__Impl rule__Translate__Group__6 )
-            // InternalCinEditor.g:2732:2: rule__Translate__Group__5__Impl rule__Translate__Group__6
-            {
-            pushFollow(FOLLOW_11);
-            rule__Translate__Group__5__Impl();
-
-            state._fsp--;
-
-            pushFollow(FOLLOW_2);
-            rule__Translate__Group__6();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Translate__Group__5"
-
-
-    // $ANTLR start "rule__Translate__Group__5__Impl"
-    // InternalCinEditor.g:2739:1: rule__Translate__Group__5__Impl : ( ( rule__Translate__PixelsToTranslateHorizontallyAssignment_5 ) ) ;
-    public final void rule__Translate__Group__5__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalCinEditor.g:2743:1: ( ( ( rule__Translate__PixelsToTranslateHorizontallyAssignment_5 ) ) )
-            // InternalCinEditor.g:2744:1: ( ( rule__Translate__PixelsToTranslateHorizontallyAssignment_5 ) )
-            {
-            // InternalCinEditor.g:2744:1: ( ( rule__Translate__PixelsToTranslateHorizontallyAssignment_5 ) )
-            // InternalCinEditor.g:2745:2: ( rule__Translate__PixelsToTranslateHorizontallyAssignment_5 )
-            {
-             before(grammarAccess.getTranslateAccess().getPixelsToTranslateHorizontallyAssignment_5()); 
-            // InternalCinEditor.g:2746:2: ( rule__Translate__PixelsToTranslateHorizontallyAssignment_5 )
-            // InternalCinEditor.g:2746:3: rule__Translate__PixelsToTranslateHorizontallyAssignment_5
-            {
-            pushFollow(FOLLOW_2);
-            rule__Translate__PixelsToTranslateHorizontallyAssignment_5();
-
-            state._fsp--;
-
-
-            }
-
-             after(grammarAccess.getTranslateAccess().getPixelsToTranslateHorizontallyAssignment_5()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Translate__Group__5__Impl"
-
-
-    // $ANTLR start "rule__Translate__Group__6"
-    // InternalCinEditor.g:2754:1: rule__Translate__Group__6 : rule__Translate__Group__6__Impl rule__Translate__Group__7 ;
-    public final void rule__Translate__Group__6() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalCinEditor.g:2758:1: ( rule__Translate__Group__6__Impl rule__Translate__Group__7 )
-            // InternalCinEditor.g:2759:2: rule__Translate__Group__6__Impl rule__Translate__Group__7
-            {
-            pushFollow(FOLLOW_10);
-            rule__Translate__Group__6__Impl();
-
-            state._fsp--;
-
-            pushFollow(FOLLOW_2);
-            rule__Translate__Group__7();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Translate__Group__6"
-
-
-    // $ANTLR start "rule__Translate__Group__6__Impl"
-    // InternalCinEditor.g:2766:1: rule__Translate__Group__6__Impl : ( ',' ) ;
-    public final void rule__Translate__Group__6__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalCinEditor.g:2770:1: ( ( ',' ) )
-            // InternalCinEditor.g:2771:1: ( ',' )
-            {
-            // InternalCinEditor.g:2771:1: ( ',' )
-            // InternalCinEditor.g:2772:2: ','
-            {
-             before(grammarAccess.getTranslateAccess().getCommaKeyword_6()); 
-            match(input,15,FOLLOW_2); 
-             after(grammarAccess.getTranslateAccess().getCommaKeyword_6()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Translate__Group__6__Impl"
-
-
-    // $ANTLR start "rule__Translate__Group__7"
-    // InternalCinEditor.g:2781:1: rule__Translate__Group__7 : rule__Translate__Group__7__Impl rule__Translate__Group__8 ;
-    public final void rule__Translate__Group__7() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalCinEditor.g:2785:1: ( rule__Translate__Group__7__Impl rule__Translate__Group__8 )
-            // InternalCinEditor.g:2786:2: rule__Translate__Group__7__Impl rule__Translate__Group__8
-            {
-            pushFollow(FOLLOW_12);
-            rule__Translate__Group__7__Impl();
-
-            state._fsp--;
-
-            pushFollow(FOLLOW_2);
-            rule__Translate__Group__8();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Translate__Group__7"
-
-
-    // $ANTLR start "rule__Translate__Group__7__Impl"
-    // InternalCinEditor.g:2793:1: rule__Translate__Group__7__Impl : ( ( rule__Translate__PixelsToTranslateVerticallyAssignment_7 ) ) ;
-    public final void rule__Translate__Group__7__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalCinEditor.g:2797:1: ( ( ( rule__Translate__PixelsToTranslateVerticallyAssignment_7 ) ) )
-            // InternalCinEditor.g:2798:1: ( ( rule__Translate__PixelsToTranslateVerticallyAssignment_7 ) )
-            {
-            // InternalCinEditor.g:2798:1: ( ( rule__Translate__PixelsToTranslateVerticallyAssignment_7 ) )
-            // InternalCinEditor.g:2799:2: ( rule__Translate__PixelsToTranslateVerticallyAssignment_7 )
-            {
-             before(grammarAccess.getTranslateAccess().getPixelsToTranslateVerticallyAssignment_7()); 
-            // InternalCinEditor.g:2800:2: ( rule__Translate__PixelsToTranslateVerticallyAssignment_7 )
-            // InternalCinEditor.g:2800:3: rule__Translate__PixelsToTranslateVerticallyAssignment_7
-            {
-            pushFollow(FOLLOW_2);
-            rule__Translate__PixelsToTranslateVerticallyAssignment_7();
-
-            state._fsp--;
-
-
-            }
-
-             after(grammarAccess.getTranslateAccess().getPixelsToTranslateVerticallyAssignment_7()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Translate__Group__7__Impl"
-
-
-    // $ANTLR start "rule__Translate__Group__8"
-    // InternalCinEditor.g:2808:1: rule__Translate__Group__8 : rule__Translate__Group__8__Impl rule__Translate__Group__9 ;
-    public final void rule__Translate__Group__8() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalCinEditor.g:2812:1: ( rule__Translate__Group__8__Impl rule__Translate__Group__9 )
-            // InternalCinEditor.g:2813:2: rule__Translate__Group__8__Impl rule__Translate__Group__9
-            {
-            pushFollow(FOLLOW_26);
-            rule__Translate__Group__8__Impl();
-
-            state._fsp--;
-
-            pushFollow(FOLLOW_2);
-            rule__Translate__Group__9();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Translate__Group__8"
-
-
-    // $ANTLR start "rule__Translate__Group__8__Impl"
-    // InternalCinEditor.g:2820:1: rule__Translate__Group__8__Impl : ( ')' ) ;
-    public final void rule__Translate__Group__8__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalCinEditor.g:2824:1: ( ( ')' ) )
-            // InternalCinEditor.g:2825:1: ( ')' )
-            {
-            // InternalCinEditor.g:2825:1: ( ')' )
-            // InternalCinEditor.g:2826:2: ')'
-            {
-             before(grammarAccess.getTranslateAccess().getRightParenthesisKeyword_8()); 
-            match(input,16,FOLLOW_2); 
-             after(grammarAccess.getTranslateAccess().getRightParenthesisKeyword_8()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Translate__Group__8__Impl"
-
-
-    // $ANTLR start "rule__Translate__Group__9"
-    // InternalCinEditor.g:2835:1: rule__Translate__Group__9 : rule__Translate__Group__9__Impl rule__Translate__Group__10 ;
-    public final void rule__Translate__Group__9() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalCinEditor.g:2839:1: ( rule__Translate__Group__9__Impl rule__Translate__Group__10 )
-            // InternalCinEditor.g:2840:2: rule__Translate__Group__9__Impl rule__Translate__Group__10
-            {
-            pushFollow(FOLLOW_10);
-            rule__Translate__Group__9__Impl();
-
-            state._fsp--;
-
-            pushFollow(FOLLOW_2);
-            rule__Translate__Group__10();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Translate__Group__9"
-
-
-    // $ANTLR start "rule__Translate__Group__9__Impl"
-    // InternalCinEditor.g:2847:1: rule__Translate__Group__9__Impl : ( 'at' ) ;
-    public final void rule__Translate__Group__9__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalCinEditor.g:2851:1: ( ( 'at' ) )
-            // InternalCinEditor.g:2852:1: ( 'at' )
-            {
-            // InternalCinEditor.g:2852:1: ( 'at' )
-            // InternalCinEditor.g:2853:2: 'at'
-            {
-             before(grammarAccess.getTranslateAccess().getAtKeyword_9()); 
-            match(input,23,FOLLOW_2); 
-             after(grammarAccess.getTranslateAccess().getAtKeyword_9()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Translate__Group__9__Impl"
-
-
-    // $ANTLR start "rule__Translate__Group__10"
-    // InternalCinEditor.g:2862:1: rule__Translate__Group__10 : rule__Translate__Group__10__Impl rule__Translate__Group__11 ;
-    public final void rule__Translate__Group__10() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalCinEditor.g:2866:1: ( rule__Translate__Group__10__Impl rule__Translate__Group__11 )
-            // InternalCinEditor.g:2867:2: rule__Translate__Group__10__Impl rule__Translate__Group__11
-            {
-            pushFollow(FOLLOW_16);
-            rule__Translate__Group__10__Impl();
-
-            state._fsp--;
-
-            pushFollow(FOLLOW_2);
-            rule__Translate__Group__11();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Translate__Group__10"
-
-
-    // $ANTLR start "rule__Translate__Group__10__Impl"
-    // InternalCinEditor.g:2874:1: rule__Translate__Group__10__Impl : ( ( rule__Translate__BeginTimeAssignment_10 ) ) ;
-    public final void rule__Translate__Group__10__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalCinEditor.g:2878:1: ( ( ( rule__Translate__BeginTimeAssignment_10 ) ) )
-            // InternalCinEditor.g:2879:1: ( ( rule__Translate__BeginTimeAssignment_10 ) )
-            {
-            // InternalCinEditor.g:2879:1: ( ( rule__Translate__BeginTimeAssignment_10 ) )
-            // InternalCinEditor.g:2880:2: ( rule__Translate__BeginTimeAssignment_10 )
-            {
-             before(grammarAccess.getTranslateAccess().getBeginTimeAssignment_10()); 
-            // InternalCinEditor.g:2881:2: ( rule__Translate__BeginTimeAssignment_10 )
-            // InternalCinEditor.g:2881:3: rule__Translate__BeginTimeAssignment_10
-            {
-            pushFollow(FOLLOW_2);
-            rule__Translate__BeginTimeAssignment_10();
-
-            state._fsp--;
-
-
-            }
-
-             after(grammarAccess.getTranslateAccess().getBeginTimeAssignment_10()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Translate__Group__10__Impl"
-
-
-    // $ANTLR start "rule__Translate__Group__11"
-    // InternalCinEditor.g:2889:1: rule__Translate__Group__11 : rule__Translate__Group__11__Impl rule__Translate__Group__12 ;
-    public final void rule__Translate__Group__11() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalCinEditor.g:2893:1: ( rule__Translate__Group__11__Impl rule__Translate__Group__12 )
-            // InternalCinEditor.g:2894:2: rule__Translate__Group__11__Impl rule__Translate__Group__12
-            {
-            pushFollow(FOLLOW_10);
-            rule__Translate__Group__11__Impl();
-
-            state._fsp--;
-
-            pushFollow(FOLLOW_2);
-            rule__Translate__Group__12();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Translate__Group__11"
-
-
-    // $ANTLR start "rule__Translate__Group__11__Impl"
-    // InternalCinEditor.g:2901:1: rule__Translate__Group__11__Impl : ( 'during' ) ;
-    public final void rule__Translate__Group__11__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalCinEditor.g:2905:1: ( ( 'during' ) )
-            // InternalCinEditor.g:2906:1: ( 'during' )
-            {
-            // InternalCinEditor.g:2906:1: ( 'during' )
-            // InternalCinEditor.g:2907:2: 'during'
-            {
-             before(grammarAccess.getTranslateAccess().getDuringKeyword_11()); 
-            match(input,24,FOLLOW_2); 
-             after(grammarAccess.getTranslateAccess().getDuringKeyword_11()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Translate__Group__11__Impl"
-
-
-    // $ANTLR start "rule__Translate__Group__12"
-    // InternalCinEditor.g:2916:1: rule__Translate__Group__12 : rule__Translate__Group__12__Impl rule__Translate__Group__13 ;
-    public final void rule__Translate__Group__12() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalCinEditor.g:2920:1: ( rule__Translate__Group__12__Impl rule__Translate__Group__13 )
-            // InternalCinEditor.g:2921:2: rule__Translate__Group__12__Impl rule__Translate__Group__13
-            {
-            pushFollow(FOLLOW_22);
-            rule__Translate__Group__12__Impl();
-
-            state._fsp--;
-
-            pushFollow(FOLLOW_2);
-            rule__Translate__Group__13();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Translate__Group__12"
-
-
-    // $ANTLR start "rule__Translate__Group__12__Impl"
-    // InternalCinEditor.g:2928:1: rule__Translate__Group__12__Impl : ( ( rule__Translate__DurationAssignment_12 ) ) ;
-    public final void rule__Translate__Group__12__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalCinEditor.g:2932:1: ( ( ( rule__Translate__DurationAssignment_12 ) ) )
-            // InternalCinEditor.g:2933:1: ( ( rule__Translate__DurationAssignment_12 ) )
-            {
-            // InternalCinEditor.g:2933:1: ( ( rule__Translate__DurationAssignment_12 ) )
-            // InternalCinEditor.g:2934:2: ( rule__Translate__DurationAssignment_12 )
-            {
-             before(grammarAccess.getTranslateAccess().getDurationAssignment_12()); 
-            // InternalCinEditor.g:2935:2: ( rule__Translate__DurationAssignment_12 )
-            // InternalCinEditor.g:2935:3: rule__Translate__DurationAssignment_12
-            {
-            pushFollow(FOLLOW_2);
-            rule__Translate__DurationAssignment_12();
-
-            state._fsp--;
-
-
-            }
-
-             after(grammarAccess.getTranslateAccess().getDurationAssignment_12()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Translate__Group__12__Impl"
-
-
-    // $ANTLR start "rule__Translate__Group__13"
-    // InternalCinEditor.g:2943:1: rule__Translate__Group__13 : rule__Translate__Group__13__Impl rule__Translate__Group__14 ;
-    public final void rule__Translate__Group__13() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalCinEditor.g:2947:1: ( rule__Translate__Group__13__Impl rule__Translate__Group__14 )
-            // InternalCinEditor.g:2948:2: rule__Translate__Group__13__Impl rule__Translate__Group__14
-            {
-            pushFollow(FOLLOW_23);
-            rule__Translate__Group__13__Impl();
-
-            state._fsp--;
-
-            pushFollow(FOLLOW_2);
-            rule__Translate__Group__14();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Translate__Group__13"
-
-
-    // $ANTLR start "rule__Translate__Group__13__Impl"
-    // InternalCinEditor.g:2955:1: rule__Translate__Group__13__Impl : ( 'on' ) ;
-    public final void rule__Translate__Group__13__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalCinEditor.g:2959:1: ( ( 'on' ) )
-            // InternalCinEditor.g:2960:1: ( 'on' )
-            {
-            // InternalCinEditor.g:2960:1: ( 'on' )
-            // InternalCinEditor.g:2961:2: 'on'
-            {
-             before(grammarAccess.getTranslateAccess().getOnKeyword_13()); 
-            match(input,32,FOLLOW_2); 
-             after(grammarAccess.getTranslateAccess().getOnKeyword_13()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Translate__Group__13__Impl"
-
-
-    // $ANTLR start "rule__Translate__Group__14"
-    // InternalCinEditor.g:2970:1: rule__Translate__Group__14 : rule__Translate__Group__14__Impl ;
-    public final void rule__Translate__Group__14() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalCinEditor.g:2974:1: ( rule__Translate__Group__14__Impl )
-            // InternalCinEditor.g:2975:2: rule__Translate__Group__14__Impl
-            {
-            pushFollow(FOLLOW_2);
-            rule__Translate__Group__14__Impl();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Translate__Group__14"
-
-
-    // $ANTLR start "rule__Translate__Group__14__Impl"
-    // InternalCinEditor.g:2981:1: rule__Translate__Group__14__Impl : ( ( rule__Translate__ElementAssignment_14 ) ) ;
-    public final void rule__Translate__Group__14__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalCinEditor.g:2985:1: ( ( ( rule__Translate__ElementAssignment_14 ) ) )
-            // InternalCinEditor.g:2986:1: ( ( rule__Translate__ElementAssignment_14 ) )
-            {
-            // InternalCinEditor.g:2986:1: ( ( rule__Translate__ElementAssignment_14 ) )
-            // InternalCinEditor.g:2987:2: ( rule__Translate__ElementAssignment_14 )
-            {
-             before(grammarAccess.getTranslateAccess().getElementAssignment_14()); 
-            // InternalCinEditor.g:2988:2: ( rule__Translate__ElementAssignment_14 )
-            // InternalCinEditor.g:2988:3: rule__Translate__ElementAssignment_14
-            {
-            pushFollow(FOLLOW_2);
-            rule__Translate__ElementAssignment_14();
-
-            state._fsp--;
-
-
-            }
-
-             after(grammarAccess.getTranslateAccess().getElementAssignment_14()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Translate__Group__14__Impl"
+    // $ANTLR end "rule__Video__Group_12__1__Impl"
 
 
     // $ANTLR start "rule__Rectangle__Group__0"
-    // InternalCinEditor.g:2997:1: rule__Rectangle__Group__0 : rule__Rectangle__Group__0__Impl rule__Rectangle__Group__1 ;
+    // InternalCinEditor.g:2241:1: rule__Rectangle__Group__0 : rule__Rectangle__Group__0__Impl rule__Rectangle__Group__1 ;
     public final void rule__Rectangle__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCinEditor.g:3001:1: ( rule__Rectangle__Group__0__Impl rule__Rectangle__Group__1 )
-            // InternalCinEditor.g:3002:2: rule__Rectangle__Group__0__Impl rule__Rectangle__Group__1
+            // InternalCinEditor.g:2245:1: ( rule__Rectangle__Group__0__Impl rule__Rectangle__Group__1 )
+            // InternalCinEditor.g:2246:2: rule__Rectangle__Group__0__Impl rule__Rectangle__Group__1
             {
             pushFollow(FOLLOW_3);
             rule__Rectangle__Group__0__Impl();
@@ -8948,20 +6791,20 @@ public class InternalCinEditorParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Rectangle__Group__0__Impl"
-    // InternalCinEditor.g:3009:1: rule__Rectangle__Group__0__Impl : ( 'Rectangle' ) ;
+    // InternalCinEditor.g:2253:1: rule__Rectangle__Group__0__Impl : ( 'Rectangle' ) ;
     public final void rule__Rectangle__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCinEditor.g:3013:1: ( ( 'Rectangle' ) )
-            // InternalCinEditor.g:3014:1: ( 'Rectangle' )
+            // InternalCinEditor.g:2257:1: ( ( 'Rectangle' ) )
+            // InternalCinEditor.g:2258:1: ( 'Rectangle' )
             {
-            // InternalCinEditor.g:3014:1: ( 'Rectangle' )
-            // InternalCinEditor.g:3015:2: 'Rectangle'
+            // InternalCinEditor.g:2258:1: ( 'Rectangle' )
+            // InternalCinEditor.g:2259:2: 'Rectangle'
             {
              before(grammarAccess.getRectangleAccess().getRectangleKeyword_0()); 
-            match(input,35,FOLLOW_2); 
+            match(input,30,FOLLOW_2); 
              after(grammarAccess.getRectangleAccess().getRectangleKeyword_0()); 
 
             }
@@ -8985,14 +6828,14 @@ public class InternalCinEditorParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Rectangle__Group__1"
-    // InternalCinEditor.g:3024:1: rule__Rectangle__Group__1 : rule__Rectangle__Group__1__Impl rule__Rectangle__Group__2 ;
+    // InternalCinEditor.g:2268:1: rule__Rectangle__Group__1 : rule__Rectangle__Group__1__Impl rule__Rectangle__Group__2 ;
     public final void rule__Rectangle__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCinEditor.g:3028:1: ( rule__Rectangle__Group__1__Impl rule__Rectangle__Group__2 )
-            // InternalCinEditor.g:3029:2: rule__Rectangle__Group__1__Impl rule__Rectangle__Group__2
+            // InternalCinEditor.g:2272:1: ( rule__Rectangle__Group__1__Impl rule__Rectangle__Group__2 )
+            // InternalCinEditor.g:2273:2: rule__Rectangle__Group__1__Impl rule__Rectangle__Group__2
             {
             pushFollow(FOLLOW_14);
             rule__Rectangle__Group__1__Impl();
@@ -9023,21 +6866,21 @@ public class InternalCinEditorParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Rectangle__Group__1__Impl"
-    // InternalCinEditor.g:3036:1: rule__Rectangle__Group__1__Impl : ( ( rule__Rectangle__NameAssignment_1 ) ) ;
+    // InternalCinEditor.g:2280:1: rule__Rectangle__Group__1__Impl : ( ( rule__Rectangle__NameAssignment_1 ) ) ;
     public final void rule__Rectangle__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCinEditor.g:3040:1: ( ( ( rule__Rectangle__NameAssignment_1 ) ) )
-            // InternalCinEditor.g:3041:1: ( ( rule__Rectangle__NameAssignment_1 ) )
+            // InternalCinEditor.g:2284:1: ( ( ( rule__Rectangle__NameAssignment_1 ) ) )
+            // InternalCinEditor.g:2285:1: ( ( rule__Rectangle__NameAssignment_1 ) )
             {
-            // InternalCinEditor.g:3041:1: ( ( rule__Rectangle__NameAssignment_1 ) )
-            // InternalCinEditor.g:3042:2: ( rule__Rectangle__NameAssignment_1 )
+            // InternalCinEditor.g:2285:1: ( ( rule__Rectangle__NameAssignment_1 ) )
+            // InternalCinEditor.g:2286:2: ( rule__Rectangle__NameAssignment_1 )
             {
              before(grammarAccess.getRectangleAccess().getNameAssignment_1()); 
-            // InternalCinEditor.g:3043:2: ( rule__Rectangle__NameAssignment_1 )
-            // InternalCinEditor.g:3043:3: rule__Rectangle__NameAssignment_1
+            // InternalCinEditor.g:2287:2: ( rule__Rectangle__NameAssignment_1 )
+            // InternalCinEditor.g:2287:3: rule__Rectangle__NameAssignment_1
             {
             pushFollow(FOLLOW_2);
             rule__Rectangle__NameAssignment_1();
@@ -9070,16 +6913,16 @@ public class InternalCinEditorParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Rectangle__Group__2"
-    // InternalCinEditor.g:3051:1: rule__Rectangle__Group__2 : rule__Rectangle__Group__2__Impl rule__Rectangle__Group__3 ;
+    // InternalCinEditor.g:2295:1: rule__Rectangle__Group__2 : rule__Rectangle__Group__2__Impl rule__Rectangle__Group__3 ;
     public final void rule__Rectangle__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCinEditor.g:3055:1: ( rule__Rectangle__Group__2__Impl rule__Rectangle__Group__3 )
-            // InternalCinEditor.g:3056:2: rule__Rectangle__Group__2__Impl rule__Rectangle__Group__3
+            // InternalCinEditor.g:2299:1: ( rule__Rectangle__Group__2__Impl rule__Rectangle__Group__3 )
+            // InternalCinEditor.g:2300:2: rule__Rectangle__Group__2__Impl rule__Rectangle__Group__3
             {
-            pushFollow(FOLLOW_17);
+            pushFollow(FOLLOW_16);
             rule__Rectangle__Group__2__Impl();
 
             state._fsp--;
@@ -9108,17 +6951,17 @@ public class InternalCinEditorParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Rectangle__Group__2__Impl"
-    // InternalCinEditor.g:3063:1: rule__Rectangle__Group__2__Impl : ( '->' ) ;
+    // InternalCinEditor.g:2307:1: rule__Rectangle__Group__2__Impl : ( '->' ) ;
     public final void rule__Rectangle__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCinEditor.g:3067:1: ( ( '->' ) )
-            // InternalCinEditor.g:3068:1: ( '->' )
+            // InternalCinEditor.g:2311:1: ( ( '->' ) )
+            // InternalCinEditor.g:2312:1: ( '->' )
             {
-            // InternalCinEditor.g:3068:1: ( '->' )
-            // InternalCinEditor.g:3069:2: '->'
+            // InternalCinEditor.g:2312:1: ( '->' )
+            // InternalCinEditor.g:2313:2: '->'
             {
              before(grammarAccess.getRectangleAccess().getHyphenMinusGreaterThanSignKeyword_2()); 
             match(input,22,FOLLOW_2); 
@@ -9145,16 +6988,16 @@ public class InternalCinEditorParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Rectangle__Group__3"
-    // InternalCinEditor.g:3078:1: rule__Rectangle__Group__3 : rule__Rectangle__Group__3__Impl rule__Rectangle__Group__4 ;
+    // InternalCinEditor.g:2322:1: rule__Rectangle__Group__3 : rule__Rectangle__Group__3__Impl rule__Rectangle__Group__4 ;
     public final void rule__Rectangle__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCinEditor.g:3082:1: ( rule__Rectangle__Group__3__Impl rule__Rectangle__Group__4 )
-            // InternalCinEditor.g:3083:2: rule__Rectangle__Group__3__Impl rule__Rectangle__Group__4
+            // InternalCinEditor.g:2326:1: ( rule__Rectangle__Group__3__Impl rule__Rectangle__Group__4 )
+            // InternalCinEditor.g:2327:2: rule__Rectangle__Group__3__Impl rule__Rectangle__Group__4
             {
-            pushFollow(FOLLOW_19);
+            pushFollow(FOLLOW_18);
             rule__Rectangle__Group__3__Impl();
 
             state._fsp--;
@@ -9183,21 +7026,21 @@ public class InternalCinEditorParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Rectangle__Group__3__Impl"
-    // InternalCinEditor.g:3090:1: rule__Rectangle__Group__3__Impl : ( ( rule__Rectangle__ColorAssignment_3 ) ) ;
+    // InternalCinEditor.g:2334:1: rule__Rectangle__Group__3__Impl : ( ( rule__Rectangle__ColorAssignment_3 ) ) ;
     public final void rule__Rectangle__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCinEditor.g:3094:1: ( ( ( rule__Rectangle__ColorAssignment_3 ) ) )
-            // InternalCinEditor.g:3095:1: ( ( rule__Rectangle__ColorAssignment_3 ) )
+            // InternalCinEditor.g:2338:1: ( ( ( rule__Rectangle__ColorAssignment_3 ) ) )
+            // InternalCinEditor.g:2339:1: ( ( rule__Rectangle__ColorAssignment_3 ) )
             {
-            // InternalCinEditor.g:3095:1: ( ( rule__Rectangle__ColorAssignment_3 ) )
-            // InternalCinEditor.g:3096:2: ( rule__Rectangle__ColorAssignment_3 )
+            // InternalCinEditor.g:2339:1: ( ( rule__Rectangle__ColorAssignment_3 ) )
+            // InternalCinEditor.g:2340:2: ( rule__Rectangle__ColorAssignment_3 )
             {
              before(grammarAccess.getRectangleAccess().getColorAssignment_3()); 
-            // InternalCinEditor.g:3097:2: ( rule__Rectangle__ColorAssignment_3 )
-            // InternalCinEditor.g:3097:3: rule__Rectangle__ColorAssignment_3
+            // InternalCinEditor.g:2341:2: ( rule__Rectangle__ColorAssignment_3 )
+            // InternalCinEditor.g:2341:3: rule__Rectangle__ColorAssignment_3
             {
             pushFollow(FOLLOW_2);
             rule__Rectangle__ColorAssignment_3();
@@ -9230,16 +7073,16 @@ public class InternalCinEditorParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Rectangle__Group__4"
-    // InternalCinEditor.g:3105:1: rule__Rectangle__Group__4 : rule__Rectangle__Group__4__Impl rule__Rectangle__Group__5 ;
+    // InternalCinEditor.g:2349:1: rule__Rectangle__Group__4 : rule__Rectangle__Group__4__Impl rule__Rectangle__Group__5 ;
     public final void rule__Rectangle__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCinEditor.g:3109:1: ( rule__Rectangle__Group__4__Impl rule__Rectangle__Group__5 )
-            // InternalCinEditor.g:3110:2: rule__Rectangle__Group__4__Impl rule__Rectangle__Group__5
+            // InternalCinEditor.g:2353:1: ( rule__Rectangle__Group__4__Impl rule__Rectangle__Group__5 )
+            // InternalCinEditor.g:2354:2: rule__Rectangle__Group__4__Impl rule__Rectangle__Group__5
             {
-            pushFollow(FOLLOW_19);
+            pushFollow(FOLLOW_18);
             rule__Rectangle__Group__4__Impl();
 
             state._fsp--;
@@ -9268,29 +7111,29 @@ public class InternalCinEditorParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Rectangle__Group__4__Impl"
-    // InternalCinEditor.g:3117:1: rule__Rectangle__Group__4__Impl : ( ( rule__Rectangle__PositionAssignment_4 )? ) ;
+    // InternalCinEditor.g:2361:1: rule__Rectangle__Group__4__Impl : ( ( rule__Rectangle__PositionAssignment_4 )? ) ;
     public final void rule__Rectangle__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCinEditor.g:3121:1: ( ( ( rule__Rectangle__PositionAssignment_4 )? ) )
-            // InternalCinEditor.g:3122:1: ( ( rule__Rectangle__PositionAssignment_4 )? )
+            // InternalCinEditor.g:2365:1: ( ( ( rule__Rectangle__PositionAssignment_4 )? ) )
+            // InternalCinEditor.g:2366:1: ( ( rule__Rectangle__PositionAssignment_4 )? )
             {
-            // InternalCinEditor.g:3122:1: ( ( rule__Rectangle__PositionAssignment_4 )? )
-            // InternalCinEditor.g:3123:2: ( rule__Rectangle__PositionAssignment_4 )?
+            // InternalCinEditor.g:2366:1: ( ( rule__Rectangle__PositionAssignment_4 )? )
+            // InternalCinEditor.g:2367:2: ( rule__Rectangle__PositionAssignment_4 )?
             {
              before(grammarAccess.getRectangleAccess().getPositionAssignment_4()); 
-            // InternalCinEditor.g:3124:2: ( rule__Rectangle__PositionAssignment_4 )?
-            int alt12=2;
-            int LA12_0 = input.LA(1);
+            // InternalCinEditor.g:2368:2: ( rule__Rectangle__PositionAssignment_4 )?
+            int alt15=2;
+            int LA15_0 = input.LA(1);
 
-            if ( (LA12_0==13) ) {
-                alt12=1;
+            if ( (LA15_0==13) ) {
+                alt15=1;
             }
-            switch (alt12) {
+            switch (alt15) {
                 case 1 :
-                    // InternalCinEditor.g:3124:3: rule__Rectangle__PositionAssignment_4
+                    // InternalCinEditor.g:2368:3: rule__Rectangle__PositionAssignment_4
                     {
                     pushFollow(FOLLOW_2);
                     rule__Rectangle__PositionAssignment_4();
@@ -9326,16 +7169,16 @@ public class InternalCinEditorParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Rectangle__Group__5"
-    // InternalCinEditor.g:3132:1: rule__Rectangle__Group__5 : rule__Rectangle__Group__5__Impl rule__Rectangle__Group__6 ;
+    // InternalCinEditor.g:2376:1: rule__Rectangle__Group__5 : rule__Rectangle__Group__5__Impl rule__Rectangle__Group__6 ;
     public final void rule__Rectangle__Group__5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCinEditor.g:3136:1: ( rule__Rectangle__Group__5__Impl rule__Rectangle__Group__6 )
-            // InternalCinEditor.g:3137:2: rule__Rectangle__Group__5__Impl rule__Rectangle__Group__6
+            // InternalCinEditor.g:2380:1: ( rule__Rectangle__Group__5__Impl rule__Rectangle__Group__6 )
+            // InternalCinEditor.g:2381:2: rule__Rectangle__Group__5__Impl rule__Rectangle__Group__6
             {
-            pushFollow(FOLLOW_19);
+            pushFollow(FOLLOW_18);
             rule__Rectangle__Group__5__Impl();
 
             state._fsp--;
@@ -9364,29 +7207,29 @@ public class InternalCinEditorParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Rectangle__Group__5__Impl"
-    // InternalCinEditor.g:3144:1: rule__Rectangle__Group__5__Impl : ( ( rule__Rectangle__DimensionAssignment_5 )? ) ;
+    // InternalCinEditor.g:2388:1: rule__Rectangle__Group__5__Impl : ( ( rule__Rectangle__DimensionAssignment_5 )? ) ;
     public final void rule__Rectangle__Group__5__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCinEditor.g:3148:1: ( ( ( rule__Rectangle__DimensionAssignment_5 )? ) )
-            // InternalCinEditor.g:3149:1: ( ( rule__Rectangle__DimensionAssignment_5 )? )
+            // InternalCinEditor.g:2392:1: ( ( ( rule__Rectangle__DimensionAssignment_5 )? ) )
+            // InternalCinEditor.g:2393:1: ( ( rule__Rectangle__DimensionAssignment_5 )? )
             {
-            // InternalCinEditor.g:3149:1: ( ( rule__Rectangle__DimensionAssignment_5 )? )
-            // InternalCinEditor.g:3150:2: ( rule__Rectangle__DimensionAssignment_5 )?
+            // InternalCinEditor.g:2393:1: ( ( rule__Rectangle__DimensionAssignment_5 )? )
+            // InternalCinEditor.g:2394:2: ( rule__Rectangle__DimensionAssignment_5 )?
             {
              before(grammarAccess.getRectangleAccess().getDimensionAssignment_5()); 
-            // InternalCinEditor.g:3151:2: ( rule__Rectangle__DimensionAssignment_5 )?
-            int alt13=2;
-            int LA13_0 = input.LA(1);
+            // InternalCinEditor.g:2395:2: ( rule__Rectangle__DimensionAssignment_5 )?
+            int alt16=2;
+            int LA16_0 = input.LA(1);
 
-            if ( (LA13_0==17) ) {
-                alt13=1;
+            if ( (LA16_0==17) ) {
+                alt16=1;
             }
-            switch (alt13) {
+            switch (alt16) {
                 case 1 :
-                    // InternalCinEditor.g:3151:3: rule__Rectangle__DimensionAssignment_5
+                    // InternalCinEditor.g:2395:3: rule__Rectangle__DimensionAssignment_5
                     {
                     pushFollow(FOLLOW_2);
                     rule__Rectangle__DimensionAssignment_5();
@@ -9422,14 +7265,14 @@ public class InternalCinEditorParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Rectangle__Group__6"
-    // InternalCinEditor.g:3159:1: rule__Rectangle__Group__6 : rule__Rectangle__Group__6__Impl rule__Rectangle__Group__7 ;
+    // InternalCinEditor.g:2403:1: rule__Rectangle__Group__6 : rule__Rectangle__Group__6__Impl rule__Rectangle__Group__7 ;
     public final void rule__Rectangle__Group__6() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCinEditor.g:3163:1: ( rule__Rectangle__Group__6__Impl rule__Rectangle__Group__7 )
-            // InternalCinEditor.g:3164:2: rule__Rectangle__Group__6__Impl rule__Rectangle__Group__7
+            // InternalCinEditor.g:2407:1: ( rule__Rectangle__Group__6__Impl rule__Rectangle__Group__7 )
+            // InternalCinEditor.g:2408:2: rule__Rectangle__Group__6__Impl rule__Rectangle__Group__7
             {
             pushFollow(FOLLOW_10);
             rule__Rectangle__Group__6__Impl();
@@ -9460,17 +7303,17 @@ public class InternalCinEditorParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Rectangle__Group__6__Impl"
-    // InternalCinEditor.g:3171:1: rule__Rectangle__Group__6__Impl : ( 'at' ) ;
+    // InternalCinEditor.g:2415:1: rule__Rectangle__Group__6__Impl : ( 'at' ) ;
     public final void rule__Rectangle__Group__6__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCinEditor.g:3175:1: ( ( 'at' ) )
-            // InternalCinEditor.g:3176:1: ( 'at' )
+            // InternalCinEditor.g:2419:1: ( ( 'at' ) )
+            // InternalCinEditor.g:2420:1: ( 'at' )
             {
-            // InternalCinEditor.g:3176:1: ( 'at' )
-            // InternalCinEditor.g:3177:2: 'at'
+            // InternalCinEditor.g:2420:1: ( 'at' )
+            // InternalCinEditor.g:2421:2: 'at'
             {
              before(grammarAccess.getRectangleAccess().getAtKeyword_6()); 
             match(input,23,FOLLOW_2); 
@@ -9497,16 +7340,16 @@ public class InternalCinEditorParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Rectangle__Group__7"
-    // InternalCinEditor.g:3186:1: rule__Rectangle__Group__7 : rule__Rectangle__Group__7__Impl rule__Rectangle__Group__8 ;
+    // InternalCinEditor.g:2430:1: rule__Rectangle__Group__7 : rule__Rectangle__Group__7__Impl rule__Rectangle__Group__8 ;
     public final void rule__Rectangle__Group__7() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCinEditor.g:3190:1: ( rule__Rectangle__Group__7__Impl rule__Rectangle__Group__8 )
-            // InternalCinEditor.g:3191:2: rule__Rectangle__Group__7__Impl rule__Rectangle__Group__8
+            // InternalCinEditor.g:2434:1: ( rule__Rectangle__Group__7__Impl rule__Rectangle__Group__8 )
+            // InternalCinEditor.g:2435:2: rule__Rectangle__Group__7__Impl rule__Rectangle__Group__8
             {
-            pushFollow(FOLLOW_16);
+            pushFollow(FOLLOW_19);
             rule__Rectangle__Group__7__Impl();
 
             state._fsp--;
@@ -9535,21 +7378,21 @@ public class InternalCinEditorParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Rectangle__Group__7__Impl"
-    // InternalCinEditor.g:3198:1: rule__Rectangle__Group__7__Impl : ( ( rule__Rectangle__BeginTimeAssignment_7 ) ) ;
+    // InternalCinEditor.g:2442:1: rule__Rectangle__Group__7__Impl : ( ( rule__Rectangle__BeginTimeAssignment_7 ) ) ;
     public final void rule__Rectangle__Group__7__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCinEditor.g:3202:1: ( ( ( rule__Rectangle__BeginTimeAssignment_7 ) ) )
-            // InternalCinEditor.g:3203:1: ( ( rule__Rectangle__BeginTimeAssignment_7 ) )
+            // InternalCinEditor.g:2446:1: ( ( ( rule__Rectangle__BeginTimeAssignment_7 ) ) )
+            // InternalCinEditor.g:2447:1: ( ( rule__Rectangle__BeginTimeAssignment_7 ) )
             {
-            // InternalCinEditor.g:3203:1: ( ( rule__Rectangle__BeginTimeAssignment_7 ) )
-            // InternalCinEditor.g:3204:2: ( rule__Rectangle__BeginTimeAssignment_7 )
+            // InternalCinEditor.g:2447:1: ( ( rule__Rectangle__BeginTimeAssignment_7 ) )
+            // InternalCinEditor.g:2448:2: ( rule__Rectangle__BeginTimeAssignment_7 )
             {
              before(grammarAccess.getRectangleAccess().getBeginTimeAssignment_7()); 
-            // InternalCinEditor.g:3205:2: ( rule__Rectangle__BeginTimeAssignment_7 )
-            // InternalCinEditor.g:3205:3: rule__Rectangle__BeginTimeAssignment_7
+            // InternalCinEditor.g:2449:2: ( rule__Rectangle__BeginTimeAssignment_7 )
+            // InternalCinEditor.g:2449:3: rule__Rectangle__BeginTimeAssignment_7
             {
             pushFollow(FOLLOW_2);
             rule__Rectangle__BeginTimeAssignment_7();
@@ -9582,22 +7425,17 @@ public class InternalCinEditorParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Rectangle__Group__8"
-    // InternalCinEditor.g:3213:1: rule__Rectangle__Group__8 : rule__Rectangle__Group__8__Impl rule__Rectangle__Group__9 ;
+    // InternalCinEditor.g:2457:1: rule__Rectangle__Group__8 : rule__Rectangle__Group__8__Impl ;
     public final void rule__Rectangle__Group__8() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCinEditor.g:3217:1: ( rule__Rectangle__Group__8__Impl rule__Rectangle__Group__9 )
-            // InternalCinEditor.g:3218:2: rule__Rectangle__Group__8__Impl rule__Rectangle__Group__9
+            // InternalCinEditor.g:2461:1: ( rule__Rectangle__Group__8__Impl )
+            // InternalCinEditor.g:2462:2: rule__Rectangle__Group__8__Impl
             {
-            pushFollow(FOLLOW_10);
-            rule__Rectangle__Group__8__Impl();
-
-            state._fsp--;
-
             pushFollow(FOLLOW_2);
-            rule__Rectangle__Group__9();
+            rule__Rectangle__Group__8__Impl();
 
             state._fsp--;
 
@@ -9620,21 +7458,42 @@ public class InternalCinEditorParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Rectangle__Group__8__Impl"
-    // InternalCinEditor.g:3225:1: rule__Rectangle__Group__8__Impl : ( 'during' ) ;
+    // InternalCinEditor.g:2468:1: rule__Rectangle__Group__8__Impl : ( ( rule__Rectangle__Group_8__0 )? ) ;
     public final void rule__Rectangle__Group__8__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCinEditor.g:3229:1: ( ( 'during' ) )
-            // InternalCinEditor.g:3230:1: ( 'during' )
+            // InternalCinEditor.g:2472:1: ( ( ( rule__Rectangle__Group_8__0 )? ) )
+            // InternalCinEditor.g:2473:1: ( ( rule__Rectangle__Group_8__0 )? )
             {
-            // InternalCinEditor.g:3230:1: ( 'during' )
-            // InternalCinEditor.g:3231:2: 'during'
+            // InternalCinEditor.g:2473:1: ( ( rule__Rectangle__Group_8__0 )? )
+            // InternalCinEditor.g:2474:2: ( rule__Rectangle__Group_8__0 )?
             {
-             before(grammarAccess.getRectangleAccess().getDuringKeyword_8()); 
-            match(input,24,FOLLOW_2); 
-             after(grammarAccess.getRectangleAccess().getDuringKeyword_8()); 
+             before(grammarAccess.getRectangleAccess().getGroup_8()); 
+            // InternalCinEditor.g:2475:2: ( rule__Rectangle__Group_8__0 )?
+            int alt17=2;
+            int LA17_0 = input.LA(1);
+
+            if ( (LA17_0==25) ) {
+                alt17=1;
+            }
+            switch (alt17) {
+                case 1 :
+                    // InternalCinEditor.g:2475:3: rule__Rectangle__Group_8__0
+                    {
+                    pushFollow(FOLLOW_2);
+                    rule__Rectangle__Group_8__0();
+
+                    state._fsp--;
+
+
+                    }
+                    break;
+
+            }
+
+             after(grammarAccess.getRectangleAccess().getGroup_8()); 
 
             }
 
@@ -9656,18 +7515,23 @@ public class InternalCinEditorParser extends AbstractInternalContentAssistParser
     // $ANTLR end "rule__Rectangle__Group__8__Impl"
 
 
-    // $ANTLR start "rule__Rectangle__Group__9"
-    // InternalCinEditor.g:3240:1: rule__Rectangle__Group__9 : rule__Rectangle__Group__9__Impl ;
-    public final void rule__Rectangle__Group__9() throws RecognitionException {
+    // $ANTLR start "rule__Rectangle__Group_8__0"
+    // InternalCinEditor.g:2484:1: rule__Rectangle__Group_8__0 : rule__Rectangle__Group_8__0__Impl rule__Rectangle__Group_8__1 ;
+    public final void rule__Rectangle__Group_8__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCinEditor.g:3244:1: ( rule__Rectangle__Group__9__Impl )
-            // InternalCinEditor.g:3245:2: rule__Rectangle__Group__9__Impl
+            // InternalCinEditor.g:2488:1: ( rule__Rectangle__Group_8__0__Impl rule__Rectangle__Group_8__1 )
+            // InternalCinEditor.g:2489:2: rule__Rectangle__Group_8__0__Impl rule__Rectangle__Group_8__1
             {
+            pushFollow(FOLLOW_10);
+            rule__Rectangle__Group_8__0__Impl();
+
+            state._fsp--;
+
             pushFollow(FOLLOW_2);
-            rule__Rectangle__Group__9__Impl();
+            rule__Rectangle__Group_8__1();
 
             state._fsp--;
 
@@ -9686,35 +7550,25 @@ public class InternalCinEditorParser extends AbstractInternalContentAssistParser
         }
         return ;
     }
-    // $ANTLR end "rule__Rectangle__Group__9"
+    // $ANTLR end "rule__Rectangle__Group_8__0"
 
 
-    // $ANTLR start "rule__Rectangle__Group__9__Impl"
-    // InternalCinEditor.g:3251:1: rule__Rectangle__Group__9__Impl : ( ( rule__Rectangle__DurationAssignment_9 ) ) ;
-    public final void rule__Rectangle__Group__9__Impl() throws RecognitionException {
+    // $ANTLR start "rule__Rectangle__Group_8__0__Impl"
+    // InternalCinEditor.g:2496:1: rule__Rectangle__Group_8__0__Impl : ( 'during' ) ;
+    public final void rule__Rectangle__Group_8__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCinEditor.g:3255:1: ( ( ( rule__Rectangle__DurationAssignment_9 ) ) )
-            // InternalCinEditor.g:3256:1: ( ( rule__Rectangle__DurationAssignment_9 ) )
+            // InternalCinEditor.g:2500:1: ( ( 'during' ) )
+            // InternalCinEditor.g:2501:1: ( 'during' )
             {
-            // InternalCinEditor.g:3256:1: ( ( rule__Rectangle__DurationAssignment_9 ) )
-            // InternalCinEditor.g:3257:2: ( rule__Rectangle__DurationAssignment_9 )
+            // InternalCinEditor.g:2501:1: ( 'during' )
+            // InternalCinEditor.g:2502:2: 'during'
             {
-             before(grammarAccess.getRectangleAccess().getDurationAssignment_9()); 
-            // InternalCinEditor.g:3258:2: ( rule__Rectangle__DurationAssignment_9 )
-            // InternalCinEditor.g:3258:3: rule__Rectangle__DurationAssignment_9
-            {
-            pushFollow(FOLLOW_2);
-            rule__Rectangle__DurationAssignment_9();
-
-            state._fsp--;
-
-
-            }
-
-             after(grammarAccess.getRectangleAccess().getDurationAssignment_9()); 
+             before(grammarAccess.getRectangleAccess().getDuringKeyword_8_0()); 
+            match(input,25,FOLLOW_2); 
+             after(grammarAccess.getRectangleAccess().getDuringKeyword_8_0()); 
 
             }
 
@@ -9733,7 +7587,2207 @@ public class InternalCinEditorParser extends AbstractInternalContentAssistParser
         }
         return ;
     }
-    // $ANTLR end "rule__Rectangle__Group__9__Impl"
+    // $ANTLR end "rule__Rectangle__Group_8__0__Impl"
+
+
+    // $ANTLR start "rule__Rectangle__Group_8__1"
+    // InternalCinEditor.g:2511:1: rule__Rectangle__Group_8__1 : rule__Rectangle__Group_8__1__Impl ;
+    public final void rule__Rectangle__Group_8__1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalCinEditor.g:2515:1: ( rule__Rectangle__Group_8__1__Impl )
+            // InternalCinEditor.g:2516:2: rule__Rectangle__Group_8__1__Impl
+            {
+            pushFollow(FOLLOW_2);
+            rule__Rectangle__Group_8__1__Impl();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Rectangle__Group_8__1"
+
+
+    // $ANTLR start "rule__Rectangle__Group_8__1__Impl"
+    // InternalCinEditor.g:2522:1: rule__Rectangle__Group_8__1__Impl : ( ( rule__Rectangle__DurationAssignment_8_1 ) ) ;
+    public final void rule__Rectangle__Group_8__1__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalCinEditor.g:2526:1: ( ( ( rule__Rectangle__DurationAssignment_8_1 ) ) )
+            // InternalCinEditor.g:2527:1: ( ( rule__Rectangle__DurationAssignment_8_1 ) )
+            {
+            // InternalCinEditor.g:2527:1: ( ( rule__Rectangle__DurationAssignment_8_1 ) )
+            // InternalCinEditor.g:2528:2: ( rule__Rectangle__DurationAssignment_8_1 )
+            {
+             before(grammarAccess.getRectangleAccess().getDurationAssignment_8_1()); 
+            // InternalCinEditor.g:2529:2: ( rule__Rectangle__DurationAssignment_8_1 )
+            // InternalCinEditor.g:2529:3: rule__Rectangle__DurationAssignment_8_1
+            {
+            pushFollow(FOLLOW_2);
+            rule__Rectangle__DurationAssignment_8_1();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getRectangleAccess().getDurationAssignment_8_1()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Rectangle__Group_8__1__Impl"
+
+
+    // $ANTLR start "rule__FadeIn__Group__0"
+    // InternalCinEditor.g:2538:1: rule__FadeIn__Group__0 : rule__FadeIn__Group__0__Impl rule__FadeIn__Group__1 ;
+    public final void rule__FadeIn__Group__0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalCinEditor.g:2542:1: ( rule__FadeIn__Group__0__Impl rule__FadeIn__Group__1 )
+            // InternalCinEditor.g:2543:2: rule__FadeIn__Group__0__Impl rule__FadeIn__Group__1
+            {
+            pushFollow(FOLLOW_3);
+            rule__FadeIn__Group__0__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__FadeIn__Group__1();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__FadeIn__Group__0"
+
+
+    // $ANTLR start "rule__FadeIn__Group__0__Impl"
+    // InternalCinEditor.g:2550:1: rule__FadeIn__Group__0__Impl : ( 'Effect' ) ;
+    public final void rule__FadeIn__Group__0__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalCinEditor.g:2554:1: ( ( 'Effect' ) )
+            // InternalCinEditor.g:2555:1: ( 'Effect' )
+            {
+            // InternalCinEditor.g:2555:1: ( 'Effect' )
+            // InternalCinEditor.g:2556:2: 'Effect'
+            {
+             before(grammarAccess.getFadeInAccess().getEffectKeyword_0()); 
+            match(input,31,FOLLOW_2); 
+             after(grammarAccess.getFadeInAccess().getEffectKeyword_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__FadeIn__Group__0__Impl"
+
+
+    // $ANTLR start "rule__FadeIn__Group__1"
+    // InternalCinEditor.g:2565:1: rule__FadeIn__Group__1 : rule__FadeIn__Group__1__Impl rule__FadeIn__Group__2 ;
+    public final void rule__FadeIn__Group__1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalCinEditor.g:2569:1: ( rule__FadeIn__Group__1__Impl rule__FadeIn__Group__2 )
+            // InternalCinEditor.g:2570:2: rule__FadeIn__Group__1__Impl rule__FadeIn__Group__2
+            {
+            pushFollow(FOLLOW_14);
+            rule__FadeIn__Group__1__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__FadeIn__Group__2();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__FadeIn__Group__1"
+
+
+    // $ANTLR start "rule__FadeIn__Group__1__Impl"
+    // InternalCinEditor.g:2577:1: rule__FadeIn__Group__1__Impl : ( ( rule__FadeIn__NameAssignment_1 ) ) ;
+    public final void rule__FadeIn__Group__1__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalCinEditor.g:2581:1: ( ( ( rule__FadeIn__NameAssignment_1 ) ) )
+            // InternalCinEditor.g:2582:1: ( ( rule__FadeIn__NameAssignment_1 ) )
+            {
+            // InternalCinEditor.g:2582:1: ( ( rule__FadeIn__NameAssignment_1 ) )
+            // InternalCinEditor.g:2583:2: ( rule__FadeIn__NameAssignment_1 )
+            {
+             before(grammarAccess.getFadeInAccess().getNameAssignment_1()); 
+            // InternalCinEditor.g:2584:2: ( rule__FadeIn__NameAssignment_1 )
+            // InternalCinEditor.g:2584:3: rule__FadeIn__NameAssignment_1
+            {
+            pushFollow(FOLLOW_2);
+            rule__FadeIn__NameAssignment_1();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getFadeInAccess().getNameAssignment_1()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__FadeIn__Group__1__Impl"
+
+
+    // $ANTLR start "rule__FadeIn__Group__2"
+    // InternalCinEditor.g:2592:1: rule__FadeIn__Group__2 : rule__FadeIn__Group__2__Impl rule__FadeIn__Group__3 ;
+    public final void rule__FadeIn__Group__2() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalCinEditor.g:2596:1: ( rule__FadeIn__Group__2__Impl rule__FadeIn__Group__3 )
+            // InternalCinEditor.g:2597:2: rule__FadeIn__Group__2__Impl rule__FadeIn__Group__3
+            {
+            pushFollow(FOLLOW_21);
+            rule__FadeIn__Group__2__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__FadeIn__Group__3();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__FadeIn__Group__2"
+
+
+    // $ANTLR start "rule__FadeIn__Group__2__Impl"
+    // InternalCinEditor.g:2604:1: rule__FadeIn__Group__2__Impl : ( '->' ) ;
+    public final void rule__FadeIn__Group__2__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalCinEditor.g:2608:1: ( ( '->' ) )
+            // InternalCinEditor.g:2609:1: ( '->' )
+            {
+            // InternalCinEditor.g:2609:1: ( '->' )
+            // InternalCinEditor.g:2610:2: '->'
+            {
+             before(grammarAccess.getFadeInAccess().getHyphenMinusGreaterThanSignKeyword_2()); 
+            match(input,22,FOLLOW_2); 
+             after(grammarAccess.getFadeInAccess().getHyphenMinusGreaterThanSignKeyword_2()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__FadeIn__Group__2__Impl"
+
+
+    // $ANTLR start "rule__FadeIn__Group__3"
+    // InternalCinEditor.g:2619:1: rule__FadeIn__Group__3 : rule__FadeIn__Group__3__Impl rule__FadeIn__Group__4 ;
+    public final void rule__FadeIn__Group__3() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalCinEditor.g:2623:1: ( rule__FadeIn__Group__3__Impl rule__FadeIn__Group__4 )
+            // InternalCinEditor.g:2624:2: rule__FadeIn__Group__3__Impl rule__FadeIn__Group__4
+            {
+            pushFollow(FOLLOW_19);
+            rule__FadeIn__Group__3__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__FadeIn__Group__4();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__FadeIn__Group__3"
+
+
+    // $ANTLR start "rule__FadeIn__Group__3__Impl"
+    // InternalCinEditor.g:2631:1: rule__FadeIn__Group__3__Impl : ( 'FadeIn' ) ;
+    public final void rule__FadeIn__Group__3__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalCinEditor.g:2635:1: ( ( 'FadeIn' ) )
+            // InternalCinEditor.g:2636:1: ( 'FadeIn' )
+            {
+            // InternalCinEditor.g:2636:1: ( 'FadeIn' )
+            // InternalCinEditor.g:2637:2: 'FadeIn'
+            {
+             before(grammarAccess.getFadeInAccess().getFadeInKeyword_3()); 
+            match(input,32,FOLLOW_2); 
+             after(grammarAccess.getFadeInAccess().getFadeInKeyword_3()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__FadeIn__Group__3__Impl"
+
+
+    // $ANTLR start "rule__FadeIn__Group__4"
+    // InternalCinEditor.g:2646:1: rule__FadeIn__Group__4 : rule__FadeIn__Group__4__Impl rule__FadeIn__Group__5 ;
+    public final void rule__FadeIn__Group__4() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalCinEditor.g:2650:1: ( rule__FadeIn__Group__4__Impl rule__FadeIn__Group__5 )
+            // InternalCinEditor.g:2651:2: rule__FadeIn__Group__4__Impl rule__FadeIn__Group__5
+            {
+            pushFollow(FOLLOW_10);
+            rule__FadeIn__Group__4__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__FadeIn__Group__5();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__FadeIn__Group__4"
+
+
+    // $ANTLR start "rule__FadeIn__Group__4__Impl"
+    // InternalCinEditor.g:2658:1: rule__FadeIn__Group__4__Impl : ( 'during' ) ;
+    public final void rule__FadeIn__Group__4__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalCinEditor.g:2662:1: ( ( 'during' ) )
+            // InternalCinEditor.g:2663:1: ( 'during' )
+            {
+            // InternalCinEditor.g:2663:1: ( 'during' )
+            // InternalCinEditor.g:2664:2: 'during'
+            {
+             before(grammarAccess.getFadeInAccess().getDuringKeyword_4()); 
+            match(input,25,FOLLOW_2); 
+             after(grammarAccess.getFadeInAccess().getDuringKeyword_4()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__FadeIn__Group__4__Impl"
+
+
+    // $ANTLR start "rule__FadeIn__Group__5"
+    // InternalCinEditor.g:2673:1: rule__FadeIn__Group__5 : rule__FadeIn__Group__5__Impl rule__FadeIn__Group__6 ;
+    public final void rule__FadeIn__Group__5() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalCinEditor.g:2677:1: ( rule__FadeIn__Group__5__Impl rule__FadeIn__Group__6 )
+            // InternalCinEditor.g:2678:2: rule__FadeIn__Group__5__Impl rule__FadeIn__Group__6
+            {
+            pushFollow(FOLLOW_22);
+            rule__FadeIn__Group__5__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__FadeIn__Group__6();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__FadeIn__Group__5"
+
+
+    // $ANTLR start "rule__FadeIn__Group__5__Impl"
+    // InternalCinEditor.g:2685:1: rule__FadeIn__Group__5__Impl : ( ( rule__FadeIn__DurationAssignment_5 ) ) ;
+    public final void rule__FadeIn__Group__5__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalCinEditor.g:2689:1: ( ( ( rule__FadeIn__DurationAssignment_5 ) ) )
+            // InternalCinEditor.g:2690:1: ( ( rule__FadeIn__DurationAssignment_5 ) )
+            {
+            // InternalCinEditor.g:2690:1: ( ( rule__FadeIn__DurationAssignment_5 ) )
+            // InternalCinEditor.g:2691:2: ( rule__FadeIn__DurationAssignment_5 )
+            {
+             before(grammarAccess.getFadeInAccess().getDurationAssignment_5()); 
+            // InternalCinEditor.g:2692:2: ( rule__FadeIn__DurationAssignment_5 )
+            // InternalCinEditor.g:2692:3: rule__FadeIn__DurationAssignment_5
+            {
+            pushFollow(FOLLOW_2);
+            rule__FadeIn__DurationAssignment_5();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getFadeInAccess().getDurationAssignment_5()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__FadeIn__Group__5__Impl"
+
+
+    // $ANTLR start "rule__FadeIn__Group__6"
+    // InternalCinEditor.g:2700:1: rule__FadeIn__Group__6 : rule__FadeIn__Group__6__Impl rule__FadeIn__Group__7 ;
+    public final void rule__FadeIn__Group__6() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalCinEditor.g:2704:1: ( rule__FadeIn__Group__6__Impl rule__FadeIn__Group__7 )
+            // InternalCinEditor.g:2705:2: rule__FadeIn__Group__6__Impl rule__FadeIn__Group__7
+            {
+            pushFollow(FOLLOW_23);
+            rule__FadeIn__Group__6__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__FadeIn__Group__7();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__FadeIn__Group__6"
+
+
+    // $ANTLR start "rule__FadeIn__Group__6__Impl"
+    // InternalCinEditor.g:2712:1: rule__FadeIn__Group__6__Impl : ( 'on' ) ;
+    public final void rule__FadeIn__Group__6__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalCinEditor.g:2716:1: ( ( 'on' ) )
+            // InternalCinEditor.g:2717:1: ( 'on' )
+            {
+            // InternalCinEditor.g:2717:1: ( 'on' )
+            // InternalCinEditor.g:2718:2: 'on'
+            {
+             before(grammarAccess.getFadeInAccess().getOnKeyword_6()); 
+            match(input,33,FOLLOW_2); 
+             after(grammarAccess.getFadeInAccess().getOnKeyword_6()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__FadeIn__Group__6__Impl"
+
+
+    // $ANTLR start "rule__FadeIn__Group__7"
+    // InternalCinEditor.g:2727:1: rule__FadeIn__Group__7 : rule__FadeIn__Group__7__Impl ;
+    public final void rule__FadeIn__Group__7() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalCinEditor.g:2731:1: ( rule__FadeIn__Group__7__Impl )
+            // InternalCinEditor.g:2732:2: rule__FadeIn__Group__7__Impl
+            {
+            pushFollow(FOLLOW_2);
+            rule__FadeIn__Group__7__Impl();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__FadeIn__Group__7"
+
+
+    // $ANTLR start "rule__FadeIn__Group__7__Impl"
+    // InternalCinEditor.g:2738:1: rule__FadeIn__Group__7__Impl : ( ( rule__FadeIn__ElementAssignment_7 ) ) ;
+    public final void rule__FadeIn__Group__7__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalCinEditor.g:2742:1: ( ( ( rule__FadeIn__ElementAssignment_7 ) ) )
+            // InternalCinEditor.g:2743:1: ( ( rule__FadeIn__ElementAssignment_7 ) )
+            {
+            // InternalCinEditor.g:2743:1: ( ( rule__FadeIn__ElementAssignment_7 ) )
+            // InternalCinEditor.g:2744:2: ( rule__FadeIn__ElementAssignment_7 )
+            {
+             before(grammarAccess.getFadeInAccess().getElementAssignment_7()); 
+            // InternalCinEditor.g:2745:2: ( rule__FadeIn__ElementAssignment_7 )
+            // InternalCinEditor.g:2745:3: rule__FadeIn__ElementAssignment_7
+            {
+            pushFollow(FOLLOW_2);
+            rule__FadeIn__ElementAssignment_7();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getFadeInAccess().getElementAssignment_7()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__FadeIn__Group__7__Impl"
+
+
+    // $ANTLR start "rule__FadeOut__Group__0"
+    // InternalCinEditor.g:2754:1: rule__FadeOut__Group__0 : rule__FadeOut__Group__0__Impl rule__FadeOut__Group__1 ;
+    public final void rule__FadeOut__Group__0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalCinEditor.g:2758:1: ( rule__FadeOut__Group__0__Impl rule__FadeOut__Group__1 )
+            // InternalCinEditor.g:2759:2: rule__FadeOut__Group__0__Impl rule__FadeOut__Group__1
+            {
+            pushFollow(FOLLOW_3);
+            rule__FadeOut__Group__0__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__FadeOut__Group__1();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__FadeOut__Group__0"
+
+
+    // $ANTLR start "rule__FadeOut__Group__0__Impl"
+    // InternalCinEditor.g:2766:1: rule__FadeOut__Group__0__Impl : ( 'Effect' ) ;
+    public final void rule__FadeOut__Group__0__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalCinEditor.g:2770:1: ( ( 'Effect' ) )
+            // InternalCinEditor.g:2771:1: ( 'Effect' )
+            {
+            // InternalCinEditor.g:2771:1: ( 'Effect' )
+            // InternalCinEditor.g:2772:2: 'Effect'
+            {
+             before(grammarAccess.getFadeOutAccess().getEffectKeyword_0()); 
+            match(input,31,FOLLOW_2); 
+             after(grammarAccess.getFadeOutAccess().getEffectKeyword_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__FadeOut__Group__0__Impl"
+
+
+    // $ANTLR start "rule__FadeOut__Group__1"
+    // InternalCinEditor.g:2781:1: rule__FadeOut__Group__1 : rule__FadeOut__Group__1__Impl rule__FadeOut__Group__2 ;
+    public final void rule__FadeOut__Group__1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalCinEditor.g:2785:1: ( rule__FadeOut__Group__1__Impl rule__FadeOut__Group__2 )
+            // InternalCinEditor.g:2786:2: rule__FadeOut__Group__1__Impl rule__FadeOut__Group__2
+            {
+            pushFollow(FOLLOW_14);
+            rule__FadeOut__Group__1__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__FadeOut__Group__2();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__FadeOut__Group__1"
+
+
+    // $ANTLR start "rule__FadeOut__Group__1__Impl"
+    // InternalCinEditor.g:2793:1: rule__FadeOut__Group__1__Impl : ( ( rule__FadeOut__NameAssignment_1 ) ) ;
+    public final void rule__FadeOut__Group__1__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalCinEditor.g:2797:1: ( ( ( rule__FadeOut__NameAssignment_1 ) ) )
+            // InternalCinEditor.g:2798:1: ( ( rule__FadeOut__NameAssignment_1 ) )
+            {
+            // InternalCinEditor.g:2798:1: ( ( rule__FadeOut__NameAssignment_1 ) )
+            // InternalCinEditor.g:2799:2: ( rule__FadeOut__NameAssignment_1 )
+            {
+             before(grammarAccess.getFadeOutAccess().getNameAssignment_1()); 
+            // InternalCinEditor.g:2800:2: ( rule__FadeOut__NameAssignment_1 )
+            // InternalCinEditor.g:2800:3: rule__FadeOut__NameAssignment_1
+            {
+            pushFollow(FOLLOW_2);
+            rule__FadeOut__NameAssignment_1();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getFadeOutAccess().getNameAssignment_1()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__FadeOut__Group__1__Impl"
+
+
+    // $ANTLR start "rule__FadeOut__Group__2"
+    // InternalCinEditor.g:2808:1: rule__FadeOut__Group__2 : rule__FadeOut__Group__2__Impl rule__FadeOut__Group__3 ;
+    public final void rule__FadeOut__Group__2() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalCinEditor.g:2812:1: ( rule__FadeOut__Group__2__Impl rule__FadeOut__Group__3 )
+            // InternalCinEditor.g:2813:2: rule__FadeOut__Group__2__Impl rule__FadeOut__Group__3
+            {
+            pushFollow(FOLLOW_24);
+            rule__FadeOut__Group__2__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__FadeOut__Group__3();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__FadeOut__Group__2"
+
+
+    // $ANTLR start "rule__FadeOut__Group__2__Impl"
+    // InternalCinEditor.g:2820:1: rule__FadeOut__Group__2__Impl : ( '->' ) ;
+    public final void rule__FadeOut__Group__2__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalCinEditor.g:2824:1: ( ( '->' ) )
+            // InternalCinEditor.g:2825:1: ( '->' )
+            {
+            // InternalCinEditor.g:2825:1: ( '->' )
+            // InternalCinEditor.g:2826:2: '->'
+            {
+             before(grammarAccess.getFadeOutAccess().getHyphenMinusGreaterThanSignKeyword_2()); 
+            match(input,22,FOLLOW_2); 
+             after(grammarAccess.getFadeOutAccess().getHyphenMinusGreaterThanSignKeyword_2()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__FadeOut__Group__2__Impl"
+
+
+    // $ANTLR start "rule__FadeOut__Group__3"
+    // InternalCinEditor.g:2835:1: rule__FadeOut__Group__3 : rule__FadeOut__Group__3__Impl rule__FadeOut__Group__4 ;
+    public final void rule__FadeOut__Group__3() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalCinEditor.g:2839:1: ( rule__FadeOut__Group__3__Impl rule__FadeOut__Group__4 )
+            // InternalCinEditor.g:2840:2: rule__FadeOut__Group__3__Impl rule__FadeOut__Group__4
+            {
+            pushFollow(FOLLOW_19);
+            rule__FadeOut__Group__3__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__FadeOut__Group__4();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__FadeOut__Group__3"
+
+
+    // $ANTLR start "rule__FadeOut__Group__3__Impl"
+    // InternalCinEditor.g:2847:1: rule__FadeOut__Group__3__Impl : ( 'FadeOut' ) ;
+    public final void rule__FadeOut__Group__3__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalCinEditor.g:2851:1: ( ( 'FadeOut' ) )
+            // InternalCinEditor.g:2852:1: ( 'FadeOut' )
+            {
+            // InternalCinEditor.g:2852:1: ( 'FadeOut' )
+            // InternalCinEditor.g:2853:2: 'FadeOut'
+            {
+             before(grammarAccess.getFadeOutAccess().getFadeOutKeyword_3()); 
+            match(input,34,FOLLOW_2); 
+             after(grammarAccess.getFadeOutAccess().getFadeOutKeyword_3()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__FadeOut__Group__3__Impl"
+
+
+    // $ANTLR start "rule__FadeOut__Group__4"
+    // InternalCinEditor.g:2862:1: rule__FadeOut__Group__4 : rule__FadeOut__Group__4__Impl rule__FadeOut__Group__5 ;
+    public final void rule__FadeOut__Group__4() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalCinEditor.g:2866:1: ( rule__FadeOut__Group__4__Impl rule__FadeOut__Group__5 )
+            // InternalCinEditor.g:2867:2: rule__FadeOut__Group__4__Impl rule__FadeOut__Group__5
+            {
+            pushFollow(FOLLOW_10);
+            rule__FadeOut__Group__4__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__FadeOut__Group__5();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__FadeOut__Group__4"
+
+
+    // $ANTLR start "rule__FadeOut__Group__4__Impl"
+    // InternalCinEditor.g:2874:1: rule__FadeOut__Group__4__Impl : ( 'during' ) ;
+    public final void rule__FadeOut__Group__4__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalCinEditor.g:2878:1: ( ( 'during' ) )
+            // InternalCinEditor.g:2879:1: ( 'during' )
+            {
+            // InternalCinEditor.g:2879:1: ( 'during' )
+            // InternalCinEditor.g:2880:2: 'during'
+            {
+             before(grammarAccess.getFadeOutAccess().getDuringKeyword_4()); 
+            match(input,25,FOLLOW_2); 
+             after(grammarAccess.getFadeOutAccess().getDuringKeyword_4()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__FadeOut__Group__4__Impl"
+
+
+    // $ANTLR start "rule__FadeOut__Group__5"
+    // InternalCinEditor.g:2889:1: rule__FadeOut__Group__5 : rule__FadeOut__Group__5__Impl rule__FadeOut__Group__6 ;
+    public final void rule__FadeOut__Group__5() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalCinEditor.g:2893:1: ( rule__FadeOut__Group__5__Impl rule__FadeOut__Group__6 )
+            // InternalCinEditor.g:2894:2: rule__FadeOut__Group__5__Impl rule__FadeOut__Group__6
+            {
+            pushFollow(FOLLOW_22);
+            rule__FadeOut__Group__5__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__FadeOut__Group__6();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__FadeOut__Group__5"
+
+
+    // $ANTLR start "rule__FadeOut__Group__5__Impl"
+    // InternalCinEditor.g:2901:1: rule__FadeOut__Group__5__Impl : ( ( rule__FadeOut__DurationAssignment_5 ) ) ;
+    public final void rule__FadeOut__Group__5__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalCinEditor.g:2905:1: ( ( ( rule__FadeOut__DurationAssignment_5 ) ) )
+            // InternalCinEditor.g:2906:1: ( ( rule__FadeOut__DurationAssignment_5 ) )
+            {
+            // InternalCinEditor.g:2906:1: ( ( rule__FadeOut__DurationAssignment_5 ) )
+            // InternalCinEditor.g:2907:2: ( rule__FadeOut__DurationAssignment_5 )
+            {
+             before(grammarAccess.getFadeOutAccess().getDurationAssignment_5()); 
+            // InternalCinEditor.g:2908:2: ( rule__FadeOut__DurationAssignment_5 )
+            // InternalCinEditor.g:2908:3: rule__FadeOut__DurationAssignment_5
+            {
+            pushFollow(FOLLOW_2);
+            rule__FadeOut__DurationAssignment_5();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getFadeOutAccess().getDurationAssignment_5()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__FadeOut__Group__5__Impl"
+
+
+    // $ANTLR start "rule__FadeOut__Group__6"
+    // InternalCinEditor.g:2916:1: rule__FadeOut__Group__6 : rule__FadeOut__Group__6__Impl rule__FadeOut__Group__7 ;
+    public final void rule__FadeOut__Group__6() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalCinEditor.g:2920:1: ( rule__FadeOut__Group__6__Impl rule__FadeOut__Group__7 )
+            // InternalCinEditor.g:2921:2: rule__FadeOut__Group__6__Impl rule__FadeOut__Group__7
+            {
+            pushFollow(FOLLOW_23);
+            rule__FadeOut__Group__6__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__FadeOut__Group__7();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__FadeOut__Group__6"
+
+
+    // $ANTLR start "rule__FadeOut__Group__6__Impl"
+    // InternalCinEditor.g:2928:1: rule__FadeOut__Group__6__Impl : ( 'on' ) ;
+    public final void rule__FadeOut__Group__6__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalCinEditor.g:2932:1: ( ( 'on' ) )
+            // InternalCinEditor.g:2933:1: ( 'on' )
+            {
+            // InternalCinEditor.g:2933:1: ( 'on' )
+            // InternalCinEditor.g:2934:2: 'on'
+            {
+             before(grammarAccess.getFadeOutAccess().getOnKeyword_6()); 
+            match(input,33,FOLLOW_2); 
+             after(grammarAccess.getFadeOutAccess().getOnKeyword_6()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__FadeOut__Group__6__Impl"
+
+
+    // $ANTLR start "rule__FadeOut__Group__7"
+    // InternalCinEditor.g:2943:1: rule__FadeOut__Group__7 : rule__FadeOut__Group__7__Impl ;
+    public final void rule__FadeOut__Group__7() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalCinEditor.g:2947:1: ( rule__FadeOut__Group__7__Impl )
+            // InternalCinEditor.g:2948:2: rule__FadeOut__Group__7__Impl
+            {
+            pushFollow(FOLLOW_2);
+            rule__FadeOut__Group__7__Impl();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__FadeOut__Group__7"
+
+
+    // $ANTLR start "rule__FadeOut__Group__7__Impl"
+    // InternalCinEditor.g:2954:1: rule__FadeOut__Group__7__Impl : ( ( rule__FadeOut__ElementAssignment_7 ) ) ;
+    public final void rule__FadeOut__Group__7__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalCinEditor.g:2958:1: ( ( ( rule__FadeOut__ElementAssignment_7 ) ) )
+            // InternalCinEditor.g:2959:1: ( ( rule__FadeOut__ElementAssignment_7 ) )
+            {
+            // InternalCinEditor.g:2959:1: ( ( rule__FadeOut__ElementAssignment_7 ) )
+            // InternalCinEditor.g:2960:2: ( rule__FadeOut__ElementAssignment_7 )
+            {
+             before(grammarAccess.getFadeOutAccess().getElementAssignment_7()); 
+            // InternalCinEditor.g:2961:2: ( rule__FadeOut__ElementAssignment_7 )
+            // InternalCinEditor.g:2961:3: rule__FadeOut__ElementAssignment_7
+            {
+            pushFollow(FOLLOW_2);
+            rule__FadeOut__ElementAssignment_7();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getFadeOutAccess().getElementAssignment_7()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__FadeOut__Group__7__Impl"
+
+
+    // $ANTLR start "rule__Translate__Group__0"
+    // InternalCinEditor.g:2970:1: rule__Translate__Group__0 : rule__Translate__Group__0__Impl rule__Translate__Group__1 ;
+    public final void rule__Translate__Group__0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalCinEditor.g:2974:1: ( rule__Translate__Group__0__Impl rule__Translate__Group__1 )
+            // InternalCinEditor.g:2975:2: rule__Translate__Group__0__Impl rule__Translate__Group__1
+            {
+            pushFollow(FOLLOW_3);
+            rule__Translate__Group__0__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__Translate__Group__1();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Translate__Group__0"
+
+
+    // $ANTLR start "rule__Translate__Group__0__Impl"
+    // InternalCinEditor.g:2982:1: rule__Translate__Group__0__Impl : ( 'Effect' ) ;
+    public final void rule__Translate__Group__0__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalCinEditor.g:2986:1: ( ( 'Effect' ) )
+            // InternalCinEditor.g:2987:1: ( 'Effect' )
+            {
+            // InternalCinEditor.g:2987:1: ( 'Effect' )
+            // InternalCinEditor.g:2988:2: 'Effect'
+            {
+             before(grammarAccess.getTranslateAccess().getEffectKeyword_0()); 
+            match(input,31,FOLLOW_2); 
+             after(grammarAccess.getTranslateAccess().getEffectKeyword_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Translate__Group__0__Impl"
+
+
+    // $ANTLR start "rule__Translate__Group__1"
+    // InternalCinEditor.g:2997:1: rule__Translate__Group__1 : rule__Translate__Group__1__Impl rule__Translate__Group__2 ;
+    public final void rule__Translate__Group__1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalCinEditor.g:3001:1: ( rule__Translate__Group__1__Impl rule__Translate__Group__2 )
+            // InternalCinEditor.g:3002:2: rule__Translate__Group__1__Impl rule__Translate__Group__2
+            {
+            pushFollow(FOLLOW_14);
+            rule__Translate__Group__1__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__Translate__Group__2();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Translate__Group__1"
+
+
+    // $ANTLR start "rule__Translate__Group__1__Impl"
+    // InternalCinEditor.g:3009:1: rule__Translate__Group__1__Impl : ( ( rule__Translate__NameAssignment_1 ) ) ;
+    public final void rule__Translate__Group__1__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalCinEditor.g:3013:1: ( ( ( rule__Translate__NameAssignment_1 ) ) )
+            // InternalCinEditor.g:3014:1: ( ( rule__Translate__NameAssignment_1 ) )
+            {
+            // InternalCinEditor.g:3014:1: ( ( rule__Translate__NameAssignment_1 ) )
+            // InternalCinEditor.g:3015:2: ( rule__Translate__NameAssignment_1 )
+            {
+             before(grammarAccess.getTranslateAccess().getNameAssignment_1()); 
+            // InternalCinEditor.g:3016:2: ( rule__Translate__NameAssignment_1 )
+            // InternalCinEditor.g:3016:3: rule__Translate__NameAssignment_1
+            {
+            pushFollow(FOLLOW_2);
+            rule__Translate__NameAssignment_1();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getTranslateAccess().getNameAssignment_1()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Translate__Group__1__Impl"
+
+
+    // $ANTLR start "rule__Translate__Group__2"
+    // InternalCinEditor.g:3024:1: rule__Translate__Group__2 : rule__Translate__Group__2__Impl rule__Translate__Group__3 ;
+    public final void rule__Translate__Group__2() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalCinEditor.g:3028:1: ( rule__Translate__Group__2__Impl rule__Translate__Group__3 )
+            // InternalCinEditor.g:3029:2: rule__Translate__Group__2__Impl rule__Translate__Group__3
+            {
+            pushFollow(FOLLOW_25);
+            rule__Translate__Group__2__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__Translate__Group__3();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Translate__Group__2"
+
+
+    // $ANTLR start "rule__Translate__Group__2__Impl"
+    // InternalCinEditor.g:3036:1: rule__Translate__Group__2__Impl : ( '->' ) ;
+    public final void rule__Translate__Group__2__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalCinEditor.g:3040:1: ( ( '->' ) )
+            // InternalCinEditor.g:3041:1: ( '->' )
+            {
+            // InternalCinEditor.g:3041:1: ( '->' )
+            // InternalCinEditor.g:3042:2: '->'
+            {
+             before(grammarAccess.getTranslateAccess().getHyphenMinusGreaterThanSignKeyword_2()); 
+            match(input,22,FOLLOW_2); 
+             after(grammarAccess.getTranslateAccess().getHyphenMinusGreaterThanSignKeyword_2()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Translate__Group__2__Impl"
+
+
+    // $ANTLR start "rule__Translate__Group__3"
+    // InternalCinEditor.g:3051:1: rule__Translate__Group__3 : rule__Translate__Group__3__Impl rule__Translate__Group__4 ;
+    public final void rule__Translate__Group__3() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalCinEditor.g:3055:1: ( rule__Translate__Group__3__Impl rule__Translate__Group__4 )
+            // InternalCinEditor.g:3056:2: rule__Translate__Group__3__Impl rule__Translate__Group__4
+            {
+            pushFollow(FOLLOW_26);
+            rule__Translate__Group__3__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__Translate__Group__4();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Translate__Group__3"
+
+
+    // $ANTLR start "rule__Translate__Group__3__Impl"
+    // InternalCinEditor.g:3063:1: rule__Translate__Group__3__Impl : ( 'Translate' ) ;
+    public final void rule__Translate__Group__3__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalCinEditor.g:3067:1: ( ( 'Translate' ) )
+            // InternalCinEditor.g:3068:1: ( 'Translate' )
+            {
+            // InternalCinEditor.g:3068:1: ( 'Translate' )
+            // InternalCinEditor.g:3069:2: 'Translate'
+            {
+             before(grammarAccess.getTranslateAccess().getTranslateKeyword_3()); 
+            match(input,35,FOLLOW_2); 
+             after(grammarAccess.getTranslateAccess().getTranslateKeyword_3()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Translate__Group__3__Impl"
+
+
+    // $ANTLR start "rule__Translate__Group__4"
+    // InternalCinEditor.g:3078:1: rule__Translate__Group__4 : rule__Translate__Group__4__Impl rule__Translate__Group__5 ;
+    public final void rule__Translate__Group__4() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalCinEditor.g:3082:1: ( rule__Translate__Group__4__Impl rule__Translate__Group__5 )
+            // InternalCinEditor.g:3083:2: rule__Translate__Group__4__Impl rule__Translate__Group__5
+            {
+            pushFollow(FOLLOW_27);
+            rule__Translate__Group__4__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__Translate__Group__5();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Translate__Group__4"
+
+
+    // $ANTLR start "rule__Translate__Group__4__Impl"
+    // InternalCinEditor.g:3090:1: rule__Translate__Group__4__Impl : ( ( rule__Translate__PositionToTranslateAssignment_4 ) ) ;
+    public final void rule__Translate__Group__4__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalCinEditor.g:3094:1: ( ( ( rule__Translate__PositionToTranslateAssignment_4 ) ) )
+            // InternalCinEditor.g:3095:1: ( ( rule__Translate__PositionToTranslateAssignment_4 ) )
+            {
+            // InternalCinEditor.g:3095:1: ( ( rule__Translate__PositionToTranslateAssignment_4 ) )
+            // InternalCinEditor.g:3096:2: ( rule__Translate__PositionToTranslateAssignment_4 )
+            {
+             before(grammarAccess.getTranslateAccess().getPositionToTranslateAssignment_4()); 
+            // InternalCinEditor.g:3097:2: ( rule__Translate__PositionToTranslateAssignment_4 )
+            // InternalCinEditor.g:3097:3: rule__Translate__PositionToTranslateAssignment_4
+            {
+            pushFollow(FOLLOW_2);
+            rule__Translate__PositionToTranslateAssignment_4();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getTranslateAccess().getPositionToTranslateAssignment_4()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Translate__Group__4__Impl"
+
+
+    // $ANTLR start "rule__Translate__Group__5"
+    // InternalCinEditor.g:3105:1: rule__Translate__Group__5 : rule__Translate__Group__5__Impl rule__Translate__Group__6 ;
+    public final void rule__Translate__Group__5() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalCinEditor.g:3109:1: ( rule__Translate__Group__5__Impl rule__Translate__Group__6 )
+            // InternalCinEditor.g:3110:2: rule__Translate__Group__5__Impl rule__Translate__Group__6
+            {
+            pushFollow(FOLLOW_10);
+            rule__Translate__Group__5__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__Translate__Group__6();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Translate__Group__5"
+
+
+    // $ANTLR start "rule__Translate__Group__5__Impl"
+    // InternalCinEditor.g:3117:1: rule__Translate__Group__5__Impl : ( 'at' ) ;
+    public final void rule__Translate__Group__5__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalCinEditor.g:3121:1: ( ( 'at' ) )
+            // InternalCinEditor.g:3122:1: ( 'at' )
+            {
+            // InternalCinEditor.g:3122:1: ( 'at' )
+            // InternalCinEditor.g:3123:2: 'at'
+            {
+             before(grammarAccess.getTranslateAccess().getAtKeyword_5()); 
+            match(input,23,FOLLOW_2); 
+             after(grammarAccess.getTranslateAccess().getAtKeyword_5()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Translate__Group__5__Impl"
+
+
+    // $ANTLR start "rule__Translate__Group__6"
+    // InternalCinEditor.g:3132:1: rule__Translate__Group__6 : rule__Translate__Group__6__Impl rule__Translate__Group__7 ;
+    public final void rule__Translate__Group__6() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalCinEditor.g:3136:1: ( rule__Translate__Group__6__Impl rule__Translate__Group__7 )
+            // InternalCinEditor.g:3137:2: rule__Translate__Group__6__Impl rule__Translate__Group__7
+            {
+            pushFollow(FOLLOW_19);
+            rule__Translate__Group__6__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__Translate__Group__7();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Translate__Group__6"
+
+
+    // $ANTLR start "rule__Translate__Group__6__Impl"
+    // InternalCinEditor.g:3144:1: rule__Translate__Group__6__Impl : ( ( rule__Translate__BeginTimeAssignment_6 ) ) ;
+    public final void rule__Translate__Group__6__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalCinEditor.g:3148:1: ( ( ( rule__Translate__BeginTimeAssignment_6 ) ) )
+            // InternalCinEditor.g:3149:1: ( ( rule__Translate__BeginTimeAssignment_6 ) )
+            {
+            // InternalCinEditor.g:3149:1: ( ( rule__Translate__BeginTimeAssignment_6 ) )
+            // InternalCinEditor.g:3150:2: ( rule__Translate__BeginTimeAssignment_6 )
+            {
+             before(grammarAccess.getTranslateAccess().getBeginTimeAssignment_6()); 
+            // InternalCinEditor.g:3151:2: ( rule__Translate__BeginTimeAssignment_6 )
+            // InternalCinEditor.g:3151:3: rule__Translate__BeginTimeAssignment_6
+            {
+            pushFollow(FOLLOW_2);
+            rule__Translate__BeginTimeAssignment_6();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getTranslateAccess().getBeginTimeAssignment_6()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Translate__Group__6__Impl"
+
+
+    // $ANTLR start "rule__Translate__Group__7"
+    // InternalCinEditor.g:3159:1: rule__Translate__Group__7 : rule__Translate__Group__7__Impl rule__Translate__Group__8 ;
+    public final void rule__Translate__Group__7() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalCinEditor.g:3163:1: ( rule__Translate__Group__7__Impl rule__Translate__Group__8 )
+            // InternalCinEditor.g:3164:2: rule__Translate__Group__7__Impl rule__Translate__Group__8
+            {
+            pushFollow(FOLLOW_10);
+            rule__Translate__Group__7__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__Translate__Group__8();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Translate__Group__7"
+
+
+    // $ANTLR start "rule__Translate__Group__7__Impl"
+    // InternalCinEditor.g:3171:1: rule__Translate__Group__7__Impl : ( 'during' ) ;
+    public final void rule__Translate__Group__7__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalCinEditor.g:3175:1: ( ( 'during' ) )
+            // InternalCinEditor.g:3176:1: ( 'during' )
+            {
+            // InternalCinEditor.g:3176:1: ( 'during' )
+            // InternalCinEditor.g:3177:2: 'during'
+            {
+             before(grammarAccess.getTranslateAccess().getDuringKeyword_7()); 
+            match(input,25,FOLLOW_2); 
+             after(grammarAccess.getTranslateAccess().getDuringKeyword_7()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Translate__Group__7__Impl"
+
+
+    // $ANTLR start "rule__Translate__Group__8"
+    // InternalCinEditor.g:3186:1: rule__Translate__Group__8 : rule__Translate__Group__8__Impl rule__Translate__Group__9 ;
+    public final void rule__Translate__Group__8() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalCinEditor.g:3190:1: ( rule__Translate__Group__8__Impl rule__Translate__Group__9 )
+            // InternalCinEditor.g:3191:2: rule__Translate__Group__8__Impl rule__Translate__Group__9
+            {
+            pushFollow(FOLLOW_22);
+            rule__Translate__Group__8__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__Translate__Group__9();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Translate__Group__8"
+
+
+    // $ANTLR start "rule__Translate__Group__8__Impl"
+    // InternalCinEditor.g:3198:1: rule__Translate__Group__8__Impl : ( ( rule__Translate__DurationAssignment_8 ) ) ;
+    public final void rule__Translate__Group__8__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalCinEditor.g:3202:1: ( ( ( rule__Translate__DurationAssignment_8 ) ) )
+            // InternalCinEditor.g:3203:1: ( ( rule__Translate__DurationAssignment_8 ) )
+            {
+            // InternalCinEditor.g:3203:1: ( ( rule__Translate__DurationAssignment_8 ) )
+            // InternalCinEditor.g:3204:2: ( rule__Translate__DurationAssignment_8 )
+            {
+             before(grammarAccess.getTranslateAccess().getDurationAssignment_8()); 
+            // InternalCinEditor.g:3205:2: ( rule__Translate__DurationAssignment_8 )
+            // InternalCinEditor.g:3205:3: rule__Translate__DurationAssignment_8
+            {
+            pushFollow(FOLLOW_2);
+            rule__Translate__DurationAssignment_8();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getTranslateAccess().getDurationAssignment_8()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Translate__Group__8__Impl"
+
+
+    // $ANTLR start "rule__Translate__Group__9"
+    // InternalCinEditor.g:3213:1: rule__Translate__Group__9 : rule__Translate__Group__9__Impl rule__Translate__Group__10 ;
+    public final void rule__Translate__Group__9() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalCinEditor.g:3217:1: ( rule__Translate__Group__9__Impl rule__Translate__Group__10 )
+            // InternalCinEditor.g:3218:2: rule__Translate__Group__9__Impl rule__Translate__Group__10
+            {
+            pushFollow(FOLLOW_23);
+            rule__Translate__Group__9__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__Translate__Group__10();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Translate__Group__9"
+
+
+    // $ANTLR start "rule__Translate__Group__9__Impl"
+    // InternalCinEditor.g:3225:1: rule__Translate__Group__9__Impl : ( 'on' ) ;
+    public final void rule__Translate__Group__9__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalCinEditor.g:3229:1: ( ( 'on' ) )
+            // InternalCinEditor.g:3230:1: ( 'on' )
+            {
+            // InternalCinEditor.g:3230:1: ( 'on' )
+            // InternalCinEditor.g:3231:2: 'on'
+            {
+             before(grammarAccess.getTranslateAccess().getOnKeyword_9()); 
+            match(input,33,FOLLOW_2); 
+             after(grammarAccess.getTranslateAccess().getOnKeyword_9()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Translate__Group__9__Impl"
+
+
+    // $ANTLR start "rule__Translate__Group__10"
+    // InternalCinEditor.g:3240:1: rule__Translate__Group__10 : rule__Translate__Group__10__Impl ;
+    public final void rule__Translate__Group__10() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalCinEditor.g:3244:1: ( rule__Translate__Group__10__Impl )
+            // InternalCinEditor.g:3245:2: rule__Translate__Group__10__Impl
+            {
+            pushFollow(FOLLOW_2);
+            rule__Translate__Group__10__Impl();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Translate__Group__10"
+
+
+    // $ANTLR start "rule__Translate__Group__10__Impl"
+    // InternalCinEditor.g:3251:1: rule__Translate__Group__10__Impl : ( ( rule__Translate__ElementAssignment_10 ) ) ;
+    public final void rule__Translate__Group__10__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalCinEditor.g:3255:1: ( ( ( rule__Translate__ElementAssignment_10 ) ) )
+            // InternalCinEditor.g:3256:1: ( ( rule__Translate__ElementAssignment_10 ) )
+            {
+            // InternalCinEditor.g:3256:1: ( ( rule__Translate__ElementAssignment_10 ) )
+            // InternalCinEditor.g:3257:2: ( rule__Translate__ElementAssignment_10 )
+            {
+             before(grammarAccess.getTranslateAccess().getElementAssignment_10()); 
+            // InternalCinEditor.g:3258:2: ( rule__Translate__ElementAssignment_10 )
+            // InternalCinEditor.g:3258:3: rule__Translate__ElementAssignment_10
+            {
+            pushFollow(FOLLOW_2);
+            rule__Translate__ElementAssignment_10();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getTranslateAccess().getElementAssignment_10()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Translate__Group__10__Impl"
 
 
     // $ANTLR start "rule__Movie__NameAssignment_1"
@@ -10310,9 +10364,9 @@ public class InternalCinEditorParser extends AbstractInternalContentAssistParser
     // $ANTLR end "rule__Text__BeginTimeAssignment_7"
 
 
-    // $ANTLR start "rule__Text__DurationAssignment_9"
-    // InternalCinEditor.g:3477:1: rule__Text__DurationAssignment_9 : ( ruleEInt ) ;
-    public final void rule__Text__DurationAssignment_9() throws RecognitionException {
+    // $ANTLR start "rule__Text__DurationAssignment_8_1"
+    // InternalCinEditor.g:3477:1: rule__Text__DurationAssignment_8_1 : ( ruleEInt ) ;
+    public final void rule__Text__DurationAssignment_8_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
@@ -10323,13 +10377,13 @@ public class InternalCinEditorParser extends AbstractInternalContentAssistParser
             // InternalCinEditor.g:3482:2: ( ruleEInt )
             // InternalCinEditor.g:3483:3: ruleEInt
             {
-             before(grammarAccess.getTextAccess().getDurationEIntParserRuleCall_9_0()); 
+             before(grammarAccess.getTextAccess().getDurationEIntParserRuleCall_8_1_0()); 
             pushFollow(FOLLOW_2);
             ruleEInt();
 
             state._fsp--;
 
-             after(grammarAccess.getTextAccess().getDurationEIntParserRuleCall_9_0()); 
+             after(grammarAccess.getTextAccess().getDurationEIntParserRuleCall_8_1_0()); 
 
             }
 
@@ -10348,12 +10402,12 @@ public class InternalCinEditorParser extends AbstractInternalContentAssistParser
         }
         return ;
     }
-    // $ANTLR end "rule__Text__DurationAssignment_9"
+    // $ANTLR end "rule__Text__DurationAssignment_8_1"
 
 
-    // $ANTLR start "rule__Text__ColorAssignment_10"
-    // InternalCinEditor.g:3492:1: rule__Text__ColorAssignment_10 : ( ruleHexadecimalColor ) ;
-    public final void rule__Text__ColorAssignment_10() throws RecognitionException {
+    // $ANTLR start "rule__Text__ColorAssignment_9"
+    // InternalCinEditor.g:3492:1: rule__Text__ColorAssignment_9 : ( ruleHexadecimalColor ) ;
+    public final void rule__Text__ColorAssignment_9() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
@@ -10364,13 +10418,13 @@ public class InternalCinEditorParser extends AbstractInternalContentAssistParser
             // InternalCinEditor.g:3497:2: ( ruleHexadecimalColor )
             // InternalCinEditor.g:3498:3: ruleHexadecimalColor
             {
-             before(grammarAccess.getTextAccess().getColorHexadecimalColorParserRuleCall_10_0()); 
+             before(grammarAccess.getTextAccess().getColorHexadecimalColorParserRuleCall_9_0()); 
             pushFollow(FOLLOW_2);
             ruleHexadecimalColor();
 
             state._fsp--;
 
-             after(grammarAccess.getTextAccess().getColorHexadecimalColorParserRuleCall_10_0()); 
+             after(grammarAccess.getTextAccess().getColorHexadecimalColorParserRuleCall_9_0()); 
 
             }
 
@@ -10389,7 +10443,7 @@ public class InternalCinEditorParser extends AbstractInternalContentAssistParser
         }
         return ;
     }
-    // $ANTLR end "rule__Text__ColorAssignment_10"
+    // $ANTLR end "rule__Text__ColorAssignment_9"
 
 
     // $ANTLR start "rule__Picture__NameAssignment_1"
@@ -10597,9 +10651,9 @@ public class InternalCinEditorParser extends AbstractInternalContentAssistParser
     // $ANTLR end "rule__Picture__BeginTimeAssignment_9"
 
 
-    // $ANTLR start "rule__Picture__DurationAssignment_11"
-    // InternalCinEditor.g:3582:1: rule__Picture__DurationAssignment_11 : ( ruleEInt ) ;
-    public final void rule__Picture__DurationAssignment_11() throws RecognitionException {
+    // $ANTLR start "rule__Picture__DurationAssignment_10_1"
+    // InternalCinEditor.g:3582:1: rule__Picture__DurationAssignment_10_1 : ( ruleEInt ) ;
+    public final void rule__Picture__DurationAssignment_10_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
@@ -10610,13 +10664,13 @@ public class InternalCinEditorParser extends AbstractInternalContentAssistParser
             // InternalCinEditor.g:3587:2: ( ruleEInt )
             // InternalCinEditor.g:3588:3: ruleEInt
             {
-             before(grammarAccess.getPictureAccess().getDurationEIntParserRuleCall_11_0()); 
+             before(grammarAccess.getPictureAccess().getDurationEIntParserRuleCall_10_1_0()); 
             pushFollow(FOLLOW_2);
             ruleEInt();
 
             state._fsp--;
 
-             after(grammarAccess.getPictureAccess().getDurationEIntParserRuleCall_11_0()); 
+             after(grammarAccess.getPictureAccess().getDurationEIntParserRuleCall_10_1_0()); 
 
             }
 
@@ -10635,7 +10689,7 @@ public class InternalCinEditorParser extends AbstractInternalContentAssistParser
         }
         return ;
     }
-    // $ANTLR end "rule__Picture__DurationAssignment_11"
+    // $ANTLR end "rule__Picture__DurationAssignment_10_1"
 
 
     // $ANTLR start "rule__Video__NameAssignment_1"
@@ -10884,9 +10938,9 @@ public class InternalCinEditorParser extends AbstractInternalContentAssistParser
     // $ANTLR end "rule__Video__BeginTimeAssignment_11"
 
 
-    // $ANTLR start "rule__Video__DurationAssignment_13"
-    // InternalCinEditor.g:3687:1: rule__Video__DurationAssignment_13 : ( ruleEInt ) ;
-    public final void rule__Video__DurationAssignment_13() throws RecognitionException {
+    // $ANTLR start "rule__Video__DurationAssignment_12_1"
+    // InternalCinEditor.g:3687:1: rule__Video__DurationAssignment_12_1 : ( ruleEInt ) ;
+    public final void rule__Video__DurationAssignment_12_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
@@ -10897,13 +10951,13 @@ public class InternalCinEditorParser extends AbstractInternalContentAssistParser
             // InternalCinEditor.g:3692:2: ( ruleEInt )
             // InternalCinEditor.g:3693:3: ruleEInt
             {
-             before(grammarAccess.getVideoAccess().getDurationEIntParserRuleCall_13_0()); 
+             before(grammarAccess.getVideoAccess().getDurationEIntParserRuleCall_12_1_0()); 
             pushFollow(FOLLOW_2);
             ruleEInt();
 
             state._fsp--;
 
-             after(grammarAccess.getVideoAccess().getDurationEIntParserRuleCall_13_0()); 
+             after(grammarAccess.getVideoAccess().getDurationEIntParserRuleCall_12_1_0()); 
 
             }
 
@@ -10922,12 +10976,12 @@ public class InternalCinEditorParser extends AbstractInternalContentAssistParser
         }
         return ;
     }
-    // $ANTLR end "rule__Video__DurationAssignment_13"
+    // $ANTLR end "rule__Video__DurationAssignment_12_1"
 
 
-    // $ANTLR start "rule__FadeIn__NameAssignment_1"
-    // InternalCinEditor.g:3702:1: rule__FadeIn__NameAssignment_1 : ( ruleEString ) ;
-    public final void rule__FadeIn__NameAssignment_1() throws RecognitionException {
+    // $ANTLR start "rule__Rectangle__NameAssignment_1"
+    // InternalCinEditor.g:3702:1: rule__Rectangle__NameAssignment_1 : ( ruleEString ) ;
+    public final void rule__Rectangle__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
@@ -10937,510 +10991,6 @@ public class InternalCinEditorParser extends AbstractInternalContentAssistParser
             {
             // InternalCinEditor.g:3707:2: ( ruleEString )
             // InternalCinEditor.g:3708:3: ruleEString
-            {
-             before(grammarAccess.getFadeInAccess().getNameEStringParserRuleCall_1_0()); 
-            pushFollow(FOLLOW_2);
-            ruleEString();
-
-            state._fsp--;
-
-             after(grammarAccess.getFadeInAccess().getNameEStringParserRuleCall_1_0()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__FadeIn__NameAssignment_1"
-
-
-    // $ANTLR start "rule__FadeIn__DurationAssignment_5"
-    // InternalCinEditor.g:3717:1: rule__FadeIn__DurationAssignment_5 : ( ruleEInt ) ;
-    public final void rule__FadeIn__DurationAssignment_5() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalCinEditor.g:3721:1: ( ( ruleEInt ) )
-            // InternalCinEditor.g:3722:2: ( ruleEInt )
-            {
-            // InternalCinEditor.g:3722:2: ( ruleEInt )
-            // InternalCinEditor.g:3723:3: ruleEInt
-            {
-             before(grammarAccess.getFadeInAccess().getDurationEIntParserRuleCall_5_0()); 
-            pushFollow(FOLLOW_2);
-            ruleEInt();
-
-            state._fsp--;
-
-             after(grammarAccess.getFadeInAccess().getDurationEIntParserRuleCall_5_0()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__FadeIn__DurationAssignment_5"
-
-
-    // $ANTLR start "rule__FadeIn__ElementAssignment_7"
-    // InternalCinEditor.g:3732:1: rule__FadeIn__ElementAssignment_7 : ( ( RULE_ID ) ) ;
-    public final void rule__FadeIn__ElementAssignment_7() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalCinEditor.g:3736:1: ( ( ( RULE_ID ) ) )
-            // InternalCinEditor.g:3737:2: ( ( RULE_ID ) )
-            {
-            // InternalCinEditor.g:3737:2: ( ( RULE_ID ) )
-            // InternalCinEditor.g:3738:3: ( RULE_ID )
-            {
-             before(grammarAccess.getFadeInAccess().getElementElementCrossReference_7_0()); 
-            // InternalCinEditor.g:3739:3: ( RULE_ID )
-            // InternalCinEditor.g:3740:4: RULE_ID
-            {
-             before(grammarAccess.getFadeInAccess().getElementElementIDTerminalRuleCall_7_0_1()); 
-            match(input,RULE_ID,FOLLOW_2); 
-             after(grammarAccess.getFadeInAccess().getElementElementIDTerminalRuleCall_7_0_1()); 
-
-            }
-
-             after(grammarAccess.getFadeInAccess().getElementElementCrossReference_7_0()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__FadeIn__ElementAssignment_7"
-
-
-    // $ANTLR start "rule__FadeOut__NameAssignment_1"
-    // InternalCinEditor.g:3751:1: rule__FadeOut__NameAssignment_1 : ( ruleEString ) ;
-    public final void rule__FadeOut__NameAssignment_1() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalCinEditor.g:3755:1: ( ( ruleEString ) )
-            // InternalCinEditor.g:3756:2: ( ruleEString )
-            {
-            // InternalCinEditor.g:3756:2: ( ruleEString )
-            // InternalCinEditor.g:3757:3: ruleEString
-            {
-             before(grammarAccess.getFadeOutAccess().getNameEStringParserRuleCall_1_0()); 
-            pushFollow(FOLLOW_2);
-            ruleEString();
-
-            state._fsp--;
-
-             after(grammarAccess.getFadeOutAccess().getNameEStringParserRuleCall_1_0()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__FadeOut__NameAssignment_1"
-
-
-    // $ANTLR start "rule__FadeOut__DurationAssignment_5"
-    // InternalCinEditor.g:3766:1: rule__FadeOut__DurationAssignment_5 : ( ruleEInt ) ;
-    public final void rule__FadeOut__DurationAssignment_5() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalCinEditor.g:3770:1: ( ( ruleEInt ) )
-            // InternalCinEditor.g:3771:2: ( ruleEInt )
-            {
-            // InternalCinEditor.g:3771:2: ( ruleEInt )
-            // InternalCinEditor.g:3772:3: ruleEInt
-            {
-             before(grammarAccess.getFadeOutAccess().getDurationEIntParserRuleCall_5_0()); 
-            pushFollow(FOLLOW_2);
-            ruleEInt();
-
-            state._fsp--;
-
-             after(grammarAccess.getFadeOutAccess().getDurationEIntParserRuleCall_5_0()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__FadeOut__DurationAssignment_5"
-
-
-    // $ANTLR start "rule__FadeOut__ElementAssignment_7"
-    // InternalCinEditor.g:3781:1: rule__FadeOut__ElementAssignment_7 : ( ( RULE_ID ) ) ;
-    public final void rule__FadeOut__ElementAssignment_7() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalCinEditor.g:3785:1: ( ( ( RULE_ID ) ) )
-            // InternalCinEditor.g:3786:2: ( ( RULE_ID ) )
-            {
-            // InternalCinEditor.g:3786:2: ( ( RULE_ID ) )
-            // InternalCinEditor.g:3787:3: ( RULE_ID )
-            {
-             before(grammarAccess.getFadeOutAccess().getElementElementCrossReference_7_0()); 
-            // InternalCinEditor.g:3788:3: ( RULE_ID )
-            // InternalCinEditor.g:3789:4: RULE_ID
-            {
-             before(grammarAccess.getFadeOutAccess().getElementElementIDTerminalRuleCall_7_0_1()); 
-            match(input,RULE_ID,FOLLOW_2); 
-             after(grammarAccess.getFadeOutAccess().getElementElementIDTerminalRuleCall_7_0_1()); 
-
-            }
-
-             after(grammarAccess.getFadeOutAccess().getElementElementCrossReference_7_0()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__FadeOut__ElementAssignment_7"
-
-
-    // $ANTLR start "rule__Translate__NameAssignment_1"
-    // InternalCinEditor.g:3800:1: rule__Translate__NameAssignment_1 : ( ruleEString ) ;
-    public final void rule__Translate__NameAssignment_1() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalCinEditor.g:3804:1: ( ( ruleEString ) )
-            // InternalCinEditor.g:3805:2: ( ruleEString )
-            {
-            // InternalCinEditor.g:3805:2: ( ruleEString )
-            // InternalCinEditor.g:3806:3: ruleEString
-            {
-             before(grammarAccess.getTranslateAccess().getNameEStringParserRuleCall_1_0()); 
-            pushFollow(FOLLOW_2);
-            ruleEString();
-
-            state._fsp--;
-
-             after(grammarAccess.getTranslateAccess().getNameEStringParserRuleCall_1_0()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Translate__NameAssignment_1"
-
-
-    // $ANTLR start "rule__Translate__PixelsToTranslateHorizontallyAssignment_5"
-    // InternalCinEditor.g:3815:1: rule__Translate__PixelsToTranslateHorizontallyAssignment_5 : ( ruleEInt ) ;
-    public final void rule__Translate__PixelsToTranslateHorizontallyAssignment_5() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalCinEditor.g:3819:1: ( ( ruleEInt ) )
-            // InternalCinEditor.g:3820:2: ( ruleEInt )
-            {
-            // InternalCinEditor.g:3820:2: ( ruleEInt )
-            // InternalCinEditor.g:3821:3: ruleEInt
-            {
-             before(grammarAccess.getTranslateAccess().getPixelsToTranslateHorizontallyEIntParserRuleCall_5_0()); 
-            pushFollow(FOLLOW_2);
-            ruleEInt();
-
-            state._fsp--;
-
-             after(grammarAccess.getTranslateAccess().getPixelsToTranslateHorizontallyEIntParserRuleCall_5_0()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Translate__PixelsToTranslateHorizontallyAssignment_5"
-
-
-    // $ANTLR start "rule__Translate__PixelsToTranslateVerticallyAssignment_7"
-    // InternalCinEditor.g:3830:1: rule__Translate__PixelsToTranslateVerticallyAssignment_7 : ( ruleEInt ) ;
-    public final void rule__Translate__PixelsToTranslateVerticallyAssignment_7() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalCinEditor.g:3834:1: ( ( ruleEInt ) )
-            // InternalCinEditor.g:3835:2: ( ruleEInt )
-            {
-            // InternalCinEditor.g:3835:2: ( ruleEInt )
-            // InternalCinEditor.g:3836:3: ruleEInt
-            {
-             before(grammarAccess.getTranslateAccess().getPixelsToTranslateVerticallyEIntParserRuleCall_7_0()); 
-            pushFollow(FOLLOW_2);
-            ruleEInt();
-
-            state._fsp--;
-
-             after(grammarAccess.getTranslateAccess().getPixelsToTranslateVerticallyEIntParserRuleCall_7_0()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Translate__PixelsToTranslateVerticallyAssignment_7"
-
-
-    // $ANTLR start "rule__Translate__BeginTimeAssignment_10"
-    // InternalCinEditor.g:3845:1: rule__Translate__BeginTimeAssignment_10 : ( ruleEInt ) ;
-    public final void rule__Translate__BeginTimeAssignment_10() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalCinEditor.g:3849:1: ( ( ruleEInt ) )
-            // InternalCinEditor.g:3850:2: ( ruleEInt )
-            {
-            // InternalCinEditor.g:3850:2: ( ruleEInt )
-            // InternalCinEditor.g:3851:3: ruleEInt
-            {
-             before(grammarAccess.getTranslateAccess().getBeginTimeEIntParserRuleCall_10_0()); 
-            pushFollow(FOLLOW_2);
-            ruleEInt();
-
-            state._fsp--;
-
-             after(grammarAccess.getTranslateAccess().getBeginTimeEIntParserRuleCall_10_0()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Translate__BeginTimeAssignment_10"
-
-
-    // $ANTLR start "rule__Translate__DurationAssignment_12"
-    // InternalCinEditor.g:3860:1: rule__Translate__DurationAssignment_12 : ( ruleEInt ) ;
-    public final void rule__Translate__DurationAssignment_12() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalCinEditor.g:3864:1: ( ( ruleEInt ) )
-            // InternalCinEditor.g:3865:2: ( ruleEInt )
-            {
-            // InternalCinEditor.g:3865:2: ( ruleEInt )
-            // InternalCinEditor.g:3866:3: ruleEInt
-            {
-             before(grammarAccess.getTranslateAccess().getDurationEIntParserRuleCall_12_0()); 
-            pushFollow(FOLLOW_2);
-            ruleEInt();
-
-            state._fsp--;
-
-             after(grammarAccess.getTranslateAccess().getDurationEIntParserRuleCall_12_0()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Translate__DurationAssignment_12"
-
-
-    // $ANTLR start "rule__Translate__ElementAssignment_14"
-    // InternalCinEditor.g:3875:1: rule__Translate__ElementAssignment_14 : ( ( RULE_ID ) ) ;
-    public final void rule__Translate__ElementAssignment_14() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalCinEditor.g:3879:1: ( ( ( RULE_ID ) ) )
-            // InternalCinEditor.g:3880:2: ( ( RULE_ID ) )
-            {
-            // InternalCinEditor.g:3880:2: ( ( RULE_ID ) )
-            // InternalCinEditor.g:3881:3: ( RULE_ID )
-            {
-             before(grammarAccess.getTranslateAccess().getElementElementCrossReference_14_0()); 
-            // InternalCinEditor.g:3882:3: ( RULE_ID )
-            // InternalCinEditor.g:3883:4: RULE_ID
-            {
-             before(grammarAccess.getTranslateAccess().getElementElementIDTerminalRuleCall_14_0_1()); 
-            match(input,RULE_ID,FOLLOW_2); 
-             after(grammarAccess.getTranslateAccess().getElementElementIDTerminalRuleCall_14_0_1()); 
-
-            }
-
-             after(grammarAccess.getTranslateAccess().getElementElementCrossReference_14_0()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Translate__ElementAssignment_14"
-
-
-    // $ANTLR start "rule__Rectangle__NameAssignment_1"
-    // InternalCinEditor.g:3894:1: rule__Rectangle__NameAssignment_1 : ( ruleEString ) ;
-    public final void rule__Rectangle__NameAssignment_1() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalCinEditor.g:3898:1: ( ( ruleEString ) )
-            // InternalCinEditor.g:3899:2: ( ruleEString )
-            {
-            // InternalCinEditor.g:3899:2: ( ruleEString )
-            // InternalCinEditor.g:3900:3: ruleEString
             {
              before(grammarAccess.getRectangleAccess().getNameEStringParserRuleCall_1_0()); 
             pushFollow(FOLLOW_2);
@@ -11471,17 +11021,17 @@ public class InternalCinEditorParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Rectangle__ColorAssignment_3"
-    // InternalCinEditor.g:3909:1: rule__Rectangle__ColorAssignment_3 : ( ruleHexadecimalColor ) ;
+    // InternalCinEditor.g:3717:1: rule__Rectangle__ColorAssignment_3 : ( ruleHexadecimalColor ) ;
     public final void rule__Rectangle__ColorAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCinEditor.g:3913:1: ( ( ruleHexadecimalColor ) )
-            // InternalCinEditor.g:3914:2: ( ruleHexadecimalColor )
+            // InternalCinEditor.g:3721:1: ( ( ruleHexadecimalColor ) )
+            // InternalCinEditor.g:3722:2: ( ruleHexadecimalColor )
             {
-            // InternalCinEditor.g:3914:2: ( ruleHexadecimalColor )
-            // InternalCinEditor.g:3915:3: ruleHexadecimalColor
+            // InternalCinEditor.g:3722:2: ( ruleHexadecimalColor )
+            // InternalCinEditor.g:3723:3: ruleHexadecimalColor
             {
              before(grammarAccess.getRectangleAccess().getColorHexadecimalColorParserRuleCall_3_0()); 
             pushFollow(FOLLOW_2);
@@ -11512,17 +11062,17 @@ public class InternalCinEditorParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Rectangle__PositionAssignment_4"
-    // InternalCinEditor.g:3924:1: rule__Rectangle__PositionAssignment_4 : ( rulePosition ) ;
+    // InternalCinEditor.g:3732:1: rule__Rectangle__PositionAssignment_4 : ( rulePosition ) ;
     public final void rule__Rectangle__PositionAssignment_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCinEditor.g:3928:1: ( ( rulePosition ) )
-            // InternalCinEditor.g:3929:2: ( rulePosition )
+            // InternalCinEditor.g:3736:1: ( ( rulePosition ) )
+            // InternalCinEditor.g:3737:2: ( rulePosition )
             {
-            // InternalCinEditor.g:3929:2: ( rulePosition )
-            // InternalCinEditor.g:3930:3: rulePosition
+            // InternalCinEditor.g:3737:2: ( rulePosition )
+            // InternalCinEditor.g:3738:3: rulePosition
             {
              before(grammarAccess.getRectangleAccess().getPositionPositionParserRuleCall_4_0()); 
             pushFollow(FOLLOW_2);
@@ -11553,17 +11103,17 @@ public class InternalCinEditorParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Rectangle__DimensionAssignment_5"
-    // InternalCinEditor.g:3939:1: rule__Rectangle__DimensionAssignment_5 : ( ruleDimension ) ;
+    // InternalCinEditor.g:3747:1: rule__Rectangle__DimensionAssignment_5 : ( ruleDimension ) ;
     public final void rule__Rectangle__DimensionAssignment_5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCinEditor.g:3943:1: ( ( ruleDimension ) )
-            // InternalCinEditor.g:3944:2: ( ruleDimension )
+            // InternalCinEditor.g:3751:1: ( ( ruleDimension ) )
+            // InternalCinEditor.g:3752:2: ( ruleDimension )
             {
-            // InternalCinEditor.g:3944:2: ( ruleDimension )
-            // InternalCinEditor.g:3945:3: ruleDimension
+            // InternalCinEditor.g:3752:2: ( ruleDimension )
+            // InternalCinEditor.g:3753:3: ruleDimension
             {
              before(grammarAccess.getRectangleAccess().getDimensionDimensionParserRuleCall_5_0()); 
             pushFollow(FOLLOW_2);
@@ -11594,17 +11144,17 @@ public class InternalCinEditorParser extends AbstractInternalContentAssistParser
 
 
     // $ANTLR start "rule__Rectangle__BeginTimeAssignment_7"
-    // InternalCinEditor.g:3954:1: rule__Rectangle__BeginTimeAssignment_7 : ( ruleEInt ) ;
+    // InternalCinEditor.g:3762:1: rule__Rectangle__BeginTimeAssignment_7 : ( ruleEInt ) ;
     public final void rule__Rectangle__BeginTimeAssignment_7() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCinEditor.g:3958:1: ( ( ruleEInt ) )
-            // InternalCinEditor.g:3959:2: ( ruleEInt )
+            // InternalCinEditor.g:3766:1: ( ( ruleEInt ) )
+            // InternalCinEditor.g:3767:2: ( ruleEInt )
             {
-            // InternalCinEditor.g:3959:2: ( ruleEInt )
-            // InternalCinEditor.g:3960:3: ruleEInt
+            // InternalCinEditor.g:3767:2: ( ruleEInt )
+            // InternalCinEditor.g:3768:3: ruleEInt
             {
              before(grammarAccess.getRectangleAccess().getBeginTimeEIntParserRuleCall_7_0()); 
             pushFollow(FOLLOW_2);
@@ -11634,26 +11184,26 @@ public class InternalCinEditorParser extends AbstractInternalContentAssistParser
     // $ANTLR end "rule__Rectangle__BeginTimeAssignment_7"
 
 
-    // $ANTLR start "rule__Rectangle__DurationAssignment_9"
-    // InternalCinEditor.g:3969:1: rule__Rectangle__DurationAssignment_9 : ( ruleEInt ) ;
-    public final void rule__Rectangle__DurationAssignment_9() throws RecognitionException {
+    // $ANTLR start "rule__Rectangle__DurationAssignment_8_1"
+    // InternalCinEditor.g:3777:1: rule__Rectangle__DurationAssignment_8_1 : ( ruleEInt ) ;
+    public final void rule__Rectangle__DurationAssignment_8_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalCinEditor.g:3973:1: ( ( ruleEInt ) )
-            // InternalCinEditor.g:3974:2: ( ruleEInt )
+            // InternalCinEditor.g:3781:1: ( ( ruleEInt ) )
+            // InternalCinEditor.g:3782:2: ( ruleEInt )
             {
-            // InternalCinEditor.g:3974:2: ( ruleEInt )
-            // InternalCinEditor.g:3975:3: ruleEInt
+            // InternalCinEditor.g:3782:2: ( ruleEInt )
+            // InternalCinEditor.g:3783:3: ruleEInt
             {
-             before(grammarAccess.getRectangleAccess().getDurationEIntParserRuleCall_9_0()); 
+             before(grammarAccess.getRectangleAccess().getDurationEIntParserRuleCall_8_1_0()); 
             pushFollow(FOLLOW_2);
             ruleEInt();
 
             state._fsp--;
 
-             after(grammarAccess.getRectangleAccess().getDurationEIntParserRuleCall_9_0()); 
+             after(grammarAccess.getRectangleAccess().getDurationEIntParserRuleCall_8_1_0()); 
 
             }
 
@@ -11672,19 +11222,482 @@ public class InternalCinEditorParser extends AbstractInternalContentAssistParser
         }
         return ;
     }
-    // $ANTLR end "rule__Rectangle__DurationAssignment_9"
+    // $ANTLR end "rule__Rectangle__DurationAssignment_8_1"
+
+
+    // $ANTLR start "rule__FadeIn__NameAssignment_1"
+    // InternalCinEditor.g:3792:1: rule__FadeIn__NameAssignment_1 : ( ruleEString ) ;
+    public final void rule__FadeIn__NameAssignment_1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalCinEditor.g:3796:1: ( ( ruleEString ) )
+            // InternalCinEditor.g:3797:2: ( ruleEString )
+            {
+            // InternalCinEditor.g:3797:2: ( ruleEString )
+            // InternalCinEditor.g:3798:3: ruleEString
+            {
+             before(grammarAccess.getFadeInAccess().getNameEStringParserRuleCall_1_0()); 
+            pushFollow(FOLLOW_2);
+            ruleEString();
+
+            state._fsp--;
+
+             after(grammarAccess.getFadeInAccess().getNameEStringParserRuleCall_1_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__FadeIn__NameAssignment_1"
+
+
+    // $ANTLR start "rule__FadeIn__DurationAssignment_5"
+    // InternalCinEditor.g:3807:1: rule__FadeIn__DurationAssignment_5 : ( ruleEInt ) ;
+    public final void rule__FadeIn__DurationAssignment_5() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalCinEditor.g:3811:1: ( ( ruleEInt ) )
+            // InternalCinEditor.g:3812:2: ( ruleEInt )
+            {
+            // InternalCinEditor.g:3812:2: ( ruleEInt )
+            // InternalCinEditor.g:3813:3: ruleEInt
+            {
+             before(grammarAccess.getFadeInAccess().getDurationEIntParserRuleCall_5_0()); 
+            pushFollow(FOLLOW_2);
+            ruleEInt();
+
+            state._fsp--;
+
+             after(grammarAccess.getFadeInAccess().getDurationEIntParserRuleCall_5_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__FadeIn__DurationAssignment_5"
+
+
+    // $ANTLR start "rule__FadeIn__ElementAssignment_7"
+    // InternalCinEditor.g:3822:1: rule__FadeIn__ElementAssignment_7 : ( ( RULE_ID ) ) ;
+    public final void rule__FadeIn__ElementAssignment_7() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalCinEditor.g:3826:1: ( ( ( RULE_ID ) ) )
+            // InternalCinEditor.g:3827:2: ( ( RULE_ID ) )
+            {
+            // InternalCinEditor.g:3827:2: ( ( RULE_ID ) )
+            // InternalCinEditor.g:3828:3: ( RULE_ID )
+            {
+             before(grammarAccess.getFadeInAccess().getElementGraphicalElementCrossReference_7_0()); 
+            // InternalCinEditor.g:3829:3: ( RULE_ID )
+            // InternalCinEditor.g:3830:4: RULE_ID
+            {
+             before(grammarAccess.getFadeInAccess().getElementGraphicalElementIDTerminalRuleCall_7_0_1()); 
+            match(input,RULE_ID,FOLLOW_2); 
+             after(grammarAccess.getFadeInAccess().getElementGraphicalElementIDTerminalRuleCall_7_0_1()); 
+
+            }
+
+             after(grammarAccess.getFadeInAccess().getElementGraphicalElementCrossReference_7_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__FadeIn__ElementAssignment_7"
+
+
+    // $ANTLR start "rule__FadeOut__NameAssignment_1"
+    // InternalCinEditor.g:3841:1: rule__FadeOut__NameAssignment_1 : ( ruleEString ) ;
+    public final void rule__FadeOut__NameAssignment_1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalCinEditor.g:3845:1: ( ( ruleEString ) )
+            // InternalCinEditor.g:3846:2: ( ruleEString )
+            {
+            // InternalCinEditor.g:3846:2: ( ruleEString )
+            // InternalCinEditor.g:3847:3: ruleEString
+            {
+             before(grammarAccess.getFadeOutAccess().getNameEStringParserRuleCall_1_0()); 
+            pushFollow(FOLLOW_2);
+            ruleEString();
+
+            state._fsp--;
+
+             after(grammarAccess.getFadeOutAccess().getNameEStringParserRuleCall_1_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__FadeOut__NameAssignment_1"
+
+
+    // $ANTLR start "rule__FadeOut__DurationAssignment_5"
+    // InternalCinEditor.g:3856:1: rule__FadeOut__DurationAssignment_5 : ( ruleEInt ) ;
+    public final void rule__FadeOut__DurationAssignment_5() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalCinEditor.g:3860:1: ( ( ruleEInt ) )
+            // InternalCinEditor.g:3861:2: ( ruleEInt )
+            {
+            // InternalCinEditor.g:3861:2: ( ruleEInt )
+            // InternalCinEditor.g:3862:3: ruleEInt
+            {
+             before(grammarAccess.getFadeOutAccess().getDurationEIntParserRuleCall_5_0()); 
+            pushFollow(FOLLOW_2);
+            ruleEInt();
+
+            state._fsp--;
+
+             after(grammarAccess.getFadeOutAccess().getDurationEIntParserRuleCall_5_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__FadeOut__DurationAssignment_5"
+
+
+    // $ANTLR start "rule__FadeOut__ElementAssignment_7"
+    // InternalCinEditor.g:3871:1: rule__FadeOut__ElementAssignment_7 : ( ( RULE_ID ) ) ;
+    public final void rule__FadeOut__ElementAssignment_7() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalCinEditor.g:3875:1: ( ( ( RULE_ID ) ) )
+            // InternalCinEditor.g:3876:2: ( ( RULE_ID ) )
+            {
+            // InternalCinEditor.g:3876:2: ( ( RULE_ID ) )
+            // InternalCinEditor.g:3877:3: ( RULE_ID )
+            {
+             before(grammarAccess.getFadeOutAccess().getElementGraphicalElementCrossReference_7_0()); 
+            // InternalCinEditor.g:3878:3: ( RULE_ID )
+            // InternalCinEditor.g:3879:4: RULE_ID
+            {
+             before(grammarAccess.getFadeOutAccess().getElementGraphicalElementIDTerminalRuleCall_7_0_1()); 
+            match(input,RULE_ID,FOLLOW_2); 
+             after(grammarAccess.getFadeOutAccess().getElementGraphicalElementIDTerminalRuleCall_7_0_1()); 
+
+            }
+
+             after(grammarAccess.getFadeOutAccess().getElementGraphicalElementCrossReference_7_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__FadeOut__ElementAssignment_7"
+
+
+    // $ANTLR start "rule__Translate__NameAssignment_1"
+    // InternalCinEditor.g:3890:1: rule__Translate__NameAssignment_1 : ( ruleEString ) ;
+    public final void rule__Translate__NameAssignment_1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalCinEditor.g:3894:1: ( ( ruleEString ) )
+            // InternalCinEditor.g:3895:2: ( ruleEString )
+            {
+            // InternalCinEditor.g:3895:2: ( ruleEString )
+            // InternalCinEditor.g:3896:3: ruleEString
+            {
+             before(grammarAccess.getTranslateAccess().getNameEStringParserRuleCall_1_0()); 
+            pushFollow(FOLLOW_2);
+            ruleEString();
+
+            state._fsp--;
+
+             after(grammarAccess.getTranslateAccess().getNameEStringParserRuleCall_1_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Translate__NameAssignment_1"
+
+
+    // $ANTLR start "rule__Translate__PositionToTranslateAssignment_4"
+    // InternalCinEditor.g:3905:1: rule__Translate__PositionToTranslateAssignment_4 : ( rulePosition ) ;
+    public final void rule__Translate__PositionToTranslateAssignment_4() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalCinEditor.g:3909:1: ( ( rulePosition ) )
+            // InternalCinEditor.g:3910:2: ( rulePosition )
+            {
+            // InternalCinEditor.g:3910:2: ( rulePosition )
+            // InternalCinEditor.g:3911:3: rulePosition
+            {
+             before(grammarAccess.getTranslateAccess().getPositionToTranslatePositionParserRuleCall_4_0()); 
+            pushFollow(FOLLOW_2);
+            rulePosition();
+
+            state._fsp--;
+
+             after(grammarAccess.getTranslateAccess().getPositionToTranslatePositionParserRuleCall_4_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Translate__PositionToTranslateAssignment_4"
+
+
+    // $ANTLR start "rule__Translate__BeginTimeAssignment_6"
+    // InternalCinEditor.g:3920:1: rule__Translate__BeginTimeAssignment_6 : ( ruleEInt ) ;
+    public final void rule__Translate__BeginTimeAssignment_6() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalCinEditor.g:3924:1: ( ( ruleEInt ) )
+            // InternalCinEditor.g:3925:2: ( ruleEInt )
+            {
+            // InternalCinEditor.g:3925:2: ( ruleEInt )
+            // InternalCinEditor.g:3926:3: ruleEInt
+            {
+             before(grammarAccess.getTranslateAccess().getBeginTimeEIntParserRuleCall_6_0()); 
+            pushFollow(FOLLOW_2);
+            ruleEInt();
+
+            state._fsp--;
+
+             after(grammarAccess.getTranslateAccess().getBeginTimeEIntParserRuleCall_6_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Translate__BeginTimeAssignment_6"
+
+
+    // $ANTLR start "rule__Translate__DurationAssignment_8"
+    // InternalCinEditor.g:3935:1: rule__Translate__DurationAssignment_8 : ( ruleEInt ) ;
+    public final void rule__Translate__DurationAssignment_8() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalCinEditor.g:3939:1: ( ( ruleEInt ) )
+            // InternalCinEditor.g:3940:2: ( ruleEInt )
+            {
+            // InternalCinEditor.g:3940:2: ( ruleEInt )
+            // InternalCinEditor.g:3941:3: ruleEInt
+            {
+             before(grammarAccess.getTranslateAccess().getDurationEIntParserRuleCall_8_0()); 
+            pushFollow(FOLLOW_2);
+            ruleEInt();
+
+            state._fsp--;
+
+             after(grammarAccess.getTranslateAccess().getDurationEIntParserRuleCall_8_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Translate__DurationAssignment_8"
+
+
+    // $ANTLR start "rule__Translate__ElementAssignment_10"
+    // InternalCinEditor.g:3950:1: rule__Translate__ElementAssignment_10 : ( ( RULE_ID ) ) ;
+    public final void rule__Translate__ElementAssignment_10() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalCinEditor.g:3954:1: ( ( ( RULE_ID ) ) )
+            // InternalCinEditor.g:3955:2: ( ( RULE_ID ) )
+            {
+            // InternalCinEditor.g:3955:2: ( ( RULE_ID ) )
+            // InternalCinEditor.g:3956:3: ( RULE_ID )
+            {
+             before(grammarAccess.getTranslateAccess().getElementGraphicalElementCrossReference_10_0()); 
+            // InternalCinEditor.g:3957:3: ( RULE_ID )
+            // InternalCinEditor.g:3958:4: RULE_ID
+            {
+             before(grammarAccess.getTranslateAccess().getElementGraphicalElementIDTerminalRuleCall_10_0_1()); 
+            match(input,RULE_ID,FOLLOW_2); 
+             after(grammarAccess.getTranslateAccess().getElementGraphicalElementIDTerminalRuleCall_10_0_1()); 
+
+            }
+
+             after(grammarAccess.getTranslateAccess().getElementGraphicalElementCrossReference_10_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Translate__ElementAssignment_10"
 
     // Delegated rules
 
 
     protected DFA1 dfa1 = new DFA1(this);
     static final String dfa_1s = "\14\uffff";
-    static final String dfa_2s = "\1\25\3\uffff\1\4\1\uffff\2\26\1\37\3\uffff";
-    static final String dfa_3s = "\1\43\3\uffff\1\5\1\uffff\2\26\1\42\3\uffff";
+    static final String dfa_2s = "\1\25\3\uffff\1\4\1\uffff\2\26\1\40\3\uffff";
+    static final String dfa_3s = "\1\37\3\uffff\1\5\1\uffff\2\26\1\43\3\uffff";
     static final String dfa_4s = "\1\uffff\1\1\1\2\1\3\1\uffff\1\7\3\uffff\1\6\1\5\1\4";
     static final String dfa_5s = "\14\uffff}>";
     static final String[] dfa_6s = {
-            "\1\1\4\uffff\1\2\1\uffff\1\3\1\uffff\1\4\4\uffff\1\5",
+            "\1\1\4\uffff\1\2\1\uffff\1\3\1\uffff\1\5\1\4",
             "",
             "",
             "",
@@ -11730,25 +11743,26 @@ public class InternalCinEditorParser extends AbstractInternalContentAssistParser
     public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x0000000000020000L});
     public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000000000001000L});
     public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000000000001002L});
-    public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000854200000L});
-    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000854200002L});
+    public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x00000000D4200000L});
+    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x00000000D4200002L});
     public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000000004000L});
     public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000000000100040L});
     public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000000008000L});
     public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000000010000L});
     public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000000040000L});
     public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000000000400000L});
-    public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0000000002802000L});
-    public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0000000001000000L});
-    public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x0000000000080000L});
-    public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x0000000008000000L});
-    public static final BitSet FOLLOW_19 = new BitSet(new long[]{0x0000000000822000L});
+    public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0000000001802000L});
+    public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0000000002080000L});
+    public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x0000000008000000L});
+    public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x0000000000822000L});
+    public static final BitSet FOLLOW_19 = new BitSet(new long[]{0x0000000002000000L});
     public static final BitSet FOLLOW_20 = new BitSet(new long[]{0x0000000020000000L});
-    public static final BitSet FOLLOW_21 = new BitSet(new long[]{0x0000000080000000L});
-    public static final BitSet FOLLOW_22 = new BitSet(new long[]{0x0000000100000000L});
+    public static final BitSet FOLLOW_21 = new BitSet(new long[]{0x0000000100000000L});
+    public static final BitSet FOLLOW_22 = new BitSet(new long[]{0x0000000200000000L});
     public static final BitSet FOLLOW_23 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_24 = new BitSet(new long[]{0x0000000200000000L});
-    public static final BitSet FOLLOW_25 = new BitSet(new long[]{0x0000000400000000L});
-    public static final BitSet FOLLOW_26 = new BitSet(new long[]{0x0000000000800000L});
+    public static final BitSet FOLLOW_24 = new BitSet(new long[]{0x0000000400000000L});
+    public static final BitSet FOLLOW_25 = new BitSet(new long[]{0x0000000800000000L});
+    public static final BitSet FOLLOW_26 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_27 = new BitSet(new long[]{0x0000000000800000L});
 
 }

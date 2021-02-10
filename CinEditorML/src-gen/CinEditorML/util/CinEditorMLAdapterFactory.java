@@ -142,6 +142,11 @@ public class CinEditorMLAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
+		public Adapter caseGraphicalElement(GraphicalElement object) {
+			return createGraphicalElementAdapter();
+		}
+
+		@Override
 		public Adapter defaultCase(EObject object) {
 			return createEObjectAdapter();
 		}
@@ -367,6 +372,20 @@ public class CinEditorMLAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createHexadecimalColorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link CinEditorML.GraphicalElement <em>Graphical Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see CinEditorML.GraphicalElement
+	 * @generated
+	 */
+	public Adapter createGraphicalElementAdapter() {
 		return null;
 	}
 

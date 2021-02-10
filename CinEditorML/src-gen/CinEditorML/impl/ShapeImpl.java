@@ -27,7 +27,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public abstract class ShapeImpl extends ElementImpl implements Shape {
+public abstract class ShapeImpl extends GraphicalElementImpl implements Shape {
 	/**
 	 * The cached value of the '{@link #getColor() <em>Color</em>}' containment reference.
 	 * <!-- begin-user-doc -->

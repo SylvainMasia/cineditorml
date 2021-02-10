@@ -15,9 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link CinEditorML.Element#getDuration <em>Duration</em>}</li>
  *   <li>{@link CinEditorML.Element#getBeginTime <em>Begin Time</em>}</li>
- *   <li>{@link CinEditorML.Element#getPosition <em>Position</em>}</li>
  *   <li>{@link CinEditorML.Element#getName <em>Name</em>}</li>
- *   <li>{@link CinEditorML.Element#getDimension <em>Dimension</em>}</li>
  * </ul>
  *
  * @see CinEditorML.CinEditorMLPackage#getElement()
@@ -27,7 +25,7 @@ import org.eclipse.emf.ecore.EObject;
 public interface Element extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Duration</b></em>' attribute.
-	 * The default value is <code>"10"</code>.
+	 * The default value is <code>"-1"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Duration</em>' attribute isn't clear,
@@ -37,7 +35,7 @@ public interface Element extends EObject {
 	 * @return the value of the '<em>Duration</em>' attribute.
 	 * @see #setDuration(int)
 	 * @see CinEditorML.CinEditorMLPackage#getElement_Duration()
-	 * @model default="10"
+	 * @model default="-1"
 	 * @generated
 	 */
 	int getDuration();
@@ -80,32 +78,6 @@ public interface Element extends EObject {
 	void setBeginTime(int value);
 
 	/**
-	 * Returns the value of the '<em><b>Position</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Position</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Position</em>' containment reference.
-	 * @see #setPosition(Position)
-	 * @see CinEditorML.CinEditorMLPackage#getElement_Position()
-	 * @model containment="true"
-	 * @generated
-	 */
-	Position getPosition();
-
-	/**
-	 * Sets the value of the '{@link CinEditorML.Element#getPosition <em>Position</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Position</em>' containment reference.
-	 * @see #getPosition()
-	 * @generated
-	 */
-	void setPosition(Position value);
-
-	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -130,31 +102,5 @@ public interface Element extends EObject {
 	 * @generated
 	 */
 	void setName(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Dimension</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Dimension</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Dimension</em>' containment reference.
-	 * @see #setDimension(Dimension)
-	 * @see CinEditorML.CinEditorMLPackage#getElement_Dimension()
-	 * @model containment="true"
-	 * @generated
-	 */
-	Dimension getDimension();
-
-	/**
-	 * Sets the value of the '{@link CinEditorML.Element#getDimension <em>Dimension</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Dimension</em>' containment reference.
-	 * @see #getDimension()
-	 * @generated
-	 */
-	void setDimension(Dimension value);
 
 } // Element

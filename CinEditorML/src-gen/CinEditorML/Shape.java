@@ -18,7 +18,7 @@ package CinEditorML;
  * @model abstract="true"
  * @generated
  */
-public interface Shape extends Element {
+public interface Shape extends GraphicalElement {
 	/**
 	 * Returns the value of the '<em><b>Color</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
