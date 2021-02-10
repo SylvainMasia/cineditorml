@@ -62,11 +62,11 @@ public class CinEditorGenerator extends AbstractGenerator {
 		String movieString = loadImports();
 		movieString += extractMovieSize(movie);
 		movieString += extractLayers(movie.getLayers());
-		movieString += extractFinalCut();
+		movieString += extractFinalCut(movie);
 		return movieString;
 	}
 	
-	private String extractFinalCut() {
+	private String extractFinalCut(Movie movie) {
 		String sFinal = "\nvideo = CompositeVideoClip([";
 		for (int i = 0; i < elementsVarNames.size(); i++) {
 			if (i != 0) {
@@ -74,7 +74,8 @@ public class CinEditorGenerator extends AbstractGenerator {
 			}
 			sFinal += elementsVarNames.get(i);
 		}
-		sFinal += "])\n";
+		sFinal += "], size=(" + varMovieWidth + "," + varMovieHeight + ")).set_duration(15)\n"; //TODO when no video set a calculated duration
+		sFinal += "video.write_videofile('./" + movie.getName()  + ".avi', codec='mpeg4', fps=" + movie.getFps() +")";
 		return sFinal;
 	}
 	
@@ -102,9 +103,7 @@ public class CinEditorGenerator extends AbstractGenerator {
 	private String extractBeginTimeFromElement(Element element) {
 		String s = "";
 		if (element.getBeginTime() > 0) {
-			s += "\\\n\t.set_start("
-					+ element.getBeginTime()
-				+ ")";
+			s += "\\\n\t.set_start(" + element.getBeginTime() + ")";
 		}
 		return s;
 	}
@@ -112,20 +111,31 @@ public class CinEditorGenerator extends AbstractGenerator {
 	private String extractDurationFromElement(Element element) {
 		String s = "";
 		if (element.getDuration() > 0) {
-			s += "\\\n\t.set_duration("
-					+ element.getDuration()
-				+ ")";
+			s += "\\\n\t.set_duration(" + element.getDuration() + ")";
 		}
 		return s;
 	}
 	
 	private String extractPositionFromElement(GraphicalElement element) {
 		String s = "";
-//		if (element.get > 0) {
-//			s += "\\\n\t.set_duration("
-//					+ element.getDuration()
-//				+ ")";
-//		}
+		int marginRight = 0;
+		int marginBottom = 0;
+		String posX = element.getPosition().getX() + "";
+		String posY = element.getPosition().getY() + "";
+		if (element.getPosition().getX() < 0) {
+			marginRight = -element.getPosition().getX();
+			posX = "'right'";
+		}
+		if (element.getPosition().getY() < 0) {
+			marginBottom = -element.getPosition().getY();
+			posY = "'bottom'";
+		}
+		if (!posX.equals("0") && !posY.equals("0")) {
+			s += "\\\n\t.set_pos((" + posX + ", " + posY + "))";
+		}
+		if (marginRight != 0 || marginBottom != 0) {
+			s += "\\\n\t.margin(bottom=" + marginBottom + ", right=" + marginRight + ")";
+		}
 		return s;
 	}
 	

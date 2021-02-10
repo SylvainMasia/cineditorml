@@ -13,6 +13,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CinEditorML.ecore#//Movie/layers"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CinEditorML.ecore#//Movie/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CinEditorML.ecore#//Movie/dimension"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CinEditorML.ecore#//Movie/fps"/>
     </genClasses>
     <genClasses ecoreClass="CinEditorML.ecore#//Layer">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CinEditorML.ecore#//Layer/elements"/>

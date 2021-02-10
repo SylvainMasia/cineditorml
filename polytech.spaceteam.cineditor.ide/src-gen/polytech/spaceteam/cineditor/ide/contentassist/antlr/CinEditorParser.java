@@ -35,6 +35,7 @@ public class CinEditorParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getEStringAccess().getAlternatives(), "rule__EString__Alternatives");
 			builder.put(grammarAccess.getGraphicalElementAccess().getAlternatives(), "rule__GraphicalElement__Alternatives");
 			builder.put(grammarAccess.getMovieAccess().getGroup(), "rule__Movie__Group__0");
+			builder.put(grammarAccess.getMovieAccess().getGroup_3(), "rule__Movie__Group_3__0");
 			builder.put(grammarAccess.getLayerAccess().getGroup(), "rule__Layer__Group__0");
 			builder.put(grammarAccess.getPositionAccess().getGroup(), "rule__Position__Group__0");
 			builder.put(grammarAccess.getPositionAccess().getGroup_1(), "rule__Position__Group_1__0");
@@ -55,7 +56,8 @@ public class CinEditorParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getTranslateAccess().getGroup(), "rule__Translate__Group__0");
 			builder.put(grammarAccess.getMovieAccess().getNameAssignment_1(), "rule__Movie__NameAssignment_1");
 			builder.put(grammarAccess.getMovieAccess().getDimensionAssignment_2(), "rule__Movie__DimensionAssignment_2");
-			builder.put(grammarAccess.getMovieAccess().getLayersAssignment_3(), "rule__Movie__LayersAssignment_3");
+			builder.put(grammarAccess.getMovieAccess().getFpsAssignment_3_1(), "rule__Movie__FpsAssignment_3_1");
+			builder.put(grammarAccess.getMovieAccess().getLayersAssignment_4(), "rule__Movie__LayersAssignment_4");
 			builder.put(grammarAccess.getLayerAccess().getElementsAssignment_2(), "rule__Layer__ElementsAssignment_2");
 			builder.put(grammarAccess.getPositionAccess().getXAssignment_1_1(), "rule__Position__XAssignment_1_1");
 			builder.put(grammarAccess.getPositionAccess().getYAssignment_1_3(), "rule__Position__YAssignment_1_3");

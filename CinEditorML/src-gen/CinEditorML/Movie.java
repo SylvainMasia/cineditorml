@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link CinEditorML.Movie#getLayers <em>Layers</em>}</li>
  *   <li>{@link CinEditorML.Movie#getName <em>Name</em>}</li>
  *   <li>{@link CinEditorML.Movie#getDimension <em>Dimension</em>}</li>
+ *   <li>{@link CinEditorML.Movie#getFps <em>Fps</em>}</li>
  * </ul>
  *
  * @see CinEditorML.CinEditorMLPackage#getMovie()
@@ -92,5 +93,32 @@ public interface Movie extends EObject {
 	 * @generated
 	 */
 	void setDimension(Dimension value);
+
+	/**
+	 * Returns the value of the '<em><b>Fps</b></em>' attribute.
+	 * The default value is <code>"30"</code>.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Fps</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Fps</em>' attribute.
+	 * @see #setFps(int)
+	 * @see CinEditorML.CinEditorMLPackage#getMovie_Fps()
+	 * @model default="30"
+	 * @generated
+	 */
+	int getFps();
+
+	/**
+	 * Sets the value of the '{@link CinEditorML.Movie#getFps <em>Fps</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Fps</em>' attribute.
+	 * @see #getFps()
+	 * @generated
+	 */
+	void setFps(int value);
 
 } // Movie

@@ -17,6 +17,7 @@ also known as "Spaceteam"
 - extension des fichiers : .space
 
 # Installation
-- Install [ImageMagick](https://download.imagemagick.org/ImageMagick/download/python/)
-  - go to installation folder an type in cmd `./configure`
-  - add install folder to path ex : "C:\dev\courses\PythonMagick-0.9.19"
+- In order to launch moviepy with every dependencies :
+  - `docker pull dkarchmervue/moviepy`
+  - `docker run --rm -ti -v C:\dev\courses\cineditorml\cineditorml.program.scenarios\src-gen:/work dkarchmervue/moviepy /bin/bash`
+    - `python file.py`

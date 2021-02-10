@@ -32,15 +32,19 @@ public class CinEditorGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cNameEStringParserRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		private final Assignment cDimensionAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cDimensionDimensionParserRuleCall_2_0 = (RuleCall)cDimensionAssignment_2.eContents().get(0);
-		private final Assignment cLayersAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cLayersLayerParserRuleCall_3_0 = (RuleCall)cLayersAssignment_3.eContents().get(0);
+		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
+		private final Keyword cFpsKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
+		private final Assignment cFpsAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
+		private final RuleCall cFpsEIntParserRuleCall_3_1_0 = (RuleCall)cFpsAssignment_3_1.eContents().get(0);
+		private final Assignment cLayersAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cLayersLayerParserRuleCall_4_0 = (RuleCall)cLayersAssignment_4.eContents().get(0);
 		
 		//Movie:
-		//	'Movie' name=EString dimension=Dimension
+		//	'Movie' name=EString dimension=Dimension ('fps' fps=EInt)?
 		//	layers+=Layer+;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'Movie' name=EString dimension=Dimension layers+=Layer+
+		//'Movie' name=EString dimension=Dimension ('fps' fps=EInt)? layers+=Layer+
 		public Group getGroup() { return cGroup; }
 		
 		//'Movie'
@@ -58,11 +62,23 @@ public class CinEditorGrammarAccess extends AbstractGrammarElementFinder {
 		//Dimension
 		public RuleCall getDimensionDimensionParserRuleCall_2_0() { return cDimensionDimensionParserRuleCall_2_0; }
 		
+		//('fps' fps=EInt)?
+		public Group getGroup_3() { return cGroup_3; }
+		
+		//'fps'
+		public Keyword getFpsKeyword_3_0() { return cFpsKeyword_3_0; }
+		
+		//fps=EInt
+		public Assignment getFpsAssignment_3_1() { return cFpsAssignment_3_1; }
+		
+		//EInt
+		public RuleCall getFpsEIntParserRuleCall_3_1_0() { return cFpsEIntParserRuleCall_3_1_0; }
+		
 		//layers+=Layer+
-		public Assignment getLayersAssignment_3() { return cLayersAssignment_3; }
+		public Assignment getLayersAssignment_4() { return cLayersAssignment_4; }
 		
 		//Layer
-		public RuleCall getLayersLayerParserRuleCall_3_0() { return cLayersLayerParserRuleCall_3_0; }
+		public RuleCall getLayersLayerParserRuleCall_4_0() { return cLayersLayerParserRuleCall_4_0; }
 	}
 	public class ElementElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "polytech.spaceteam.cineditor.CinEditor.Element");
@@ -943,7 +959,7 @@ public class CinEditorGrammarAccess extends AbstractGrammarElementFinder {
 
 	
 	//Movie:
-	//	'Movie' name=EString dimension=Dimension
+	//	'Movie' name=EString dimension=Dimension ('fps' fps=EInt)?
 	//	layers+=Layer+;
 	public MovieElements getMovieAccess() {
 		return pMovie;

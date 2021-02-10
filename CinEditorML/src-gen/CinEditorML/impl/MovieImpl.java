@@ -33,6 +33,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link CinEditorML.impl.MovieImpl#getLayers <em>Layers</em>}</li>
  *   <li>{@link CinEditorML.impl.MovieImpl#getName <em>Name</em>}</li>
  *   <li>{@link CinEditorML.impl.MovieImpl#getDimension <em>Dimension</em>}</li>
+ *   <li>{@link CinEditorML.impl.MovieImpl#getFps <em>Fps</em>}</li>
  * </ul>
  *
  * @generated
@@ -77,6 +78,26 @@ public class MovieImpl extends MinimalEObjectImpl.Container implements Movie {
 	 * @ordered
 	 */
 	protected Dimension dimension;
+
+	/**
+	 * The default value of the '{@link #getFps() <em>Fps</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getFps()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int FPS_EDEFAULT = 30;
+
+	/**
+	 * The cached value of the '{@link #getFps() <em>Fps</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getFps()
+	 * @generated
+	 * @ordered
+	 */
+	protected int fps = FPS_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -185,6 +206,27 @@ public class MovieImpl extends MinimalEObjectImpl.Container implements Movie {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public int getFps() {
+		return fps;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setFps(int newFps) {
+		int oldFps = fps;
+		fps = newFps;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CinEditorMLPackage.MOVIE__FPS, oldFps, fps));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -210,6 +252,8 @@ public class MovieImpl extends MinimalEObjectImpl.Container implements Movie {
 			return getName();
 		case CinEditorMLPackage.MOVIE__DIMENSION:
 			return getDimension();
+		case CinEditorMLPackage.MOVIE__FPS:
+			return getFps();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -233,6 +277,9 @@ public class MovieImpl extends MinimalEObjectImpl.Container implements Movie {
 		case CinEditorMLPackage.MOVIE__DIMENSION:
 			setDimension((Dimension) newValue);
 			return;
+		case CinEditorMLPackage.MOVIE__FPS:
+			setFps((Integer) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -254,6 +301,9 @@ public class MovieImpl extends MinimalEObjectImpl.Container implements Movie {
 		case CinEditorMLPackage.MOVIE__DIMENSION:
 			setDimension((Dimension) null);
 			return;
+		case CinEditorMLPackage.MOVIE__FPS:
+			setFps(FPS_EDEFAULT);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -272,6 +322,8 @@ public class MovieImpl extends MinimalEObjectImpl.Container implements Movie {
 			return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 		case CinEditorMLPackage.MOVIE__DIMENSION:
 			return dimension != null;
+		case CinEditorMLPackage.MOVIE__FPS:
+			return fps != FPS_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -289,6 +341,8 @@ public class MovieImpl extends MinimalEObjectImpl.Container implements Movie {
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (name: ");
 		result.append(name);
+		result.append(", fps: ");
+		result.append(fps);
 		result.append(')');
 		return result.toString();
 	}

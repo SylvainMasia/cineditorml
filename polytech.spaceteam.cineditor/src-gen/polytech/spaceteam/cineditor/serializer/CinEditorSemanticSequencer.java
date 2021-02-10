@@ -190,7 +190,7 @@ public class CinEditorSemanticSequencer extends AbstractDelegatingSemanticSequen
 	 *     Movie returns Movie
 	 *
 	 * Constraint:
-	 *     (name=EString dimension=Dimension layers+=Layer+)
+	 *     (name=EString dimension=Dimension fps=EInt? layers+=Layer+)
 	 */
 	protected void sequence_Movie(ISerializationContext context, Movie semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

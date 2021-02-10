@@ -255,6 +255,15 @@ public class CinEditorMLPackageImpl extends EPackageImpl implements CinEditorMLP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getMovie_Fps() {
+		return (EAttribute) movieEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getLayer() {
 		return layerEClass;
 	}
@@ -598,6 +607,7 @@ public class CinEditorMLPackageImpl extends EPackageImpl implements CinEditorMLP
 		createEReference(movieEClass, MOVIE__LAYERS);
 		createEAttribute(movieEClass, MOVIE__NAME);
 		createEReference(movieEClass, MOVIE__DIMENSION);
+		createEAttribute(movieEClass, MOVIE__FPS);
 
 		layerEClass = createEClass(LAYER);
 		createEReference(layerEClass, LAYER__ELEMENTS);
@@ -704,6 +714,8 @@ public class CinEditorMLPackageImpl extends EPackageImpl implements CinEditorMLP
 		initEReference(getMovie_Dimension(), this.getDimension(), null, "dimension", null, 1, 1, Movie.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMovie_Fps(), ecorePackage.getEInt(), "fps", "30", 0, 1, Movie.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(layerEClass, Layer.class, "Layer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getLayer_Elements(), this.getElement(), null, "elements", null, 1, -1, Layer.class,

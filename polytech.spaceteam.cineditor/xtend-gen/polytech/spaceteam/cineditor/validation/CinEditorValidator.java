@@ -22,14 +22,33 @@ import polytech.spaceteam.cineditor.validation.AbstractCinEditorValidator;
  */
 @SuppressWarnings("all")
 public class CinEditorValidator extends AbstractCinEditorValidator {
-  public final static String INVALID_POSITION = "invalidPosition";
+  public final static String INVALID_NAME = "invalidName";
   
   public final static String INVALID_COLOR = "invalidColor";
   
   public final static String INVALID_DURATION = "invalidDuration";
   
+  public final static String INVALID_DIMENSION = "invalidDimension";
+  
+  public final static String INVALID_FPS = "invalidFps";
+  
   @Check
   public void checkElementNames(final Movie movie) {
+    int _fps = movie.getFps();
+    boolean _lessEqualsThan = (_fps <= 0);
+    if (_lessEqualsThan) {
+      this.error("FPS must be > 0", 
+        CinEditorMLPackage.Literals.MOVIE__FPS, 
+        CinEditorValidator.INVALID_FPS);
+    } else {
+      int _fps_1 = movie.getFps();
+      boolean _greaterThan = (_fps_1 > 244);
+      if (_greaterThan) {
+        this.error("Hum there is too much FPS", 
+          CinEditorMLPackage.Literals.MOVIE__FPS, 
+          CinEditorValidator.INVALID_FPS);
+      }
+    }
     final HashSet<String> names = new HashSet<String>();
     for (int i = 0; (i < movie.getLayers().size()); i++) {
       {
@@ -47,7 +66,7 @@ public class CinEditorValidator extends AbstractCinEditorValidator {
               String _plus_1 = (_plus + "\" must be unique");
               this.error(_plus_1, 
                 CinEditorMLPackage.Literals.MOVIE__LAYERS, i, 
-                CinEditorValidator.INVALID_POSITION);
+                CinEditorValidator.INVALID_NAME);
             }
           }
         }
@@ -62,14 +81,14 @@ public class CinEditorValidator extends AbstractCinEditorValidator {
     if (_lessThan) {
       this.error("Movie width must be > 0", 
         CinEditorMLPackage.Literals.MOVIE__DIMENSION, 
-        CinEditorValidator.INVALID_POSITION);
+        CinEditorValidator.INVALID_DIMENSION);
     }
     int _height = element.getHeight();
     boolean _lessThan_1 = (_height < 0);
     if (_lessThan_1) {
       this.error("Movie height must be > 0", 
         CinEditorMLPackage.Literals.MOVIE__DIMENSION, 
-        CinEditorValidator.INVALID_POSITION);
+        CinEditorValidator.INVALID_DIMENSION);
     }
   }
   

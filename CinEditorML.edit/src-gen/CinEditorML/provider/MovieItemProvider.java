@@ -57,6 +57,7 @@ public class MovieItemProvider extends ItemProviderAdapter implements IEditingDo
 			super.getPropertyDescriptors(object);
 
 			addNamePropertyDescriptor(object);
+			addFpsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -74,6 +75,21 @@ public class MovieItemProvider extends ItemProviderAdapter implements IEditingDo
 						getString("_UI_PropertyDescriptor_description", "_UI_Movie_name_feature", "_UI_Movie_type"),
 						CinEditorMLPackage.Literals.MOVIE__NAME, true, false, false,
 						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Fps feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addFpsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_Movie_fps_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Movie_fps_feature", "_UI_Movie_type"),
+						CinEditorMLPackage.Literals.MOVIE__FPS, true, false, false,
+						ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -154,6 +170,7 @@ public class MovieItemProvider extends ItemProviderAdapter implements IEditingDo
 
 		switch (notification.getFeatureID(Movie.class)) {
 		case CinEditorMLPackage.MOVIE__NAME:
+		case CinEditorMLPackage.MOVIE__FPS:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 			return;
 		case CinEditorMLPackage.MOVIE__LAYERS:

@@ -119,11 +119,36 @@ ruleMovie returns [EObject current=null]
 			)
 		)
 		(
+			otherlv_3='fps'
+			{
+				newLeafNode(otherlv_3, grammarAccess.getMovieAccess().getFpsKeyword_3_0());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getMovieAccess().getFpsEIntParserRuleCall_3_1_0());
+					}
+					lv_fps_4_0=ruleEInt
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getMovieRule());
+						}
+						set(
+							$current,
+							"fps",
+							lv_fps_4_0,
+							"polytech.spaceteam.cineditor.CinEditor.EInt");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)?
+		(
 			(
 				{
-					newCompositeNode(grammarAccess.getMovieAccess().getLayersLayerParserRuleCall_3_0());
+					newCompositeNode(grammarAccess.getMovieAccess().getLayersLayerParserRuleCall_4_0());
 				}
-				lv_layers_3_0=ruleLayer
+				lv_layers_5_0=ruleLayer
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getMovieRule());
@@ -131,7 +156,7 @@ ruleMovie returns [EObject current=null]
 					add(
 						$current,
 						"layers",
-						lv_layers_3_0,
+						lv_layers_5_0,
 						"polytech.spaceteam.cineditor.CinEditor.Layer");
 					afterParserOrEnumRuleCall();
 				}

@@ -18,12 +18,24 @@ import java.util.HashSet
  */
 class CinEditorValidator extends AbstractCinEditorValidator {
 	
-	public static val INVALID_POSITION = 'invalidPosition'
+	public static val INVALID_NAME = 'invalidName'
 	public static val INVALID_COLOR = 'invalidColor'
 	public static val INVALID_DURATION = 'invalidDuration'
+	public static val INVALID_DIMENSION = 'invalidDimension'
+	public static val INVALID_FPS = 'invalidFps'
 
 	@Check
 	def checkElementNames(Movie movie) {
+		if (movie.fps <= 0) {
+			error('FPS must be > 0', 
+					CinEditorMLPackage.Literals.MOVIE__FPS,
+					INVALID_FPS)
+		} else if (movie.fps > 244) {
+			error('Hum there is too much FPS', 
+					CinEditorMLPackage.Literals.MOVIE__FPS,
+					INVALID_FPS)
+		}
+		
 		val names = new HashSet<String>();
 		for (var i = 0; i < movie.layers.size; i++) {
 			val layer = movie.layers.get(i);
@@ -35,7 +47,7 @@ class CinEditorValidator extends AbstractCinEditorValidator {
 					error('Element name "' + element.name + '" must be unique', 
 					CinEditorMLPackage.Literals.MOVIE__LAYERS,
 					i,
-					INVALID_POSITION)
+					INVALID_NAME)
 				}
 			}
 		}
@@ -46,12 +58,12 @@ class CinEditorValidator extends AbstractCinEditorValidator {
 		if (element.width < 0) {
 			error('Movie width must be > 0', 
 					CinEditorMLPackage.Literals.MOVIE__DIMENSION,
-					INVALID_POSITION)
+					INVALID_DIMENSION)
 		}
 		if (element.height < 0) {
 			error('Movie height must be > 0', 
 					CinEditorMLPackage.Literals.MOVIE__DIMENSION,
-					INVALID_POSITION)
+					INVALID_DIMENSION)
 		}
 	}
 	

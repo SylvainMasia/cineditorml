@@ -94,13 +94,22 @@ public interface CinEditorMLPackage extends EPackage {
 	int MOVIE__DIMENSION = 2;
 
 	/**
+	 * The feature id for the '<em><b>Fps</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MOVIE__FPS = 3;
+
+	/**
 	 * The number of structural features of the '<em>Movie</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MOVIE_FEATURE_COUNT = 3;
+	int MOVIE_FEATURE_COUNT = 4;
 
 	/**
 	 * The number of operations of the '<em>Movie</em>' class.
@@ -1151,6 +1160,17 @@ public interface CinEditorMLPackage extends EPackage {
 	EReference getMovie_Dimension();
 
 	/**
+	 * Returns the meta object for the attribute '{@link CinEditorML.Movie#getFps <em>Fps</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Fps</em>'.
+	 * @see CinEditorML.Movie#getFps()
+	 * @see #getMovie()
+	 * @generated
+	 */
+	EAttribute getMovie_Fps();
+
+	/**
 	 * Returns the meta object for class '{@link CinEditorML.Layer <em>Layer</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1576,6 +1596,14 @@ public interface CinEditorMLPackage extends EPackage {
 		 * @generated
 		 */
 		EReference MOVIE__DIMENSION = eINSTANCE.getMovie_Dimension();
+
+		/**
+		 * The meta object literal for the '<em><b>Fps</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MOVIE__FPS = eINSTANCE.getMovie_Fps();
 
 		/**
 		 * The meta object literal for the '{@link CinEditorML.impl.LayerImpl <em>Layer</em>}' class.
