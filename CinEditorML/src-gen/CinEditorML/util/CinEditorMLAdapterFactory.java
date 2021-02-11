@@ -147,6 +147,21 @@ public class CinEditorMLAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
+		public Adapter caseItemPositionInt(ItemPositionInt object) {
+			return createItemPositionIntAdapter();
+		}
+
+		@Override
+		public Adapter caseItemPosition(ItemPosition object) {
+			return createItemPositionAdapter();
+		}
+
+		@Override
+		public Adapter caseItemPositionString(ItemPositionString object) {
+			return createItemPositionStringAdapter();
+		}
+
+		@Override
 		public Adapter defaultCase(EObject object) {
 			return createEObjectAdapter();
 		}
@@ -386,6 +401,48 @@ public class CinEditorMLAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createGraphicalElementAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link CinEditorML.ItemPositionInt <em>Item Position Int</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see CinEditorML.ItemPositionInt
+	 * @generated
+	 */
+	public Adapter createItemPositionIntAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link CinEditorML.ItemPosition <em>Item Position</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see CinEditorML.ItemPosition
+	 * @generated
+	 */
+	public Adapter createItemPositionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link CinEditorML.ItemPositionString <em>Item Position String</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see CinEditorML.ItemPositionString
+	 * @generated
+	 */
+	public Adapter createItemPositionStringAdapter() {
 		return null;
 	}
 

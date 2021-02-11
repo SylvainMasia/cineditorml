@@ -10,6 +10,8 @@ import CinEditorML.HexadecimalColor
 import CinEditorML.Dimension
 import CinEditorML.Movie
 import java.util.HashSet
+import CinEditorML.Position
+import CinEditorML.ItemPositionString
 
 /**
  * This class contains custom validation rules. 
@@ -49,6 +51,22 @@ class CinEditorValidator extends AbstractCinEditorValidator {
 					i,
 					INVALID_NAME)
 				}
+			}
+		}
+	}
+
+	@Check
+	def checkPosition(Position position) {
+		if (position.x instanceof ItemPositionString) {
+			val positionX = position.x as ItemPositionString;
+			if (!positionX.equals("center") && !positionX.equals("left") && !positionX.equals("right")) {
+				error('Position x must be center, left or right', CinEditorMLPackage.Literals.POSITION__X);
+			}
+		}
+		if (position.y instanceof ItemPositionString) {
+			val positionY = position.y as ItemPositionString;
+			if (!positionY.equals("center") && !positionY.equals("bottom") && !positionY.equals("top")) {
+				error('Position x must be center, top or bottom', CinEditorMLPackage.Literals.POSITION__Y);
 			}
 		}
 	}

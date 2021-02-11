@@ -82,6 +82,10 @@ public class CinEditorMLFactoryImpl extends EFactoryImpl implements CinEditorMLF
 			return createHexadecimalColor();
 		case CinEditorMLPackage.GRAPHICAL_ELEMENT:
 			return createGraphicalElement();
+		case CinEditorMLPackage.ITEM_POSITION_INT:
+			return createItemPositionInt();
+		case CinEditorMLPackage.ITEM_POSITION_STRING:
+			return createItemPositionString();
 		default:
 			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -215,6 +219,26 @@ public class CinEditorMLFactoryImpl extends EFactoryImpl implements CinEditorMLF
 	public GraphicalElement createGraphicalElement() {
 		GraphicalElementImpl graphicalElement = new GraphicalElementImpl();
 		return graphicalElement;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ItemPositionInt createItemPositionInt() {
+		ItemPositionIntImpl itemPositionInt = new ItemPositionIntImpl();
+		return itemPositionInt;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ItemPositionString createItemPositionString() {
+		ItemPositionStringImpl itemPositionString = new ItemPositionStringImpl();
+		return itemPositionString;
 	}
 
 	/**

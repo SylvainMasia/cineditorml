@@ -47,8 +47,8 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CinEditorML.ecore#//Shape/color"/>
     </genClasses>
     <genClasses ecoreClass="CinEditorML.ecore#//Position">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CinEditorML.ecore#//Position/x"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CinEditorML.ecore#//Position/y"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CinEditorML.ecore#//Position/x"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CinEditorML.ecore#//Position/y"/>
     </genClasses>
     <genClasses ecoreClass="CinEditorML.ecore#//Rectangle"/>
     <genClasses ecoreClass="CinEditorML.ecore#//Dimension">
@@ -61,6 +61,13 @@
     <genClasses ecoreClass="CinEditorML.ecore#//GraphicalElement">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CinEditorML.ecore#//GraphicalElement/position"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CinEditorML.ecore#//GraphicalElement/dimension"/>
+    </genClasses>
+    <genClasses ecoreClass="CinEditorML.ecore#//ItemPositionInt">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CinEditorML.ecore#//ItemPositionInt/position"/>
+    </genClasses>
+    <genClasses ecoreClass="CinEditorML.ecore#//ItemPosition"/>
+    <genClasses ecoreClass="CinEditorML.ecore#//ItemPositionString">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CinEditorML.ecore#//ItemPositionString/position"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

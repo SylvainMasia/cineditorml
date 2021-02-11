@@ -7,8 +7,11 @@ import CinEditorML.CinEditorMLPackage;
 import CinEditorML.Dimension;
 import CinEditorML.Element;
 import CinEditorML.HexadecimalColor;
+import CinEditorML.ItemPosition;
+import CinEditorML.ItemPositionString;
 import CinEditorML.Layer;
 import CinEditorML.Movie;
+import CinEditorML.Position;
 import java.util.HashSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -70,6 +73,26 @@ public class CinEditorValidator extends AbstractCinEditorValidator {
             }
           }
         }
+      }
+    }
+  }
+  
+  @Check
+  public void checkPosition(final Position position) {
+    ItemPosition _x = position.getX();
+    if ((_x instanceof ItemPositionString)) {
+      ItemPosition _x_1 = position.getX();
+      final ItemPositionString positionX = ((ItemPositionString) _x_1);
+      if ((((!positionX.equals("center")) && (!positionX.equals("left"))) && (!positionX.equals("right")))) {
+        this.error("Position x must be center, left or right", CinEditorMLPackage.Literals.POSITION__X);
+      }
+    }
+    ItemPosition _y = position.getY();
+    if ((_y instanceof ItemPositionString)) {
+      ItemPosition _y_1 = position.getY();
+      final ItemPositionString positionY = ((ItemPositionString) _y_1);
+      if ((((!positionY.equals("center")) && (!positionY.equals("bottom"))) && (!positionY.equals("top")))) {
+        this.error("Position x must be center, top or bottom", CinEditorMLPackage.Literals.POSITION__Y);
       }
     }
   }

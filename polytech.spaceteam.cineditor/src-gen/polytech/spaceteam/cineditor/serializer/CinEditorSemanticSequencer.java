@@ -8,6 +8,8 @@ import CinEditorML.Dimension;
 import CinEditorML.FadeIn;
 import CinEditorML.FadeOut;
 import CinEditorML.HexadecimalColor;
+import CinEditorML.ItemPositionInt;
+import CinEditorML.ItemPositionString;
 import CinEditorML.Layer;
 import CinEditorML.Movie;
 import CinEditorML.Picture;
@@ -54,6 +56,12 @@ public class CinEditorSemanticSequencer extends AbstractDelegatingSemanticSequen
 				return; 
 			case CinEditorMLPackage.HEXADECIMAL_COLOR:
 				sequence_HexadecimalColor(context, (HexadecimalColor) semanticObject); 
+				return; 
+			case CinEditorMLPackage.ITEM_POSITION_INT:
+				sequence_ItemPositionInt(context, (ItemPositionInt) semanticObject); 
+				return; 
+			case CinEditorMLPackage.ITEM_POSITION_STRING:
+				sequence_ItemPositionString(context, (ItemPositionString) semanticObject); 
 				return; 
 			case CinEditorMLPackage.LAYER:
 				sequence_Layer(context, (Layer) semanticObject); 
@@ -175,6 +183,32 @@ public class CinEditorSemanticSequencer extends AbstractDelegatingSemanticSequen
 	
 	/**
 	 * Contexts:
+	 *     ItemPosition returns ItemPositionInt
+	 *     ItemPositionInt returns ItemPositionInt
+	 *
+	 * Constraint:
+	 *     {ItemPositionInt}
+	 */
+	protected void sequence_ItemPositionInt(ISerializationContext context, ItemPositionInt semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     ItemPosition returns ItemPositionString
+	 *     ItemPositionString returns ItemPositionString
+	 *
+	 * Constraint:
+	 *     {ItemPositionString}
+	 */
+	protected void sequence_ItemPositionString(ISerializationContext context, ItemPositionString semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     Layer returns Layer
 	 *
 	 * Constraint:
@@ -223,7 +257,7 @@ public class CinEditorSemanticSequencer extends AbstractDelegatingSemanticSequen
 	 *     Position returns Position
 	 *
 	 * Constraint:
-	 *     (x=EInt y=EInt)
+	 *     (x=ItemPosition y=ItemPosition)
 	 */
 	protected void sequence_Position(ISerializationContext context, Position semanticObject) {
 		if (errorAcceptor != null) {
@@ -233,8 +267,8 @@ public class CinEditorSemanticSequencer extends AbstractDelegatingSemanticSequen
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CinEditorMLPackage.Literals.POSITION__Y));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getPositionAccess().getXEIntParserRuleCall_1_1_0(), semanticObject.getX());
-		feeder.accept(grammarAccess.getPositionAccess().getYEIntParserRuleCall_1_3_0(), semanticObject.getY());
+		feeder.accept(grammarAccess.getPositionAccess().getXItemPositionParserRuleCall_1_1_0(), semanticObject.getX());
+		feeder.accept(grammarAccess.getPositionAccess().getYItemPositionParserRuleCall_1_3_0(), semanticObject.getY());
 		feeder.finish();
 	}
 	

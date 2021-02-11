@@ -3,12 +3,15 @@
 package CinEditorML.impl;
 
 import CinEditorML.CinEditorMLPackage;
+import CinEditorML.ItemPosition;
 import CinEditorML.Position;
 
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
@@ -28,44 +31,24 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  */
 public class PositionImpl extends MinimalEObjectImpl.Container implements Position {
 	/**
-	 * The default value of the '{@link #getX() <em>X</em>}' attribute.
+	 * The cached value of the '{@link #getX() <em>X</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getX()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final int X_EDEFAULT = 0;
+	protected ItemPosition x;
 
 	/**
-	 * The cached value of the '{@link #getX() <em>X</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getX()
-	 * @generated
-	 * @ordered
-	 */
-	protected int x = X_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getY() <em>Y</em>}' attribute.
+	 * The cached value of the '{@link #getY() <em>Y</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getY()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final int Y_EDEFAULT = 0;
-
-	/**
-	 * The cached value of the '{@link #getY() <em>Y</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getY()
-	 * @generated
-	 * @ordered
-	 */
-	protected int y = Y_EDEFAULT;
+	protected ItemPosition y;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -91,7 +74,7 @@ public class PositionImpl extends MinimalEObjectImpl.Container implements Positi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public int getX() {
+	public ItemPosition getX() {
 		return x;
 	}
 
@@ -100,11 +83,18 @@ public class PositionImpl extends MinimalEObjectImpl.Container implements Positi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setX(int newX) {
-		int oldX = x;
+	public NotificationChain basicSetX(ItemPosition newX, NotificationChain msgs) {
+		ItemPosition oldX = x;
 		x = newX;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CinEditorMLPackage.POSITION__X, oldX, x));
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+					CinEditorMLPackage.POSITION__X, oldX, newX);
+			if (msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
+		}
+		return msgs;
 	}
 
 	/**
@@ -112,7 +102,28 @@ public class PositionImpl extends MinimalEObjectImpl.Container implements Positi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public int getY() {
+	public void setX(ItemPosition newX) {
+		if (newX != x) {
+			NotificationChain msgs = null;
+			if (x != null)
+				msgs = ((InternalEObject) x).eInverseRemove(this,
+						EOPPOSITE_FEATURE_BASE - CinEditorMLPackage.POSITION__X, null, msgs);
+			if (newX != null)
+				msgs = ((InternalEObject) newX).eInverseAdd(this,
+						EOPPOSITE_FEATURE_BASE - CinEditorMLPackage.POSITION__X, null, msgs);
+			msgs = basicSetX(newX, msgs);
+			if (msgs != null)
+				msgs.dispatch();
+		} else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CinEditorMLPackage.POSITION__X, newX, newX));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ItemPosition getY() {
 		return y;
 	}
 
@@ -121,11 +132,55 @@ public class PositionImpl extends MinimalEObjectImpl.Container implements Positi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setY(int newY) {
-		int oldY = y;
+	public NotificationChain basicSetY(ItemPosition newY, NotificationChain msgs) {
+		ItemPosition oldY = y;
 		y = newY;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CinEditorMLPackage.POSITION__Y, oldY, y));
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+					CinEditorMLPackage.POSITION__Y, oldY, newY);
+			if (msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setY(ItemPosition newY) {
+		if (newY != y) {
+			NotificationChain msgs = null;
+			if (y != null)
+				msgs = ((InternalEObject) y).eInverseRemove(this,
+						EOPPOSITE_FEATURE_BASE - CinEditorMLPackage.POSITION__Y, null, msgs);
+			if (newY != null)
+				msgs = ((InternalEObject) newY).eInverseAdd(this,
+						EOPPOSITE_FEATURE_BASE - CinEditorMLPackage.POSITION__Y, null, msgs);
+			msgs = basicSetY(newY, msgs);
+			if (msgs != null)
+				msgs.dispatch();
+		} else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CinEditorMLPackage.POSITION__Y, newY, newY));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+		case CinEditorMLPackage.POSITION__X:
+			return basicSetX(null, msgs);
+		case CinEditorMLPackage.POSITION__Y:
+			return basicSetY(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -153,10 +208,10 @@ public class PositionImpl extends MinimalEObjectImpl.Container implements Positi
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 		case CinEditorMLPackage.POSITION__X:
-			setX((Integer) newValue);
+			setX((ItemPosition) newValue);
 			return;
 		case CinEditorMLPackage.POSITION__Y:
-			setY((Integer) newValue);
+			setY((ItemPosition) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -171,10 +226,10 @@ public class PositionImpl extends MinimalEObjectImpl.Container implements Positi
 	public void eUnset(int featureID) {
 		switch (featureID) {
 		case CinEditorMLPackage.POSITION__X:
-			setX(X_EDEFAULT);
+			setX((ItemPosition) null);
 			return;
 		case CinEditorMLPackage.POSITION__Y:
-			setY(Y_EDEFAULT);
+			setY((ItemPosition) null);
 			return;
 		}
 		super.eUnset(featureID);
@@ -189,30 +244,11 @@ public class PositionImpl extends MinimalEObjectImpl.Container implements Positi
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 		case CinEditorMLPackage.POSITION__X:
-			return x != X_EDEFAULT;
+			return x != null;
 		case CinEditorMLPackage.POSITION__Y:
-			return y != Y_EDEFAULT;
+			return y != null;
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy())
-			return super.toString();
-
-		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (x: ");
-		result.append(x);
-		result.append(", y: ");
-		result.append(y);
-		result.append(')');
-		return result.toString();
 	}
 
 } //PositionImpl

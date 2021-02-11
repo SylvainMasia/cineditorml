@@ -20,7 +20,17 @@ EString returns ecore::EString:
 	STRING | ID;
 
 Position returns Position:
-		'position' ('(' x=EInt ',' y=EInt ')');
+		'position' ('(' x=ItemPosition ',' y=ItemPosition ')');
+		
+ItemPosition returns ItemPosition:
+	ItemPositionInt | ItemPositionString;
+
+ItemPositionInt  returns ItemPositionInt:
+	{ItemPositionInt} EInt;
+	
+ItemPositionString  returns ItemPositionString:
+	{ItemPositionString} 'center' | {ItemPositionString} 'left' | {ItemPositionString} 'right' | {ItemPositionString} 'bottom' | {ItemPositionString} 'top';
+
 		
 Dimension returns Dimension:
 		'dimension' width=EInt 'x' height=EInt;
@@ -35,23 +45,23 @@ EInt returns ecore::EInt:
 	'-'? INT;
 
 Text returns Text:
-	'Text' name=EString '->' text=EString ('fontSize' fontSize=EInt)? position=Position? 'at' beginTime=EInt ('during' duration=EInt)? color=HexadecimalColor;
+	'Text' name=EString '=' text=EString ('fontSize' fontSize=EInt)? position=Position? 'at' beginTime=EInt ('during' duration=EInt)? color=HexadecimalColor;
 
 Picture returns Picture:
-	'Picture' name=EString '->' '"' url=EString '"' position=Position? dimension=Dimension? 'at' beginTime=EInt ('during' duration=EInt)?;
+	'Picture' name=EString '=' url=EString position=Position? dimension=Dimension? 'at' beginTime=EInt ('during' duration=EInt)?;
 
 Video returns Video:
-	'Video' name=EString '->' '"' url=EString '"' 'from' beginCropTime=EInt position=Position? dimension=Dimension? 'at'  beginTime=EInt ('during' duration=EInt)?;
+	'Video' name=EString '=' url=EString 'from' beginCropTime=EInt position=Position? dimension=Dimension? 'at'  beginTime=EInt ('during' duration=EInt)?;
 	
 Rectangle returns Rectangle:
-	'Rectangle' name=EString '->' color=HexadecimalColor position=Position? dimension=Dimension? 'at' beginTime=EInt ('during' duration=EInt)?;
+	'Rectangle' name=EString '=' color=HexadecimalColor position=Position? dimension=Dimension? 'at' beginTime=EInt ('during' duration=EInt)?;
 
 FadeIn returns FadeIn:
-	'Effect' name=EString '->' 'FadeIn' 'during' duration=EInt 'on' element=[GraphicalElement];
+	'Effect' name=EString '=' 'FadeIn' 'during' duration=EInt 'on' element=[GraphicalElement];
 
 FadeOut returns FadeOut:
-	'Effect' name=EString '->' 'FadeOut' 'during' duration=EInt 'on' element=[GraphicalElement];
+	'Effect' name=EString '=' 'FadeOut' 'during' duration=EInt 'on' element=[GraphicalElement];
 
 Translate returns Translate:
-	'Effect' name=EString '->' 'Translate' positionToTranslate=Position 'at' beginTime=EInt 'during' duration=EInt 'on' element=[GraphicalElement];
+	'Effect' name=EString '=' 'Translate' positionToTranslate=Position 'at' beginTime=EInt 'during' duration=EInt 'on' element=[GraphicalElement];
 	

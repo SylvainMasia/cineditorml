@@ -372,6 +372,52 @@ public class CinEditorMLItemProviderAdapterFactory extends CinEditorMLAdapterFac
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link CinEditorML.ItemPositionInt} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ItemPositionIntItemProvider itemPositionIntItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link CinEditorML.ItemPositionInt}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createItemPositionIntAdapter() {
+		if (itemPositionIntItemProvider == null) {
+			itemPositionIntItemProvider = new ItemPositionIntItemProvider(this);
+		}
+
+		return itemPositionIntItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link CinEditorML.ItemPositionString} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ItemPositionStringItemProvider itemPositionStringItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link CinEditorML.ItemPositionString}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createItemPositionStringAdapter() {
+		if (itemPositionStringItemProvider == null) {
+			itemPositionStringItemProvider = new ItemPositionStringItemProvider(this);
+		}
+
+		return itemPositionStringItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -496,6 +542,10 @@ public class CinEditorMLItemProviderAdapterFactory extends CinEditorMLAdapterFac
 			hexadecimalColorItemProvider.dispose();
 		if (graphicalElementItemProvider != null)
 			graphicalElementItemProvider.dispose();
+		if (itemPositionIntItemProvider != null)
+			itemPositionIntItemProvider.dispose();
+		if (itemPositionStringItemProvider != null)
+			itemPositionStringItemProvider.dispose();
 	}
 
 }

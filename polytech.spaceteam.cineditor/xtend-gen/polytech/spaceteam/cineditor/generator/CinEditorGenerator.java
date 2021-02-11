@@ -3,11 +3,23 @@
  */
 package polytech.spaceteam.cineditor.generator;
 
+import CinEditorML.Effect;
+import CinEditorML.Element;
+import CinEditorML.FadeIn;
+import CinEditorML.FadeOut;
+import CinEditorML.GraphicalElement;
+import CinEditorML.ItemPosition;
+import CinEditorML.Layer;
+import CinEditorML.Movie;
+import CinEditorML.Picture;
+import CinEditorML.Position;
+import CinEditorML.Text;
+import CinEditorML.Translate;
+import CinEditorML.Video;
+import com.google.common.collect.Iterables;
 import java.util.ArrayList;
 import java.util.List;
-
 import javax.inject.Inject;
-
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.xtext.generator.AbstractGenerator;
@@ -18,20 +30,6 @@ import org.eclipse.xtext.naming.QualifiedName;
 import org.eclipse.xtext.xbase.lib.Extension;
 import org.eclipse.xtext.xbase.lib.IteratorExtensions;
 
-import com.google.common.collect.Iterables;
-
-import CinEditorML.Layer;
-import CinEditorML.Movie;
-import CinEditorML.Picture;
-import CinEditorML.Effect;
-import CinEditorML.Element;
-import CinEditorML.FadeIn;
-import CinEditorML.FadeOut;
-import CinEditorML.GraphicalElement;
-import CinEditorML.Text;
-import CinEditorML.Translate;
-import CinEditorML.Video;
-
 /**
  * Generates code from your model files on save.
  * 
@@ -39,181 +37,272 @@ import CinEditorML.Video;
  */
 @SuppressWarnings("all")
 public class CinEditorGenerator extends AbstractGenerator {
-	
-	final String varMovieHeight = "movie_height";
-	final String varMovieWidth = "movie_width";
-	final List<String> elementsVarNames = new ArrayList<>();
-	
-	@Inject
-	@Extension
-	private IQualifiedNameProvider _iQualifiedNameProvider;
-	
-	@Override
-	public void doGenerate(final Resource resource, final IFileSystemAccess2 fsa, final IGeneratorContext context) {
-		Iterable<Movie> _filter = Iterables.<Movie>filter(IteratorExtensions.<EObject>toIterable(resource.getAllContents()), Movie.class);
-	    for (final Movie movie : _filter) {
-	      QualifiedName _fullyQualifiedName = this._iQualifiedNameProvider.getFullyQualifiedName(movie);
-	      String _plus = (_fullyQualifiedName + ".py");
-	      fsa.generateFile(_plus, this.compile(movie));
-	    }
-	}
-	
-	private String compile(final Movie movie) {
-		String movieString = loadImports();
-		movieString += extractMovieSize(movie);
-		movieString += extractLayers(movie.getLayers());
-		movieString += extractFinalCut(movie);
-		return movieString;
-	}
-	
-	private String extractFinalCut(Movie movie) {
-		String sFinal = "\nvideo = CompositeVideoClip([";
-		for (int i = 0; i < elementsVarNames.size(); i++) {
-			if (i != 0) {
-				sFinal += ", ";
-			}
-			sFinal += elementsVarNames.get(i);
-		}
-		sFinal += "], size=(" + varMovieWidth + "," + varMovieHeight + ")).set_duration(15)\n"; //TODO when no video set a calculated duration
-		sFinal += "video.write_videofile('./" + movie.getName()  + ".avi', codec='mpeg4', fps=" + movie.getFps() +")";
-		return sFinal;
-	}
-	
-	private String extractLayers(List<Layer> layers) {
-		String s = "";
-		for (Layer layer : layers) {
-			s += extractElementsFromLayer(layer.getElements());
-		}
-		return s;
-	}
-	
-	private String extractElementInLayer(Element element) {
-		String s = "";
-		if (element instanceof Text)
-			s += extractElement((Text) element);
-		else if (element instanceof Picture)
-			s += extractElement((Picture) element);
-		else if (element instanceof Video)
-			s += extractElement((Video) element);
-		else if (element instanceof Effect)
-			s += extractElement((Effect) element);
-		return s;
-	}
-	
-	private String extractBeginTimeFromElement(Element element) {
-		String s = "";
-		if (element.getBeginTime() > 0) {
-			s += "\\\n\t.set_start(" + element.getBeginTime() + ")";
-		}
-		return s;
-	}
-	
-	private String extractDurationFromElement(Element element) {
-		String s = "";
-		if (element.getDuration() > 0) {
-			s += "\\\n\t.set_duration(" + element.getDuration() + ")";
-		}
-		return s;
-	}
-	
-	private String extractPositionFromElement(GraphicalElement element) {
-		String s = "";
-		int marginRight = 0;
-		int marginBottom = 0;
-		String posX = element.getPosition().getX() + "";
-		String posY = element.getPosition().getY() + "";
-		if (element.getPosition().getX() < 0) {
-			marginRight = -element.getPosition().getX();
-			posX = "'right'";
-		}
-		if (element.getPosition().getY() < 0) {
-			marginBottom = -element.getPosition().getY();
-			posY = "'bottom'";
-		}
-		if (!posX.equals("0") && !posY.equals("0")) {
-			s += "\\\n\t.set_pos((" + posX + ", " + posY + "))";
-		}
-		if (marginRight != 0 || marginBottom != 0) {
-			s += "\\\n\t.margin(bottom=" + marginBottom + ", right=" + marginRight + ")";
-		}
-		return s;
-	}
-	
-	
-	private String extractElement(Text element) {		
-		String s = element.getName() 
-				+ " = TextClip("
-					+ "\"" +element.getText() + "\""
-					+ ", color='#" + element.getColor().getHexadecimalValue() + "'"
-					+ ", fontsize=" + element.getFontSize()
-				+ ")"
-				+ extractBeginTimeFromElement(element)
-				+ extractDurationFromElement(element)
-				+ extractPositionFromElement(element)
-				+ "\n";
-		elementsVarNames.add(element.getName());
-		return s;
-	}
-	
-	private String extractElement(Picture element) {
-		String s = "";
-		
-		return s;
-	}
-	
-	private String extractElement(Video element) {
-		String s = "";
-		
-		return s;
-	}
-	
-	private String extractElement(FadeIn element) {
-		String s = "";
-		
-		return s;
-	}
-	
-	private String extractElement(FadeOut element) {
-		String s = "";
-		
-		return s;
-	}
-	
-	private String extractElement(Translate element) {
-		String s = "";
-		
-		return s;
-	}
-	
-	private String extractElement(Effect element) {
-		String s = "";
-		if (element instanceof FadeIn)
-			s += extractElement((FadeIn) element);
-		else if (element instanceof FadeOut)
-			s += extractElement((FadeOut) element);
-		else if (element instanceof Translate)
-			s += extractElement((Translate) element);
-		return s;
-	}
-	
-	private String extractElementsFromLayer(List<Element> elements) {
-		String s = "";
-		for (Element element : elements) {
-			s += extractElementInLayer(element);
-		}
- 		return s;
-	}
-
-	private String extractMovieSize(Movie movie) {
-		String s = varMovieHeight + " = " + movie.getDimension().getHeight() + "\n";
-		s += varMovieWidth + " = " + movie.getDimension().getWidth() + "\n";
-		s += "\n";
-		return s;
-	}
-	
-	private String loadImports() {
-		String s = "from moviepy.editor import *\n";
-		s += "\n";
-		return s;
-	}
+  private final String varMovieHeight = "movie_height";
+  
+  private final String varMovieWidth = "movie_width";
+  
+  private final ArrayList<Object> elementsVarNames = new ArrayList<Object>();
+  
+  @Inject
+  @Extension
+  private IQualifiedNameProvider _iQualifiedNameProvider;
+  
+  @Override
+  public void doGenerate(final Resource resource, final IFileSystemAccess2 fsa, final IGeneratorContext context) {
+    Iterable<Movie> _filter = Iterables.<Movie>filter(IteratorExtensions.<EObject>toIterable(resource.getAllContents()), Movie.class);
+    for (final Movie movie : _filter) {
+      {
+        final QualifiedName _fullyQualifiedName = this._iQualifiedNameProvider.getFullyQualifiedName(movie);
+        String _plus = (_fullyQualifiedName + ".py");
+        fsa.generateFile(_plus, 
+          this.compile(movie));
+      }
+    }
+  }
+  
+  private String compile(final Movie movie) {
+    String movieString = this.loadImports();
+    String _movieString = movieString;
+    String _extractMovieSize = this.extractMovieSize(movie);
+    movieString = (_movieString + _extractMovieSize);
+    String _movieString_1 = movieString;
+    String _extractLayers = this.extractLayers(movie.getLayers());
+    movieString = (_movieString_1 + _extractLayers);
+    String _movieString_2 = movieString;
+    String _extractFinalCut = this.extractFinalCut(movie);
+    movieString = (_movieString_2 + _extractFinalCut);
+    return movieString;
+  }
+  
+  private String extractFinalCut(final Movie movie) {
+    String sFinal = "\nvideo = CompositeVideoClip([";
+    for (int i = 0; (i < this.elementsVarNames.size()); i++) {
+      {
+        if ((i != 0)) {
+          String _sFinal = sFinal;
+          sFinal = (_sFinal + ", ");
+        }
+        String _sFinal_1 = sFinal;
+        Object _get = this.elementsVarNames.get(i);
+        sFinal = (_sFinal_1 + _get);
+      }
+    }
+    String _sFinal = sFinal;
+    sFinal = (_sFinal + (((("], size=(" + this.varMovieWidth) + ",") + this.varMovieHeight) + ")).set_duration(15)\n"));
+    String _sFinal_1 = sFinal;
+    String _name = movie.getName();
+    String _plus = ("video.write_videofile(\'./" + _name);
+    String _plus_1 = (_plus + ".avi\', codec=\'mpeg4\', fps=");
+    int _fps = movie.getFps();
+    String _plus_2 = (_plus_1 + Integer.valueOf(_fps));
+    String _plus_3 = (_plus_2 + ")");
+    sFinal = (_sFinal_1 + _plus_3);
+    return sFinal;
+  }
+  
+  private String extractLayers(final List<Layer> layers) {
+    String s = "";
+    for (final Layer layer : layers) {
+      String _s = s;
+      String _extractElementsFromLayer = this.extractElementsFromLayer(layer.getElements());
+      s = (_s + _extractElementsFromLayer);
+    }
+    return s;
+  }
+  
+  private String extractElementInLayer(final Element element) {
+    String s = "";
+    if ((element instanceof Text)) {
+      String _s = s;
+      String _extractElement = this.extractElement(((Text) element));
+      s = (_s + _extractElement);
+    } else {
+      if ((element instanceof Picture)) {
+        String _s_1 = s;
+        String _extractElement_1 = this.extractElement(((Picture) element));
+        s = (_s_1 + _extractElement_1);
+      } else {
+        if ((element instanceof Video)) {
+          String _s_2 = s;
+          String _extractElement_2 = this.extractElement(((Video) element));
+          s = (_s_2 + _extractElement_2);
+        } else {
+          if ((element instanceof Effect)) {
+            String _s_3 = s;
+            String _extractElement_3 = this.extractElement(((Effect) element));
+            s = (_s_3 + _extractElement_3);
+          }
+        }
+      }
+    }
+    return s;
+  }
+  
+  private String extractBeginTimeFromElement(final Element element) {
+    String s = "";
+    int _beginTime = element.getBeginTime();
+    boolean _greaterThan = (_beginTime > 0);
+    if (_greaterThan) {
+      String _s = s;
+      int _beginTime_1 = element.getBeginTime();
+      String _plus = ("\\\n\t.set_start(" + Integer.valueOf(_beginTime_1));
+      String _plus_1 = (_plus + ")");
+      s = (_s + _plus_1);
+    }
+    return s;
+  }
+  
+  private String extractDurationFromElement(final Element element) {
+    String s = "";
+    int _duration = element.getDuration();
+    boolean _greaterThan = (_duration > 0);
+    if (_greaterThan) {
+      String _s = s;
+      int _duration_1 = element.getDuration();
+      String _plus = ("\\\n\t.set_duration(" + Integer.valueOf(_duration_1));
+      String _plus_1 = (_plus + ")");
+      s = (_s + _plus_1);
+    }
+    return s;
+  }
+  
+  private String extractPositionFromElement(final GraphicalElement element) {
+    String s = "";
+    int marginRight = 0;
+    int marginBottom = 0;
+    String posX = "";
+    String posY = "";
+    Position _position = element.getPosition();
+    boolean _tripleNotEquals = (_position != null);
+    if (_tripleNotEquals) {
+      ItemPosition _x = element.getPosition().getX();
+      String _plus = (_x + "");
+      posX = _plus;
+      ItemPosition _y = element.getPosition().getY();
+      String _plus_1 = (_y + "");
+      posY = _plus_1;
+    } else {
+      posX = "0";
+      posY = "0";
+    }
+    return s;
+  }
+  
+  private String extractElement(final Text element) {
+    String _name = element.getName();
+    String _plus = (_name + " = TextClip(");
+    String _plus_1 = (_plus + "\"");
+    String _text = element.getText();
+    String _plus_2 = (_plus_1 + _text);
+    String _plus_3 = (_plus_2 + "\"");
+    String _plus_4 = (_plus_3 + ", color=\'#");
+    String _hexadecimalValue = element.getColor().getHexadecimalValue();
+    String _plus_5 = (_plus_4 + _hexadecimalValue);
+    String _plus_6 = (_plus_5 + "\'");
+    String _plus_7 = (_plus_6 + ", fontsize=");
+    int _fontSize = element.getFontSize();
+    String _plus_8 = (_plus_7 + Integer.valueOf(_fontSize));
+    String _plus_9 = (_plus_8 + ")");
+    String _extractBeginTimeFromElement = this.extractBeginTimeFromElement(element);
+    String _plus_10 = (_plus_9 + _extractBeginTimeFromElement);
+    String _extractDurationFromElement = this.extractDurationFromElement(element);
+    String _plus_11 = (_plus_10 + _extractDurationFromElement);
+    String _extractPositionFromElement = this.extractPositionFromElement(element);
+    String _plus_12 = (_plus_11 + _extractPositionFromElement);
+    String s = (_plus_12 + "\n");
+    this.elementsVarNames.add(element.getName());
+    return s;
+  }
+  
+  private String extractElement(final Picture element) {
+    String _name = element.getName();
+    String _plus = (_name + " = ImageClip(");
+    String _plus_1 = (_plus + "\"");
+    String _url = element.getUrl();
+    String _plus_2 = (_plus_1 + _url);
+    String _plus_3 = (_plus_2 + "\"");
+    String _plus_4 = (_plus_3 + ")");
+    String _extractBeginTimeFromElement = this.extractBeginTimeFromElement(element);
+    String _plus_5 = (_plus_4 + _extractBeginTimeFromElement);
+    String _extractDurationFromElement = this.extractDurationFromElement(element);
+    String _plus_6 = (_plus_5 + _extractDurationFromElement);
+    String _extractPositionFromElement = this.extractPositionFromElement(element);
+    String _plus_7 = (_plus_6 + _extractPositionFromElement);
+    String s = (_plus_7 + "\n");
+    this.elementsVarNames.add(element.getName());
+    return s;
+  }
+  
+  private String extractElement(final Video element) {
+    String s = "";
+    return s;
+  }
+  
+  private String extractElement(final FadeIn element) {
+    String s = "";
+    return s;
+  }
+  
+  private String extractElement(final FadeOut element) {
+    String s = "";
+    return s;
+  }
+  
+  private String extractElement(final Translate element) {
+    String s = "";
+    return s;
+  }
+  
+  private String extractElement(final Effect element) {
+    String s = "";
+    if ((element instanceof FadeIn)) {
+      String _s = s;
+      String _extractElement = this.extractElement(((FadeIn) element));
+      s = (_s + _extractElement);
+    } else {
+      if ((element instanceof FadeOut)) {
+        String _s_1 = s;
+        String _extractElement_1 = this.extractElement(((FadeOut) element));
+        s = (_s_1 + _extractElement_1);
+      } else {
+        if ((element instanceof Translate)) {
+          String _s_2 = s;
+          String _extractElement_2 = this.extractElement(((Translate) element));
+          s = (_s_2 + _extractElement_2);
+        }
+      }
+    }
+    return s;
+  }
+  
+  private String extractElementsFromLayer(final List<Element> elements) {
+    String s = "";
+    for (final Element element : elements) {
+      String _s = s;
+      String _extractElementInLayer = this.extractElementInLayer(element);
+      s = (_s + _extractElementInLayer);
+    }
+    return s;
+  }
+  
+  private String extractMovieSize(final Movie movie) {
+    int _height = movie.getDimension().getHeight();
+    String _plus = ((this.varMovieHeight + " = ") + Integer.valueOf(_height));
+    String s = (_plus + "\n");
+    String _s = s;
+    int _width = movie.getDimension().getWidth();
+    String _plus_1 = ((this.varMovieWidth + " = ") + Integer.valueOf(_width));
+    String _plus_2 = (_plus_1 + "\n");
+    s = (_s + _plus_2);
+    String _s_1 = s;
+    s = (_s_1 + "\n");
+    return s;
+  }
+  
+  private String loadImports() {
+    String s = "from moviepy.editor import *\n";
+    String _s = s;
+    s = (_s + "\n");
+    return s;
+  }
 }

@@ -216,6 +216,31 @@ public class CinEditorMLSwitch<T> extends Switch<T> {
 				result = defaultCase(theEObject);
 			return result;
 		}
+		case CinEditorMLPackage.ITEM_POSITION_INT: {
+			ItemPositionInt itemPositionInt = (ItemPositionInt) theEObject;
+			T result = caseItemPositionInt(itemPositionInt);
+			if (result == null)
+				result = caseItemPosition(itemPositionInt);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case CinEditorMLPackage.ITEM_POSITION: {
+			ItemPosition itemPosition = (ItemPosition) theEObject;
+			T result = caseItemPosition(itemPosition);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case CinEditorMLPackage.ITEM_POSITION_STRING: {
+			ItemPositionString itemPositionString = (ItemPositionString) theEObject;
+			T result = caseItemPositionString(itemPositionString);
+			if (result == null)
+				result = caseItemPosition(itemPositionString);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
 		default:
 			return defaultCase(theEObject);
 		}
@@ -458,6 +483,51 @@ public class CinEditorMLSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseGraphicalElement(GraphicalElement object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Item Position Int</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Item Position Int</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseItemPositionInt(ItemPositionInt object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Item Position</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Item Position</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseItemPosition(ItemPosition object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Item Position String</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Item Position String</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseItemPositionString(ItemPositionString object) {
 		return null;
 	}
 

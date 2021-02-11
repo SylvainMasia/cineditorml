@@ -52,10 +52,10 @@
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Position">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="x" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
-        defaultValueLiteral="0"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="y" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
-        defaultValueLiteral="0"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="x" lowerBound="1" eType="#//ItemPosition"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="y" lowerBound="1" eType="#//ItemPosition"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Rectangle" eSuperTypes="#//Shape"/>
   <eClassifiers xsi:type="ecore:EClass" name="Dimension">
@@ -73,5 +73,14 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="dimension" eType="#//Dimension"
         containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ItemPositionInt" eSuperTypes="#//ItemPosition">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="position" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" defaultValueLiteral="0"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ItemPosition" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ItemPositionString" eSuperTypes="#//ItemPosition">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="position" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" defaultValueLiteral="center"/>
   </eClassifiers>
 </ecore:EPackage>

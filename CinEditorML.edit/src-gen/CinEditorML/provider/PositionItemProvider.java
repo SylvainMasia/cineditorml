@@ -2,6 +2,7 @@
  */
 package CinEditorML.provider;
 
+import CinEditorML.CinEditorMLFactory;
 import CinEditorML.CinEditorMLPackage;
 import CinEditorML.Position;
 
@@ -13,14 +14,13 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 
-import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
@@ -53,40 +53,39 @@ public class PositionItemProvider extends ItemProviderAdapter implements IEditin
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addXPropertyDescriptor(object);
-			addYPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the X feature.
+	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
+	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
+	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addXPropertyDescriptor(Object object) {
-		itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_Position_x_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_Position_x_feature", "_UI_Position_type"),
-						CinEditorMLPackage.Literals.POSITION__X, true, false, false,
-						ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null));
+	@Override
+	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
+		if (childrenFeatures == null) {
+			super.getChildrenFeatures(object);
+			childrenFeatures.add(CinEditorMLPackage.Literals.POSITION__X);
+			childrenFeatures.add(CinEditorMLPackage.Literals.POSITION__Y);
+		}
+		return childrenFeatures;
 	}
 
 	/**
-	 * This adds a property descriptor for the Y feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addYPropertyDescriptor(Object object) {
-		itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_Position_y_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_Position_y_feature", "_UI_Position_type"),
-						CinEditorMLPackage.Literals.POSITION__Y, true, false, false,
-						ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null));
+	@Override
+	protected EStructuralFeature getChildFeature(Object object, Object child) {
+		// Check the type of the specified child object and return the proper feature to use for
+		// adding (see {@link AddCommand}) it as a child.
+
+		return super.getChildFeature(object, child);
 	}
 
 	/**
@@ -118,8 +117,7 @@ public class PositionItemProvider extends ItemProviderAdapter implements IEditin
 	 */
 	@Override
 	public String getText(Object object) {
-		Position position = (Position) object;
-		return getString("_UI_Position_type") + " " + position.getX();
+		return getString("_UI_Position_type");
 	}
 
 	/**
@@ -136,7 +134,7 @@ public class PositionItemProvider extends ItemProviderAdapter implements IEditin
 		switch (notification.getFeatureID(Position.class)) {
 		case CinEditorMLPackage.POSITION__X:
 		case CinEditorMLPackage.POSITION__Y:
-			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 			return;
 		}
 		super.notifyChanged(notification);
@@ -152,6 +150,39 @@ public class PositionItemProvider extends ItemProviderAdapter implements IEditin
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+
+		newChildDescriptors.add(createChildParameter(CinEditorMLPackage.Literals.POSITION__X,
+				CinEditorMLFactory.eINSTANCE.createItemPositionInt()));
+
+		newChildDescriptors.add(createChildParameter(CinEditorMLPackage.Literals.POSITION__X,
+				CinEditorMLFactory.eINSTANCE.createItemPositionString()));
+
+		newChildDescriptors.add(createChildParameter(CinEditorMLPackage.Literals.POSITION__Y,
+				CinEditorMLFactory.eINSTANCE.createItemPositionInt()));
+
+		newChildDescriptors.add(createChildParameter(CinEditorMLPackage.Literals.POSITION__Y,
+				CinEditorMLFactory.eINSTANCE.createItemPositionString()));
+	}
+
+	/**
+	 * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getCreateChildText(Object owner, Object feature, Object child, Collection<?> selection) {
+		Object childFeature = feature;
+		Object childObject = child;
+
+		boolean qualify = childFeature == CinEditorMLPackage.Literals.POSITION__X
+				|| childFeature == CinEditorMLPackage.Literals.POSITION__Y;
+
+		if (qualify) {
+			return getString("_UI_CreateChild_text2",
+					new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
+		}
+		return super.getCreateChildText(owner, feature, child, selection);
 	}
 
 	/**

@@ -139,6 +139,24 @@ public interface CinEditorMLFactory extends EFactory {
 	GraphicalElement createGraphicalElement();
 
 	/**
+	 * Returns a new object of class '<em>Item Position Int</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Item Position Int</em>'.
+	 * @generated
+	 */
+	ItemPositionInt createItemPositionInt();
+
+	/**
+	 * Returns a new object of class '<em>Item Position String</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Item Position String</em>'.
+	 * @generated
+	 */
+	ItemPositionString createItemPositionString();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

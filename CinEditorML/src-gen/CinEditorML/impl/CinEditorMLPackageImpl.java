@@ -11,6 +11,9 @@ import CinEditorML.FadeIn;
 import CinEditorML.FadeOut;
 import CinEditorML.GraphicalElement;
 import CinEditorML.HexadecimalColor;
+import CinEditorML.ItemPosition;
+import CinEditorML.ItemPositionInt;
+import CinEditorML.ItemPositionString;
 import CinEditorML.Layer;
 import CinEditorML.Movie;
 import CinEditorML.Picture;
@@ -146,6 +149,27 @@ public class CinEditorMLPackageImpl extends EPackageImpl implements CinEditorMLP
 	 * @generated
 	 */
 	private EClass graphicalElementEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass itemPositionIntEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass itemPositionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass itemPositionStringEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -480,8 +504,8 @@ public class CinEditorMLPackageImpl extends EPackageImpl implements CinEditorMLP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getPosition_X() {
-		return (EAttribute) positionEClass.getEStructuralFeatures().get(0);
+	public EReference getPosition_X() {
+		return (EReference) positionEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -489,8 +513,8 @@ public class CinEditorMLPackageImpl extends EPackageImpl implements CinEditorMLP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getPosition_Y() {
-		return (EAttribute) positionEClass.getEStructuralFeatures().get(1);
+	public EReference getPosition_Y() {
+		return (EReference) positionEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -579,6 +603,51 @@ public class CinEditorMLPackageImpl extends EPackageImpl implements CinEditorMLP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getItemPositionInt() {
+		return itemPositionIntEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getItemPositionInt_Position() {
+		return (EAttribute) itemPositionIntEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getItemPosition() {
+		return itemPositionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getItemPositionString() {
+		return itemPositionStringEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getItemPositionString_Position() {
+		return (EAttribute) itemPositionStringEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public CinEditorMLFactory getCinEditorMLFactory() {
 		return (CinEditorMLFactory) getEFactoryInstance();
 	}
@@ -643,8 +712,8 @@ public class CinEditorMLPackageImpl extends EPackageImpl implements CinEditorMLP
 		createEReference(shapeEClass, SHAPE__COLOR);
 
 		positionEClass = createEClass(POSITION);
-		createEAttribute(positionEClass, POSITION__X);
-		createEAttribute(positionEClass, POSITION__Y);
+		createEReference(positionEClass, POSITION__X);
+		createEReference(positionEClass, POSITION__Y);
 
 		rectangleEClass = createEClass(RECTANGLE);
 
@@ -658,6 +727,14 @@ public class CinEditorMLPackageImpl extends EPackageImpl implements CinEditorMLP
 		graphicalElementEClass = createEClass(GRAPHICAL_ELEMENT);
 		createEReference(graphicalElementEClass, GRAPHICAL_ELEMENT__POSITION);
 		createEReference(graphicalElementEClass, GRAPHICAL_ELEMENT__DIMENSION);
+
+		itemPositionIntEClass = createEClass(ITEM_POSITION_INT);
+		createEAttribute(itemPositionIntEClass, ITEM_POSITION_INT__POSITION);
+
+		itemPositionEClass = createEClass(ITEM_POSITION);
+
+		itemPositionStringEClass = createEClass(ITEM_POSITION_STRING);
+		createEAttribute(itemPositionStringEClass, ITEM_POSITION_STRING__POSITION);
 	}
 
 	/**
@@ -703,6 +780,8 @@ public class CinEditorMLPackageImpl extends EPackageImpl implements CinEditorMLP
 		shapeEClass.getESuperTypes().add(this.getGraphicalElement());
 		rectangleEClass.getESuperTypes().add(this.getShape());
 		graphicalElementEClass.getESuperTypes().add(this.getElement());
+		itemPositionIntEClass.getESuperTypes().add(this.getItemPosition());
+		itemPositionStringEClass.getESuperTypes().add(this.getItemPosition());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(movieEClass, Movie.class, "Movie", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -771,10 +850,12 @@ public class CinEditorMLPackageImpl extends EPackageImpl implements CinEditorMLP
 
 		initEClass(positionEClass, Position.class, "Position", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getPosition_X(), ecorePackage.getEInt(), "x", "0", 0, 1, Position.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getPosition_Y(), ecorePackage.getEInt(), "y", "0", 0, 1, Position.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPosition_X(), this.getItemPosition(), null, "x", null, 1, 1, Position.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
+				IS_ORDERED);
+		initEReference(getPosition_Y(), this.getItemPosition(), null, "y", null, 1, 1, Position.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
+				IS_ORDERED);
 
 		initEClass(rectangleEClass, Rectangle.class, "Rectangle", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
@@ -800,6 +881,21 @@ public class CinEditorMLPackageImpl extends EPackageImpl implements CinEditorMLP
 		initEReference(getGraphicalElement_Dimension(), this.getDimension(), null, "dimension", null, 0, 1,
 				GraphicalElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(itemPositionIntEClass, ItemPositionInt.class, "ItemPositionInt", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getItemPositionInt_Position(), ecorePackage.getEInt(), "position", "0", 1, 1,
+				ItemPositionInt.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
+
+		initEClass(itemPositionEClass, ItemPosition.class, "ItemPosition", IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(itemPositionStringEClass, ItemPositionString.class, "ItemPositionString", !IS_ABSTRACT,
+				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getItemPositionString_Position(), ecorePackage.getEString(), "position", "center", 1, 1,
+				ItemPositionString.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

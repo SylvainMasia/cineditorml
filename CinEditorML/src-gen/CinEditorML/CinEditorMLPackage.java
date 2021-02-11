@@ -916,7 +916,7 @@ public interface CinEditorMLPackage extends EPackage {
 	int POSITION = 11;
 
 	/**
-	 * The feature id for the '<em><b>X</b></em>' attribute.
+	 * The feature id for the '<em><b>X</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -925,7 +925,7 @@ public interface CinEditorMLPackage extends EPackage {
 	int POSITION__X = 0;
 
 	/**
-	 * The feature id for the '<em><b>Y</b></em>' attribute.
+	 * The feature id for the '<em><b>Y</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1115,6 +1115,108 @@ public interface CinEditorMLPackage extends EPackage {
 	 * @ordered
 	 */
 	int HEXADECIMAL_COLOR_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link CinEditorML.impl.ItemPositionImpl <em>Item Position</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see CinEditorML.impl.ItemPositionImpl
+	 * @see CinEditorML.impl.CinEditorMLPackageImpl#getItemPosition()
+	 * @generated
+	 */
+	int ITEM_POSITION = 17;
+
+	/**
+	 * The number of structural features of the '<em>Item Position</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ITEM_POSITION_FEATURE_COUNT = 0;
+
+	/**
+	 * The number of operations of the '<em>Item Position</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ITEM_POSITION_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link CinEditorML.impl.ItemPositionIntImpl <em>Item Position Int</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see CinEditorML.impl.ItemPositionIntImpl
+	 * @see CinEditorML.impl.CinEditorMLPackageImpl#getItemPositionInt()
+	 * @generated
+	 */
+	int ITEM_POSITION_INT = 16;
+
+	/**
+	 * The feature id for the '<em><b>Position</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ITEM_POSITION_INT__POSITION = ITEM_POSITION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Item Position Int</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ITEM_POSITION_INT_FEATURE_COUNT = ITEM_POSITION_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Item Position Int</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ITEM_POSITION_INT_OPERATION_COUNT = ITEM_POSITION_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link CinEditorML.impl.ItemPositionStringImpl <em>Item Position String</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see CinEditorML.impl.ItemPositionStringImpl
+	 * @see CinEditorML.impl.CinEditorMLPackageImpl#getItemPositionString()
+	 * @generated
+	 */
+	int ITEM_POSITION_STRING = 18;
+
+	/**
+	 * The feature id for the '<em><b>Position</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ITEM_POSITION_STRING__POSITION = ITEM_POSITION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Item Position String</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ITEM_POSITION_STRING_FEATURE_COUNT = ITEM_POSITION_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Item Position String</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ITEM_POSITION_STRING_OPERATION_COUNT = ITEM_POSITION_OPERATION_COUNT + 0;
 
 	/**
 	 * Returns the meta object for class '{@link CinEditorML.Movie <em>Movie</em>}'.
@@ -1424,26 +1526,26 @@ public interface CinEditorMLPackage extends EPackage {
 	EClass getPosition();
 
 	/**
-	 * Returns the meta object for the attribute '{@link CinEditorML.Position#getX <em>X</em>}'.
+	 * Returns the meta object for the containment reference '{@link CinEditorML.Position#getX <em>X</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>X</em>'.
+	 * @return the meta object for the containment reference '<em>X</em>'.
 	 * @see CinEditorML.Position#getX()
 	 * @see #getPosition()
 	 * @generated
 	 */
-	EAttribute getPosition_X();
+	EReference getPosition_X();
 
 	/**
-	 * Returns the meta object for the attribute '{@link CinEditorML.Position#getY <em>Y</em>}'.
+	 * Returns the meta object for the containment reference '{@link CinEditorML.Position#getY <em>Y</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Y</em>'.
+	 * @return the meta object for the containment reference '<em>Y</em>'.
 	 * @see CinEditorML.Position#getY()
 	 * @see #getPosition()
 	 * @generated
 	 */
-	EAttribute getPosition_Y();
+	EReference getPosition_Y();
 
 	/**
 	 * Returns the meta object for class '{@link CinEditorML.Rectangle <em>Rectangle</em>}'.
@@ -1539,6 +1641,58 @@ public interface CinEditorMLPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getGraphicalElement_Dimension();
+
+	/**
+	 * Returns the meta object for class '{@link CinEditorML.ItemPositionInt <em>Item Position Int</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Item Position Int</em>'.
+	 * @see CinEditorML.ItemPositionInt
+	 * @generated
+	 */
+	EClass getItemPositionInt();
+
+	/**
+	 * Returns the meta object for the attribute '{@link CinEditorML.ItemPositionInt#getPosition <em>Position</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Position</em>'.
+	 * @see CinEditorML.ItemPositionInt#getPosition()
+	 * @see #getItemPositionInt()
+	 * @generated
+	 */
+	EAttribute getItemPositionInt_Position();
+
+	/**
+	 * Returns the meta object for class '{@link CinEditorML.ItemPosition <em>Item Position</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Item Position</em>'.
+	 * @see CinEditorML.ItemPosition
+	 * @generated
+	 */
+	EClass getItemPosition();
+
+	/**
+	 * Returns the meta object for class '{@link CinEditorML.ItemPositionString <em>Item Position String</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Item Position String</em>'.
+	 * @see CinEditorML.ItemPositionString
+	 * @generated
+	 */
+	EClass getItemPositionString();
+
+	/**
+	 * Returns the meta object for the attribute '{@link CinEditorML.ItemPositionString#getPosition <em>Position</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Position</em>'.
+	 * @see CinEditorML.ItemPositionString#getPosition()
+	 * @see #getItemPositionString()
+	 * @generated
+	 */
+	EAttribute getItemPositionString_Position();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -1820,20 +1974,20 @@ public interface CinEditorMLPackage extends EPackage {
 		EClass POSITION = eINSTANCE.getPosition();
 
 		/**
-		 * The meta object literal for the '<em><b>X</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>X</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute POSITION__X = eINSTANCE.getPosition_X();
+		EReference POSITION__X = eINSTANCE.getPosition_X();
 
 		/**
-		 * The meta object literal for the '<em><b>Y</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Y</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute POSITION__Y = eINSTANCE.getPosition_Y();
+		EReference POSITION__Y = eINSTANCE.getPosition_Y();
 
 		/**
 		 * The meta object literal for the '{@link CinEditorML.impl.RectangleImpl <em>Rectangle</em>}' class.
@@ -1914,6 +2068,52 @@ public interface CinEditorMLPackage extends EPackage {
 		 * @generated
 		 */
 		EReference GRAPHICAL_ELEMENT__DIMENSION = eINSTANCE.getGraphicalElement_Dimension();
+
+		/**
+		 * The meta object literal for the '{@link CinEditorML.impl.ItemPositionIntImpl <em>Item Position Int</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see CinEditorML.impl.ItemPositionIntImpl
+		 * @see CinEditorML.impl.CinEditorMLPackageImpl#getItemPositionInt()
+		 * @generated
+		 */
+		EClass ITEM_POSITION_INT = eINSTANCE.getItemPositionInt();
+
+		/**
+		 * The meta object literal for the '<em><b>Position</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ITEM_POSITION_INT__POSITION = eINSTANCE.getItemPositionInt_Position();
+
+		/**
+		 * The meta object literal for the '{@link CinEditorML.impl.ItemPositionImpl <em>Item Position</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see CinEditorML.impl.ItemPositionImpl
+		 * @see CinEditorML.impl.CinEditorMLPackageImpl#getItemPosition()
+		 * @generated
+		 */
+		EClass ITEM_POSITION = eINSTANCE.getItemPosition();
+
+		/**
+		 * The meta object literal for the '{@link CinEditorML.impl.ItemPositionStringImpl <em>Item Position String</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see CinEditorML.impl.ItemPositionStringImpl
+		 * @see CinEditorML.impl.CinEditorMLPackageImpl#getItemPositionString()
+		 * @generated
+		 */
+		EClass ITEM_POSITION_STRING = eINSTANCE.getItemPositionString();
+
+		/**
+		 * The meta object literal for the '<em><b>Position</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ITEM_POSITION_STRING__POSITION = eINSTANCE.getItemPositionString_Position();
 
 	}
 
