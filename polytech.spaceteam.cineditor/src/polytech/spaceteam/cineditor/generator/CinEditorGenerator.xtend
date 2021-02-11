@@ -22,6 +22,9 @@ import CinEditorML.FadeOut
 import CinEditorML.FadeIn
 import CinEditorML.Translate
 import CinEditorML.Effect
+import CinEditorML.ItemPositionInt
+import CinEditorML.ItemPosition
+import CinEditorML.ItemPositionString
 
 /**
  * Generates code from your model files on save.
@@ -107,36 +110,29 @@ class CinEditorGenerator extends AbstractGenerator {
 	
 	private def String extractPositionFromElement(GraphicalElement element) {
 		var s = "";
-		var marginRight = 0;
-		var marginBottom = 0;
 		var posX = "";
 		var posY = "";
 		if (element.position !== null) {
-			posX = element.getPosition().getX() + "";
-			posY = element.getPosition().getY() + "";
+			posX = extractValueFromItemPosition(element.position.x);
+			posY = extractValueFromItemPosition(element.position.y);
 		} else {
 			posX = "0";
 			posY = "0";
 		}
 
-//		if (posX < 0) {
-//			marginRight = -element.getPosition().getX();
-//			posX = "'right'";
-//		}
-//		if (posY < 0) {
-//			marginBottom = -element.getPosition().getY();
-//			posY = "'bottom'";
-//		}
-//		if (!posX.equals("0") && !posY.equals("0")) {
-//			s += "\\\n\t.set_pos((" + posX + ", " + posY + "))";
-//		}
-//		if (marginRight != 0 || marginBottom != 0) {
-//			s += "\\\n\t.margin(bottom=" + marginBottom + ", right=" + marginRight + ")";
-//		}
+		if (!posX.equals("0") || !posY.equals("0")) {
+			s += "\\\n\t.set_pos((" + posX + ", " + posY + "))";
+		}
 		return s;
 	}
 	
-	
+	private def String extractValueFromItemPosition(ItemPosition item) {
+		if (item instanceof ItemPositionInt) {
+			return (item as ItemPositionInt).position + "";
+		}
+		return "'" + (item as ItemPositionString).position + "'";
+	}
+		
 	private def String extractElement(Text element) {		
 		var s = element.getName() 
 				+ " = TextClip("

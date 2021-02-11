@@ -10,9 +10,6 @@ import org.eclipse.xtext.IGrammarAccess;
 import org.eclipse.xtext.RuleCall;
 import org.eclipse.xtext.nodemodel.INode;
 import org.eclipse.xtext.serializer.analysis.GrammarAlias.AbstractElementAlias;
-import org.eclipse.xtext.serializer.analysis.GrammarAlias.AlternativeAlias;
-import org.eclipse.xtext.serializer.analysis.GrammarAlias.TokenAlias;
-import org.eclipse.xtext.serializer.analysis.ISyntacticSequencerPDAProvider.ISynNavigable;
 import org.eclipse.xtext.serializer.analysis.ISyntacticSequencerPDAProvider.ISynTransition;
 import org.eclipse.xtext.serializer.sequencer.AbstractSyntacticSequencer;
 import polytech.spaceteam.cineditor.services.CinEditorGrammarAccess;
@@ -21,30 +18,17 @@ import polytech.spaceteam.cineditor.services.CinEditorGrammarAccess;
 public class CinEditorSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected CinEditorGrammarAccess grammarAccess;
-	protected AbstractElementAlias match_ItemPositionString_BottomKeyword_3_1_or_CenterKeyword_0_1_or_LeftKeyword_1_1_or_RightKeyword_2_1_or_TopKeyword_4_1;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (CinEditorGrammarAccess) access;
-		match_ItemPositionString_BottomKeyword_3_1_or_CenterKeyword_0_1_or_LeftKeyword_1_1_or_RightKeyword_2_1_or_TopKeyword_4_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getItemPositionStringAccess().getBottomKeyword_3_1()), new TokenAlias(false, false, grammarAccess.getItemPositionStringAccess().getCenterKeyword_0_1()), new TokenAlias(false, false, grammarAccess.getItemPositionStringAccess().getLeftKeyword_1_1()), new TokenAlias(false, false, grammarAccess.getItemPositionStringAccess().getRightKeyword_2_1()), new TokenAlias(false, false, grammarAccess.getItemPositionStringAccess().getTopKeyword_4_1()));
 	}
 	
 	@Override
 	protected String getUnassignedRuleCallToken(EObject semanticObject, RuleCall ruleCall, INode node) {
-		if (ruleCall.getRule() == grammarAccess.getEIntRule())
-			return getEIntToken(semanticObject, ruleCall, node);
 		return "";
 	}
 	
-	/**
-	 * EInt returns ecore::EInt:
-	 * 	'-'? INT;
-	 */
-	protected String getEIntToken(EObject semanticObject, RuleCall ruleCall, INode node) {
-		if (node != null)
-			return getTokenText(node);
-		return "";
-	}
 	
 	@Override
 	protected void emitUnassignedTokens(EObject semanticObject, ISynTransition transition, INode fromNode, INode toNode) {
@@ -52,21 +36,8 @@ public class CinEditorSyntacticSequencer extends AbstractSyntacticSequencer {
 		List<INode> transitionNodes = collectNodes(fromNode, toNode);
 		for (AbstractElementAlias syntax : transition.getAmbiguousSyntaxes()) {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
-			if (match_ItemPositionString_BottomKeyword_3_1_or_CenterKeyword_0_1_or_LeftKeyword_1_1_or_RightKeyword_2_1_or_TopKeyword_4_1.equals(syntax))
-				emit_ItemPositionString_BottomKeyword_3_1_or_CenterKeyword_0_1_or_LeftKeyword_1_1_or_RightKeyword_2_1_or_TopKeyword_4_1(semanticObject, getLastNavigableState(), syntaxNodes);
-			else acceptNodes(getLastNavigableState(), syntaxNodes);
+			acceptNodes(getLastNavigableState(), syntaxNodes);
 		}
 	}
 
-	/**
-	 * Ambiguous syntax:
-	 *     'center' | 'left' | 'right' | 'bottom' | 'top'
-	 *
-	 * This ambiguous syntax occurs at:
-	 *     (rule start) (ambiguity) (rule start)
-	 */
-	protected void emit_ItemPositionString_BottomKeyword_3_1_or_CenterKeyword_0_1_or_LeftKeyword_1_1_or_RightKeyword_2_1_or_TopKeyword_4_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
 }

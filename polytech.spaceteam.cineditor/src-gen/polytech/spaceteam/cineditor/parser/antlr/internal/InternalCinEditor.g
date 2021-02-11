@@ -458,18 +458,21 @@ ruleItemPositionInt returns [EObject current=null]
 	(
 		(
 			{
-				$current = forceCreateModelElement(
-					grammarAccess.getItemPositionIntAccess().getItemPositionIntAction_0(),
-					$current);
+				newCompositeNode(grammarAccess.getItemPositionIntAccess().getPositionEIntParserRuleCall_0());
+			}
+			lv_position_0_0=ruleEInt
+			{
+				if ($current==null) {
+					$current = createModelElementForParent(grammarAccess.getItemPositionIntRule());
+				}
+				set(
+					$current,
+					"position",
+					lv_position_0_0,
+					"polytech.spaceteam.cineditor.CinEditor.EInt");
+				afterParserOrEnumRuleCall();
 			}
 		)
-		{
-			newCompositeNode(grammarAccess.getItemPositionIntAccess().getEIntParserRuleCall_1());
-		}
-		ruleEInt
-		{
-			afterParserOrEnumRuleCall();
-		}
 	)
 ;
 
@@ -491,72 +494,61 @@ ruleItemPositionString returns [EObject current=null]
 	(
 		(
 			(
+				lv_position_0_1='center'
 				{
-					$current = forceCreateModelElement(
-						grammarAccess.getItemPositionStringAccess().getItemPositionStringAction_0_0(),
-						$current);
+					newLeafNode(lv_position_0_1, grammarAccess.getItemPositionStringAccess().getPositionCenterKeyword_0_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getItemPositionStringRule());
+					}
+					setWithLastConsumed($current, "position", lv_position_0_1, null);
+				}
+				    |
+				lv_position_0_2='left'
+				{
+					newLeafNode(lv_position_0_2, grammarAccess.getItemPositionStringAccess().getPositionLeftKeyword_0_1());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getItemPositionStringRule());
+					}
+					setWithLastConsumed($current, "position", lv_position_0_2, null);
+				}
+				    |
+				lv_position_0_3='right'
+				{
+					newLeafNode(lv_position_0_3, grammarAccess.getItemPositionStringAccess().getPositionRightKeyword_0_2());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getItemPositionStringRule());
+					}
+					setWithLastConsumed($current, "position", lv_position_0_3, null);
+				}
+				    |
+				lv_position_0_4='bottom'
+				{
+					newLeafNode(lv_position_0_4, grammarAccess.getItemPositionStringAccess().getPositionBottomKeyword_0_3());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getItemPositionStringRule());
+					}
+					setWithLastConsumed($current, "position", lv_position_0_4, null);
+				}
+				    |
+				lv_position_0_5='top'
+				{
+					newLeafNode(lv_position_0_5, grammarAccess.getItemPositionStringAccess().getPositionTopKeyword_0_4());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getItemPositionStringRule());
+					}
+					setWithLastConsumed($current, "position", lv_position_0_5, null);
 				}
 			)
-			otherlv_1='center'
-			{
-				newLeafNode(otherlv_1, grammarAccess.getItemPositionStringAccess().getCenterKeyword_0_1());
-			}
-		)
-		    |
-		(
-			(
-				{
-					$current = forceCreateModelElement(
-						grammarAccess.getItemPositionStringAccess().getItemPositionStringAction_1_0(),
-						$current);
-				}
-			)
-			otherlv_3='left'
-			{
-				newLeafNode(otherlv_3, grammarAccess.getItemPositionStringAccess().getLeftKeyword_1_1());
-			}
-		)
-		    |
-		(
-			(
-				{
-					$current = forceCreateModelElement(
-						grammarAccess.getItemPositionStringAccess().getItemPositionStringAction_2_0(),
-						$current);
-				}
-			)
-			otherlv_5='right'
-			{
-				newLeafNode(otherlv_5, grammarAccess.getItemPositionStringAccess().getRightKeyword_2_1());
-			}
-		)
-		    |
-		(
-			(
-				{
-					$current = forceCreateModelElement(
-						grammarAccess.getItemPositionStringAccess().getItemPositionStringAction_3_0(),
-						$current);
-				}
-			)
-			otherlv_7='bottom'
-			{
-				newLeafNode(otherlv_7, grammarAccess.getItemPositionStringAccess().getBottomKeyword_3_1());
-			}
-		)
-		    |
-		(
-			(
-				{
-					$current = forceCreateModelElement(
-						grammarAccess.getItemPositionStringAccess().getItemPositionStringAction_4_0(),
-						$current);
-				}
-			)
-			otherlv_9='top'
-			{
-				newLeafNode(otherlv_9, grammarAccess.getItemPositionStringAccess().getTopKeyword_4_1());
-			}
 		)
 	)
 ;

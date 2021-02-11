@@ -58,15 +58,15 @@ class CinEditorValidator extends AbstractCinEditorValidator {
 	@Check
 	def checkPosition(Position position) {
 		if (position.x instanceof ItemPositionString) {
-			val positionX = position.x as ItemPositionString;
+			val positionX = (position.x as ItemPositionString).position;
 			if (!positionX.equals("center") && !positionX.equals("left") && !positionX.equals("right")) {
 				error('Position x must be center, left or right', CinEditorMLPackage.Literals.POSITION__X);
 			}
 		}
 		if (position.y instanceof ItemPositionString) {
-			val positionY = position.y as ItemPositionString;
+			val positionY = (position.y as ItemPositionString).position;
 			if (!positionY.equals("center") && !positionY.equals("bottom") && !positionY.equals("top")) {
-				error('Position x must be center, top or bottom', CinEditorMLPackage.Literals.POSITION__Y);
+				error('Position y must be center, top or bottom', CinEditorMLPackage.Literals.POSITION__Y);
 			}
 		}
 	}

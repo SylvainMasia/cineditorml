@@ -26,10 +26,10 @@ ItemPosition returns ItemPosition:
 	ItemPositionInt | ItemPositionString;
 
 ItemPositionInt  returns ItemPositionInt:
-	{ItemPositionInt} EInt;
+	position=EInt;
 	
 ItemPositionString  returns ItemPositionString:
-	{ItemPositionString} 'center' | {ItemPositionString} 'left' | {ItemPositionString} 'right' | {ItemPositionString} 'bottom' | {ItemPositionString} 'top';
+	position=('center' | 'left' | 'right' | 'bottom' | 'top');
 
 		
 Dimension returns Dimension:

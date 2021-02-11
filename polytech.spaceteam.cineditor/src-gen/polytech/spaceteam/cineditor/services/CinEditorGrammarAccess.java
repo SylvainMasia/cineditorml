@@ -235,95 +235,53 @@ public class CinEditorGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	public class ItemPositionIntElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "polytech.spaceteam.cineditor.CinEditor.ItemPositionInt");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Action cItemPositionIntAction_0 = (Action)cGroup.eContents().get(0);
-		private final RuleCall cEIntParserRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
+		private final Assignment cPositionAssignment = (Assignment)rule.eContents().get(1);
+		private final RuleCall cPositionEIntParserRuleCall_0 = (RuleCall)cPositionAssignment.eContents().get(0);
 		
 		//ItemPositionInt:
-		//	{ItemPositionInt} EInt;
+		//	position=EInt;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{ItemPositionInt} EInt
-		public Group getGroup() { return cGroup; }
-		
-		//{ItemPositionInt}
-		public Action getItemPositionIntAction_0() { return cItemPositionIntAction_0; }
+		//position=EInt
+		public Assignment getPositionAssignment() { return cPositionAssignment; }
 		
 		//EInt
-		public RuleCall getEIntParserRuleCall_1() { return cEIntParserRuleCall_1; }
+		public RuleCall getPositionEIntParserRuleCall_0() { return cPositionEIntParserRuleCall_0; }
 	}
 	public class ItemPositionStringElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "polytech.spaceteam.cineditor.CinEditor.ItemPositionString");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
-		private final Action cItemPositionStringAction_0_0 = (Action)cGroup_0.eContents().get(0);
-		private final Keyword cCenterKeyword_0_1 = (Keyword)cGroup_0.eContents().get(1);
-		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
-		private final Action cItemPositionStringAction_1_0 = (Action)cGroup_1.eContents().get(0);
-		private final Keyword cLeftKeyword_1_1 = (Keyword)cGroup_1.eContents().get(1);
-		private final Group cGroup_2 = (Group)cAlternatives.eContents().get(2);
-		private final Action cItemPositionStringAction_2_0 = (Action)cGroup_2.eContents().get(0);
-		private final Keyword cRightKeyword_2_1 = (Keyword)cGroup_2.eContents().get(1);
-		private final Group cGroup_3 = (Group)cAlternatives.eContents().get(3);
-		private final Action cItemPositionStringAction_3_0 = (Action)cGroup_3.eContents().get(0);
-		private final Keyword cBottomKeyword_3_1 = (Keyword)cGroup_3.eContents().get(1);
-		private final Group cGroup_4 = (Group)cAlternatives.eContents().get(4);
-		private final Action cItemPositionStringAction_4_0 = (Action)cGroup_4.eContents().get(0);
-		private final Keyword cTopKeyword_4_1 = (Keyword)cGroup_4.eContents().get(1);
+		private final Assignment cPositionAssignment = (Assignment)rule.eContents().get(1);
+		private final Alternatives cPositionAlternatives_0 = (Alternatives)cPositionAssignment.eContents().get(0);
+		private final Keyword cPositionCenterKeyword_0_0 = (Keyword)cPositionAlternatives_0.eContents().get(0);
+		private final Keyword cPositionLeftKeyword_0_1 = (Keyword)cPositionAlternatives_0.eContents().get(1);
+		private final Keyword cPositionRightKeyword_0_2 = (Keyword)cPositionAlternatives_0.eContents().get(2);
+		private final Keyword cPositionBottomKeyword_0_3 = (Keyword)cPositionAlternatives_0.eContents().get(3);
+		private final Keyword cPositionTopKeyword_0_4 = (Keyword)cPositionAlternatives_0.eContents().get(4);
 		
 		//ItemPositionString:
-		//	{ItemPositionString} 'center' | {ItemPositionString} 'left' | {ItemPositionString} 'right' | {ItemPositionString}
-		//	'bottom' | {ItemPositionString} 'top';
+		//	position=('center' | 'left' | 'right' | 'bottom' | 'top');
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{ItemPositionString} 'center' | {ItemPositionString} 'left' | {ItemPositionString} 'right' | {ItemPositionString}
-		//'bottom' | {ItemPositionString} 'top'
-		public Alternatives getAlternatives() { return cAlternatives; }
+		//position=('center' | 'left' | 'right' | 'bottom' | 'top')
+		public Assignment getPositionAssignment() { return cPositionAssignment; }
 		
-		//{ItemPositionString} 'center'
-		public Group getGroup_0() { return cGroup_0; }
-		
-		//{ItemPositionString}
-		public Action getItemPositionStringAction_0_0() { return cItemPositionStringAction_0_0; }
+		//('center' | 'left' | 'right' | 'bottom' | 'top')
+		public Alternatives getPositionAlternatives_0() { return cPositionAlternatives_0; }
 		
 		//'center'
-		public Keyword getCenterKeyword_0_1() { return cCenterKeyword_0_1; }
-		
-		//{ItemPositionString} 'left'
-		public Group getGroup_1() { return cGroup_1; }
-		
-		//{ItemPositionString}
-		public Action getItemPositionStringAction_1_0() { return cItemPositionStringAction_1_0; }
+		public Keyword getPositionCenterKeyword_0_0() { return cPositionCenterKeyword_0_0; }
 		
 		//'left'
-		public Keyword getLeftKeyword_1_1() { return cLeftKeyword_1_1; }
-		
-		//{ItemPositionString} 'right'
-		public Group getGroup_2() { return cGroup_2; }
-		
-		//{ItemPositionString}
-		public Action getItemPositionStringAction_2_0() { return cItemPositionStringAction_2_0; }
+		public Keyword getPositionLeftKeyword_0_1() { return cPositionLeftKeyword_0_1; }
 		
 		//'right'
-		public Keyword getRightKeyword_2_1() { return cRightKeyword_2_1; }
-		
-		//{ItemPositionString} 'bottom'
-		public Group getGroup_3() { return cGroup_3; }
-		
-		//{ItemPositionString}
-		public Action getItemPositionStringAction_3_0() { return cItemPositionStringAction_3_0; }
+		public Keyword getPositionRightKeyword_0_2() { return cPositionRightKeyword_0_2; }
 		
 		//'bottom'
-		public Keyword getBottomKeyword_3_1() { return cBottomKeyword_3_1; }
-		
-		//{ItemPositionString} 'top'
-		public Group getGroup_4() { return cGroup_4; }
-		
-		//{ItemPositionString}
-		public Action getItemPositionStringAction_4_0() { return cItemPositionStringAction_4_0; }
+		public Keyword getPositionBottomKeyword_0_3() { return cPositionBottomKeyword_0_3; }
 		
 		//'top'
-		public Keyword getTopKeyword_4_1() { return cTopKeyword_4_1; }
+		public Keyword getPositionTopKeyword_0_4() { return cPositionTopKeyword_0_4; }
 	}
 	public class DimensionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "polytech.spaceteam.cineditor.CinEditor.Dimension");
@@ -1123,7 +1081,7 @@ public class CinEditorGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//ItemPositionInt:
-	//	{ItemPositionInt} EInt;
+	//	position=EInt;
 	public ItemPositionIntElements getItemPositionIntAccess() {
 		return pItemPositionInt;
 	}
@@ -1133,8 +1091,7 @@ public class CinEditorGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//ItemPositionString:
-	//	{ItemPositionString} 'center' | {ItemPositionString} 'left' | {ItemPositionString} 'right' | {ItemPositionString}
-	//	'bottom' | {ItemPositionString} 'top';
+	//	position=('center' | 'left' | 'right' | 'bottom' | 'top');
 	public ItemPositionStringElements getItemPositionStringAccess() {
 		return pItemPositionString;
 	}

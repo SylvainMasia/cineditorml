@@ -82,7 +82,7 @@ public class CinEditorValidator extends AbstractCinEditorValidator {
     ItemPosition _x = position.getX();
     if ((_x instanceof ItemPositionString)) {
       ItemPosition _x_1 = position.getX();
-      final ItemPositionString positionX = ((ItemPositionString) _x_1);
+      final String positionX = ((ItemPositionString) _x_1).getPosition();
       if ((((!positionX.equals("center")) && (!positionX.equals("left"))) && (!positionX.equals("right")))) {
         this.error("Position x must be center, left or right", CinEditorMLPackage.Literals.POSITION__X);
       }
@@ -90,9 +90,9 @@ public class CinEditorValidator extends AbstractCinEditorValidator {
     ItemPosition _y = position.getY();
     if ((_y instanceof ItemPositionString)) {
       ItemPosition _y_1 = position.getY();
-      final ItemPositionString positionY = ((ItemPositionString) _y_1);
+      final String positionY = ((ItemPositionString) _y_1).getPosition();
       if ((((!positionY.equals("center")) && (!positionY.equals("bottom"))) && (!positionY.equals("top")))) {
-        this.error("Position x must be center, top or bottom", CinEditorMLPackage.Literals.POSITION__Y);
+        this.error("Position y must be center, top or bottom", CinEditorMLPackage.Literals.POSITION__Y);
       }
     }
   }

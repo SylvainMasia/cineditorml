@@ -9,6 +9,8 @@ import CinEditorML.FadeIn;
 import CinEditorML.FadeOut;
 import CinEditorML.GraphicalElement;
 import CinEditorML.ItemPosition;
+import CinEditorML.ItemPositionInt;
+import CinEditorML.ItemPositionString;
 import CinEditorML.Layer;
 import CinEditorML.Movie;
 import CinEditorML.Picture;
@@ -168,24 +170,32 @@ public class CinEditorGenerator extends AbstractGenerator {
   
   private String extractPositionFromElement(final GraphicalElement element) {
     String s = "";
-    int marginRight = 0;
-    int marginBottom = 0;
     String posX = "";
     String posY = "";
     Position _position = element.getPosition();
     boolean _tripleNotEquals = (_position != null);
     if (_tripleNotEquals) {
-      ItemPosition _x = element.getPosition().getX();
-      String _plus = (_x + "");
-      posX = _plus;
-      ItemPosition _y = element.getPosition().getY();
-      String _plus_1 = (_y + "");
-      posY = _plus_1;
+      posX = this.extractValueFromItemPosition(element.getPosition().getX());
+      posY = this.extractValueFromItemPosition(element.getPosition().getY());
     } else {
       posX = "0";
       posY = "0";
     }
+    if (((!posX.equals("0")) || (!posY.equals("0")))) {
+      String _s = s;
+      s = (_s + (((("\\\n\t.set_pos((" + posX) + ", ") + posY) + "))"));
+    }
     return s;
+  }
+  
+  private String extractValueFromItemPosition(final ItemPosition item) {
+    if ((item instanceof ItemPositionInt)) {
+      int _position = ((ItemPositionInt) item).getPosition();
+      return (Integer.valueOf(_position) + "");
+    }
+    String _position_1 = ((ItemPositionString) item).getPosition();
+    String _plus = ("\'" + _position_1);
+    return (_plus + "\'");
   }
   
   private String extractElement(final Text element) {

@@ -187,10 +187,16 @@ public class CinEditorSemanticSequencer extends AbstractDelegatingSemanticSequen
 	 *     ItemPositionInt returns ItemPositionInt
 	 *
 	 * Constraint:
-	 *     {ItemPositionInt}
+	 *     position=EInt
 	 */
 	protected void sequence_ItemPositionInt(ISerializationContext context, ItemPositionInt semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, CinEditorMLPackage.Literals.ITEM_POSITION_INT__POSITION) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CinEditorMLPackage.Literals.ITEM_POSITION_INT__POSITION));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getItemPositionIntAccess().getPositionEIntParserRuleCall_0(), semanticObject.getPosition());
+		feeder.finish();
 	}
 	
 	
@@ -200,7 +206,7 @@ public class CinEditorSemanticSequencer extends AbstractDelegatingSemanticSequen
 	 *     ItemPositionString returns ItemPositionString
 	 *
 	 * Constraint:
-	 *     {ItemPositionString}
+	 *     (position='center' | position='left' | position='right' | position='bottom' | position='top')
 	 */
 	protected void sequence_ItemPositionString(ISerializationContext context, ItemPositionString semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
