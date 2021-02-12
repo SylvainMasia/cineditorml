@@ -784,6 +784,36 @@ ruleEFloat returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
 	)
 ;
 
+// Entry rule entryRuleEBoolean
+entryRuleEBoolean returns [String current=null]:
+	{ newCompositeNode(grammarAccess.getEBooleanRule()); }
+	iv_ruleEBoolean=ruleEBoolean
+	{ $current=$iv_ruleEBoolean.current.getText(); }
+	EOF;
+
+// Rule EBoolean
+ruleEBoolean returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		kw='true'
+		{
+			$current.merge(kw);
+			newLeafNode(kw, grammarAccess.getEBooleanAccess().getTrueKeyword_0());
+		}
+		    |
+		kw='false'
+		{
+			$current.merge(kw);
+			newLeafNode(kw, grammarAccess.getEBooleanAccess().getFalseKeyword_1());
+		}
+	)
+;
+
 // Entry rule entryRuleAudioElement
 entryRuleAudioElement returns [EObject current=null]:
 	{ newCompositeNode(grammarAccess.getAudioElementRule()); }
@@ -1384,35 +1414,87 @@ ruleVideo returns [EObject current=null]
 				}
 			)
 		)
-		otherlv_4='from'
-		{
-			newLeafNode(otherlv_4, grammarAccess.getVideoAccess().getFromKeyword_4());
-		}
 		(
+			otherlv_4='audio'
+			{
+				newLeafNode(otherlv_4, grammarAccess.getVideoAccess().getAudioKeyword_4_0());
+			}
 			(
-				{
-					newCompositeNode(grammarAccess.getVideoAccess().getBeginCropTimeEIntParserRuleCall_5_0());
-				}
-				lv_beginCropTime_5_0=ruleEInt
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getVideoRule());
+				(
+					{
+						newCompositeNode(grammarAccess.getVideoAccess().getEnableAudioEBooleanParserRuleCall_4_1_0());
 					}
-					set(
-						$current,
-						"beginCropTime",
-						lv_beginCropTime_5_0,
-						"polytech.spaceteam.cineditor.CinEditor.EInt");
-					afterParserOrEnumRuleCall();
-				}
+					lv_enableAudio_5_0=ruleEBoolean
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getVideoRule());
+						}
+						set(
+							$current,
+							"enableAudio",
+							lv_enableAudio_5_0,
+							"polytech.spaceteam.cineditor.CinEditor.EBoolean");
+						afterParserOrEnumRuleCall();
+					}
+				)
 			)
-		)
+		)?
+		(
+			otherlv_6='from'
+			{
+				newLeafNode(otherlv_6, grammarAccess.getVideoAccess().getFromKeyword_5_0());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getVideoAccess().getBeginCropTimeEIntParserRuleCall_5_1_0());
+					}
+					lv_beginCropTime_7_0=ruleEInt
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getVideoRule());
+						}
+						set(
+							$current,
+							"beginCropTime",
+							lv_beginCropTime_7_0,
+							"polytech.spaceteam.cineditor.CinEditor.EInt");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)?
+		(
+			otherlv_8='during'
+			{
+				newLeafNode(otherlv_8, grammarAccess.getVideoAccess().getDuringKeyword_6_0());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getVideoAccess().getDurationEIntParserRuleCall_6_1_0());
+					}
+					lv_duration_9_0=ruleEInt
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getVideoRule());
+						}
+						set(
+							$current,
+							"duration",
+							lv_duration_9_0,
+							"polytech.spaceteam.cineditor.CinEditor.EInt");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)?
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getVideoAccess().getPositionPositionParserRuleCall_6_0());
+					newCompositeNode(grammarAccess.getVideoAccess().getPositionPositionParserRuleCall_7_0());
 				}
-				lv_position_6_0=rulePosition
+				lv_position_10_0=rulePosition
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getVideoRule());
@@ -1420,7 +1502,7 @@ ruleVideo returns [EObject current=null]
 					set(
 						$current,
 						"position",
-						lv_position_6_0,
+						lv_position_10_0,
 						"polytech.spaceteam.cineditor.CinEditor.Position");
 					afterParserOrEnumRuleCall();
 				}
@@ -1429,9 +1511,9 @@ ruleVideo returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getVideoAccess().getDimensionDimensionParserRuleCall_7_0());
+					newCompositeNode(grammarAccess.getVideoAccess().getDimensionDimensionParserRuleCall_8_0());
 				}
-				lv_dimension_7_0=ruleDimension
+				lv_dimension_11_0=ruleDimension
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getVideoRule());
@@ -1439,23 +1521,23 @@ ruleVideo returns [EObject current=null]
 					set(
 						$current,
 						"dimension",
-						lv_dimension_7_0,
+						lv_dimension_11_0,
 						"polytech.spaceteam.cineditor.CinEditor.Dimension");
 					afterParserOrEnumRuleCall();
 				}
 			)
-		)?
+		)
 		(
-			otherlv_8='at'
+			otherlv_12='at'
 			{
-				newLeafNode(otherlv_8, grammarAccess.getVideoAccess().getAtKeyword_8_0());
+				newLeafNode(otherlv_12, grammarAccess.getVideoAccess().getAtKeyword_9_0());
 			}
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getVideoAccess().getBeginTimeEIntParserRuleCall_8_1_0());
+						newCompositeNode(grammarAccess.getVideoAccess().getBeginTimeEIntParserRuleCall_9_1_0());
 					}
-					lv_beginTime_9_0=ruleEInt
+					lv_beginTime_13_0=ruleEInt
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getVideoRule());
@@ -1463,32 +1545,7 @@ ruleVideo returns [EObject current=null]
 						set(
 							$current,
 							"beginTime",
-							lv_beginTime_9_0,
-							"polytech.spaceteam.cineditor.CinEditor.EInt");
-						afterParserOrEnumRuleCall();
-					}
-				)
-			)
-		)?
-		(
-			otherlv_10='during'
-			{
-				newLeafNode(otherlv_10, grammarAccess.getVideoAccess().getDuringKeyword_9_0());
-			}
-			(
-				(
-					{
-						newCompositeNode(grammarAccess.getVideoAccess().getDurationEIntParserRuleCall_9_1_0());
-					}
-					lv_duration_11_0=ruleEInt
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getVideoRule());
-						}
-						set(
-							$current,
-							"duration",
-							lv_duration_11_0,
+							lv_beginTime_13_0,
 							"polytech.spaceteam.cineditor.CinEditor.EInt");
 						afterParserOrEnumRuleCall();
 					}

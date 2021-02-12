@@ -45,6 +45,9 @@ EInt returns ecore::EInt:
 
 EFloat returns ecore::EFloat:
 	'-'? INT (('.' | ',') INT)?;
+	
+EBoolean returns ecore::EBoolean:
+	'true' | 'false';
 
 AudioElement returns AudioElement:
 	'Audio' name=EString '=' url=EString ('volume' volume=EFloat)? ('fadeIn' fadeIn=EInt)? ('fadeOut' fadeOut=EInt)? ('at' beginTime=EInt)? ('during' duration=EInt)? 'on' element=[GraphicalElement];
@@ -56,7 +59,7 @@ Picture returns Picture:
 	'Picture' name=EString '=' url=EString position=Position? dimension=Dimension? ('at' beginTime=EInt)? ('during' duration=EInt)?;
 
 Video returns Video:
-	'Video' name=EString '=' url=EString 'from' beginCropTime=EInt position=Position? dimension=Dimension? ('at'  beginTime=EInt)? ('during' duration=EInt)?;
+	'Video' name=EString '=' url=EString ('audio' enableAudio=EBoolean)? ('from' beginCropTime=EInt)? ('during' duration=EInt)? position=Position? dimension=Dimension ('at' beginTime=EInt)?;
 	
 Rectangle returns Rectangle:
 	'Rectangle' name=EString '=' color=HexadecimalColor position=Position? dimension=Dimension? ('at' beginTime=EInt)? ('during' duration=EInt)?;

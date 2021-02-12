@@ -6,12 +6,12 @@ movie_width = 1280
 background = ColorClip(size=(movie_width, movie_width), col=[0,0,0])\
 	.set_duration(10)
 
-audio = AudioFileClip("./assets/music.mp3")\
+music = AudioFileClip("./assets/music.mp3")\
 	.set_duration(10)\
 	.volumex(0.9)\
 	.audio_fadein(2)\
 	.audio_fadeout(2)
-background = background.set_audio(audio)
+background = background.set_audio(music)
 
 rec1 = ColorClip(size=(movie_width, movie_width), col=[62,107,197])\
 	.set_duration(2)
@@ -20,9 +20,14 @@ rec2 = ColorClip(size=(1280, 720), col=[62,197,144])\
 	.set_start(2)\
 	.set_duration(2)
 
-rec3 = ColorClip(size=(50, 50), col=[255,255,255])\
+petitRec = ColorClip(size=(50, 50), col=[255,255,255])\
 	.set_duration(4)\
 	.set_pos((10, 10))
+
+video = VideoFileClip("./assets/video.mp4", audio=False)\
+	.set_duration(2)\
+	.resize((405, 720))\
+	.subclip(2, 4)
 
 title = TextClip("C'est notre film", color='#ffffff', fontsize=70)\
 	.set_duration(2)\
@@ -38,5 +43,5 @@ pic1 = ImageClip("./assets/1.png")\
 	.resize((200, 200))
 
 
-video = CompositeVideoClip([background, rec1, rec2, rec3, title, bonjour, pic1, background, rec1, rec2, rec3, title, bonjour, pic1], size=(movie_width,movie_height)).set_duration(10)
-video.write_videofile('./richard_a_la_campagne.avi', codec='mpeg4', fps=30)
+video = CompositeVideoClip([background, rec1, rec2, petitRec, video, title, bonjour, pic1], size=(movie_width,movie_height)).set_duration(10)
+video.write_videofile('./richard_a_la_campagne.mp4', codec='mpeg4', fps=30)

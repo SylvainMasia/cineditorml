@@ -37,6 +37,7 @@ public class CinEditorParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getItemPositionStringAccess().getPositionAlternatives_0(), "rule__ItemPositionString__PositionAlternatives_0");
 			builder.put(grammarAccess.getGraphicalElementAccess().getAlternatives(), "rule__GraphicalElement__Alternatives");
 			builder.put(grammarAccess.getEFloatAccess().getAlternatives_2_0(), "rule__EFloat__Alternatives_2_0");
+			builder.put(grammarAccess.getEBooleanAccess().getAlternatives(), "rule__EBoolean__Alternatives");
 			builder.put(grammarAccess.getMovieAccess().getGroup(), "rule__Movie__Group__0");
 			builder.put(grammarAccess.getMovieAccess().getGroup_3(), "rule__Movie__Group_3__0");
 			builder.put(grammarAccess.getLayerAccess().getGroup(), "rule__Layer__Group__0");
@@ -61,7 +62,9 @@ public class CinEditorParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getPictureAccess().getGroup_6(), "rule__Picture__Group_6__0");
 			builder.put(grammarAccess.getPictureAccess().getGroup_7(), "rule__Picture__Group_7__0");
 			builder.put(grammarAccess.getVideoAccess().getGroup(), "rule__Video__Group__0");
-			builder.put(grammarAccess.getVideoAccess().getGroup_8(), "rule__Video__Group_8__0");
+			builder.put(grammarAccess.getVideoAccess().getGroup_4(), "rule__Video__Group_4__0");
+			builder.put(grammarAccess.getVideoAccess().getGroup_5(), "rule__Video__Group_5__0");
+			builder.put(grammarAccess.getVideoAccess().getGroup_6(), "rule__Video__Group_6__0");
 			builder.put(grammarAccess.getVideoAccess().getGroup_9(), "rule__Video__Group_9__0");
 			builder.put(grammarAccess.getRectangleAccess().getGroup(), "rule__Rectangle__Group__0");
 			builder.put(grammarAccess.getRectangleAccess().getGroup_6(), "rule__Rectangle__Group_6__0");
@@ -106,11 +109,12 @@ public class CinEditorParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getPictureAccess().getDurationAssignment_7_1(), "rule__Picture__DurationAssignment_7_1");
 			builder.put(grammarAccess.getVideoAccess().getNameAssignment_1(), "rule__Video__NameAssignment_1");
 			builder.put(grammarAccess.getVideoAccess().getUrlAssignment_3(), "rule__Video__UrlAssignment_3");
-			builder.put(grammarAccess.getVideoAccess().getBeginCropTimeAssignment_5(), "rule__Video__BeginCropTimeAssignment_5");
-			builder.put(grammarAccess.getVideoAccess().getPositionAssignment_6(), "rule__Video__PositionAssignment_6");
-			builder.put(grammarAccess.getVideoAccess().getDimensionAssignment_7(), "rule__Video__DimensionAssignment_7");
-			builder.put(grammarAccess.getVideoAccess().getBeginTimeAssignment_8_1(), "rule__Video__BeginTimeAssignment_8_1");
-			builder.put(grammarAccess.getVideoAccess().getDurationAssignment_9_1(), "rule__Video__DurationAssignment_9_1");
+			builder.put(grammarAccess.getVideoAccess().getEnableAudioAssignment_4_1(), "rule__Video__EnableAudioAssignment_4_1");
+			builder.put(grammarAccess.getVideoAccess().getBeginCropTimeAssignment_5_1(), "rule__Video__BeginCropTimeAssignment_5_1");
+			builder.put(grammarAccess.getVideoAccess().getDurationAssignment_6_1(), "rule__Video__DurationAssignment_6_1");
+			builder.put(grammarAccess.getVideoAccess().getPositionAssignment_7(), "rule__Video__PositionAssignment_7");
+			builder.put(grammarAccess.getVideoAccess().getDimensionAssignment_8(), "rule__Video__DimensionAssignment_8");
+			builder.put(grammarAccess.getVideoAccess().getBeginTimeAssignment_9_1(), "rule__Video__BeginTimeAssignment_9_1");
 			builder.put(grammarAccess.getRectangleAccess().getNameAssignment_1(), "rule__Rectangle__NameAssignment_1");
 			builder.put(grammarAccess.getRectangleAccess().getColorAssignment_3(), "rule__Rectangle__ColorAssignment_3");
 			builder.put(grammarAccess.getRectangleAccess().getPositionAssignment_4(), "rule__Rectangle__PositionAssignment_4");

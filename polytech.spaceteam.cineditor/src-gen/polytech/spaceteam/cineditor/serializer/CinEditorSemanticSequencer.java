@@ -371,11 +371,12 @@ public class CinEditorSemanticSequencer extends AbstractDelegatingSemanticSequen
 	 *     (
 	 *         name=EString 
 	 *         url=EString 
-	 *         beginCropTime=EInt 
+	 *         enableAudio=EBoolean? 
+	 *         beginCropTime=EInt? 
+	 *         duration=EInt? 
 	 *         position=Position? 
-	 *         dimension=Dimension? 
-	 *         beginTime=EInt? 
-	 *         duration=EInt?
+	 *         dimension=Dimension 
+	 *         beginTime=EInt?
 	 *     )
 	 */
 	protected void sequence_Video(ISerializationContext context, Video semanticObject) {

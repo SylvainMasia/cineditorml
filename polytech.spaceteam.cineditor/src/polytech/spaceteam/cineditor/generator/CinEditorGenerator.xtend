@@ -45,6 +45,7 @@ class CinEditorGenerator extends AbstractGenerator {
 	@Inject extension IQualifiedNameProvider
 	
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
+		elementsVarNames.clear();
 		for (movie : resource.allContents.toIterable.filter(Movie)) {
 			val _fullyQualifiedName = this._iQualifiedNameProvider.getFullyQualifiedName(movie);
 			fsa.generateFile(
@@ -71,7 +72,7 @@ class CinEditorGenerator extends AbstractGenerator {
 			sFinal += elementsVarNames.get(i);
 		}
 		sFinal += "], size=(" + varMovieWidth + "," + varMovieHeight + ")).set_duration(10)\n"; //TODO when no video set a calculated duration
-		sFinal += "video.write_videofile('./" + movie.getName()  + ".avi', codec='mpeg4', fps=" + movie.getFps() +")";
+		sFinal += "video.write_videofile('./" + movie.getName()  + ".mp4', codec='mpeg4', fps=" + movie.getFps() +")";
 		return sFinal;
 	}
 	
@@ -111,7 +112,7 @@ class CinEditorGenerator extends AbstractGenerator {
 	
 	private def String extractDurationFromElement(Element element) {
 		var s = "";
-		var duration = totalMovieDuration;
+		var duration = -1;
 		if (element.duration > 0) {
 			duration = element.duration;
 		} else if (element instanceof AudioElement) {
@@ -119,8 +120,12 @@ class CinEditorGenerator extends AbstractGenerator {
 			if (duration < 0) { // in case the element.duration is during the whole film
 				duration = totalMovieDuration;
 			}
+		} else if (!(element instanceof Video)) {
+			duration = totalMovieDuration;
 		}
-		s += "\\\n\t.set_duration(" + duration + ")";
+		if (duration != -1) {
+			s += "\\\n\t.set_duration(" + duration + ")";
+		}
 		return s;
 	}
 	
@@ -224,15 +229,29 @@ class CinEditorGenerator extends AbstractGenerator {
 					+ fadeIn
 					+ fadeOut
 					+ "\n";
-		
-		
 		s += element.element.name + " = " + element.element.name + ".set_audio(" + element.getName() + ")\n\n";
 		return s;
 	}
 	
 	private def String extractElement(Video element) {
-		var s = "";
-		
+		var cropString = ""
+		if (element.beginCropTime > -1) {
+			cropString = "\\\n\t.subclip(" + element.beginCropTime + ", " + (element.beginCropTime + element.duration) + ")";
+		}
+		var audio = "";
+		if (element.enableAudio.equals("true")) {
+			audio = "True";
+		} else {
+			audio = "False";
+		}
+		var s = element.getName() 
+				+ " = VideoFileClip(" + "\"" +element.url + "\"" + ", audio=" + audio +")"
+					+ extractBeginTimeFromElement(element)
+					+ extractDurationFromElement(element)
+					+ extractDimensionFromElement(element)
+					+ cropString
+					+ "\n\n";
+		elementsVarNames.add(element.getName());
 		return s;
 	}
 	

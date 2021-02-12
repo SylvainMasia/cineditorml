@@ -59,6 +59,7 @@ public class CinEditorGenerator extends AbstractGenerator {
   
   @Override
   public void doGenerate(final Resource resource, final IFileSystemAccess2 fsa, final IGeneratorContext context) {
+    this.elementsVarNames.clear();
     Iterable<Movie> _filter = Iterables.<Movie>filter(IteratorExtensions.<EObject>toIterable(resource.getAllContents()), Movie.class);
     for (final Movie movie : _filter) {
       {
@@ -102,7 +103,7 @@ public class CinEditorGenerator extends AbstractGenerator {
     String _sFinal_1 = sFinal;
     String _name = movie.getName();
     String _plus = ("video.write_videofile(\'./" + _name);
-    String _plus_1 = (_plus + ".avi\', codec=\'mpeg4\', fps=");
+    String _plus_1 = (_plus + ".mp4\', codec=\'mpeg4\', fps=");
     int _fps = movie.getFps();
     String _plus_2 = (_plus_1 + Integer.valueOf(_fps));
     String _plus_3 = (_plus_2 + ")");
@@ -176,7 +177,7 @@ public class CinEditorGenerator extends AbstractGenerator {
   
   private String extractDurationFromElement(final Element element) {
     String s = "";
-    int duration = this.totalMovieDuration;
+    int duration = (-1);
     int _duration = element.getDuration();
     boolean _greaterThan = (_duration > 0);
     if (_greaterThan) {
@@ -187,10 +188,16 @@ public class CinEditorGenerator extends AbstractGenerator {
         if ((duration < 0)) {
           duration = this.totalMovieDuration;
         }
+      } else {
+        if ((!(element instanceof Video))) {
+          duration = this.totalMovieDuration;
+        }
       }
     }
-    String _s = s;
-    s = (_s + (("\\\n\t.set_duration(" + Integer.valueOf(duration)) + ")"));
+    if ((duration != (-1))) {
+      String _s = s;
+      s = (_s + (("\\\n\t.set_duration(" + Integer.valueOf(duration)) + ")"));
+    }
     return s;
   }
   
@@ -364,7 +371,45 @@ public class CinEditorGenerator extends AbstractGenerator {
   }
   
   private String extractElement(final Video element) {
-    String s = "";
+    String cropString = "";
+    int _beginCropTime = element.getBeginCropTime();
+    boolean _greaterThan = (_beginCropTime > (-1));
+    if (_greaterThan) {
+      int _beginCropTime_1 = element.getBeginCropTime();
+      String _plus = ("\\\n\t.subclip(" + Integer.valueOf(_beginCropTime_1));
+      String _plus_1 = (_plus + ", ");
+      int _beginCropTime_2 = element.getBeginCropTime();
+      int _duration = element.getDuration();
+      int _plus_2 = (_beginCropTime_2 + _duration);
+      String _plus_3 = (_plus_1 + Integer.valueOf(_plus_2));
+      String _plus_4 = (_plus_3 + ")");
+      cropString = _plus_4;
+    }
+    String audio = "";
+    boolean _equals = Boolean.valueOf(element.isEnableAudio()).equals("true");
+    if (_equals) {
+      audio = "True";
+    } else {
+      audio = "False";
+    }
+    String _name = element.getName();
+    String _plus_5 = (_name + " = VideoFileClip(");
+    String _plus_6 = (_plus_5 + "\"");
+    String _url = element.getUrl();
+    String _plus_7 = (_plus_6 + _url);
+    String _plus_8 = (_plus_7 + "\"");
+    String _plus_9 = (_plus_8 + ", audio=");
+    String _plus_10 = (_plus_9 + audio);
+    String _plus_11 = (_plus_10 + ")");
+    String _extractBeginTimeFromElement = this.extractBeginTimeFromElement(element);
+    String _plus_12 = (_plus_11 + _extractBeginTimeFromElement);
+    String _extractDurationFromElement = this.extractDurationFromElement(element);
+    String _plus_13 = (_plus_12 + _extractDurationFromElement);
+    String _extractDimensionFromElement = this.extractDimensionFromElement(element);
+    String _plus_14 = (_plus_13 + _extractDimensionFromElement);
+    String _plus_15 = (_plus_14 + cropString);
+    String s = (_plus_15 + "\n\n");
+    this.elementsVarNames.add(element.getName());
     return s;
   }
   

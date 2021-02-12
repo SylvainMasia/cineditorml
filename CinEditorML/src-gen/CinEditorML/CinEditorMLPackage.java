@@ -541,13 +541,22 @@ public interface CinEditorMLPackage extends EPackage {
 	int VIDEO__BEGIN_CROP_TIME = GRAPHICAL_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Enable Audio</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIDEO__ENABLE_AUDIO = GRAPHICAL_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Video</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VIDEO_FEATURE_COUNT = GRAPHICAL_ELEMENT_FEATURE_COUNT + 2;
+	int VIDEO_FEATURE_COUNT = GRAPHICAL_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>Video</em>' class.
@@ -1490,6 +1499,17 @@ public interface CinEditorMLPackage extends EPackage {
 	EAttribute getVideo_BeginCropTime();
 
 	/**
+	 * Returns the meta object for the attribute '{@link CinEditorML.Video#isEnableAudio <em>Enable Audio</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Enable Audio</em>'.
+	 * @see CinEditorML.Video#isEnableAudio()
+	 * @see #getVideo()
+	 * @generated
+	 */
+	EAttribute getVideo_EnableAudio();
+
+	/**
 	 * Returns the meta object for class '{@link CinEditorML.Element <em>Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2019,6 +2039,14 @@ public interface CinEditorMLPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute VIDEO__BEGIN_CROP_TIME = eINSTANCE.getVideo_BeginCropTime();
+
+		/**
+		 * The meta object literal for the '<em><b>Enable Audio</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute VIDEO__ENABLE_AUDIO = eINSTANCE.getVideo_EnableAudio();
 
 		/**
 		 * The meta object literal for the '{@link CinEditorML.impl.ElementImpl <em>Element</em>}' class.

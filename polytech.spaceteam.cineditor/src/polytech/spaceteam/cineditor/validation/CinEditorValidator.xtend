@@ -12,6 +12,7 @@ import java.util.HashSet
 import CinEditorML.Position
 import CinEditorML.ItemPositionString
 import CinEditorML.AudioElement
+import CinEditorML.Video
 
 /**
  * This class contains custom validation rules. 
@@ -86,6 +87,13 @@ class CinEditorValidator extends AbstractCinEditorValidator {
 	def checkAudio(AudioElement element) {
 		if (element.volume > 1 || element.volume < 0) {
 			error('Volume must be between 0 and 1', CinEditorMLPackage.Literals.AUDIO_ELEMENT__VOLUME);
+		}
+	}
+	
+	@Check
+	def checkVideo(Video element) {
+		if (element.beginCropTime > -1 && element.duration < 0) {
+			error('To crop a video you must set the duration', CinEditorMLPackage.Literals.VIDEO__BEGIN_CROP_TIME);
 		}
 	}
 	

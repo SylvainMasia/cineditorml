@@ -12,6 +12,7 @@ import CinEditorML.ItemPositionString;
 import CinEditorML.Layer;
 import CinEditorML.Movie;
 import CinEditorML.Position;
+import CinEditorML.Video;
 import java.util.HashSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -115,6 +116,13 @@ public class CinEditorValidator extends AbstractCinEditorValidator {
   public void checkAudio(final AudioElement element) {
     if (((element.getVolume() > 1) || (element.getVolume() < 0))) {
       this.error("Volume must be between 0 and 1", CinEditorMLPackage.Literals.AUDIO_ELEMENT__VOLUME);
+    }
+  }
+  
+  @Check
+  public void checkVideo(final Video element) {
+    if (((element.getBeginCropTime() > (-1)) && (element.getDuration() < 0))) {
+      this.error("To crop a video you must set the duration", CinEditorMLPackage.Literals.VIDEO__BEGIN_CROP_TIME);
     }
   }
   

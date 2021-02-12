@@ -395,6 +395,15 @@ public class CinEditorMLPackageImpl extends EPackageImpl implements CinEditorMLP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getVideo_EnableAudio() {
+		return (EAttribute) videoEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getElement() {
 		return elementEClass;
 	}
@@ -754,6 +763,7 @@ public class CinEditorMLPackageImpl extends EPackageImpl implements CinEditorMLP
 		videoEClass = createEClass(VIDEO);
 		createEAttribute(videoEClass, VIDEO__URL);
 		createEAttribute(videoEClass, VIDEO__BEGIN_CROP_TIME);
+		createEAttribute(videoEClass, VIDEO__ENABLE_AUDIO);
 
 		elementEClass = createEClass(ELEMENT);
 		createEAttribute(elementEClass, ELEMENT__DURATION);
@@ -887,7 +897,9 @@ public class CinEditorMLPackageImpl extends EPackageImpl implements CinEditorMLP
 		initEClass(videoEClass, Video.class, "Video", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getVideo_Url(), ecorePackage.getEString(), "url", null, 1, 1, Video.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getVideo_BeginCropTime(), ecorePackage.getEInt(), "beginCropTime", "0", 0, 1, Video.class,
+		initEAttribute(getVideo_BeginCropTime(), ecorePackage.getEInt(), "beginCropTime", "-1", 0, 1, Video.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getVideo_EnableAudio(), ecorePackage.getEBoolean(), "enableAudio", "true", 0, 1, Video.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(elementEClass, Element.class, "Element", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

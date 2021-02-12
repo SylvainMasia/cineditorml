@@ -29,6 +29,7 @@
     <genClasses ecoreClass="CinEditorML.ecore#//Video">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CinEditorML.ecore#//Video/url"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CinEditorML.ecore#//Video/beginCropTime"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CinEditorML.ecore#//Video/enableAudio"/>
     </genClasses>
     <genClasses ecoreClass="CinEditorML.ecore#//Element">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CinEditorML.ecore#//Element/duration"/>

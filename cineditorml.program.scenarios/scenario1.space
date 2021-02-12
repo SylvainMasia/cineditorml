@@ -1,15 +1,18 @@
 Movie richard_a_la_campagne dimension 1280 x 720 fps 30
 	Layer
 		Rectangle background = color '000' dimension -1 x -1
-		Audio audio = './assets/music.mp3' volume 0.9 fadeIn 2 fadeOut 2 on background
+		Audio music = './assets/music.mp3' volume 0.9 fadeIn 2 fadeOut 2 on background
 	Layer
 		Rectangle rec1 = color '3E6BC5' dimension -1 x -1 during 2
 		Effect e1 = FadeOut during 2 on rec1
 		Rectangle rec2 = color '3EC590' dimension 1280 x 720 at 2 during 2
 		Effect e2 = FadeIn during 2 on rec2
-		Rectangle rec3 = color 'ffffff' position (10, 10) dimension 50 x 50 during 4
+		Rectangle petitRec = color 'ffffff' position (10, 10) dimension 50 x 50 during 4
+	Layer
+		Video video = './assets/video.mp4' from 2 during 2 dimension 405 x 720
 	Layer
 		Text title = 'C\'est notre film' fontSize 70 position (center, bottom) during 2 color 'ffffff'
 		Text bonjour = 'Bonjour ricardo, triagon et sylvano' fontSize 50 position (-5, 20) color 'ff0000'
 	Layer
 		Picture pic1 = './assets/1.png' position(center, center) dimension 200 x 200 during 4
+	
