@@ -21,3 +21,6 @@ also known as "Spaceteam"
   - `docker pull dkarchmervue/moviepy`
   - `docker run --rm -ti -v C:\dev\courses\cineditorml\cineditorml.program.scenarios\src-gen:/work dkarchmervue/moviepy /bin/bash`
     - `python file.py`
+
+# Warning
+When using Audio with moviepy, the audio must not have a cover because it will crash. An issue has been open to fix that (https://github.com/Zulko/moviepy/issues/448) but it seems that it has not been fixed.

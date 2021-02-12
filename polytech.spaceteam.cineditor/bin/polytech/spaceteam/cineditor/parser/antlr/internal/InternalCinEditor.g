@@ -182,65 +182,47 @@ ruleElement returns [EObject current=null]
 }:
 	(
 		{
-			newCompositeNode(grammarAccess.getElementAccess().getTextParserRuleCall_0());
+			newCompositeNode(grammarAccess.getElementAccess().getGraphicalElementParserRuleCall_0());
 		}
-		this_Text_0=ruleText
+		this_GraphicalElement_0=ruleGraphicalElement
 		{
-			$current = $this_Text_0.current;
+			$current = $this_GraphicalElement_0.current;
 			afterParserOrEnumRuleCall();
 		}
 		    |
 		{
-			newCompositeNode(grammarAccess.getElementAccess().getPictureParserRuleCall_1());
+			newCompositeNode(grammarAccess.getElementAccess().getFadeInParserRuleCall_1());
 		}
-		this_Picture_1=rulePicture
+		this_FadeIn_1=ruleFadeIn
 		{
-			$current = $this_Picture_1.current;
+			$current = $this_FadeIn_1.current;
 			afterParserOrEnumRuleCall();
 		}
 		    |
 		{
-			newCompositeNode(grammarAccess.getElementAccess().getVideoParserRuleCall_2());
+			newCompositeNode(grammarAccess.getElementAccess().getFadeOutParserRuleCall_2());
 		}
-		this_Video_2=ruleVideo
+		this_FadeOut_2=ruleFadeOut
 		{
-			$current = $this_Video_2.current;
+			$current = $this_FadeOut_2.current;
 			afterParserOrEnumRuleCall();
 		}
 		    |
 		{
-			newCompositeNode(grammarAccess.getElementAccess().getFadeInParserRuleCall_3());
+			newCompositeNode(grammarAccess.getElementAccess().getTranslateParserRuleCall_3());
 		}
-		this_FadeIn_3=ruleFadeIn
+		this_Translate_3=ruleTranslate
 		{
-			$current = $this_FadeIn_3.current;
+			$current = $this_Translate_3.current;
 			afterParserOrEnumRuleCall();
 		}
 		    |
 		{
-			newCompositeNode(grammarAccess.getElementAccess().getFadeOutParserRuleCall_4());
+			newCompositeNode(grammarAccess.getElementAccess().getAudioElementParserRuleCall_4());
 		}
-		this_FadeOut_4=ruleFadeOut
+		this_AudioElement_4=ruleAudioElement
 		{
-			$current = $this_FadeOut_4.current;
-			afterParserOrEnumRuleCall();
-		}
-		    |
-		{
-			newCompositeNode(grammarAccess.getElementAccess().getTranslateParserRuleCall_5());
-		}
-		this_Translate_5=ruleTranslate
-		{
-			$current = $this_Translate_5.current;
-			afterParserOrEnumRuleCall();
-		}
-		    |
-		{
-			newCompositeNode(grammarAccess.getElementAccess().getRectangleParserRuleCall_6());
-		}
-		this_Rectangle_6=ruleRectangle
-		{
-			$current = $this_Rectangle_6.current;
+			$current = $this_AudioElement_4.current;
 			afterParserOrEnumRuleCall();
 		}
 	)
@@ -660,6 +642,60 @@ ruleHexadecimalColor returns [EObject current=null]
 	)
 ;
 
+// Entry rule entryRuleGraphicalElement
+entryRuleGraphicalElement returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getGraphicalElementRule()); }
+	iv_ruleGraphicalElement=ruleGraphicalElement
+	{ $current=$iv_ruleGraphicalElement.current; }
+	EOF;
+
+// Rule GraphicalElement
+ruleGraphicalElement returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		{
+			newCompositeNode(grammarAccess.getGraphicalElementAccess().getTextParserRuleCall_0());
+		}
+		this_Text_0=ruleText
+		{
+			$current = $this_Text_0.current;
+			afterParserOrEnumRuleCall();
+		}
+		    |
+		{
+			newCompositeNode(grammarAccess.getGraphicalElementAccess().getVideoParserRuleCall_1());
+		}
+		this_Video_1=ruleVideo
+		{
+			$current = $this_Video_1.current;
+			afterParserOrEnumRuleCall();
+		}
+		    |
+		{
+			newCompositeNode(grammarAccess.getGraphicalElementAccess().getPictureParserRuleCall_2());
+		}
+		this_Picture_2=rulePicture
+		{
+			$current = $this_Picture_2.current;
+			afterParserOrEnumRuleCall();
+		}
+		    |
+		{
+			newCompositeNode(grammarAccess.getGraphicalElementAccess().getRectangleParserRuleCall_3());
+		}
+		this_Rectangle_3=ruleRectangle
+		{
+			$current = $this_Rectangle_3.current;
+			afterParserOrEnumRuleCall();
+		}
+	)
+;
+
 // Entry rule entryRuleEInt
 entryRuleEInt returns [String current=null]:
 	{ newCompositeNode(grammarAccess.getEIntRule()); }
@@ -690,6 +726,268 @@ ruleEInt returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
 		{
 			newLeafNode(this_INT_1, grammarAccess.getEIntAccess().getINTTerminalRuleCall_1());
 		}
+	)
+;
+
+// Entry rule entryRuleEFloat
+entryRuleEFloat returns [String current=null]:
+	{ newCompositeNode(grammarAccess.getEFloatRule()); }
+	iv_ruleEFloat=ruleEFloat
+	{ $current=$iv_ruleEFloat.current.getText(); }
+	EOF;
+
+// Rule EFloat
+ruleEFloat returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			kw='-'
+			{
+				$current.merge(kw);
+				newLeafNode(kw, grammarAccess.getEFloatAccess().getHyphenMinusKeyword_0());
+			}
+		)?
+		this_INT_1=RULE_INT
+		{
+			$current.merge(this_INT_1);
+		}
+		{
+			newLeafNode(this_INT_1, grammarAccess.getEFloatAccess().getINTTerminalRuleCall_1());
+		}
+		(
+			(
+				kw='.'
+				{
+					$current.merge(kw);
+					newLeafNode(kw, grammarAccess.getEFloatAccess().getFullStopKeyword_2_0_0());
+				}
+				    |
+				kw=','
+				{
+					$current.merge(kw);
+					newLeafNode(kw, grammarAccess.getEFloatAccess().getCommaKeyword_2_0_1());
+				}
+			)
+			this_INT_4=RULE_INT
+			{
+				$current.merge(this_INT_4);
+			}
+			{
+				newLeafNode(this_INT_4, grammarAccess.getEFloatAccess().getINTTerminalRuleCall_2_1());
+			}
+		)?
+	)
+;
+
+// Entry rule entryRuleAudioElement
+entryRuleAudioElement returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getAudioElementRule()); }
+	iv_ruleAudioElement=ruleAudioElement
+	{ $current=$iv_ruleAudioElement.current; }
+	EOF;
+
+// Rule AudioElement
+ruleAudioElement returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0='Audio'
+		{
+			newLeafNode(otherlv_0, grammarAccess.getAudioElementAccess().getAudioKeyword_0());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getAudioElementAccess().getNameEStringParserRuleCall_1_0());
+				}
+				lv_name_1_0=ruleEString
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getAudioElementRule());
+					}
+					set(
+						$current,
+						"name",
+						lv_name_1_0,
+						"polytech.spaceteam.cineditor.CinEditor.EString");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		otherlv_2='='
+		{
+			newLeafNode(otherlv_2, grammarAccess.getAudioElementAccess().getEqualsSignKeyword_2());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getAudioElementAccess().getUrlEStringParserRuleCall_3_0());
+				}
+				lv_url_3_0=ruleEString
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getAudioElementRule());
+					}
+					set(
+						$current,
+						"url",
+						lv_url_3_0,
+						"polytech.spaceteam.cineditor.CinEditor.EString");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		(
+			otherlv_4='volume'
+			{
+				newLeafNode(otherlv_4, grammarAccess.getAudioElementAccess().getVolumeKeyword_4_0());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getAudioElementAccess().getVolumeEFloatParserRuleCall_4_1_0());
+					}
+					lv_volume_5_0=ruleEFloat
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getAudioElementRule());
+						}
+						set(
+							$current,
+							"volume",
+							lv_volume_5_0,
+							"polytech.spaceteam.cineditor.CinEditor.EFloat");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)?
+		(
+			otherlv_6='fadeIn'
+			{
+				newLeafNode(otherlv_6, grammarAccess.getAudioElementAccess().getFadeInKeyword_5_0());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getAudioElementAccess().getFadeInEIntParserRuleCall_5_1_0());
+					}
+					lv_fadeIn_7_0=ruleEInt
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getAudioElementRule());
+						}
+						set(
+							$current,
+							"fadeIn",
+							lv_fadeIn_7_0,
+							"polytech.spaceteam.cineditor.CinEditor.EInt");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)?
+		(
+			otherlv_8='fadeOut'
+			{
+				newLeafNode(otherlv_8, grammarAccess.getAudioElementAccess().getFadeOutKeyword_6_0());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getAudioElementAccess().getFadeOutEIntParserRuleCall_6_1_0());
+					}
+					lv_fadeOut_9_0=ruleEInt
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getAudioElementRule());
+						}
+						set(
+							$current,
+							"fadeOut",
+							lv_fadeOut_9_0,
+							"polytech.spaceteam.cineditor.CinEditor.EInt");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)?
+		(
+			otherlv_10='at'
+			{
+				newLeafNode(otherlv_10, grammarAccess.getAudioElementAccess().getAtKeyword_7_0());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getAudioElementAccess().getBeginTimeEIntParserRuleCall_7_1_0());
+					}
+					lv_beginTime_11_0=ruleEInt
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getAudioElementRule());
+						}
+						set(
+							$current,
+							"beginTime",
+							lv_beginTime_11_0,
+							"polytech.spaceteam.cineditor.CinEditor.EInt");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)?
+		(
+			otherlv_12='during'
+			{
+				newLeafNode(otherlv_12, grammarAccess.getAudioElementAccess().getDuringKeyword_8_0());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getAudioElementAccess().getDurationEIntParserRuleCall_8_1_0());
+					}
+					lv_duration_13_0=ruleEInt
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getAudioElementRule());
+						}
+						set(
+							$current,
+							"duration",
+							lv_duration_13_0,
+							"polytech.spaceteam.cineditor.CinEditor.EInt");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)?
+		otherlv_14='on'
+		{
+			newLeafNode(otherlv_14, grammarAccess.getAudioElementAccess().getOnKeyword_9());
+		}
+		(
+			(
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getAudioElementRule());
+					}
+				}
+				otherlv_15=RULE_ID
+				{
+					newLeafNode(otherlv_15, grammarAccess.getAudioElementAccess().getElementGraphicalElementCrossReference_10_0());
+				}
+			)
+		)
 	)
 ;
 
@@ -799,38 +1097,40 @@ ruleText returns [EObject current=null]
 				}
 			)
 		)?
-		otherlv_7='at'
-		{
-			newLeafNode(otherlv_7, grammarAccess.getTextAccess().getAtKeyword_6());
-		}
 		(
-			(
-				{
-					newCompositeNode(grammarAccess.getTextAccess().getBeginTimeEIntParserRuleCall_7_0());
-				}
-				lv_beginTime_8_0=ruleEInt
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getTextRule());
-					}
-					set(
-						$current,
-						"beginTime",
-						lv_beginTime_8_0,
-						"polytech.spaceteam.cineditor.CinEditor.EInt");
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)
-		(
-			otherlv_9='during'
+			otherlv_7='at'
 			{
-				newLeafNode(otherlv_9, grammarAccess.getTextAccess().getDuringKeyword_8_0());
+				newLeafNode(otherlv_7, grammarAccess.getTextAccess().getAtKeyword_6_0());
 			}
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getTextAccess().getDurationEIntParserRuleCall_8_1_0());
+						newCompositeNode(grammarAccess.getTextAccess().getBeginTimeEIntParserRuleCall_6_1_0());
+					}
+					lv_beginTime_8_0=ruleEInt
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getTextRule());
+						}
+						set(
+							$current,
+							"beginTime",
+							lv_beginTime_8_0,
+							"polytech.spaceteam.cineditor.CinEditor.EInt");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)?
+		(
+			otherlv_9='during'
+			{
+				newLeafNode(otherlv_9, grammarAccess.getTextAccess().getDuringKeyword_7_0());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getTextAccess().getDurationEIntParserRuleCall_7_1_0());
 					}
 					lv_duration_10_0=ruleEInt
 					{
@@ -850,7 +1150,7 @@ ruleText returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getTextAccess().getColorHexadecimalColorParserRuleCall_9_0());
+					newCompositeNode(grammarAccess.getTextAccess().getColorHexadecimalColorParserRuleCall_8_0());
 				}
 				lv_color_11_0=ruleHexadecimalColor
 				{
@@ -969,38 +1269,40 @@ rulePicture returns [EObject current=null]
 				}
 			)
 		)?
-		otherlv_6='at'
-		{
-			newLeafNode(otherlv_6, grammarAccess.getPictureAccess().getAtKeyword_6());
-		}
 		(
-			(
-				{
-					newCompositeNode(grammarAccess.getPictureAccess().getBeginTimeEIntParserRuleCall_7_0());
-				}
-				lv_beginTime_7_0=ruleEInt
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getPictureRule());
-					}
-					set(
-						$current,
-						"beginTime",
-						lv_beginTime_7_0,
-						"polytech.spaceteam.cineditor.CinEditor.EInt");
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)
-		(
-			otherlv_8='during'
+			otherlv_6='at'
 			{
-				newLeafNode(otherlv_8, grammarAccess.getPictureAccess().getDuringKeyword_8_0());
+				newLeafNode(otherlv_6, grammarAccess.getPictureAccess().getAtKeyword_6_0());
 			}
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getPictureAccess().getDurationEIntParserRuleCall_8_1_0());
+						newCompositeNode(grammarAccess.getPictureAccess().getBeginTimeEIntParserRuleCall_6_1_0());
+					}
+					lv_beginTime_7_0=ruleEInt
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getPictureRule());
+						}
+						set(
+							$current,
+							"beginTime",
+							lv_beginTime_7_0,
+							"polytech.spaceteam.cineditor.CinEditor.EInt");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)?
+		(
+			otherlv_8='during'
+			{
+				newLeafNode(otherlv_8, grammarAccess.getPictureAccess().getDuringKeyword_7_0());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getPictureAccess().getDurationEIntParserRuleCall_7_1_0());
 					}
 					lv_duration_9_0=ruleEInt
 					{
@@ -1143,38 +1445,40 @@ ruleVideo returns [EObject current=null]
 				}
 			)
 		)?
-		otherlv_8='at'
-		{
-			newLeafNode(otherlv_8, grammarAccess.getVideoAccess().getAtKeyword_8());
-		}
 		(
-			(
-				{
-					newCompositeNode(grammarAccess.getVideoAccess().getBeginTimeEIntParserRuleCall_9_0());
-				}
-				lv_beginTime_9_0=ruleEInt
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getVideoRule());
-					}
-					set(
-						$current,
-						"beginTime",
-						lv_beginTime_9_0,
-						"polytech.spaceteam.cineditor.CinEditor.EInt");
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)
-		(
-			otherlv_10='during'
+			otherlv_8='at'
 			{
-				newLeafNode(otherlv_10, grammarAccess.getVideoAccess().getDuringKeyword_10_0());
+				newLeafNode(otherlv_8, grammarAccess.getVideoAccess().getAtKeyword_8_0());
 			}
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getVideoAccess().getDurationEIntParserRuleCall_10_1_0());
+						newCompositeNode(grammarAccess.getVideoAccess().getBeginTimeEIntParserRuleCall_8_1_0());
+					}
+					lv_beginTime_9_0=ruleEInt
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getVideoRule());
+						}
+						set(
+							$current,
+							"beginTime",
+							lv_beginTime_9_0,
+							"polytech.spaceteam.cineditor.CinEditor.EInt");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)?
+		(
+			otherlv_10='during'
+			{
+				newLeafNode(otherlv_10, grammarAccess.getVideoAccess().getDuringKeyword_9_0());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getVideoAccess().getDurationEIntParserRuleCall_9_1_0());
 					}
 					lv_duration_11_0=ruleEInt
 					{
@@ -1294,38 +1598,40 @@ ruleRectangle returns [EObject current=null]
 				}
 			)
 		)?
-		otherlv_6='at'
-		{
-			newLeafNode(otherlv_6, grammarAccess.getRectangleAccess().getAtKeyword_6());
-		}
 		(
-			(
-				{
-					newCompositeNode(grammarAccess.getRectangleAccess().getBeginTimeEIntParserRuleCall_7_0());
-				}
-				lv_beginTime_7_0=ruleEInt
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getRectangleRule());
-					}
-					set(
-						$current,
-						"beginTime",
-						lv_beginTime_7_0,
-						"polytech.spaceteam.cineditor.CinEditor.EInt");
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)
-		(
-			otherlv_8='during'
+			otherlv_6='at'
 			{
-				newLeafNode(otherlv_8, grammarAccess.getRectangleAccess().getDuringKeyword_8_0());
+				newLeafNode(otherlv_6, grammarAccess.getRectangleAccess().getAtKeyword_6_0());
 			}
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getRectangleAccess().getDurationEIntParserRuleCall_8_1_0());
+						newCompositeNode(grammarAccess.getRectangleAccess().getBeginTimeEIntParserRuleCall_6_1_0());
+					}
+					lv_beginTime_7_0=ruleEInt
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getRectangleRule());
+						}
+						set(
+							$current,
+							"beginTime",
+							lv_beginTime_7_0,
+							"polytech.spaceteam.cineditor.CinEditor.EInt");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)?
+		(
+			otherlv_8='during'
+			{
+				newLeafNode(otherlv_8, grammarAccess.getRectangleAccess().getDuringKeyword_7_0());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getRectangleAccess().getDurationEIntParserRuleCall_7_1_0());
 					}
 					lv_duration_9_0=ruleEInt
 					{
@@ -1591,55 +1897,59 @@ ruleTranslate returns [EObject current=null]
 				}
 			)
 		)
-		otherlv_5='at'
-		{
-			newLeafNode(otherlv_5, grammarAccess.getTranslateAccess().getAtKeyword_5());
-		}
 		(
+			otherlv_5='at'
+			{
+				newLeafNode(otherlv_5, grammarAccess.getTranslateAccess().getAtKeyword_5_0());
+			}
 			(
-				{
-					newCompositeNode(grammarAccess.getTranslateAccess().getBeginTimeEIntParserRuleCall_6_0());
-				}
-				lv_beginTime_6_0=ruleEInt
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getTranslateRule());
+				(
+					{
+						newCompositeNode(grammarAccess.getTranslateAccess().getBeginTimeEIntParserRuleCall_5_1_0());
 					}
-					set(
-						$current,
-						"beginTime",
-						lv_beginTime_6_0,
-						"polytech.spaceteam.cineditor.CinEditor.EInt");
-					afterParserOrEnumRuleCall();
-				}
+					lv_beginTime_6_0=ruleEInt
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getTranslateRule());
+						}
+						set(
+							$current,
+							"beginTime",
+							lv_beginTime_6_0,
+							"polytech.spaceteam.cineditor.CinEditor.EInt");
+						afterParserOrEnumRuleCall();
+					}
+				)
 			)
-		)
-		otherlv_7='during'
-		{
-			newLeafNode(otherlv_7, grammarAccess.getTranslateAccess().getDuringKeyword_7());
-		}
+		)?
 		(
+			otherlv_7='during'
+			{
+				newLeafNode(otherlv_7, grammarAccess.getTranslateAccess().getDuringKeyword_6_0());
+			}
 			(
-				{
-					newCompositeNode(grammarAccess.getTranslateAccess().getDurationEIntParserRuleCall_8_0());
-				}
-				lv_duration_8_0=ruleEInt
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getTranslateRule());
+				(
+					{
+						newCompositeNode(grammarAccess.getTranslateAccess().getDurationEIntParserRuleCall_6_1_0());
 					}
-					set(
-						$current,
-						"duration",
-						lv_duration_8_0,
-						"polytech.spaceteam.cineditor.CinEditor.EInt");
-					afterParserOrEnumRuleCall();
-				}
+					lv_duration_8_0=ruleEInt
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getTranslateRule());
+						}
+						set(
+							$current,
+							"duration",
+							lv_duration_8_0,
+							"polytech.spaceteam.cineditor.CinEditor.EInt");
+						afterParserOrEnumRuleCall();
+					}
+				)
 			)
-		)
+		)?
 		otherlv_9='on'
 		{
-			newLeafNode(otherlv_9, grammarAccess.getTranslateAccess().getOnKeyword_9());
+			newLeafNode(otherlv_9, grammarAccess.getTranslateAccess().getOnKeyword_7());
 		}
 		(
 			(
@@ -1650,7 +1960,7 @@ ruleTranslate returns [EObject current=null]
 				}
 				otherlv_10=RULE_ID
 				{
-					newLeafNode(otherlv_10, grammarAccess.getTranslateAccess().getElementGraphicalElementCrossReference_10_0());
+					newLeafNode(otherlv_10, grammarAccess.getTranslateAccess().getElementGraphicalElementCrossReference_8_0());
 				}
 			)
 		)

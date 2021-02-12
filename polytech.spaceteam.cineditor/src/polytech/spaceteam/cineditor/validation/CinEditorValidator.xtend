@@ -7,11 +7,11 @@ import org.eclipse.xtext.validation.Check
 import CinEditorML.CinEditorMLPackage
 import java.util.regex.Pattern
 import CinEditorML.HexadecimalColor
-import CinEditorML.Dimension
 import CinEditorML.Movie
 import java.util.HashSet
 import CinEditorML.Position
 import CinEditorML.ItemPositionString
+import CinEditorML.AudioElement
 
 /**
  * This class contains custom validation rules. 
@@ -28,6 +28,17 @@ class CinEditorValidator extends AbstractCinEditorValidator {
 
 	@Check
 	def checkElementNames(Movie movie) {
+		if (movie.dimension.width < 0) {
+			error('Movie width must be > 0', 
+					CinEditorMLPackage.Literals.MOVIE__DIMENSION,
+					INVALID_DIMENSION)
+		}
+		if (movie.dimension.height < 0) {
+			error('Movie height must be > 0', 
+					CinEditorMLPackage.Literals.MOVIE__DIMENSION,
+					INVALID_DIMENSION)
+		}
+		
 		if (movie.fps <= 0) {
 			error('FPS must be > 0', 
 					CinEditorMLPackage.Literals.MOVIE__FPS,
@@ -70,18 +81,11 @@ class CinEditorValidator extends AbstractCinEditorValidator {
 			}
 		}
 	}
-
+	
 	@Check
-	def checkDimension(Dimension element) {
-		if (element.width < 0) {
-			error('Movie width must be > 0', 
-					CinEditorMLPackage.Literals.MOVIE__DIMENSION,
-					INVALID_DIMENSION)
-		}
-		if (element.height < 0) {
-			error('Movie height must be > 0', 
-					CinEditorMLPackage.Literals.MOVIE__DIMENSION,
-					INVALID_DIMENSION)
+	def checkAudio(AudioElement element) {
+		if (element.volume > 1 || element.volume < 0) {
+			error('Volume must be between 0 and 1', CinEditorMLPackage.Literals.AUDIO_ELEMENT__VOLUME);
 		}
 	}
 	

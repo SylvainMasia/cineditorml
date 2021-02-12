@@ -62,7 +62,7 @@ public interface Element extends EObject {
 	 * @return the value of the '<em>Begin Time</em>' attribute.
 	 * @see #setBeginTime(int)
 	 * @see CinEditorML.CinEditorMLPackage#getElement_BeginTime()
-	 * @model default="0" required="true"
+	 * @model default="0"
 	 * @generated
 	 */
 	int getBeginTime();

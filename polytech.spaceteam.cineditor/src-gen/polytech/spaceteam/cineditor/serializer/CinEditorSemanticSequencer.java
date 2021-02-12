@@ -3,6 +3,7 @@
  */
 package polytech.spaceteam.cineditor.serializer;
 
+import CinEditorML.AudioElement;
 import CinEditorML.CinEditorMLPackage;
 import CinEditorML.Dimension;
 import CinEditorML.FadeIn;
@@ -45,6 +46,9 @@ public class CinEditorSemanticSequencer extends AbstractDelegatingSemanticSequen
 		Set<Parameter> parameters = context.getEnabledBooleanParameters();
 		if (epackage == CinEditorMLPackage.eINSTANCE)
 			switch (semanticObject.eClass().getClassifierID()) {
+			case CinEditorMLPackage.AUDIO_ELEMENT:
+				sequence_AudioElement(context, (AudioElement) semanticObject); 
+				return; 
 			case CinEditorMLPackage.DIMENSION:
 				sequence_Dimension(context, (Dimension) semanticObject); 
 				return; 
@@ -91,6 +95,28 @@ public class CinEditorSemanticSequencer extends AbstractDelegatingSemanticSequen
 		if (errorAcceptor != null)
 			errorAcceptor.accept(diagnosticProvider.createInvalidContextOrTypeDiagnostic(semanticObject, context));
 	}
+	
+	/**
+	 * Contexts:
+	 *     Element returns AudioElement
+	 *     AudioElement returns AudioElement
+	 *
+	 * Constraint:
+	 *     (
+	 *         name=EString 
+	 *         url=EString 
+	 *         volume=EFloat? 
+	 *         fadeIn=EInt? 
+	 *         fadeOut=EInt? 
+	 *         beginTime=EInt? 
+	 *         duration=EInt? 
+	 *         element=[GraphicalElement|ID]
+	 *     )
+	 */
+	protected void sequence_AudioElement(ISerializationContext context, AudioElement semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
 	
 	/**
 	 * Contexts:
@@ -249,7 +275,7 @@ public class CinEditorSemanticSequencer extends AbstractDelegatingSemanticSequen
 	 *         url=EString 
 	 *         position=Position? 
 	 *         dimension=Dimension? 
-	 *         beginTime=EInt 
+	 *         beginTime=EInt? 
 	 *         duration=EInt?
 	 *     )
 	 */
@@ -291,7 +317,7 @@ public class CinEditorSemanticSequencer extends AbstractDelegatingSemanticSequen
 	 *         color=HexadecimalColor 
 	 *         position=Position? 
 	 *         dimension=Dimension? 
-	 *         beginTime=EInt 
+	 *         beginTime=EInt? 
 	 *         duration=EInt?
 	 *     )
 	 */
@@ -312,7 +338,7 @@ public class CinEditorSemanticSequencer extends AbstractDelegatingSemanticSequen
 	 *         text=EString 
 	 *         fontSize=EInt? 
 	 *         position=Position? 
-	 *         beginTime=EInt 
+	 *         beginTime=EInt? 
 	 *         duration=EInt? 
 	 *         color=HexadecimalColor
 	 *     )
@@ -328,28 +354,10 @@ public class CinEditorSemanticSequencer extends AbstractDelegatingSemanticSequen
 	 *     Translate returns Translate
 	 *
 	 * Constraint:
-	 *     (name=EString positionToTranslate=Position beginTime=EInt duration=EInt element=[GraphicalElement|ID])
+	 *     (name=EString positionToTranslate=Position beginTime=EInt? duration=EInt? element=[GraphicalElement|ID])
 	 */
 	protected void sequence_Translate(ISerializationContext context, Translate semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, CinEditorMLPackage.Literals.ELEMENT__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CinEditorMLPackage.Literals.ELEMENT__NAME));
-			if (transientValues.isValueTransient(semanticObject, CinEditorMLPackage.Literals.TRANSLATE__POSITION_TO_TRANSLATE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CinEditorMLPackage.Literals.TRANSLATE__POSITION_TO_TRANSLATE));
-			if (transientValues.isValueTransient(semanticObject, CinEditorMLPackage.Literals.ELEMENT__BEGIN_TIME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CinEditorMLPackage.Literals.ELEMENT__BEGIN_TIME));
-			if (transientValues.isValueTransient(semanticObject, CinEditorMLPackage.Literals.ELEMENT__DURATION) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CinEditorMLPackage.Literals.ELEMENT__DURATION));
-			if (transientValues.isValueTransient(semanticObject, CinEditorMLPackage.Literals.EFFECT__ELEMENT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CinEditorMLPackage.Literals.EFFECT__ELEMENT));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getTranslateAccess().getNameEStringParserRuleCall_1_0(), semanticObject.getName());
-		feeder.accept(grammarAccess.getTranslateAccess().getPositionToTranslatePositionParserRuleCall_4_0(), semanticObject.getPositionToTranslate());
-		feeder.accept(grammarAccess.getTranslateAccess().getBeginTimeEIntParserRuleCall_6_0(), semanticObject.getBeginTime());
-		feeder.accept(grammarAccess.getTranslateAccess().getDurationEIntParserRuleCall_8_0(), semanticObject.getDuration());
-		feeder.accept(grammarAccess.getTranslateAccess().getElementGraphicalElementIDTerminalRuleCall_10_0_1(), semanticObject.eGet(CinEditorMLPackage.Literals.EFFECT__ELEMENT, false));
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -366,7 +374,7 @@ public class CinEditorSemanticSequencer extends AbstractDelegatingSemanticSequen
 	 *         beginCropTime=EInt 
 	 *         position=Position? 
 	 *         dimension=Dimension? 
-	 *         beginTime=EInt 
+	 *         beginTime=EInt? 
 	 *         duration=EInt?
 	 *     )
 	 */

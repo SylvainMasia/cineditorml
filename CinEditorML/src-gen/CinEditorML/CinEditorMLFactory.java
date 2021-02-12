@@ -157,6 +157,15 @@ public interface CinEditorMLFactory extends EFactory {
 	ItemPositionString createItemPositionString();
 
 	/**
+	 * Returns a new object of class '<em>Audio Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Audio Element</em>'.
+	 * @generated
+	 */
+	AudioElement createAudioElement();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

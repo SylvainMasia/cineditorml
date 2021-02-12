@@ -86,6 +86,8 @@ public class CinEditorMLFactoryImpl extends EFactoryImpl implements CinEditorMLF
 			return createItemPositionInt();
 		case CinEditorMLPackage.ITEM_POSITION_STRING:
 			return createItemPositionString();
+		case CinEditorMLPackage.AUDIO_ELEMENT:
+			return createAudioElement();
 		default:
 			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -239,6 +241,16 @@ public class CinEditorMLFactoryImpl extends EFactoryImpl implements CinEditorMLF
 	public ItemPositionString createItemPositionString() {
 		ItemPositionStringImpl itemPositionString = new ItemPositionStringImpl();
 		return itemPositionString;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public AudioElement createAudioElement() {
+		AudioElementImpl audioElement = new AudioElementImpl();
+		return audioElement;
 	}
 
 	/**

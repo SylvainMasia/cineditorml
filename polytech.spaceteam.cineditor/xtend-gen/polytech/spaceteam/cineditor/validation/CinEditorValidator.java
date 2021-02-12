@@ -3,8 +3,8 @@
  */
 package polytech.spaceteam.cineditor.validation;
 
+import CinEditorML.AudioElement;
 import CinEditorML.CinEditorMLPackage;
-import CinEditorML.Dimension;
 import CinEditorML.Element;
 import CinEditorML.HexadecimalColor;
 import CinEditorML.ItemPosition;
@@ -37,6 +37,20 @@ public class CinEditorValidator extends AbstractCinEditorValidator {
   
   @Check
   public void checkElementNames(final Movie movie) {
+    int _width = movie.getDimension().getWidth();
+    boolean _lessThan = (_width < 0);
+    if (_lessThan) {
+      this.error("Movie width must be > 0", 
+        CinEditorMLPackage.Literals.MOVIE__DIMENSION, 
+        CinEditorValidator.INVALID_DIMENSION);
+    }
+    int _height = movie.getDimension().getHeight();
+    boolean _lessThan_1 = (_height < 0);
+    if (_lessThan_1) {
+      this.error("Movie height must be > 0", 
+        CinEditorMLPackage.Literals.MOVIE__DIMENSION, 
+        CinEditorValidator.INVALID_DIMENSION);
+    }
     int _fps = movie.getFps();
     boolean _lessEqualsThan = (_fps <= 0);
     if (_lessEqualsThan) {
@@ -98,20 +112,9 @@ public class CinEditorValidator extends AbstractCinEditorValidator {
   }
   
   @Check
-  public void checkDimension(final Dimension element) {
-    int _width = element.getWidth();
-    boolean _lessThan = (_width < 0);
-    if (_lessThan) {
-      this.error("Movie width must be > 0", 
-        CinEditorMLPackage.Literals.MOVIE__DIMENSION, 
-        CinEditorValidator.INVALID_DIMENSION);
-    }
-    int _height = element.getHeight();
-    boolean _lessThan_1 = (_height < 0);
-    if (_lessThan_1) {
-      this.error("Movie height must be > 0", 
-        CinEditorMLPackage.Literals.MOVIE__DIMENSION, 
-        CinEditorValidator.INVALID_DIMENSION);
+  public void checkAudio(final AudioElement element) {
+    if (((element.getVolume() > 1) || (element.getVolume() < 0))) {
+      this.error("Volume must be between 0 and 1", CinEditorMLPackage.Literals.AUDIO_ELEMENT__VOLUME);
     }
   }
   

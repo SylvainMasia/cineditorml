@@ -418,6 +418,29 @@ public class CinEditorMLItemProviderAdapterFactory extends CinEditorMLAdapterFac
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link CinEditorML.AudioElement} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected AudioElementItemProvider audioElementItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link CinEditorML.AudioElement}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createAudioElementAdapter() {
+		if (audioElementItemProvider == null) {
+			audioElementItemProvider = new AudioElementItemProvider(this);
+		}
+
+		return audioElementItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -546,6 +569,8 @@ public class CinEditorMLItemProviderAdapterFactory extends CinEditorMLAdapterFac
 			itemPositionIntItemProvider.dispose();
 		if (itemPositionStringItemProvider != null)
 			itemPositionStringItemProvider.dispose();
+		if (audioElementItemProvider != null)
+			audioElementItemProvider.dispose();
 	}
 
 }

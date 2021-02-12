@@ -69,5 +69,12 @@
     <genClasses ecoreClass="CinEditorML.ecore#//ItemPositionString">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CinEditorML.ecore#//ItemPositionString/position"/>
     </genClasses>
+    <genClasses ecoreClass="CinEditorML.ecore#//AudioElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CinEditorML.ecore#//AudioElement/url"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference CinEditorML.ecore#//AudioElement/element"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CinEditorML.ecore#//AudioElement/fadeIn"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CinEditorML.ecore#//AudioElement/fadeOut"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CinEditorML.ecore#//AudioElement/volume"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>

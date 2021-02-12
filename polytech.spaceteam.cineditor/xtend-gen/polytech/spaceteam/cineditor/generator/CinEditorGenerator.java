@@ -3,11 +3,14 @@
  */
 package polytech.spaceteam.cineditor.generator;
 
+import CinEditorML.AudioElement;
+import CinEditorML.Dimension;
 import CinEditorML.Effect;
 import CinEditorML.Element;
 import CinEditorML.FadeIn;
 import CinEditorML.FadeOut;
 import CinEditorML.GraphicalElement;
+import CinEditorML.HexadecimalColor;
 import CinEditorML.ItemPosition;
 import CinEditorML.ItemPositionInt;
 import CinEditorML.ItemPositionString;
@@ -15,10 +18,13 @@ import CinEditorML.Layer;
 import CinEditorML.Movie;
 import CinEditorML.Picture;
 import CinEditorML.Position;
+import CinEditorML.Rectangle;
+import CinEditorML.Shape;
 import CinEditorML.Text;
 import CinEditorML.Translate;
 import CinEditorML.Video;
 import com.google.common.collect.Iterables;
+import java.awt.Color;
 import java.util.ArrayList;
 import java.util.List;
 import javax.inject.Inject;
@@ -44,6 +50,8 @@ public class CinEditorGenerator extends AbstractGenerator {
   private final String varMovieWidth = "movie_width";
   
   private final ArrayList<Object> elementsVarNames = new ArrayList<Object>();
+  
+  private final int totalMovieDuration = 10;
   
   @Inject
   @Extension
@@ -90,7 +98,7 @@ public class CinEditorGenerator extends AbstractGenerator {
       }
     }
     String _sFinal = sFinal;
-    sFinal = (_sFinal + (((("], size=(" + this.varMovieWidth) + ",") + this.varMovieHeight) + ")).set_duration(15)\n"));
+    sFinal = (_sFinal + (((("], size=(" + this.varMovieWidth) + ",") + this.varMovieHeight) + ")).set_duration(10)\n"));
     String _sFinal_1 = sFinal;
     String _name = movie.getName();
     String _plus = ("video.write_videofile(\'./" + _name);
@@ -133,6 +141,18 @@ public class CinEditorGenerator extends AbstractGenerator {
             String _s_3 = s;
             String _extractElement_3 = this.extractElement(((Effect) element));
             s = (_s_3 + _extractElement_3);
+          } else {
+            if ((element instanceof Shape)) {
+              String _s_4 = s;
+              String _extractElement_4 = this.extractElement(((Shape) element));
+              s = (_s_4 + _extractElement_4);
+            } else {
+              if ((element instanceof AudioElement)) {
+                String _s_5 = s;
+                String _extractElement_5 = this.extractElement(((AudioElement) element));
+                s = (_s_5 + _extractElement_5);
+              }
+            }
           }
         }
       }
@@ -156,14 +176,56 @@ public class CinEditorGenerator extends AbstractGenerator {
   
   private String extractDurationFromElement(final Element element) {
     String s = "";
+    int duration = this.totalMovieDuration;
     int _duration = element.getDuration();
     boolean _greaterThan = (_duration > 0);
     if (_greaterThan) {
-      String _s = s;
-      int _duration_1 = element.getDuration();
-      String _plus = ("\\\n\t.set_duration(" + Integer.valueOf(_duration_1));
-      String _plus_1 = (_plus + ")");
-      s = (_s + _plus_1);
+      duration = element.getDuration();
+    } else {
+      if ((element instanceof AudioElement)) {
+        duration = ((AudioElement) element).getElement().getDuration();
+        if ((duration < 0)) {
+          duration = this.totalMovieDuration;
+        }
+      }
+    }
+    String _s = s;
+    s = (_s + (("\\\n\t.set_duration(" + Integer.valueOf(duration)) + ")"));
+    return s;
+  }
+  
+  private String extractDimensionFromElement(final GraphicalElement element) {
+    String s = "";
+    Dimension _dimension = element.getDimension();
+    boolean _tripleNotEquals = (_dimension != null);
+    if (_tripleNotEquals) {
+      String width = "0";
+      String height = "0";
+      int _width = element.getDimension().getWidth();
+      boolean _lessThan = (_width < 0);
+      if (_lessThan) {
+        width = this.varMovieWidth;
+      } else {
+        int _width_1 = element.getDimension().getWidth();
+        String _plus = (Integer.valueOf(_width_1) + "");
+        width = _plus;
+      }
+      int _height = element.getDimension().getHeight();
+      boolean _lessThan_1 = (_height < 0);
+      if (_lessThan_1) {
+        height = this.varMovieWidth;
+      } else {
+        int _height_1 = element.getDimension().getHeight();
+        String _plus_1 = (Integer.valueOf(_height_1) + "");
+        height = _plus_1;
+      }
+      if ((element instanceof Shape)) {
+        String _s = s;
+        s = (_s + (((("(" + width) + ", ") + height) + ")"));
+      } else {
+        String _s_1 = s;
+        s = (_s_1 + (((("\\\n\t.resize((" + width) + ", ") + height) + "))"));
+      }
     }
     return s;
   }
@@ -219,7 +281,7 @@ public class CinEditorGenerator extends AbstractGenerator {
     String _plus_11 = (_plus_10 + _extractDurationFromElement);
     String _extractPositionFromElement = this.extractPositionFromElement(element);
     String _plus_12 = (_plus_11 + _extractPositionFromElement);
-    String s = (_plus_12 + "\n");
+    String s = (_plus_12 + "\n\n");
     this.elementsVarNames.add(element.getName());
     return s;
   }
@@ -238,8 +300,66 @@ public class CinEditorGenerator extends AbstractGenerator {
     String _plus_6 = (_plus_5 + _extractDurationFromElement);
     String _extractPositionFromElement = this.extractPositionFromElement(element);
     String _plus_7 = (_plus_6 + _extractPositionFromElement);
-    String s = (_plus_7 + "\n");
+    String _extractDimensionFromElement = this.extractDimensionFromElement(element);
+    String _plus_8 = (_plus_7 + _extractDimensionFromElement);
+    String s = (_plus_8 + "\n\n");
     this.elementsVarNames.add(element.getName());
+    return s;
+  }
+  
+  private String extractElement(final AudioElement element) {
+    String volume = "";
+    String fadeIn = "";
+    String fadeOut = "";
+    float _volume = element.getVolume();
+    boolean _notEquals = (_volume != 1);
+    if (_notEquals) {
+      float _volume_1 = element.getVolume();
+      String _plus = ("\\\n\t.volumex(" + Float.valueOf(_volume_1));
+      String _plus_1 = (_plus + ")");
+      volume = _plus_1;
+    }
+    int _fadeIn = element.getFadeIn();
+    boolean _notEquals_1 = (_fadeIn != 0);
+    if (_notEquals_1) {
+      int _fadeIn_1 = element.getFadeIn();
+      String _plus_2 = ("\\\n\t.audio_fadein(" + Integer.valueOf(_fadeIn_1));
+      String _plus_3 = (_plus_2 + ")");
+      fadeIn = _plus_3;
+    }
+    int _fadeOut = element.getFadeOut();
+    boolean _notEquals_2 = (_fadeOut != 0);
+    if (_notEquals_2) {
+      int _fadeOut_1 = element.getFadeOut();
+      String _plus_4 = ("\\\n\t.audio_fadeout(" + Integer.valueOf(_fadeOut_1));
+      String _plus_5 = (_plus_4 + ")");
+      fadeOut = _plus_5;
+    }
+    String _name = element.getName();
+    String _plus_6 = (_name + " = AudioFileClip(");
+    String _plus_7 = (_plus_6 + "\"");
+    String _url = element.getUrl();
+    String _plus_8 = (_plus_7 + _url);
+    String _plus_9 = (_plus_8 + "\"");
+    String _plus_10 = (_plus_9 + ")");
+    String _extractBeginTimeFromElement = this.extractBeginTimeFromElement(element);
+    String _plus_11 = (_plus_10 + _extractBeginTimeFromElement);
+    String _extractDurationFromElement = this.extractDurationFromElement(element);
+    String _plus_12 = (_plus_11 + _extractDurationFromElement);
+    String _plus_13 = (_plus_12 + volume);
+    String _plus_14 = (_plus_13 + fadeIn);
+    String _plus_15 = (_plus_14 + fadeOut);
+    String s = (_plus_15 + "\n");
+    String _s = s;
+    String _name_1 = element.getElement().getName();
+    String _plus_16 = (_name_1 + " = ");
+    String _name_2 = element.getElement().getName();
+    String _plus_17 = (_plus_16 + _name_2);
+    String _plus_18 = (_plus_17 + ".set_audio(");
+    String _name_3 = element.getName();
+    String _plus_19 = (_plus_18 + _name_3);
+    String _plus_20 = (_plus_19 + ")\n\n");
+    s = (_s + _plus_20);
     return s;
   }
   
@@ -263,6 +383,43 @@ public class CinEditorGenerator extends AbstractGenerator {
     return s;
   }
   
+  private String extractElement(final Rectangle element) {
+    String color = "[0,0,0]";
+    HexadecimalColor _color = element.getColor();
+    boolean _tripleNotEquals = (_color != null);
+    if (_tripleNotEquals) {
+      String _hexadecimalValue = element.getColor().getHexadecimalValue();
+      String _plus = ("#" + _hexadecimalValue);
+      final Color tmp = Color.decode(_plus);
+      int _red = tmp.getRed();
+      String _plus_1 = ("[" + Integer.valueOf(_red));
+      String _plus_2 = (_plus_1 + ",");
+      int _green = tmp.getGreen();
+      String _plus_3 = (_plus_2 + Integer.valueOf(_green));
+      String _plus_4 = (_plus_3 + ",");
+      int _blue = tmp.getBlue();
+      String _plus_5 = (_plus_4 + Integer.valueOf(_blue));
+      String _plus_6 = (_plus_5 + "]");
+      color = _plus_6;
+    }
+    String _name = element.getName();
+    String _plus_7 = (_name + " = ColorClip(size=");
+    String _extractDimensionFromElement = this.extractDimensionFromElement(element);
+    String _plus_8 = (_plus_7 + _extractDimensionFromElement);
+    String _plus_9 = (_plus_8 + ", col=");
+    String _plus_10 = (_plus_9 + color);
+    String _plus_11 = (_plus_10 + ")");
+    String _extractBeginTimeFromElement = this.extractBeginTimeFromElement(element);
+    String _plus_12 = (_plus_11 + _extractBeginTimeFromElement);
+    String _extractDurationFromElement = this.extractDurationFromElement(element);
+    String _plus_13 = (_plus_12 + _extractDurationFromElement);
+    String _extractPositionFromElement = this.extractPositionFromElement(element);
+    String _plus_14 = (_plus_13 + _extractPositionFromElement);
+    String s = (_plus_14 + "\n\n");
+    this.elementsVarNames.add(element.getName());
+    return s;
+  }
+  
   private String extractElement(final Effect element) {
     String s = "";
     if ((element instanceof FadeIn)) {
@@ -281,6 +438,16 @@ public class CinEditorGenerator extends AbstractGenerator {
           s = (_s_2 + _extractElement_2);
         }
       }
+    }
+    return s;
+  }
+  
+  private String extractElement(final Shape element) {
+    String s = "";
+    if ((element instanceof Rectangle)) {
+      String _s = s;
+      String _extractElement = this.extractElement(((Rectangle) element));
+      s = (_s + _extractElement);
     }
     return s;
   }

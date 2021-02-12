@@ -173,6 +173,9 @@ public class LayerItemProvider extends ItemProviderAdapter implements IEditingDo
 
 		newChildDescriptors.add(createChildParameter(CinEditorMLPackage.Literals.LAYER__ELEMENTS,
 				CinEditorMLFactory.eINSTANCE.createRectangle()));
+
+		newChildDescriptors.add(createChildParameter(CinEditorMLPackage.Literals.LAYER__ELEMENTS,
+				CinEditorMLFactory.eINSTANCE.createAudioElement()));
 	}
 
 	/**

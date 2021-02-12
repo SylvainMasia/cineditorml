@@ -162,6 +162,11 @@ public class CinEditorMLAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
+		public Adapter caseAudioElement(AudioElement object) {
+			return createAudioElementAdapter();
+		}
+
+		@Override
 		public Adapter defaultCase(EObject object) {
 			return createEObjectAdapter();
 		}
@@ -443,6 +448,20 @@ public class CinEditorMLAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createItemPositionStringAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link CinEditorML.AudioElement <em>Audio Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see CinEditorML.AudioElement
+	 * @generated
+	 */
+	public Adapter createAudioElementAdapter() {
 		return null;
 	}
 

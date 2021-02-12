@@ -25,6 +25,10 @@ import CinEditorML.Effect
 import CinEditorML.ItemPositionInt
 import CinEditorML.ItemPosition
 import CinEditorML.ItemPositionString
+import CinEditorML.Shape
+import CinEditorML.Rectangle
+import java.awt.Color
+import CinEditorML.AudioElement
 
 /**
  * Generates code from your model files on save.
@@ -36,6 +40,7 @@ class CinEditorGenerator extends AbstractGenerator {
 	val varMovieHeight = "movie_height";
 	val varMovieWidth = "movie_width";
 	val elementsVarNames = new ArrayList();
+	val totalMovieDuration = 10;
 	
 	@Inject extension IQualifiedNameProvider
 	
@@ -65,7 +70,7 @@ class CinEditorGenerator extends AbstractGenerator {
 			}
 			sFinal += elementsVarNames.get(i);
 		}
-		sFinal += "], size=(" + varMovieWidth + "," + varMovieHeight + ")).set_duration(15)\n"; //TODO when no video set a calculated duration
+		sFinal += "], size=(" + varMovieWidth + "," + varMovieHeight + ")).set_duration(10)\n"; //TODO when no video set a calculated duration
 		sFinal += "video.write_videofile('./" + movie.getName()  + ".avi', codec='mpeg4', fps=" + movie.getFps() +")";
 		return sFinal;
 	}
@@ -88,6 +93,10 @@ class CinEditorGenerator extends AbstractGenerator {
 			s += extractElement(element as Video);
 		} else if (element instanceof Effect) {
 			s += extractElement(element as Effect);
+		} else if (element instanceof Shape) {
+			s += extractElement(element as Shape);
+		} else if (element instanceof AudioElement) {
+			s += extractElement(element as AudioElement);
 		}
 		return s;
 	}
@@ -102,8 +111,39 @@ class CinEditorGenerator extends AbstractGenerator {
 	
 	private def String extractDurationFromElement(Element element) {
 		var s = "";
-		if (element.getDuration() > 0) {
-			s += "\\\n\t.set_duration(" + element.getDuration() + ")";
+		var duration = totalMovieDuration;
+		if (element.duration > 0) {
+			duration = element.duration;
+		} else if (element instanceof AudioElement) {
+			duration = (element as AudioElement).element.duration;
+			if (duration < 0) { // in case the element.duration is during the whole film
+				duration = totalMovieDuration;
+			}
+		}
+		s += "\\\n\t.set_duration(" + duration + ")";
+		return s;
+	}
+	
+	private def String extractDimensionFromElement(GraphicalElement element) {
+		var s = "";
+		if (element.dimension !== null) {
+			var width = "0"
+			var height = "0"
+			if (element.dimension.width < 0) {
+				width = varMovieWidth;
+			} else {
+				width = element.dimension.width + "";
+			}
+			if (element.dimension.height < 0) {
+				height = varMovieWidth;
+			} else {
+				height = element.dimension.height + "";
+			}
+			if (element instanceof Shape) {
+				s += "(" + width + ", " + height + ")";
+			} else {
+				s += "\\\n\t.resize((" + width + ", " + height + "))";
+			}
 		}
 		return s;
 	}
@@ -143,7 +183,7 @@ class CinEditorGenerator extends AbstractGenerator {
 				+ extractBeginTimeFromElement(element)
 				+ extractDurationFromElement(element)
 				+ extractPositionFromElement(element)
-				+ "\n";
+				+ "\n\n";
 		elementsVarNames.add(element.getName());
 		return s;
 	}
@@ -156,8 +196,37 @@ class CinEditorGenerator extends AbstractGenerator {
 				+ extractBeginTimeFromElement(element)
 				+ extractDurationFromElement(element)
 				+ extractPositionFromElement(element)
-				+ "\n";
+				+ extractDimensionFromElement(element)
+				+ "\n\n";
 		elementsVarNames.add(element.getName());
+		return s;
+	}
+	
+	private def String extractElement(AudioElement element) {
+		var volume = "";
+		var fadeIn = "";
+		var fadeOut = "";
+		if (element.volume != 1) {
+			volume = "\\\n\t.volumex(" + element.volume + ")";
+		}
+		if (element.fadeIn != 0) {
+			fadeIn = "\\\n\t.audio_fadein(" + element.fadeIn + ")";
+		}
+		if (element.fadeOut != 0) {
+			fadeOut = "\\\n\t.audio_fadeout(" + element.fadeOut + ")";
+		}
+		
+		var s = element.getName() 
+				+ " = AudioFileClip(" + "\"" +element.url + "\"" + ")"
+					+ extractBeginTimeFromElement(element)
+					+ extractDurationFromElement(element)
+					+ volume
+					+ fadeIn
+					+ fadeOut
+					+ "\n";
+		
+		
+		s += element.element.name + " = " + element.element.name + ".set_audio(" + element.getName() + ")\n\n";
 		return s;
 	}
 	
@@ -185,6 +254,23 @@ class CinEditorGenerator extends AbstractGenerator {
 		return s;
 	}
 	
+	
+	private def String extractElement(Rectangle element) {
+		var color = "[0,0,0]"; // need rgb color for color clip
+		if (element.color !== null) {
+			val tmp = Color.decode("#" + element.color.hexadecimalValue);
+			color = "[" + tmp.red + "," + tmp.green + "," + tmp.blue + "]";
+		}
+		var s = element.getName() 
+				+ " = ColorClip(size=" + extractDimensionFromElement(element) + ", col=" + color + ")"
+				+ extractBeginTimeFromElement(element)
+				+ extractDurationFromElement(element)
+				+ extractPositionFromElement(element)
+				+ "\n\n";
+		elementsVarNames.add(element.getName());
+		return s;
+	}
+	
 	private def String extractElement(Effect element) {
 		var s = "";
 		if (element instanceof FadeIn) {
@@ -194,6 +280,14 @@ class CinEditorGenerator extends AbstractGenerator {
 		} else if (element instanceof Translate) {
 			s += extractElement(element as Translate);
 		} 
+		return s;
+	}
+	
+	private def String extractElement(Shape element) {
+		var s = "";
+		if (element instanceof Rectangle) {
+			s += extractElement(element as Rectangle);
+		}
 		return s;
 	}
 	

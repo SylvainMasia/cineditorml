@@ -2,6 +2,7 @@
  */
 package CinEditorML.impl;
 
+import CinEditorML.AudioElement;
 import CinEditorML.CinEditorMLFactory;
 import CinEditorML.CinEditorMLPackage;
 import CinEditorML.Dimension;
@@ -170,6 +171,13 @@ public class CinEditorMLPackageImpl extends EPackageImpl implements CinEditorMLP
 	 * @generated
 	 */
 	private EClass itemPositionStringEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass audioElementEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -648,6 +656,60 @@ public class CinEditorMLPackageImpl extends EPackageImpl implements CinEditorMLP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getAudioElement() {
+		return audioElementEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getAudioElement_Url() {
+		return (EAttribute) audioElementEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getAudioElement_Element() {
+		return (EReference) audioElementEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getAudioElement_FadeIn() {
+		return (EAttribute) audioElementEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getAudioElement_FadeOut() {
+		return (EAttribute) audioElementEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getAudioElement_Volume() {
+		return (EAttribute) audioElementEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public CinEditorMLFactory getCinEditorMLFactory() {
 		return (CinEditorMLFactory) getEFactoryInstance();
 	}
@@ -735,6 +797,13 @@ public class CinEditorMLPackageImpl extends EPackageImpl implements CinEditorMLP
 
 		itemPositionStringEClass = createEClass(ITEM_POSITION_STRING);
 		createEAttribute(itemPositionStringEClass, ITEM_POSITION_STRING__POSITION);
+
+		audioElementEClass = createEClass(AUDIO_ELEMENT);
+		createEAttribute(audioElementEClass, AUDIO_ELEMENT__URL);
+		createEReference(audioElementEClass, AUDIO_ELEMENT__ELEMENT);
+		createEAttribute(audioElementEClass, AUDIO_ELEMENT__FADE_IN);
+		createEAttribute(audioElementEClass, AUDIO_ELEMENT__FADE_OUT);
+		createEAttribute(audioElementEClass, AUDIO_ELEMENT__VOLUME);
 	}
 
 	/**
@@ -782,6 +851,7 @@ public class CinEditorMLPackageImpl extends EPackageImpl implements CinEditorMLP
 		graphicalElementEClass.getESuperTypes().add(this.getElement());
 		itemPositionIntEClass.getESuperTypes().add(this.getItemPosition());
 		itemPositionStringEClass.getESuperTypes().add(this.getItemPosition());
+		audioElementEClass.getESuperTypes().add(this.getElement());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(movieEClass, Movie.class, "Movie", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -823,7 +893,7 @@ public class CinEditorMLPackageImpl extends EPackageImpl implements CinEditorMLP
 		initEClass(elementEClass, Element.class, "Element", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getElement_Duration(), ecorePackage.getEInt(), "duration", "-1", 0, 1, Element.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getElement_BeginTime(), ecorePackage.getEInt(), "beginTime", "0", 1, 1, Element.class,
+		initEAttribute(getElement_BeginTime(), ecorePackage.getEInt(), "beginTime", "0", 0, 1, Element.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getElement_Name(), ecorePackage.getEString(), "name", null, 1, 1, Element.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -896,6 +966,20 @@ public class CinEditorMLPackageImpl extends EPackageImpl implements CinEditorMLP
 		initEAttribute(getItemPositionString_Position(), ecorePackage.getEString(), "position", "center", 1, 1,
 				ItemPositionString.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
 				!IS_DERIVED, IS_ORDERED);
+
+		initEClass(audioElementEClass, AudioElement.class, "AudioElement", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getAudioElement_Url(), ecorePackage.getEString(), "url", null, 1, 1, AudioElement.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAudioElement_Element(), this.getGraphicalElement(), null, "element", null, 1, 1,
+				AudioElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAudioElement_FadeIn(), ecorePackage.getEInt(), "fadeIn", "0", 0, 1, AudioElement.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAudioElement_FadeOut(), ecorePackage.getEInt(), "fadeOut", "0", 0, 1, AudioElement.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAudioElement_Volume(), ecorePackage.getEFloat(), "volume", "1", 0, 1, AudioElement.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

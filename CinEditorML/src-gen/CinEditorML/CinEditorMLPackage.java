@@ -1219,6 +1219,106 @@ public interface CinEditorMLPackage extends EPackage {
 	int ITEM_POSITION_STRING_OPERATION_COUNT = ITEM_POSITION_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link CinEditorML.impl.AudioElementImpl <em>Audio Element</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see CinEditorML.impl.AudioElementImpl
+	 * @see CinEditorML.impl.CinEditorMLPackageImpl#getAudioElement()
+	 * @generated
+	 */
+	int AUDIO_ELEMENT = 19;
+
+	/**
+	 * The feature id for the '<em><b>Duration</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AUDIO_ELEMENT__DURATION = ELEMENT__DURATION;
+
+	/**
+	 * The feature id for the '<em><b>Begin Time</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AUDIO_ELEMENT__BEGIN_TIME = ELEMENT__BEGIN_TIME;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AUDIO_ELEMENT__NAME = ELEMENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Url</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AUDIO_ELEMENT__URL = ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Element</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AUDIO_ELEMENT__ELEMENT = ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Fade In</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AUDIO_ELEMENT__FADE_IN = ELEMENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Fade Out</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AUDIO_ELEMENT__FADE_OUT = ELEMENT_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Volume</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AUDIO_ELEMENT__VOLUME = ELEMENT_FEATURE_COUNT + 4;
+
+	/**
+	 * The number of structural features of the '<em>Audio Element</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AUDIO_ELEMENT_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 5;
+
+	/**
+	 * The number of operations of the '<em>Audio Element</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AUDIO_ELEMENT_OPERATION_COUNT = ELEMENT_OPERATION_COUNT + 0;
+
+	/**
 	 * Returns the meta object for class '{@link CinEditorML.Movie <em>Movie</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1695,6 +1795,71 @@ public interface CinEditorMLPackage extends EPackage {
 	EAttribute getItemPositionString_Position();
 
 	/**
+	 * Returns the meta object for class '{@link CinEditorML.AudioElement <em>Audio Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Audio Element</em>'.
+	 * @see CinEditorML.AudioElement
+	 * @generated
+	 */
+	EClass getAudioElement();
+
+	/**
+	 * Returns the meta object for the attribute '{@link CinEditorML.AudioElement#getUrl <em>Url</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Url</em>'.
+	 * @see CinEditorML.AudioElement#getUrl()
+	 * @see #getAudioElement()
+	 * @generated
+	 */
+	EAttribute getAudioElement_Url();
+
+	/**
+	 * Returns the meta object for the reference '{@link CinEditorML.AudioElement#getElement <em>Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Element</em>'.
+	 * @see CinEditorML.AudioElement#getElement()
+	 * @see #getAudioElement()
+	 * @generated
+	 */
+	EReference getAudioElement_Element();
+
+	/**
+	 * Returns the meta object for the attribute '{@link CinEditorML.AudioElement#getFadeIn <em>Fade In</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Fade In</em>'.
+	 * @see CinEditorML.AudioElement#getFadeIn()
+	 * @see #getAudioElement()
+	 * @generated
+	 */
+	EAttribute getAudioElement_FadeIn();
+
+	/**
+	 * Returns the meta object for the attribute '{@link CinEditorML.AudioElement#getFadeOut <em>Fade Out</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Fade Out</em>'.
+	 * @see CinEditorML.AudioElement#getFadeOut()
+	 * @see #getAudioElement()
+	 * @generated
+	 */
+	EAttribute getAudioElement_FadeOut();
+
+	/**
+	 * Returns the meta object for the attribute '{@link CinEditorML.AudioElement#getVolume <em>Volume</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Volume</em>'.
+	 * @see CinEditorML.AudioElement#getVolume()
+	 * @see #getAudioElement()
+	 * @generated
+	 */
+	EAttribute getAudioElement_Volume();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2114,6 +2279,56 @@ public interface CinEditorMLPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute ITEM_POSITION_STRING__POSITION = eINSTANCE.getItemPositionString_Position();
+
+		/**
+		 * The meta object literal for the '{@link CinEditorML.impl.AudioElementImpl <em>Audio Element</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see CinEditorML.impl.AudioElementImpl
+		 * @see CinEditorML.impl.CinEditorMLPackageImpl#getAudioElement()
+		 * @generated
+		 */
+		EClass AUDIO_ELEMENT = eINSTANCE.getAudioElement();
+
+		/**
+		 * The meta object literal for the '<em><b>Url</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute AUDIO_ELEMENT__URL = eINSTANCE.getAudioElement_Url();
+
+		/**
+		 * The meta object literal for the '<em><b>Element</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference AUDIO_ELEMENT__ELEMENT = eINSTANCE.getAudioElement_Element();
+
+		/**
+		 * The meta object literal for the '<em><b>Fade In</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute AUDIO_ELEMENT__FADE_IN = eINSTANCE.getAudioElement_FadeIn();
+
+		/**
+		 * The meta object literal for the '<em><b>Fade Out</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute AUDIO_ELEMENT__FADE_OUT = eINSTANCE.getAudioElement_FadeOut();
+
+		/**
+		 * The meta object literal for the '<em><b>Volume</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute AUDIO_ELEMENT__VOLUME = eINSTANCE.getAudioElement_Volume();
 
 	}
 
