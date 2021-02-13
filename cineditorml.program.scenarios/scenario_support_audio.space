@@ -1,0 +1,10 @@
+Movie scenario_support_audio dimension 1280 x 720 fps 30
+	Layer
+		Rectangle background1 = color '000' during 10
+		Rectangle background2 = color '000' during 10
+		Rectangle background3 = color '000' during 24
+		Audio voix = './assets/scenario_audio/voix1.mp3' during 10 on background1 
+		Audio voix2 = './assets/scenario_audio/voix2.mp3' volume 0.5 startAt 10 on background2
+		Audio voix3 = './assets/scenario_audio/voix3.mp3' fadeIn 1 fadeOut 1 startAt 20 on background3
+		//Audio voix4 = './assets/scenario_audio/voix4.mp3' startAt 20 cropAt 10 during 10 on background
+		Video backgroundvideo = './assets/scenario_audio/video.mp4' audio false dimension 1280 x 720
