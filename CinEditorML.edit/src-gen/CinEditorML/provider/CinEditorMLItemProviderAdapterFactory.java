@@ -441,6 +441,29 @@ public class CinEditorMLItemProviderAdapterFactory extends CinEditorMLAdapterFac
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link CinEditorML.Margin} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected MarginItemProvider marginItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link CinEditorML.Margin}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createMarginAdapter() {
+		if (marginItemProvider == null) {
+			marginItemProvider = new MarginItemProvider(this);
+		}
+
+		return marginItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -571,6 +594,8 @@ public class CinEditorMLItemProviderAdapterFactory extends CinEditorMLAdapterFac
 			itemPositionStringItemProvider.dispose();
 		if (audioElementItemProvider != null)
 			audioElementItemProvider.dispose();
+		if (marginItemProvider != null)
+			marginItemProvider.dispose();
 	}
 
 }

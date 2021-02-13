@@ -13,8 +13,7 @@ text = TextClip("Introduction", color='#fff', fontsize=35)\
 	.set_pos(('center', 'center'))
 
 voix = AudioFileClip("./assets/scenario_stacking/voix.mp3")\
-	.set_duration(44)\
-	.subclip(0, -1)
+	.set_duration(44)
 background = background.set_audio(voix)
 
 backgroundvideo = VideoFileClip("./assets/scenario_stacking/rugby.mp4", audio=False)\
@@ -29,7 +28,7 @@ backgroundvideo2 = VideoFileClip("./assets/scenario_stacking/rugby.mp4", audio=F
 backgroundvideo3 = VideoFileClip("./assets/scenario_stacking/rugby.mp4", audio=False)\
 	.set_start(27)\
 	.resize((1280, 720))\
-	.subclip(133, 148)
+	.subclip(133, 143)
 
 backgroundvideo = backgroundvideo.crossfadeout(1)
 
@@ -44,6 +43,8 @@ backgroundvideo3 = backgroundvideo3.crossfadein(1)
 bobvideo = VideoFileClip("./assets/scenario_stacking/bob.mp4", audio=False)\
 	.resize((355, 200))\
 	.set_pos(('right', 'bottom'))\
+	.margin(bottom=10, color=[0,0,0], opacity=0.0)\
+	.margin(right=10, color=[0,0,0], opacity=0.0)\
 	.subclip(12, 56)
 
 

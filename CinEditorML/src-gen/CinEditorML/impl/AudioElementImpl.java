@@ -130,7 +130,7 @@ public class AudioElementImpl extends ElementImpl implements AudioElement {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final int BEGIN_CROP_TIME_EDEFAULT = 0;
+	protected static final int BEGIN_CROP_TIME_EDEFAULT = -1;
 
 	/**
 	 * The cached value of the '{@link #getBeginCropTime() <em>Begin Crop Time</em>}' attribute.

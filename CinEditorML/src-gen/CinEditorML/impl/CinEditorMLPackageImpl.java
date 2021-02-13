@@ -16,6 +16,7 @@ import CinEditorML.ItemPosition;
 import CinEditorML.ItemPositionInt;
 import CinEditorML.ItemPositionString;
 import CinEditorML.Layer;
+import CinEditorML.Margin;
 import CinEditorML.Movie;
 import CinEditorML.Picture;
 import CinEditorML.Position;
@@ -26,6 +27,7 @@ import CinEditorML.Translate;
 import CinEditorML.Video;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -178,6 +180,20 @@ public class CinEditorMLPackageImpl extends EPackageImpl implements CinEditorMLP
 	 * @generated
 	 */
 	private EClass audioElementEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass marginEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum margiN_NAMEEEnum = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -620,6 +636,15 @@ public class CinEditorMLPackageImpl extends EPackageImpl implements CinEditorMLP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getGraphicalElement_Margins() {
+		return (EReference) graphicalElementEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getItemPositionInt() {
 		return itemPositionIntEClass;
 	}
@@ -728,6 +753,60 @@ public class CinEditorMLPackageImpl extends EPackageImpl implements CinEditorMLP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getMargin() {
+		return marginEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getMargin_Type() {
+		return (EAttribute) marginEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getMargin_Size() {
+		return (EAttribute) marginEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getMargin_MarginColor() {
+		return (EReference) marginEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getMargin_MarginColorOpacity() {
+		return (EAttribute) marginEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getMARGIN_NAME() {
+		return margiN_NAMEEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public CinEditorMLFactory getCinEditorMLFactory() {
 		return (CinEditorMLFactory) getEFactoryInstance();
 	}
@@ -808,6 +887,7 @@ public class CinEditorMLPackageImpl extends EPackageImpl implements CinEditorMLP
 		graphicalElementEClass = createEClass(GRAPHICAL_ELEMENT);
 		createEReference(graphicalElementEClass, GRAPHICAL_ELEMENT__POSITION);
 		createEReference(graphicalElementEClass, GRAPHICAL_ELEMENT__DIMENSION);
+		createEReference(graphicalElementEClass, GRAPHICAL_ELEMENT__MARGINS);
 
 		itemPositionIntEClass = createEClass(ITEM_POSITION_INT);
 		createEAttribute(itemPositionIntEClass, ITEM_POSITION_INT__POSITION);
@@ -824,6 +904,15 @@ public class CinEditorMLPackageImpl extends EPackageImpl implements CinEditorMLP
 		createEAttribute(audioElementEClass, AUDIO_ELEMENT__FADE_OUT);
 		createEAttribute(audioElementEClass, AUDIO_ELEMENT__VOLUME);
 		createEAttribute(audioElementEClass, AUDIO_ELEMENT__BEGIN_CROP_TIME);
+
+		marginEClass = createEClass(MARGIN);
+		createEAttribute(marginEClass, MARGIN__TYPE);
+		createEAttribute(marginEClass, MARGIN__SIZE);
+		createEReference(marginEClass, MARGIN__MARGIN_COLOR);
+		createEAttribute(marginEClass, MARGIN__MARGIN_COLOR_OPACITY);
+
+		// Create enums
+		margiN_NAMEEEnum = createEEnum(MARGIN_NAME);
 	}
 
 	/**
@@ -973,6 +1062,9 @@ public class CinEditorMLPackageImpl extends EPackageImpl implements CinEditorMLP
 		initEReference(getGraphicalElement_Dimension(), this.getDimension(), null, "dimension", null, 0, 1,
 				GraphicalElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getGraphicalElement_Margins(), this.getMargin(), null, "margins", null, 0, 4,
+				GraphicalElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(itemPositionIntEClass, ItemPositionInt.class, "ItemPositionInt", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
@@ -1002,9 +1094,28 @@ public class CinEditorMLPackageImpl extends EPackageImpl implements CinEditorMLP
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAudioElement_Volume(), ecorePackage.getEFloat(), "volume", "1", 0, 1, AudioElement.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getAudioElement_BeginCropTime(), ecorePackage.getEInt(), "beginCropTime", "0", 0, 1,
+		initEAttribute(getAudioElement_BeginCropTime(), ecorePackage.getEInt(), "beginCropTime", "-1", 0, 1,
 				AudioElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
 				!IS_DERIVED, IS_ORDERED);
+
+		initEClass(marginEClass, Margin.class, "Margin", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getMargin_Type(), this.getMARGIN_NAME(), "type", null, 1, 1, Margin.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMargin_Size(), ecorePackage.getEInt(), "size", "0", 1, 1, Margin.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMargin_MarginColor(), this.getHexadecimalColor(), null, "marginColor", null, 0, 1,
+				Margin.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMargin_MarginColorOpacity(), ecorePackage.getEFloat(), "marginColorOpacity", "1.0", 0, 1,
+				Margin.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
+
+		// Initialize enums and add enum literals
+		initEEnum(margiN_NAMEEEnum, CinEditorML.MARGIN_NAME.class, "MARGIN_NAME");
+		addEEnumLiteral(margiN_NAMEEEnum, CinEditorML.MARGIN_NAME.LEFT);
+		addEEnumLiteral(margiN_NAMEEEnum, CinEditorML.MARGIN_NAME.RIGHT);
+		addEEnumLiteral(margiN_NAMEEEnum, CinEditorML.MARGIN_NAME.TOP);
+		addEEnumLiteral(margiN_NAMEEEnum, CinEditorML.MARGIN_NAME.BOTTOM);
 
 		// Create resource
 		createResource(eNS_URI);

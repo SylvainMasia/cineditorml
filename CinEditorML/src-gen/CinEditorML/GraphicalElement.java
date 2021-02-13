@@ -2,6 +2,8 @@
  */
 package CinEditorML;
 
+import org.eclipse.emf.common.util.EList;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Graphical Element</b></em>'.
@@ -13,6 +15,7 @@ package CinEditorML;
  * <ul>
  *   <li>{@link CinEditorML.GraphicalElement#getPosition <em>Position</em>}</li>
  *   <li>{@link CinEditorML.GraphicalElement#getDimension <em>Dimension</em>}</li>
+ *   <li>{@link CinEditorML.GraphicalElement#getMargins <em>Margins</em>}</li>
  * </ul>
  *
  * @see CinEditorML.CinEditorMLPackage#getGraphicalElement()
@@ -71,5 +74,21 @@ public interface GraphicalElement extends Element {
 	 * @generated
 	 */
 	void setDimension(Dimension value);
+
+	/**
+	 * Returns the value of the '<em><b>Margins</b></em>' containment reference list.
+	 * The list contents are of type {@link CinEditorML.Margin}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Margins</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Margins</em>' containment reference list.
+	 * @see CinEditorML.CinEditorMLPackage#getGraphicalElement_Margins()
+	 * @model containment="true" upper="4"
+	 * @generated
+	 */
+	EList<Margin> getMargins();
 
 } // GraphicalElement

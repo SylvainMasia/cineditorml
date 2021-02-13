@@ -63,6 +63,7 @@ public class GraphicalElementItemProvider extends ElementItemProvider {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(CinEditorMLPackage.Literals.GRAPHICAL_ELEMENT__POSITION);
 			childrenFeatures.add(CinEditorMLPackage.Literals.GRAPHICAL_ELEMENT__DIMENSION);
+			childrenFeatures.add(CinEditorMLPackage.Literals.GRAPHICAL_ELEMENT__MARGINS);
 		}
 		return childrenFeatures;
 	}
@@ -128,6 +129,7 @@ public class GraphicalElementItemProvider extends ElementItemProvider {
 		switch (notification.getFeatureID(GraphicalElement.class)) {
 		case CinEditorMLPackage.GRAPHICAL_ELEMENT__POSITION:
 		case CinEditorMLPackage.GRAPHICAL_ELEMENT__DIMENSION:
+		case CinEditorMLPackage.GRAPHICAL_ELEMENT__MARGINS:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 			return;
 		}
@@ -150,6 +152,9 @@ public class GraphicalElementItemProvider extends ElementItemProvider {
 
 		newChildDescriptors.add(createChildParameter(CinEditorMLPackage.Literals.GRAPHICAL_ELEMENT__DIMENSION,
 				CinEditorMLFactory.eINSTANCE.createDimension()));
+
+		newChildDescriptors.add(createChildParameter(CinEditorMLPackage.Literals.GRAPHICAL_ELEMENT__MARGINS,
+				CinEditorMLFactory.eINSTANCE.createMargin()));
 	}
 
 }

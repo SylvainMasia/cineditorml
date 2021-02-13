@@ -12,6 +12,7 @@ import CinEditorML.HexadecimalColor;
 import CinEditorML.ItemPositionInt;
 import CinEditorML.ItemPositionString;
 import CinEditorML.Layer;
+import CinEditorML.Margin;
 import CinEditorML.Movie;
 import CinEditorML.Picture;
 import CinEditorML.Position;
@@ -69,6 +70,9 @@ public class CinEditorSemanticSequencer extends AbstractDelegatingSemanticSequen
 				return; 
 			case CinEditorMLPackage.LAYER:
 				sequence_Layer(context, (Layer) semanticObject); 
+				return; 
+			case CinEditorMLPackage.MARGIN:
+				sequence_Margin(context, (Margin) semanticObject); 
 				return; 
 			case CinEditorMLPackage.MOVIE:
 				sequence_Movie(context, (Movie) semanticObject); 
@@ -230,6 +234,18 @@ public class CinEditorSemanticSequencer extends AbstractDelegatingSemanticSequen
 	
 	/**
 	 * Contexts:
+	 *     Margin returns Margin
+	 *
+	 * Constraint:
+	 *     (type=MARGIN_NAME size=EInt marginColor=HexadecimalColor? marginColorOpacity=EFloat?)
+	 */
+	protected void sequence_Margin(ISerializationContext context, Margin semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     Movie returns Movie
 	 *
 	 * Constraint:
@@ -252,6 +268,7 @@ public class CinEditorSemanticSequencer extends AbstractDelegatingSemanticSequen
 	 *         url=EString 
 	 *         position=Position? 
 	 *         dimension=Dimension? 
+	 *         margins+=Margin* 
 	 *         beginTime=EInt? 
 	 *         duration=EInt?
 	 *     )
@@ -294,6 +311,7 @@ public class CinEditorSemanticSequencer extends AbstractDelegatingSemanticSequen
 	 *         color=HexadecimalColor 
 	 *         position=Position? 
 	 *         dimension=Dimension? 
+	 *         margins+=Margin* 
 	 *         beginTime=EInt? 
 	 *         duration=EInt?
 	 *     )
@@ -315,6 +333,7 @@ public class CinEditorSemanticSequencer extends AbstractDelegatingSemanticSequen
 	 *         text=EString 
 	 *         fontSize=EInt? 
 	 *         position=Position? 
+	 *         margins+=Margin* 
 	 *         beginTime=EInt? 
 	 *         duration=EInt? 
 	 *         color=HexadecimalColor
@@ -357,7 +376,8 @@ public class CinEditorSemanticSequencer extends AbstractDelegatingSemanticSequen
 	 *         url=EString 
 	 *         enableAudio=EBoolean? 
 	 *         position=Position? 
-	 *         dimension=Dimension 
+	 *         dimension=Dimension? 
+	 *         margins+=Margin* 
 	 *         beginTime=EInt? 
 	 *         beginCropTime=EInt? 
 	 *         duration=EInt?

@@ -4,6 +4,7 @@ package CinEditorML;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -268,13 +269,22 @@ public interface CinEditorMLPackage extends EPackage {
 	int GRAPHICAL_ELEMENT__DIMENSION = ELEMENT_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Margins</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GRAPHICAL_ELEMENT__MARGINS = ELEMENT_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Graphical Element</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GRAPHICAL_ELEMENT_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 2;
+	int GRAPHICAL_ELEMENT_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>Graphical Element</em>' class.
@@ -339,6 +349,15 @@ public interface CinEditorMLPackage extends EPackage {
 	 * @ordered
 	 */
 	int TEXT__DIMENSION = GRAPHICAL_ELEMENT__DIMENSION;
+
+	/**
+	 * The feature id for the '<em><b>Margins</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT__MARGINS = GRAPHICAL_ELEMENT__MARGINS;
 
 	/**
 	 * The feature id for the '<em><b>Text</b></em>' attribute.
@@ -441,6 +460,15 @@ public interface CinEditorMLPackage extends EPackage {
 	int PICTURE__DIMENSION = GRAPHICAL_ELEMENT__DIMENSION;
 
 	/**
+	 * The feature id for the '<em><b>Margins</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PICTURE__MARGINS = GRAPHICAL_ELEMENT__MARGINS;
+
+	/**
 	 * The feature id for the '<em><b>Url</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -521,6 +549,15 @@ public interface CinEditorMLPackage extends EPackage {
 	 * @ordered
 	 */
 	int VIDEO__DIMENSION = GRAPHICAL_ELEMENT__DIMENSION;
+
+	/**
+	 * The feature id for the '<em><b>Margins</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIDEO__MARGINS = GRAPHICAL_ELEMENT__MARGINS;
 
 	/**
 	 * The feature id for the '<em><b>Url</b></em>' attribute.
@@ -888,6 +925,15 @@ public interface CinEditorMLPackage extends EPackage {
 	int SHAPE__DIMENSION = GRAPHICAL_ELEMENT__DIMENSION;
 
 	/**
+	 * The feature id for the '<em><b>Margins</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SHAPE__MARGINS = GRAPHICAL_ELEMENT__MARGINS;
+
+	/**
 	 * The feature id for the '<em><b>Color</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1014,6 +1060,15 @@ public interface CinEditorMLPackage extends EPackage {
 	 * @ordered
 	 */
 	int RECTANGLE__DIMENSION = SHAPE__DIMENSION;
+
+	/**
+	 * The feature id for the '<em><b>Margins</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RECTANGLE__MARGINS = SHAPE__MARGINS;
 
 	/**
 	 * The feature id for the '<em><b>Color</b></em>' containment reference.
@@ -1335,6 +1390,80 @@ public interface CinEditorMLPackage extends EPackage {
 	 * @ordered
 	 */
 	int AUDIO_ELEMENT_OPERATION_COUNT = ELEMENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link CinEditorML.impl.MarginImpl <em>Margin</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see CinEditorML.impl.MarginImpl
+	 * @see CinEditorML.impl.CinEditorMLPackageImpl#getMargin()
+	 * @generated
+	 */
+	int MARGIN = 20;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MARGIN__TYPE = 0;
+
+	/**
+	 * The feature id for the '<em><b>Size</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MARGIN__SIZE = 1;
+
+	/**
+	 * The feature id for the '<em><b>Margin Color</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MARGIN__MARGIN_COLOR = 2;
+
+	/**
+	 * The feature id for the '<em><b>Margin Color Opacity</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MARGIN__MARGIN_COLOR_OPACITY = 3;
+
+	/**
+	 * The number of structural features of the '<em>Margin</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MARGIN_FEATURE_COUNT = 4;
+
+	/**
+	 * The number of operations of the '<em>Margin</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MARGIN_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link CinEditorML.MARGIN_NAME <em>MARGIN NAME</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see CinEditorML.MARGIN_NAME
+	 * @see CinEditorML.impl.CinEditorMLPackageImpl#getMARGIN_NAME()
+	 * @generated
+	 */
+	int MARGIN_NAME = 21;
 
 	/**
 	 * Returns the meta object for class '{@link CinEditorML.Movie <em>Movie</em>}'.
@@ -1772,6 +1901,17 @@ public interface CinEditorMLPackage extends EPackage {
 	EReference getGraphicalElement_Dimension();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link CinEditorML.GraphicalElement#getMargins <em>Margins</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Margins</em>'.
+	 * @see CinEditorML.GraphicalElement#getMargins()
+	 * @see #getGraphicalElement()
+	 * @generated
+	 */
+	EReference getGraphicalElement_Margins();
+
+	/**
 	 * Returns the meta object for class '{@link CinEditorML.ItemPositionInt <em>Item Position Int</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1898,6 +2038,70 @@ public interface CinEditorMLPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getAudioElement_BeginCropTime();
+
+	/**
+	 * Returns the meta object for class '{@link CinEditorML.Margin <em>Margin</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Margin</em>'.
+	 * @see CinEditorML.Margin
+	 * @generated
+	 */
+	EClass getMargin();
+
+	/**
+	 * Returns the meta object for the attribute '{@link CinEditorML.Margin#getType <em>Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Type</em>'.
+	 * @see CinEditorML.Margin#getType()
+	 * @see #getMargin()
+	 * @generated
+	 */
+	EAttribute getMargin_Type();
+
+	/**
+	 * Returns the meta object for the attribute '{@link CinEditorML.Margin#getSize <em>Size</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Size</em>'.
+	 * @see CinEditorML.Margin#getSize()
+	 * @see #getMargin()
+	 * @generated
+	 */
+	EAttribute getMargin_Size();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link CinEditorML.Margin#getMarginColor <em>Margin Color</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Margin Color</em>'.
+	 * @see CinEditorML.Margin#getMarginColor()
+	 * @see #getMargin()
+	 * @generated
+	 */
+	EReference getMargin_MarginColor();
+
+	/**
+	 * Returns the meta object for the attribute '{@link CinEditorML.Margin#getMarginColorOpacity <em>Margin Color Opacity</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Margin Color Opacity</em>'.
+	 * @see CinEditorML.Margin#getMarginColorOpacity()
+	 * @see #getMargin()
+	 * @generated
+	 */
+	EAttribute getMargin_MarginColorOpacity();
+
+	/**
+	 * Returns the meta object for enum '{@link CinEditorML.MARGIN_NAME <em>MARGIN NAME</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>MARGIN NAME</em>'.
+	 * @see CinEditorML.MARGIN_NAME
+	 * @generated
+	 */
+	EEnum getMARGIN_NAME();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -2283,6 +2487,14 @@ public interface CinEditorMLPackage extends EPackage {
 		EReference GRAPHICAL_ELEMENT__DIMENSION = eINSTANCE.getGraphicalElement_Dimension();
 
 		/**
+		 * The meta object literal for the '<em><b>Margins</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference GRAPHICAL_ELEMENT__MARGINS = eINSTANCE.getGraphicalElement_Margins();
+
+		/**
 		 * The meta object literal for the '{@link CinEditorML.impl.ItemPositionIntImpl <em>Item Position Int</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2385,6 +2597,58 @@ public interface CinEditorMLPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute AUDIO_ELEMENT__BEGIN_CROP_TIME = eINSTANCE.getAudioElement_BeginCropTime();
+
+		/**
+		 * The meta object literal for the '{@link CinEditorML.impl.MarginImpl <em>Margin</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see CinEditorML.impl.MarginImpl
+		 * @see CinEditorML.impl.CinEditorMLPackageImpl#getMargin()
+		 * @generated
+		 */
+		EClass MARGIN = eINSTANCE.getMargin();
+
+		/**
+		 * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MARGIN__TYPE = eINSTANCE.getMargin_Type();
+
+		/**
+		 * The meta object literal for the '<em><b>Size</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MARGIN__SIZE = eINSTANCE.getMargin_Size();
+
+		/**
+		 * The meta object literal for the '<em><b>Margin Color</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MARGIN__MARGIN_COLOR = eINSTANCE.getMargin_MarginColor();
+
+		/**
+		 * The meta object literal for the '<em><b>Margin Color Opacity</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MARGIN__MARGIN_COLOR_OPACITY = eINSTANCE.getMargin_MarginColorOpacity();
+
+		/**
+		 * The meta object literal for the '{@link CinEditorML.MARGIN_NAME <em>MARGIN NAME</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see CinEditorML.MARGIN_NAME
+		 * @see CinEditorML.impl.CinEditorMLPackageImpl#getMARGIN_NAME()
+		 * @generated
+		 */
+		EEnum MARGIN_NAME = eINSTANCE.getMARGIN_NAME();
 
 	}
 

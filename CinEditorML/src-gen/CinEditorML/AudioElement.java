@@ -159,7 +159,7 @@ public interface AudioElement extends Element {
 
 	/**
 	 * Returns the value of the '<em><b>Begin Crop Time</b></em>' attribute.
-	 * The default value is <code>"0"</code>.
+	 * The default value is <code>"-1"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Begin Crop Time</em>' attribute isn't clear,
@@ -169,7 +169,7 @@ public interface AudioElement extends Element {
 	 * @return the value of the '<em>Begin Crop Time</em>' attribute.
 	 * @see #setBeginCropTime(int)
 	 * @see CinEditorML.CinEditorMLPackage#getAudioElement_BeginCropTime()
-	 * @model default="0"
+	 * @model default="-1"
 	 * @generated
 	 */
 	int getBeginCropTime();

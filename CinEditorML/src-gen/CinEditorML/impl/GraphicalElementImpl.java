@@ -5,15 +5,20 @@ package CinEditorML.impl;
 import CinEditorML.CinEditorMLPackage;
 import CinEditorML.Dimension;
 import CinEditorML.GraphicalElement;
+import CinEditorML.Margin;
 import CinEditorML.Position;
 
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -25,6 +30,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <ul>
  *   <li>{@link CinEditorML.impl.GraphicalElementImpl#getPosition <em>Position</em>}</li>
  *   <li>{@link CinEditorML.impl.GraphicalElementImpl#getDimension <em>Dimension</em>}</li>
+ *   <li>{@link CinEditorML.impl.GraphicalElementImpl#getMargins <em>Margins</em>}</li>
  * </ul>
  *
  * @generated
@@ -49,6 +55,16 @@ public class GraphicalElementImpl extends ElementImpl implements GraphicalElemen
 	 * @ordered
 	 */
 	protected Dimension dimension;
+
+	/**
+	 * The cached value of the '{@link #getMargins() <em>Margins</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMargins()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Margin> margins;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -174,6 +190,19 @@ public class GraphicalElementImpl extends ElementImpl implements GraphicalElemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Margin> getMargins() {
+		if (margins == null) {
+			margins = new EObjectContainmentEList<Margin>(Margin.class, this,
+					CinEditorMLPackage.GRAPHICAL_ELEMENT__MARGINS);
+		}
+		return margins;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -181,6 +210,8 @@ public class GraphicalElementImpl extends ElementImpl implements GraphicalElemen
 			return basicSetPosition(null, msgs);
 		case CinEditorMLPackage.GRAPHICAL_ELEMENT__DIMENSION:
 			return basicSetDimension(null, msgs);
+		case CinEditorMLPackage.GRAPHICAL_ELEMENT__MARGINS:
+			return ((InternalEList<?>) getMargins()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -197,6 +228,8 @@ public class GraphicalElementImpl extends ElementImpl implements GraphicalElemen
 			return getPosition();
 		case CinEditorMLPackage.GRAPHICAL_ELEMENT__DIMENSION:
 			return getDimension();
+		case CinEditorMLPackage.GRAPHICAL_ELEMENT__MARGINS:
+			return getMargins();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -206,6 +239,7 @@ public class GraphicalElementImpl extends ElementImpl implements GraphicalElemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -214,6 +248,10 @@ public class GraphicalElementImpl extends ElementImpl implements GraphicalElemen
 			return;
 		case CinEditorMLPackage.GRAPHICAL_ELEMENT__DIMENSION:
 			setDimension((Dimension) newValue);
+			return;
+		case CinEditorMLPackage.GRAPHICAL_ELEMENT__MARGINS:
+			getMargins().clear();
+			getMargins().addAll((Collection<? extends Margin>) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -233,6 +271,9 @@ public class GraphicalElementImpl extends ElementImpl implements GraphicalElemen
 		case CinEditorMLPackage.GRAPHICAL_ELEMENT__DIMENSION:
 			setDimension((Dimension) null);
 			return;
+		case CinEditorMLPackage.GRAPHICAL_ELEMENT__MARGINS:
+			getMargins().clear();
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -249,6 +290,8 @@ public class GraphicalElementImpl extends ElementImpl implements GraphicalElemen
 			return position != null;
 		case CinEditorMLPackage.GRAPHICAL_ELEMENT__DIMENSION:
 			return dimension != null;
+		case CinEditorMLPackage.GRAPHICAL_ELEMENT__MARGINS:
+			return margins != null && !margins.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

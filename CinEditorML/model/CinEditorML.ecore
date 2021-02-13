@@ -75,6 +75,8 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="dimension" eType="#//Dimension"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="margins" upperBound="4"
+        eType="#//Margin" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ItemPositionInt" eSuperTypes="#//ItemPosition">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="position" lowerBound="1"
@@ -96,6 +98,21 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="volume" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"
         defaultValueLiteral="1"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="beginCropTime" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+        defaultValueLiteral="-1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Margin">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" lowerBound="1" eType="#//MARGIN_NAME"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="size" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
         defaultValueLiteral="0"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="marginColor" eType="#//HexadecimalColor"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="marginColorOpacity" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"
+        defaultValueLiteral="1.0"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="MARGIN_NAME">
+    <eLiterals name="LEFT"/>
+    <eLiterals name="RIGHT" value="1"/>
+    <eLiterals name="TOP" value="2"/>
+    <eLiterals name="BOTTOM" value="3"/>
   </eClassifiers>
 </ecore:EPackage>

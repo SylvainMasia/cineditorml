@@ -14,6 +14,8 @@ import CinEditorML.ItemPositionString
 import CinEditorML.AudioElement
 import CinEditorML.Video
 import CinEditorML.Effect
+import CinEditorML.GraphicalElement
+import CinEditorML.Margin
 
 /**
  * This class contains custom validation rules. 
@@ -113,6 +115,33 @@ class CinEditorValidator extends AbstractCinEditorValidator {
 			error('To crop a video you must set the duration', CinEditorMLPackage.Literals.VIDEO__BEGIN_CROP_TIME);
 		}
 	}
+	
+	@Check
+	def checkGraphicalElementMargins(GraphicalElement graphicalElement) {
+		if (graphicalElement.margins.size > 4) {
+			error('An element can only have 4 margins at max', CinEditorMLPackage.Literals.GRAPHICAL_ELEMENT__MARGINS);
+		}
+		var marginsUsed = new HashSet();
+		for (Margin margin : graphicalElement.margins) {
+			if (marginsUsed.contains(margin.type)) {
+				error('A margin can not be duplicated in an element', CinEditorMLPackage.Literals.GRAPHICAL_ELEMENT__MARGINS);
+			} else {
+				marginsUsed.add(margin.type);
+			}
+		}
+	}
+	
+	@Check
+	def checkMargin(Margin margin) {
+		if (margin.marginColorOpacity < 0 || margin.marginColorOpacity > 1) {
+			error('The opacity must be > 0 and < 1', CinEditorMLPackage.Literals.MARGIN__MARGIN_COLOR_OPACITY);
+		}
+		if(margin.size < 0) {
+			error('The size must be >= 0', CinEditorMLPackage.Literals.MARGIN__MARGIN_COLOR_OPACITY);
+		}
+	}
+	
+	
 	
 	@Check
 	def checkShapeColor(HexadecimalColor color) {

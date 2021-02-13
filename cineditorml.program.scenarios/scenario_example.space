@@ -5,7 +5,7 @@ Movie scenario_example dimension 1280 x 720 fps 30
 	Layer
 		Rectangle rec1 = color '3E6BC5' dimension -1 x -1 during 2
 		Rectangle rec2 = color '3EC590' dimension 1280 x 720 startAt 2 during 2
-		Rectangle petitRec = color 'ffffff' position (10, 10) dimension 50 x 50 during 4
+		Rectangle petitRec = color 'ffffff' position(10, 10) dimension 50 x 50 during 4
 	Layer
 		Video video = './assets/video2.mp4' dimension 1280 x 720
 	Layer

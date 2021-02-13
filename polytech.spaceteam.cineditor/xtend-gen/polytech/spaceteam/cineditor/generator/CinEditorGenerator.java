@@ -15,6 +15,8 @@ import CinEditorML.ItemPosition;
 import CinEditorML.ItemPositionInt;
 import CinEditorML.ItemPositionString;
 import CinEditorML.Layer;
+import CinEditorML.MARGIN_NAME;
+import CinEditorML.Margin;
 import CinEditorML.Movie;
 import CinEditorML.Picture;
 import CinEditorML.Position;
@@ -289,6 +291,68 @@ public class CinEditorGenerator extends AbstractGenerator {
     return s;
   }
   
+  private String extractMarginsFromElement(final GraphicalElement element) {
+    String s = "";
+    EList<Margin> _margins = element.getMargins();
+    for (final Margin margin : _margins) {
+      {
+        String color = "[0,0,0]";
+        HexadecimalColor _marginColor = margin.getMarginColor();
+        boolean _tripleNotEquals = (_marginColor != null);
+        if (_tripleNotEquals) {
+          String _hexadecimalValue = margin.getMarginColor().getHexadecimalValue();
+          String _plus = ("#" + _hexadecimalValue);
+          final Color tmp = Color.decode(_plus);
+          int _red = tmp.getRed();
+          String _plus_1 = ("(" + Integer.valueOf(_red));
+          String _plus_2 = (_plus_1 + ",");
+          int _green = tmp.getGreen();
+          String _plus_3 = (_plus_2 + Integer.valueOf(_green));
+          String _plus_4 = (_plus_3 + ",");
+          int _blue = tmp.getBlue();
+          String _plus_5 = (_plus_4 + Integer.valueOf(_blue));
+          String _plus_6 = (_plus_5 + ")");
+          color = _plus_6;
+        }
+        int _size = margin.getSize();
+        boolean _greaterThan = (_size > 0);
+        if (_greaterThan) {
+          String marginName = "";
+          boolean _equals = margin.getType().equals(MARGIN_NAME.BOTTOM);
+          if (_equals) {
+            marginName = "bottom";
+          } else {
+            boolean _equals_1 = margin.getType().equals(MARGIN_NAME.TOP);
+            if (_equals_1) {
+              marginName = "top";
+            } else {
+              boolean _equals_2 = margin.getType().equals(MARGIN_NAME.LEFT);
+              if (_equals_2) {
+                marginName = "left";
+              } else {
+                boolean _equals_3 = margin.getType().equals(MARGIN_NAME.RIGHT);
+                if (_equals_3) {
+                  marginName = "right";
+                }
+              }
+            }
+          }
+          String _s = s;
+          int _size_1 = margin.getSize();
+          String _plus_7 = ((("\\\n\t.margin(" + marginName) + "=") + Integer.valueOf(_size_1));
+          String _plus_8 = (_plus_7 + ", color=");
+          String _plus_9 = (_plus_8 + color);
+          String _plus_10 = (_plus_9 + ", opacity=");
+          float _marginColorOpacity = margin.getMarginColorOpacity();
+          String _plus_11 = (_plus_10 + Float.valueOf(_marginColorOpacity));
+          String _plus_12 = (_plus_11 + ")");
+          s = (_s + _plus_12);
+        }
+      }
+    }
+    return s;
+  }
+  
   private String extractValueFromItemPosition(final ItemPosition item) {
     if ((item instanceof ItemPositionInt)) {
       int _position = ((ItemPositionInt) item).getPosition();
@@ -341,7 +405,9 @@ public class CinEditorGenerator extends AbstractGenerator {
     String _plus_7 = (_plus_6 + _extractPositionFromElement);
     String _extractDimensionFromElement = this.extractDimensionFromElement(element);
     String _plus_8 = (_plus_7 + _extractDimensionFromElement);
-    String s = (_plus_8 + "\n\n");
+    String _extractMarginsFromElement = this.extractMarginsFromElement(element);
+    String _plus_9 = (_plus_8 + _extractMarginsFromElement);
+    String s = (_plus_9 + "\n\n");
     this.elementsVarNames.add(element.getName());
     return s;
   }
@@ -457,8 +523,10 @@ public class CinEditorGenerator extends AbstractGenerator {
     String _plus_14 = (_plus_13 + _extractDimensionFromElement);
     String _extractPositionFromElement = this.extractPositionFromElement(element);
     String _plus_15 = (_plus_14 + _extractPositionFromElement);
-    String _plus_16 = (_plus_15 + cropString);
-    String s = (_plus_16 + "\n\n");
+    String _extractMarginsFromElement = this.extractMarginsFromElement(element);
+    String _plus_16 = (_plus_15 + _extractMarginsFromElement);
+    String _plus_17 = (_plus_16 + cropString);
+    String s = (_plus_17 + "\n\n");
     this.elementsVarNames.add(element.getName());
     return s;
   }
@@ -534,9 +602,11 @@ public class CinEditorGenerator extends AbstractGenerator {
     String _plus_12 = (_plus_11 + _extractBeginTimeFromElement);
     String _extractDurationFromElement = this.extractDurationFromElement(element);
     String _plus_13 = (_plus_12 + _extractDurationFromElement);
+    String _extractMarginsFromElement = this.extractMarginsFromElement(element);
+    String _plus_14 = (_plus_13 + _extractMarginsFromElement);
     String _extractPositionFromElement = this.extractPositionFromElement(element);
-    String _plus_14 = (_plus_13 + _extractPositionFromElement);
-    String s = (_plus_14 + "\n\n");
+    String _plus_15 = (_plus_14 + _extractPositionFromElement);
+    String s = (_plus_15 + "\n\n");
     this.elementsVarNames.add(element.getName());
     return s;
   }

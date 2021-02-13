@@ -12,12 +12,15 @@ import CinEditorML.HexadecimalColor;
 import CinEditorML.ItemPosition;
 import CinEditorML.ItemPositionString;
 import CinEditorML.Layer;
+import CinEditorML.MARGIN_NAME;
+import CinEditorML.Margin;
 import CinEditorML.Movie;
 import CinEditorML.Position;
 import CinEditorML.Video;
 import java.util.HashSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.xtext.validation.Check;
 import polytech.spaceteam.cineditor.validation.AbstractCinEditorValidator;
 
@@ -144,6 +147,37 @@ public class CinEditorValidator extends AbstractCinEditorValidator {
   public void checkVideo(final Video element) {
     if (((element.getBeginCropTime() > (-1)) && (element.getDuration() < 0))) {
       this.error("To crop a video you must set the duration", CinEditorMLPackage.Literals.VIDEO__BEGIN_CROP_TIME);
+    }
+  }
+  
+  @Check
+  public void checkGraphicalElementMargins(final GraphicalElement graphicalElement) {
+    int _size = graphicalElement.getMargins().size();
+    boolean _greaterThan = (_size > 4);
+    if (_greaterThan) {
+      this.error("An element can only have 4 margins at max", CinEditorMLPackage.Literals.GRAPHICAL_ELEMENT__MARGINS);
+    }
+    HashSet<MARGIN_NAME> marginsUsed = new HashSet<MARGIN_NAME>();
+    EList<Margin> _margins = graphicalElement.getMargins();
+    for (final Margin margin : _margins) {
+      boolean _contains = marginsUsed.contains(margin.getType());
+      if (_contains) {
+        this.error("A margin can not be duplicated in an element", CinEditorMLPackage.Literals.GRAPHICAL_ELEMENT__MARGINS);
+      } else {
+        marginsUsed.add(margin.getType());
+      }
+    }
+  }
+  
+  @Check
+  public void checkMargin(final Margin margin) {
+    if (((margin.getMarginColorOpacity() < 0) || (margin.getMarginColorOpacity() > 1))) {
+      this.error("The opacity must be > 0 and < 1", CinEditorMLPackage.Literals.MARGIN__MARGIN_COLOR_OPACITY);
+    }
+    int _size = margin.getSize();
+    boolean _lessThan = (_size < 0);
+    if (_lessThan) {
+      this.error("The size must be >= 0", CinEditorMLPackage.Literals.MARGIN__MARGIN_COLOR_OPACITY);
     }
   }
   

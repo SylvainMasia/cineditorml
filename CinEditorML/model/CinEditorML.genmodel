@@ -9,6 +9,12 @@
   <foreignModel>CinEditorML.ecore</foreignModel>
   <testsDirectory xsi:nil="true"/>
   <genPackages prefix="CinEditorML" disposableProviderFactory="true" ecorePackage="CinEditorML.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="CinEditorML.ecore#//MARGIN_NAME">
+      <genEnumLiterals ecoreEnumLiteral="CinEditorML.ecore#//MARGIN_NAME/LEFT"/>
+      <genEnumLiterals ecoreEnumLiteral="CinEditorML.ecore#//MARGIN_NAME/RIGHT"/>
+      <genEnumLiterals ecoreEnumLiteral="CinEditorML.ecore#//MARGIN_NAME/TOP"/>
+      <genEnumLiterals ecoreEnumLiteral="CinEditorML.ecore#//MARGIN_NAME/BOTTOM"/>
+    </genEnums>
     <genClasses ecoreClass="CinEditorML.ecore#//Movie">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CinEditorML.ecore#//Movie/layers"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CinEditorML.ecore#//Movie/name"/>
@@ -62,6 +68,7 @@
     <genClasses ecoreClass="CinEditorML.ecore#//GraphicalElement">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CinEditorML.ecore#//GraphicalElement/position"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CinEditorML.ecore#//GraphicalElement/dimension"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CinEditorML.ecore#//GraphicalElement/margins"/>
     </genClasses>
     <genClasses ecoreClass="CinEditorML.ecore#//ItemPositionInt">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CinEditorML.ecore#//ItemPositionInt/position"/>
@@ -77,6 +84,12 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CinEditorML.ecore#//AudioElement/fadeOut"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CinEditorML.ecore#//AudioElement/volume"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CinEditorML.ecore#//AudioElement/beginCropTime"/>
+    </genClasses>
+    <genClasses ecoreClass="CinEditorML.ecore#//Margin">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CinEditorML.ecore#//Margin/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CinEditorML.ecore#//Margin/size"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CinEditorML.ecore#//Margin/marginColor"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CinEditorML.ecore#//Margin/marginColorOpacity"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

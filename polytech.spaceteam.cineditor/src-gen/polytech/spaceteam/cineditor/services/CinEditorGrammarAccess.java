@@ -10,6 +10,8 @@ import org.eclipse.xtext.Action;
 import org.eclipse.xtext.Alternatives;
 import org.eclipse.xtext.Assignment;
 import org.eclipse.xtext.CrossReference;
+import org.eclipse.xtext.EnumLiteralDeclaration;
+import org.eclipse.xtext.EnumRule;
 import org.eclipse.xtext.Grammar;
 import org.eclipse.xtext.GrammarUtil;
 import org.eclipse.xtext.Group;
@@ -18,6 +20,7 @@ import org.eclipse.xtext.ParserRule;
 import org.eclipse.xtext.RuleCall;
 import org.eclipse.xtext.TerminalRule;
 import org.eclipse.xtext.common.services.TerminalsGrammarAccess;
+import org.eclipse.xtext.service.AbstractElementFinder.AbstractEnumRuleElementFinder;
 import org.eclipse.xtext.service.AbstractElementFinder.AbstractGrammarElementFinder;
 import org.eclipse.xtext.service.GrammarProvider;
 
@@ -360,6 +363,65 @@ public class CinEditorGrammarAccess extends AbstractGrammarElementFinder {
 		//Rectangle
 		public RuleCall getRectangleParserRuleCall_3() { return cRectangleParserRuleCall_3; }
 	}
+	public class MarginElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "polytech.spaceteam.cineditor.CinEditor.Margin");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cTypeAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cTypeMARGIN_NAMEEnumRuleCall_0_0 = (RuleCall)cTypeAssignment_0.eContents().get(0);
+		private final Keyword cLeftParenthesisKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cSizeAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cSizeEIntParserRuleCall_2_0 = (RuleCall)cSizeAssignment_2.eContents().get(0);
+		private final Assignment cMarginColorAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cMarginColorHexadecimalColorParserRuleCall_3_0 = (RuleCall)cMarginColorAssignment_3.eContents().get(0);
+		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
+		private final Keyword cOpacityKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
+		private final Assignment cMarginColorOpacityAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
+		private final RuleCall cMarginColorOpacityEFloatParserRuleCall_4_1_0 = (RuleCall)cMarginColorOpacityAssignment_4_1.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		
+		//Margin:
+		//	type=MARGIN_NAME '(' size=EInt marginColor=HexadecimalColor? ('opacity' marginColorOpacity=EFloat)? ')';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//type=MARGIN_NAME '(' size=EInt marginColor=HexadecimalColor? ('opacity' marginColorOpacity=EFloat)? ')'
+		public Group getGroup() { return cGroup; }
+		
+		//type=MARGIN_NAME
+		public Assignment getTypeAssignment_0() { return cTypeAssignment_0; }
+		
+		//MARGIN_NAME
+		public RuleCall getTypeMARGIN_NAMEEnumRuleCall_0_0() { return cTypeMARGIN_NAMEEnumRuleCall_0_0; }
+		
+		//'('
+		public Keyword getLeftParenthesisKeyword_1() { return cLeftParenthesisKeyword_1; }
+		
+		//size=EInt
+		public Assignment getSizeAssignment_2() { return cSizeAssignment_2; }
+		
+		//EInt
+		public RuleCall getSizeEIntParserRuleCall_2_0() { return cSizeEIntParserRuleCall_2_0; }
+		
+		//marginColor=HexadecimalColor?
+		public Assignment getMarginColorAssignment_3() { return cMarginColorAssignment_3; }
+		
+		//HexadecimalColor
+		public RuleCall getMarginColorHexadecimalColorParserRuleCall_3_0() { return cMarginColorHexadecimalColorParserRuleCall_3_0; }
+		
+		//('opacity' marginColorOpacity=EFloat)?
+		public Group getGroup_4() { return cGroup_4; }
+		
+		//'opacity'
+		public Keyword getOpacityKeyword_4_0() { return cOpacityKeyword_4_0; }
+		
+		//marginColorOpacity=EFloat
+		public Assignment getMarginColorOpacityAssignment_4_1() { return cMarginColorOpacityAssignment_4_1; }
+		
+		//EFloat
+		public RuleCall getMarginColorOpacityEFloatParserRuleCall_4_1_0() { return cMarginColorOpacityEFloatParserRuleCall_4_1_0; }
+		
+		//')'
+		public Keyword getRightParenthesisKeyword_5() { return cRightParenthesisKeyword_5; }
+	}
 	public class EIntElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "polytech.spaceteam.cineditor.CinEditor.EInt");
 		private final Group cGroup = (Group)rule.eContents().get(1);
@@ -602,23 +664,28 @@ public class CinEditorGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cPositionAssignment_5 = (Assignment)cGroup.eContents().get(5);
 		private final RuleCall cPositionPositionParserRuleCall_5_0 = (RuleCall)cPositionAssignment_5.eContents().get(0);
 		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
-		private final Keyword cStartAtKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
-		private final Assignment cBeginTimeAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
-		private final RuleCall cBeginTimeEIntParserRuleCall_6_1_0 = (RuleCall)cBeginTimeAssignment_6_1.eContents().get(0);
+		private final Keyword cMarginsKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
+		private final Assignment cMarginsAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
+		private final RuleCall cMarginsMarginParserRuleCall_6_1_0 = (RuleCall)cMarginsAssignment_6_1.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_6_2 = (Keyword)cGroup_6.eContents().get(2);
 		private final Group cGroup_7 = (Group)cGroup.eContents().get(7);
-		private final Keyword cDuringKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
-		private final Assignment cDurationAssignment_7_1 = (Assignment)cGroup_7.eContents().get(1);
-		private final RuleCall cDurationEIntParserRuleCall_7_1_0 = (RuleCall)cDurationAssignment_7_1.eContents().get(0);
-		private final Assignment cColorAssignment_8 = (Assignment)cGroup.eContents().get(8);
-		private final RuleCall cColorHexadecimalColorParserRuleCall_8_0 = (RuleCall)cColorAssignment_8.eContents().get(0);
+		private final Keyword cStartAtKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
+		private final Assignment cBeginTimeAssignment_7_1 = (Assignment)cGroup_7.eContents().get(1);
+		private final RuleCall cBeginTimeEIntParserRuleCall_7_1_0 = (RuleCall)cBeginTimeAssignment_7_1.eContents().get(0);
+		private final Group cGroup_8 = (Group)cGroup.eContents().get(8);
+		private final Keyword cDuringKeyword_8_0 = (Keyword)cGroup_8.eContents().get(0);
+		private final Assignment cDurationAssignment_8_1 = (Assignment)cGroup_8.eContents().get(1);
+		private final RuleCall cDurationEIntParserRuleCall_8_1_0 = (RuleCall)cDurationAssignment_8_1.eContents().get(0);
+		private final Assignment cColorAssignment_9 = (Assignment)cGroup.eContents().get(9);
+		private final RuleCall cColorHexadecimalColorParserRuleCall_9_0 = (RuleCall)cColorAssignment_9.eContents().get(0);
 		
 		//Text:
-		//	'Text' name=EString '=' text=EString ('fontSize' fontSize=EInt)? position=Position? ('startAt' beginTime=EInt)?
-		//	('during' duration=EInt)? color=HexadecimalColor;
+		//	'Text' name=EString '=' text=EString ('fontSize' fontSize=EInt)? position=Position? ('margins(' margins+=Margin+
+		//	')')? ('startAt' beginTime=EInt)? ('during' duration=EInt)? color=HexadecimalColor;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'Text' name=EString '=' text=EString ('fontSize' fontSize=EInt)? position=Position? ('startAt' beginTime=EInt)?
-		//('during' duration=EInt)? color=HexadecimalColor
+		//'Text' name=EString '=' text=EString ('fontSize' fontSize=EInt)? position=Position? ('margins(' margins+=Margin+ ')')?
+		//('startAt' beginTime=EInt)? ('during' duration=EInt)? color=HexadecimalColor
 		public Group getGroup() { return cGroup; }
 		
 		//'Text'
@@ -657,35 +724,50 @@ public class CinEditorGrammarAccess extends AbstractGrammarElementFinder {
 		//Position
 		public RuleCall getPositionPositionParserRuleCall_5_0() { return cPositionPositionParserRuleCall_5_0; }
 		
-		//('startAt' beginTime=EInt)?
+		//('margins(' margins+=Margin+ ')')?
 		public Group getGroup_6() { return cGroup_6; }
 		
-		//'startAt'
-		public Keyword getStartAtKeyword_6_0() { return cStartAtKeyword_6_0; }
+		//'margins('
+		public Keyword getMarginsKeyword_6_0() { return cMarginsKeyword_6_0; }
 		
-		//beginTime=EInt
-		public Assignment getBeginTimeAssignment_6_1() { return cBeginTimeAssignment_6_1; }
+		//margins+=Margin+
+		public Assignment getMarginsAssignment_6_1() { return cMarginsAssignment_6_1; }
 		
-		//EInt
-		public RuleCall getBeginTimeEIntParserRuleCall_6_1_0() { return cBeginTimeEIntParserRuleCall_6_1_0; }
+		//Margin
+		public RuleCall getMarginsMarginParserRuleCall_6_1_0() { return cMarginsMarginParserRuleCall_6_1_0; }
 		
-		//('during' duration=EInt)?
+		//')'
+		public Keyword getRightParenthesisKeyword_6_2() { return cRightParenthesisKeyword_6_2; }
+		
+		//('startAt' beginTime=EInt)?
 		public Group getGroup_7() { return cGroup_7; }
 		
-		//'during'
-		public Keyword getDuringKeyword_7_0() { return cDuringKeyword_7_0; }
+		//'startAt'
+		public Keyword getStartAtKeyword_7_0() { return cStartAtKeyword_7_0; }
 		
-		//duration=EInt
-		public Assignment getDurationAssignment_7_1() { return cDurationAssignment_7_1; }
+		//beginTime=EInt
+		public Assignment getBeginTimeAssignment_7_1() { return cBeginTimeAssignment_7_1; }
 		
 		//EInt
-		public RuleCall getDurationEIntParserRuleCall_7_1_0() { return cDurationEIntParserRuleCall_7_1_0; }
+		public RuleCall getBeginTimeEIntParserRuleCall_7_1_0() { return cBeginTimeEIntParserRuleCall_7_1_0; }
+		
+		//('during' duration=EInt)?
+		public Group getGroup_8() { return cGroup_8; }
+		
+		//'during'
+		public Keyword getDuringKeyword_8_0() { return cDuringKeyword_8_0; }
+		
+		//duration=EInt
+		public Assignment getDurationAssignment_8_1() { return cDurationAssignment_8_1; }
+		
+		//EInt
+		public RuleCall getDurationEIntParserRuleCall_8_1_0() { return cDurationEIntParserRuleCall_8_1_0; }
 		
 		//color=HexadecimalColor
-		public Assignment getColorAssignment_8() { return cColorAssignment_8; }
+		public Assignment getColorAssignment_9() { return cColorAssignment_9; }
 		
 		//HexadecimalColor
-		public RuleCall getColorHexadecimalColorParserRuleCall_8_0() { return cColorHexadecimalColorParserRuleCall_8_0; }
+		public RuleCall getColorHexadecimalColorParserRuleCall_9_0() { return cColorHexadecimalColorParserRuleCall_9_0; }
 	}
 	public class PictureElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "polytech.spaceteam.cineditor.CinEditor.Picture");
@@ -701,21 +783,26 @@ public class CinEditorGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cDimensionAssignment_5 = (Assignment)cGroup.eContents().get(5);
 		private final RuleCall cDimensionDimensionParserRuleCall_5_0 = (RuleCall)cDimensionAssignment_5.eContents().get(0);
 		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
-		private final Keyword cStartAtKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
-		private final Assignment cBeginTimeAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
-		private final RuleCall cBeginTimeEIntParserRuleCall_6_1_0 = (RuleCall)cBeginTimeAssignment_6_1.eContents().get(0);
+		private final Keyword cMarginsKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
+		private final Assignment cMarginsAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
+		private final RuleCall cMarginsMarginParserRuleCall_6_1_0 = (RuleCall)cMarginsAssignment_6_1.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_6_2 = (Keyword)cGroup_6.eContents().get(2);
 		private final Group cGroup_7 = (Group)cGroup.eContents().get(7);
-		private final Keyword cDuringKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
-		private final Assignment cDurationAssignment_7_1 = (Assignment)cGroup_7.eContents().get(1);
-		private final RuleCall cDurationEIntParserRuleCall_7_1_0 = (RuleCall)cDurationAssignment_7_1.eContents().get(0);
+		private final Keyword cStartAtKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
+		private final Assignment cBeginTimeAssignment_7_1 = (Assignment)cGroup_7.eContents().get(1);
+		private final RuleCall cBeginTimeEIntParserRuleCall_7_1_0 = (RuleCall)cBeginTimeAssignment_7_1.eContents().get(0);
+		private final Group cGroup_8 = (Group)cGroup.eContents().get(8);
+		private final Keyword cDuringKeyword_8_0 = (Keyword)cGroup_8.eContents().get(0);
+		private final Assignment cDurationAssignment_8_1 = (Assignment)cGroup_8.eContents().get(1);
+		private final RuleCall cDurationEIntParserRuleCall_8_1_0 = (RuleCall)cDurationAssignment_8_1.eContents().get(0);
 		
 		//Picture:
-		//	'Picture' name=EString '=' url=EString position=Position? dimension=Dimension? ('startAt' beginTime=EInt)? ('during'
-		//	duration=EInt)?;
+		//	'Picture' name=EString '=' url=EString position=Position? dimension=Dimension? ('margins(' margins+=Margin+ ')')?
+		//	('startAt' beginTime=EInt)? ('during' duration=EInt)?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'Picture' name=EString '=' url=EString position=Position? dimension=Dimension? ('startAt' beginTime=EInt)? ('during'
-		//duration=EInt)?
+		//'Picture' name=EString '=' url=EString position=Position? dimension=Dimension? ('margins(' margins+=Margin+ ')')?
+		//('startAt' beginTime=EInt)? ('during' duration=EInt)?
 		public Group getGroup() { return cGroup; }
 		
 		//'Picture'
@@ -748,29 +835,44 @@ public class CinEditorGrammarAccess extends AbstractGrammarElementFinder {
 		//Dimension
 		public RuleCall getDimensionDimensionParserRuleCall_5_0() { return cDimensionDimensionParserRuleCall_5_0; }
 		
-		//('startAt' beginTime=EInt)?
+		//('margins(' margins+=Margin+ ')')?
 		public Group getGroup_6() { return cGroup_6; }
 		
-		//'startAt'
-		public Keyword getStartAtKeyword_6_0() { return cStartAtKeyword_6_0; }
+		//'margins('
+		public Keyword getMarginsKeyword_6_0() { return cMarginsKeyword_6_0; }
 		
-		//beginTime=EInt
-		public Assignment getBeginTimeAssignment_6_1() { return cBeginTimeAssignment_6_1; }
+		//margins+=Margin+
+		public Assignment getMarginsAssignment_6_1() { return cMarginsAssignment_6_1; }
 		
-		//EInt
-		public RuleCall getBeginTimeEIntParserRuleCall_6_1_0() { return cBeginTimeEIntParserRuleCall_6_1_0; }
+		//Margin
+		public RuleCall getMarginsMarginParserRuleCall_6_1_0() { return cMarginsMarginParserRuleCall_6_1_0; }
 		
-		//('during' duration=EInt)?
+		//')'
+		public Keyword getRightParenthesisKeyword_6_2() { return cRightParenthesisKeyword_6_2; }
+		
+		//('startAt' beginTime=EInt)?
 		public Group getGroup_7() { return cGroup_7; }
 		
-		//'during'
-		public Keyword getDuringKeyword_7_0() { return cDuringKeyword_7_0; }
+		//'startAt'
+		public Keyword getStartAtKeyword_7_0() { return cStartAtKeyword_7_0; }
 		
-		//duration=EInt
-		public Assignment getDurationAssignment_7_1() { return cDurationAssignment_7_1; }
+		//beginTime=EInt
+		public Assignment getBeginTimeAssignment_7_1() { return cBeginTimeAssignment_7_1; }
 		
 		//EInt
-		public RuleCall getDurationEIntParserRuleCall_7_1_0() { return cDurationEIntParserRuleCall_7_1_0; }
+		public RuleCall getBeginTimeEIntParserRuleCall_7_1_0() { return cBeginTimeEIntParserRuleCall_7_1_0; }
+		
+		//('during' duration=EInt)?
+		public Group getGroup_8() { return cGroup_8; }
+		
+		//'during'
+		public Keyword getDuringKeyword_8_0() { return cDuringKeyword_8_0; }
+		
+		//duration=EInt
+		public Assignment getDurationAssignment_8_1() { return cDurationAssignment_8_1; }
+		
+		//EInt
+		public RuleCall getDurationEIntParserRuleCall_8_1_0() { return cDurationEIntParserRuleCall_8_1_0; }
 	}
 	public class VideoElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "polytech.spaceteam.cineditor.CinEditor.Video");
@@ -790,25 +892,31 @@ public class CinEditorGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cDimensionAssignment_6 = (Assignment)cGroup.eContents().get(6);
 		private final RuleCall cDimensionDimensionParserRuleCall_6_0 = (RuleCall)cDimensionAssignment_6.eContents().get(0);
 		private final Group cGroup_7 = (Group)cGroup.eContents().get(7);
-		private final Keyword cStartAtKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
-		private final Assignment cBeginTimeAssignment_7_1 = (Assignment)cGroup_7.eContents().get(1);
-		private final RuleCall cBeginTimeEIntParserRuleCall_7_1_0 = (RuleCall)cBeginTimeAssignment_7_1.eContents().get(0);
+		private final Keyword cMarginsKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
+		private final Assignment cMarginsAssignment_7_1 = (Assignment)cGroup_7.eContents().get(1);
+		private final RuleCall cMarginsMarginParserRuleCall_7_1_0 = (RuleCall)cMarginsAssignment_7_1.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_7_2 = (Keyword)cGroup_7.eContents().get(2);
 		private final Group cGroup_8 = (Group)cGroup.eContents().get(8);
-		private final Keyword cCropAtKeyword_8_0 = (Keyword)cGroup_8.eContents().get(0);
-		private final Assignment cBeginCropTimeAssignment_8_1 = (Assignment)cGroup_8.eContents().get(1);
-		private final RuleCall cBeginCropTimeEIntParserRuleCall_8_1_0 = (RuleCall)cBeginCropTimeAssignment_8_1.eContents().get(0);
+		private final Keyword cStartAtKeyword_8_0 = (Keyword)cGroup_8.eContents().get(0);
+		private final Assignment cBeginTimeAssignment_8_1 = (Assignment)cGroup_8.eContents().get(1);
+		private final RuleCall cBeginTimeEIntParserRuleCall_8_1_0 = (RuleCall)cBeginTimeAssignment_8_1.eContents().get(0);
 		private final Group cGroup_9 = (Group)cGroup.eContents().get(9);
-		private final Keyword cDuringKeyword_9_0 = (Keyword)cGroup_9.eContents().get(0);
-		private final Assignment cDurationAssignment_9_1 = (Assignment)cGroup_9.eContents().get(1);
-		private final RuleCall cDurationEIntParserRuleCall_9_1_0 = (RuleCall)cDurationAssignment_9_1.eContents().get(0);
+		private final Keyword cCropAtKeyword_9_0 = (Keyword)cGroup_9.eContents().get(0);
+		private final Assignment cBeginCropTimeAssignment_9_1 = (Assignment)cGroup_9.eContents().get(1);
+		private final RuleCall cBeginCropTimeEIntParserRuleCall_9_1_0 = (RuleCall)cBeginCropTimeAssignment_9_1.eContents().get(0);
+		private final Group cGroup_10 = (Group)cGroup.eContents().get(10);
+		private final Keyword cDuringKeyword_10_0 = (Keyword)cGroup_10.eContents().get(0);
+		private final Assignment cDurationAssignment_10_1 = (Assignment)cGroup_10.eContents().get(1);
+		private final RuleCall cDurationEIntParserRuleCall_10_1_0 = (RuleCall)cDurationAssignment_10_1.eContents().get(0);
 		
 		//Video:
-		//	'Video' name=EString '=' url=EString ('audio' enableAudio=EBoolean)? position=Position? dimension=Dimension
-		//	('startAt' beginTime=EInt)? ('cropAt' beginCropTime=EInt)? ('during' duration=EInt)?;
+		//	'Video' name=EString '=' url=EString ('audio' enableAudio=EBoolean)? position=Position? dimension=Dimension?
+		//	('margins(' margins+=Margin+ ')')? ('startAt' beginTime=EInt)? ('cropAt' beginCropTime=EInt)? ('during'
+		//	duration=EInt)?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'Video' name=EString '=' url=EString ('audio' enableAudio=EBoolean)? position=Position? dimension=Dimension ('startAt'
-		//beginTime=EInt)? ('cropAt' beginCropTime=EInt)? ('during' duration=EInt)?
+		//'Video' name=EString '=' url=EString ('audio' enableAudio=EBoolean)? position=Position? dimension=Dimension? ('margins('
+		//margins+=Margin+ ')')? ('startAt' beginTime=EInt)? ('cropAt' beginCropTime=EInt)? ('during' duration=EInt)?
 		public Group getGroup() { return cGroup; }
 		
 		//'Video'
@@ -847,47 +955,62 @@ public class CinEditorGrammarAccess extends AbstractGrammarElementFinder {
 		//Position
 		public RuleCall getPositionPositionParserRuleCall_5_0() { return cPositionPositionParserRuleCall_5_0; }
 		
-		//dimension=Dimension
+		//dimension=Dimension?
 		public Assignment getDimensionAssignment_6() { return cDimensionAssignment_6; }
 		
 		//Dimension
 		public RuleCall getDimensionDimensionParserRuleCall_6_0() { return cDimensionDimensionParserRuleCall_6_0; }
 		
-		//('startAt' beginTime=EInt)?
+		//('margins(' margins+=Margin+ ')')?
 		public Group getGroup_7() { return cGroup_7; }
 		
-		//'startAt'
-		public Keyword getStartAtKeyword_7_0() { return cStartAtKeyword_7_0; }
+		//'margins('
+		public Keyword getMarginsKeyword_7_0() { return cMarginsKeyword_7_0; }
 		
-		//beginTime=EInt
-		public Assignment getBeginTimeAssignment_7_1() { return cBeginTimeAssignment_7_1; }
+		//margins+=Margin+
+		public Assignment getMarginsAssignment_7_1() { return cMarginsAssignment_7_1; }
 		
-		//EInt
-		public RuleCall getBeginTimeEIntParserRuleCall_7_1_0() { return cBeginTimeEIntParserRuleCall_7_1_0; }
+		//Margin
+		public RuleCall getMarginsMarginParserRuleCall_7_1_0() { return cMarginsMarginParserRuleCall_7_1_0; }
 		
-		//('cropAt' beginCropTime=EInt)?
+		//')'
+		public Keyword getRightParenthesisKeyword_7_2() { return cRightParenthesisKeyword_7_2; }
+		
+		//('startAt' beginTime=EInt)?
 		public Group getGroup_8() { return cGroup_8; }
 		
-		//'cropAt'
-		public Keyword getCropAtKeyword_8_0() { return cCropAtKeyword_8_0; }
+		//'startAt'
+		public Keyword getStartAtKeyword_8_0() { return cStartAtKeyword_8_0; }
 		
-		//beginCropTime=EInt
-		public Assignment getBeginCropTimeAssignment_8_1() { return cBeginCropTimeAssignment_8_1; }
+		//beginTime=EInt
+		public Assignment getBeginTimeAssignment_8_1() { return cBeginTimeAssignment_8_1; }
 		
 		//EInt
-		public RuleCall getBeginCropTimeEIntParserRuleCall_8_1_0() { return cBeginCropTimeEIntParserRuleCall_8_1_0; }
+		public RuleCall getBeginTimeEIntParserRuleCall_8_1_0() { return cBeginTimeEIntParserRuleCall_8_1_0; }
 		
-		//('during' duration=EInt)?
+		//('cropAt' beginCropTime=EInt)?
 		public Group getGroup_9() { return cGroup_9; }
 		
-		//'during'
-		public Keyword getDuringKeyword_9_0() { return cDuringKeyword_9_0; }
+		//'cropAt'
+		public Keyword getCropAtKeyword_9_0() { return cCropAtKeyword_9_0; }
 		
-		//duration=EInt
-		public Assignment getDurationAssignment_9_1() { return cDurationAssignment_9_1; }
+		//beginCropTime=EInt
+		public Assignment getBeginCropTimeAssignment_9_1() { return cBeginCropTimeAssignment_9_1; }
 		
 		//EInt
-		public RuleCall getDurationEIntParserRuleCall_9_1_0() { return cDurationEIntParserRuleCall_9_1_0; }
+		public RuleCall getBeginCropTimeEIntParserRuleCall_9_1_0() { return cBeginCropTimeEIntParserRuleCall_9_1_0; }
+		
+		//('during' duration=EInt)?
+		public Group getGroup_10() { return cGroup_10; }
+		
+		//'during'
+		public Keyword getDuringKeyword_10_0() { return cDuringKeyword_10_0; }
+		
+		//duration=EInt
+		public Assignment getDurationAssignment_10_1() { return cDurationAssignment_10_1; }
+		
+		//EInt
+		public RuleCall getDurationEIntParserRuleCall_10_1_0() { return cDurationEIntParserRuleCall_10_1_0; }
 	}
 	public class RectangleElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "polytech.spaceteam.cineditor.CinEditor.Rectangle");
@@ -903,21 +1026,26 @@ public class CinEditorGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cDimensionAssignment_5 = (Assignment)cGroup.eContents().get(5);
 		private final RuleCall cDimensionDimensionParserRuleCall_5_0 = (RuleCall)cDimensionAssignment_5.eContents().get(0);
 		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
-		private final Keyword cStartAtKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
-		private final Assignment cBeginTimeAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
-		private final RuleCall cBeginTimeEIntParserRuleCall_6_1_0 = (RuleCall)cBeginTimeAssignment_6_1.eContents().get(0);
+		private final Keyword cMarginsKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
+		private final Assignment cMarginsAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
+		private final RuleCall cMarginsMarginParserRuleCall_6_1_0 = (RuleCall)cMarginsAssignment_6_1.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_6_2 = (Keyword)cGroup_6.eContents().get(2);
 		private final Group cGroup_7 = (Group)cGroup.eContents().get(7);
-		private final Keyword cDuringKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
-		private final Assignment cDurationAssignment_7_1 = (Assignment)cGroup_7.eContents().get(1);
-		private final RuleCall cDurationEIntParserRuleCall_7_1_0 = (RuleCall)cDurationAssignment_7_1.eContents().get(0);
+		private final Keyword cStartAtKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
+		private final Assignment cBeginTimeAssignment_7_1 = (Assignment)cGroup_7.eContents().get(1);
+		private final RuleCall cBeginTimeEIntParserRuleCall_7_1_0 = (RuleCall)cBeginTimeAssignment_7_1.eContents().get(0);
+		private final Group cGroup_8 = (Group)cGroup.eContents().get(8);
+		private final Keyword cDuringKeyword_8_0 = (Keyword)cGroup_8.eContents().get(0);
+		private final Assignment cDurationAssignment_8_1 = (Assignment)cGroup_8.eContents().get(1);
+		private final RuleCall cDurationEIntParserRuleCall_8_1_0 = (RuleCall)cDurationAssignment_8_1.eContents().get(0);
 		
 		//Rectangle:
-		//	'Rectangle' name=EString '=' color=HexadecimalColor position=Position? dimension=Dimension? ('startAt'
-		//	beginTime=EInt)? ('during' duration=EInt)?;
+		//	'Rectangle' name=EString '=' color=HexadecimalColor position=Position? dimension=Dimension? ('margins('
+		//	margins+=Margin+ ')')? ('startAt' beginTime=EInt)? ('during' duration=EInt)?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'Rectangle' name=EString '=' color=HexadecimalColor position=Position? dimension=Dimension? ('startAt' beginTime=EInt)?
-		//('during' duration=EInt)?
+		//'Rectangle' name=EString '=' color=HexadecimalColor position=Position? dimension=Dimension? ('margins(' margins+=Margin+
+		//')')? ('startAt' beginTime=EInt)? ('during' duration=EInt)?
 		public Group getGroup() { return cGroup; }
 		
 		//'Rectangle'
@@ -950,29 +1078,44 @@ public class CinEditorGrammarAccess extends AbstractGrammarElementFinder {
 		//Dimension
 		public RuleCall getDimensionDimensionParserRuleCall_5_0() { return cDimensionDimensionParserRuleCall_5_0; }
 		
-		//('startAt' beginTime=EInt)?
+		//('margins(' margins+=Margin+ ')')?
 		public Group getGroup_6() { return cGroup_6; }
 		
-		//'startAt'
-		public Keyword getStartAtKeyword_6_0() { return cStartAtKeyword_6_0; }
+		//'margins('
+		public Keyword getMarginsKeyword_6_0() { return cMarginsKeyword_6_0; }
 		
-		//beginTime=EInt
-		public Assignment getBeginTimeAssignment_6_1() { return cBeginTimeAssignment_6_1; }
+		//margins+=Margin+
+		public Assignment getMarginsAssignment_6_1() { return cMarginsAssignment_6_1; }
 		
-		//EInt
-		public RuleCall getBeginTimeEIntParserRuleCall_6_1_0() { return cBeginTimeEIntParserRuleCall_6_1_0; }
+		//Margin
+		public RuleCall getMarginsMarginParserRuleCall_6_1_0() { return cMarginsMarginParserRuleCall_6_1_0; }
 		
-		//('during' duration=EInt)?
+		//')'
+		public Keyword getRightParenthesisKeyword_6_2() { return cRightParenthesisKeyword_6_2; }
+		
+		//('startAt' beginTime=EInt)?
 		public Group getGroup_7() { return cGroup_7; }
 		
-		//'during'
-		public Keyword getDuringKeyword_7_0() { return cDuringKeyword_7_0; }
+		//'startAt'
+		public Keyword getStartAtKeyword_7_0() { return cStartAtKeyword_7_0; }
 		
-		//duration=EInt
-		public Assignment getDurationAssignment_7_1() { return cDurationAssignment_7_1; }
+		//beginTime=EInt
+		public Assignment getBeginTimeAssignment_7_1() { return cBeginTimeAssignment_7_1; }
 		
 		//EInt
-		public RuleCall getDurationEIntParserRuleCall_7_1_0() { return cDurationEIntParserRuleCall_7_1_0; }
+		public RuleCall getBeginTimeEIntParserRuleCall_7_1_0() { return cBeginTimeEIntParserRuleCall_7_1_0; }
+		
+		//('during' duration=EInt)?
+		public Group getGroup_8() { return cGroup_8; }
+		
+		//'during'
+		public Keyword getDuringKeyword_8_0() { return cDuringKeyword_8_0; }
+		
+		//duration=EInt
+		public Assignment getDurationAssignment_8_1() { return cDurationAssignment_8_1; }
+		
+		//EInt
+		public RuleCall getDurationEIntParserRuleCall_8_1_0() { return cDurationEIntParserRuleCall_8_1_0; }
 	}
 	public class FadeInElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "polytech.spaceteam.cineditor.CinEditor.FadeIn");
@@ -1270,6 +1413,49 @@ public class CinEditorGrammarAccess extends AbstractGrammarElementFinder {
 		public Keyword getRightSquareBracketKeyword_11() { return cRightSquareBracketKeyword_11; }
 	}
 	
+	public class MARGIN_NAMEElements extends AbstractEnumRuleElementFinder {
+		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "polytech.spaceteam.cineditor.CinEditor.MARGIN_NAME");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final EnumLiteralDeclaration cBOTTOMEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
+		private final Keyword cBOTTOMBottomKeyword_0_0 = (Keyword)cBOTTOMEnumLiteralDeclaration_0.eContents().get(0);
+		private final EnumLiteralDeclaration cLEFTEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
+		private final Keyword cLEFTLeftKeyword_1_0 = (Keyword)cLEFTEnumLiteralDeclaration_1.eContents().get(0);
+		private final EnumLiteralDeclaration cRIGHTEnumLiteralDeclaration_2 = (EnumLiteralDeclaration)cAlternatives.eContents().get(2);
+		private final Keyword cRIGHTRightKeyword_2_0 = (Keyword)cRIGHTEnumLiteralDeclaration_2.eContents().get(0);
+		private final EnumLiteralDeclaration cTOPEnumLiteralDeclaration_3 = (EnumLiteralDeclaration)cAlternatives.eContents().get(3);
+		private final Keyword cTOPTopKeyword_3_0 = (Keyword)cTOPEnumLiteralDeclaration_3.eContents().get(0);
+		
+		//enum MARGIN_NAME:
+		//	BOTTOM='bottom' | LEFT='left' | RIGHT='right' | TOP='top';
+		public EnumRule getRule() { return rule; }
+		
+		//BOTTOM='bottom' | LEFT='left' | RIGHT='right' | TOP='top'
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//BOTTOM='bottom'
+		public EnumLiteralDeclaration getBOTTOMEnumLiteralDeclaration_0() { return cBOTTOMEnumLiteralDeclaration_0; }
+		
+		//'bottom'
+		public Keyword getBOTTOMBottomKeyword_0_0() { return cBOTTOMBottomKeyword_0_0; }
+		
+		//LEFT='left'
+		public EnumLiteralDeclaration getLEFTEnumLiteralDeclaration_1() { return cLEFTEnumLiteralDeclaration_1; }
+		
+		//'left'
+		public Keyword getLEFTLeftKeyword_1_0() { return cLEFTLeftKeyword_1_0; }
+		
+		//RIGHT='right'
+		public EnumLiteralDeclaration getRIGHTEnumLiteralDeclaration_2() { return cRIGHTEnumLiteralDeclaration_2; }
+		
+		//'right'
+		public Keyword getRIGHTRightKeyword_2_0() { return cRIGHTRightKeyword_2_0; }
+		
+		//TOP='top'
+		public EnumLiteralDeclaration getTOPEnumLiteralDeclaration_3() { return cTOPEnumLiteralDeclaration_3; }
+		
+		//'top'
+		public Keyword getTOPTopKeyword_3_0() { return cTOPTopKeyword_3_0; }
+	}
 	
 	private final MovieElements pMovie;
 	private final ElementElements pElement;
@@ -1282,6 +1468,8 @@ public class CinEditorGrammarAccess extends AbstractGrammarElementFinder {
 	private final DimensionElements pDimension;
 	private final HexadecimalColorElements pHexadecimalColor;
 	private final GraphicalElementElements pGraphicalElement;
+	private final MarginElements pMargin;
+	private final MARGIN_NAMEElements eMARGIN_NAME;
 	private final EIntElements pEInt;
 	private final EFloatElements pEFloat;
 	private final EBooleanElements pEBoolean;
@@ -1314,6 +1502,8 @@ public class CinEditorGrammarAccess extends AbstractGrammarElementFinder {
 		this.pDimension = new DimensionElements();
 		this.pHexadecimalColor = new HexadecimalColorElements();
 		this.pGraphicalElement = new GraphicalElementElements();
+		this.pMargin = new MarginElements();
+		this.eMARGIN_NAME = new MARGIN_NAMEElements();
 		this.pEInt = new EIntElements();
 		this.pEFloat = new EFloatElements();
 		this.pEBoolean = new EBooleanElements();
@@ -1467,6 +1657,26 @@ public class CinEditorGrammarAccess extends AbstractGrammarElementFinder {
 		return getGraphicalElementAccess().getRule();
 	}
 	
+	//Margin:
+	//	type=MARGIN_NAME '(' size=EInt marginColor=HexadecimalColor? ('opacity' marginColorOpacity=EFloat)? ')';
+	public MarginElements getMarginAccess() {
+		return pMargin;
+	}
+	
+	public ParserRule getMarginRule() {
+		return getMarginAccess().getRule();
+	}
+	
+	//enum MARGIN_NAME:
+	//	BOTTOM='bottom' | LEFT='left' | RIGHT='right' | TOP='top';
+	public MARGIN_NAMEElements getMARGIN_NAMEAccess() {
+		return eMARGIN_NAME;
+	}
+	
+	public EnumRule getMARGIN_NAMERule() {
+		return getMARGIN_NAMEAccess().getRule();
+	}
+	
 	//EInt ecore::EInt:
 	//	'-'? INT;
 	public EIntElements getEIntAccess() {
@@ -1509,8 +1719,8 @@ public class CinEditorGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Text:
-	//	'Text' name=EString '=' text=EString ('fontSize' fontSize=EInt)? position=Position? ('startAt' beginTime=EInt)?
-	//	('during' duration=EInt)? color=HexadecimalColor;
+	//	'Text' name=EString '=' text=EString ('fontSize' fontSize=EInt)? position=Position? ('margins(' margins+=Margin+
+	//	')')? ('startAt' beginTime=EInt)? ('during' duration=EInt)? color=HexadecimalColor;
 	public TextElements getTextAccess() {
 		return pText;
 	}
@@ -1520,8 +1730,8 @@ public class CinEditorGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Picture:
-	//	'Picture' name=EString '=' url=EString position=Position? dimension=Dimension? ('startAt' beginTime=EInt)? ('during'
-	//	duration=EInt)?;
+	//	'Picture' name=EString '=' url=EString position=Position? dimension=Dimension? ('margins(' margins+=Margin+ ')')?
+	//	('startAt' beginTime=EInt)? ('during' duration=EInt)?;
 	public PictureElements getPictureAccess() {
 		return pPicture;
 	}
@@ -1531,8 +1741,9 @@ public class CinEditorGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Video:
-	//	'Video' name=EString '=' url=EString ('audio' enableAudio=EBoolean)? position=Position? dimension=Dimension
-	//	('startAt' beginTime=EInt)? ('cropAt' beginCropTime=EInt)? ('during' duration=EInt)?;
+	//	'Video' name=EString '=' url=EString ('audio' enableAudio=EBoolean)? position=Position? dimension=Dimension?
+	//	('margins(' margins+=Margin+ ')')? ('startAt' beginTime=EInt)? ('cropAt' beginCropTime=EInt)? ('during'
+	//	duration=EInt)?;
 	public VideoElements getVideoAccess() {
 		return pVideo;
 	}
@@ -1542,8 +1753,8 @@ public class CinEditorGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Rectangle:
-	//	'Rectangle' name=EString '=' color=HexadecimalColor position=Position? dimension=Dimension? ('startAt'
-	//	beginTime=EInt)? ('during' duration=EInt)?;
+	//	'Rectangle' name=EString '=' color=HexadecimalColor position=Position? dimension=Dimension? ('margins('
+	//	margins+=Margin+ ')')? ('startAt' beginTime=EInt)? ('during' duration=EInt)?;
 	public RectangleElements getRectangleAccess() {
 		return pRectangle;
 	}

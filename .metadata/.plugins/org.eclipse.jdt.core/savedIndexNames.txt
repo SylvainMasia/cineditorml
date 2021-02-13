@@ -18,7 +18,6 @@ INDEX VERSION 1.131+C:\dev\courses\cineditorml\.metadata\.plugins\org.eclipse.jd
 4178871191.index
 1259917752.index
 1273536516.index
-2281505018.index
 2709505326.index
 2089762718.index
 2651661495.index
@@ -42,7 +41,6 @@ INDEX VERSION 1.131+C:\dev\courses\cineditorml\.metadata\.plugins\org.eclipse.jd
 1909527199.index
 3288513779.index
 889636731.index
-3697662156.index
 3626425357.index
 419455203.index
 2394231702.index
@@ -96,7 +94,6 @@ INDEX VERSION 1.131+C:\dev\courses\cineditorml\.metadata\.plugins\org.eclipse.jd
 2878665058.index
 2206637846.index
 2551509391.index
-266530708.index
 3879737817.index
 2282064539.index
 1207675131.index

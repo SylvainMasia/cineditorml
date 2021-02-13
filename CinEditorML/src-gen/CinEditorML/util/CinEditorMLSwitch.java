@@ -250,6 +250,13 @@ public class CinEditorMLSwitch<T> extends Switch<T> {
 				result = defaultCase(theEObject);
 			return result;
 		}
+		case CinEditorMLPackage.MARGIN: {
+			Margin margin = (Margin) theEObject;
+			T result = caseMargin(margin);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
 		default:
 			return defaultCase(theEObject);
 		}
@@ -552,6 +559,21 @@ public class CinEditorMLSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseAudioElement(AudioElement object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Margin</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Margin</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseMargin(Margin object) {
 		return null;
 	}
 

@@ -29,6 +29,8 @@ import CinEditorML.Shape
 import CinEditorML.Rectangle
 import java.awt.Color
 import CinEditorML.AudioElement
+import CinEditorML.Margin
+import CinEditorML.MARGIN_NAME
 
 /**
  * Generates code from your model files on save.
@@ -195,6 +197,31 @@ class CinEditorGenerator extends AbstractGenerator {
 		return s;
 	}
 	
+		private def String extractMarginsFromElement(GraphicalElement element) {
+		var s = "";
+		for (Margin margin : element.margins) {
+			var color = "[0,0,0]"; // need rgb color for color clip
+			if (margin.marginColor !== null) {
+				val tmp = Color.decode("#" + margin.marginColor.hexadecimalValue);
+				color = "(" + tmp.red + "," + tmp.green + "," + tmp.blue + ")";
+			}
+			if (margin.size > 0) {
+				var marginName = '';
+				if (margin.type.equals(MARGIN_NAME.BOTTOM)) {
+					marginName = 'bottom';
+				} else if (margin.type.equals(MARGIN_NAME.TOP)) {
+					marginName = 'top';
+				} else if (margin.type.equals(MARGIN_NAME.LEFT)) {
+					marginName = 'left';
+				} else if (margin.type.equals(MARGIN_NAME.RIGHT)) {
+					marginName = 'right';
+				}
+				s += "\\\n\t.margin("+ marginName + "=" + margin.size + ", color=" + color + ", opacity=" + margin.marginColorOpacity + ")";
+			}
+		}
+		return s;
+	}
+	
 	private def String extractValueFromItemPosition(ItemPosition item) {
 		if (item instanceof ItemPositionInt) {
 			return (item as ItemPositionInt).position + "";
@@ -226,6 +253,7 @@ class CinEditorGenerator extends AbstractGenerator {
 				+ extractDurationFromElement(element)
 				+ extractPositionFromElement(element)
 				+ extractDimensionFromElement(element)
+				+ extractMarginsFromElement(element)
 				+ "\n\n";
 		elementsVarNames.add(element.getName());
 		return s;
@@ -279,6 +307,7 @@ class CinEditorGenerator extends AbstractGenerator {
 					+ extractDurationFromElement(element)
 					+ extractDimensionFromElement(element)
 					+ extractPositionFromElement(element)
+					+ extractMarginsFromElement(element)
 					+ cropString
 					+ "\n\n";
 		elementsVarNames.add(element.getName());
@@ -318,6 +347,7 @@ class CinEditorGenerator extends AbstractGenerator {
 				+ " = ColorClip(size=" + extractDimensionFromElement(element) + ", col=" + color + ")"
 				+ extractBeginTimeFromElement(element)
 				+ extractDurationFromElement(element)
+				+ extractMarginsFromElement(element)
 				+ extractPositionFromElement(element)
 				+ "\n\n";
 		elementsVarNames.add(element.getName());
