@@ -13,6 +13,7 @@ import CinEditorML.Position
 import CinEditorML.ItemPositionString
 import CinEditorML.AudioElement
 import CinEditorML.Video
+import CinEditorML.Effect
 
 /**
  * This class contains custom validation rules. 
@@ -63,6 +64,22 @@ class CinEditorValidator extends AbstractCinEditorValidator {
 					i,
 					INVALID_NAME)
 				}
+			}
+		}
+	}
+	
+	@Check
+	def checkEffect(Effect effect) {
+		var set = new HashSet();
+		for (var i = 0; i < effect.elements.size; i++) {
+			var element = effect.elements.get(i);
+			if (!set.contains(element.name)) {
+				set.add(element.name);
+			} else {
+				error('An effect can be applied on an element only one time', 
+					CinEditorMLPackage.Literals.EFFECT__ELEMENTS,
+					i,
+					INVALID_NAME)
 			}
 		}
 	}

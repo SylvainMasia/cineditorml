@@ -65,11 +65,11 @@ Rectangle returns Rectangle:
 	'Rectangle' name=EString '=' color=HexadecimalColor position=Position? dimension=Dimension? ('startAt' beginTime=EInt)? ('during' duration=EInt)?;
 
 FadeIn returns FadeIn:
-	'Effect' name=EString '=' 'FadeIn' 'during' duration=EInt 'on' element=[GraphicalElement];
+	'Effect' name=EString '=' 'FadeIn' 'during' duration=EInt 'on' '[' elements+=[GraphicalElement] (',' elements+=[GraphicalElement])* ']';
 
 FadeOut returns FadeOut:
-	'Effect' name=EString '=' 'FadeOut' 'during' duration=EInt 'on' element=[GraphicalElement];
+	'Effect' name=EString '=' 'FadeOut' 'during' duration=EInt 'on' '[' elements+=[GraphicalElement] (',' elements+=[GraphicalElement])* ']';
 
 Translate returns Translate:
-	'Effect' name=EString '=' 'Translate' positionToTranslate=Position ('startAt' beginTime=EInt)? ('during' duration=EInt)? 'on' element=[GraphicalElement];
+	'Effect' name=EString '=' 'Translate' positionToTranslate=Position ('startAt' beginTime=EInt)? ('during' duration=EInt)? 'on' '[' elements+=[GraphicalElement] (',' elements+=[GraphicalElement])* ']';
 	

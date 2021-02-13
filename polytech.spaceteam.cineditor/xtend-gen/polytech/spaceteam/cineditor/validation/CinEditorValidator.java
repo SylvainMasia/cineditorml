@@ -5,7 +5,9 @@ package polytech.spaceteam.cineditor.validation;
 
 import CinEditorML.AudioElement;
 import CinEditorML.CinEditorMLPackage;
+import CinEditorML.Effect;
 import CinEditorML.Element;
+import CinEditorML.GraphicalElement;
 import CinEditorML.HexadecimalColor;
 import CinEditorML.ItemPosition;
 import CinEditorML.ItemPositionString;
@@ -87,6 +89,25 @@ public class CinEditorValidator extends AbstractCinEditorValidator {
                 CinEditorValidator.INVALID_NAME);
             }
           }
+        }
+      }
+    }
+  }
+  
+  @Check
+  public void checkEffect(final Effect effect) {
+    HashSet<String> set = new HashSet<String>();
+    for (int i = 0; (i < effect.getElements().size()); i++) {
+      {
+        GraphicalElement element = effect.getElements().get(i);
+        boolean _contains = set.contains(element.getName());
+        boolean _not = (!_contains);
+        if (_not) {
+          set.add(element.getName());
+        } else {
+          this.error("An effect can be applied on an element only one time", 
+            CinEditorMLPackage.Literals.EFFECT__ELEMENTS, i, 
+            CinEditorValidator.INVALID_NAME);
         }
       }
     }

@@ -986,15 +986,24 @@ public class CinEditorGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cDurationAssignment_5 = (Assignment)cGroup.eContents().get(5);
 		private final RuleCall cDurationEIntParserRuleCall_5_0 = (RuleCall)cDurationAssignment_5.eContents().get(0);
 		private final Keyword cOnKeyword_6 = (Keyword)cGroup.eContents().get(6);
-		private final Assignment cElementAssignment_7 = (Assignment)cGroup.eContents().get(7);
-		private final CrossReference cElementGraphicalElementCrossReference_7_0 = (CrossReference)cElementAssignment_7.eContents().get(0);
-		private final RuleCall cElementGraphicalElementIDTerminalRuleCall_7_0_1 = (RuleCall)cElementGraphicalElementCrossReference_7_0.eContents().get(1);
+		private final Keyword cLeftSquareBracketKeyword_7 = (Keyword)cGroup.eContents().get(7);
+		private final Assignment cElementsAssignment_8 = (Assignment)cGroup.eContents().get(8);
+		private final CrossReference cElementsGraphicalElementCrossReference_8_0 = (CrossReference)cElementsAssignment_8.eContents().get(0);
+		private final RuleCall cElementsGraphicalElementIDTerminalRuleCall_8_0_1 = (RuleCall)cElementsGraphicalElementCrossReference_8_0.eContents().get(1);
+		private final Group cGroup_9 = (Group)cGroup.eContents().get(9);
+		private final Keyword cCommaKeyword_9_0 = (Keyword)cGroup_9.eContents().get(0);
+		private final Assignment cElementsAssignment_9_1 = (Assignment)cGroup_9.eContents().get(1);
+		private final CrossReference cElementsGraphicalElementCrossReference_9_1_0 = (CrossReference)cElementsAssignment_9_1.eContents().get(0);
+		private final RuleCall cElementsGraphicalElementIDTerminalRuleCall_9_1_0_1 = (RuleCall)cElementsGraphicalElementCrossReference_9_1_0.eContents().get(1);
+		private final Keyword cRightSquareBracketKeyword_10 = (Keyword)cGroup.eContents().get(10);
 		
 		//FadeIn:
-		//	'Effect' name=EString '=' 'FadeIn' 'during' duration=EInt 'on' element=[GraphicalElement];
+		//	'Effect' name=EString '=' 'FadeIn' 'during' duration=EInt 'on' '[' elements+=[GraphicalElement] (','
+		//	elements+=[GraphicalElement])* ']';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'Effect' name=EString '=' 'FadeIn' 'during' duration=EInt 'on' element=[GraphicalElement]
+		//'Effect' name=EString '=' 'FadeIn' 'during' duration=EInt 'on' '[' elements+=[GraphicalElement] (','
+		//elements+=[GraphicalElement])* ']'
 		public Group getGroup() { return cGroup; }
 		
 		//'Effect'
@@ -1024,14 +1033,35 @@ public class CinEditorGrammarAccess extends AbstractGrammarElementFinder {
 		//'on'
 		public Keyword getOnKeyword_6() { return cOnKeyword_6; }
 		
-		//element=[GraphicalElement]
-		public Assignment getElementAssignment_7() { return cElementAssignment_7; }
+		//'['
+		public Keyword getLeftSquareBracketKeyword_7() { return cLeftSquareBracketKeyword_7; }
+		
+		//elements+=[GraphicalElement]
+		public Assignment getElementsAssignment_8() { return cElementsAssignment_8; }
 		
 		//[GraphicalElement]
-		public CrossReference getElementGraphicalElementCrossReference_7_0() { return cElementGraphicalElementCrossReference_7_0; }
+		public CrossReference getElementsGraphicalElementCrossReference_8_0() { return cElementsGraphicalElementCrossReference_8_0; }
 		
 		//ID
-		public RuleCall getElementGraphicalElementIDTerminalRuleCall_7_0_1() { return cElementGraphicalElementIDTerminalRuleCall_7_0_1; }
+		public RuleCall getElementsGraphicalElementIDTerminalRuleCall_8_0_1() { return cElementsGraphicalElementIDTerminalRuleCall_8_0_1; }
+		
+		//(',' elements+=[GraphicalElement])*
+		public Group getGroup_9() { return cGroup_9; }
+		
+		//','
+		public Keyword getCommaKeyword_9_0() { return cCommaKeyword_9_0; }
+		
+		//elements+=[GraphicalElement]
+		public Assignment getElementsAssignment_9_1() { return cElementsAssignment_9_1; }
+		
+		//[GraphicalElement]
+		public CrossReference getElementsGraphicalElementCrossReference_9_1_0() { return cElementsGraphicalElementCrossReference_9_1_0; }
+		
+		//ID
+		public RuleCall getElementsGraphicalElementIDTerminalRuleCall_9_1_0_1() { return cElementsGraphicalElementIDTerminalRuleCall_9_1_0_1; }
+		
+		//']'
+		public Keyword getRightSquareBracketKeyword_10() { return cRightSquareBracketKeyword_10; }
 	}
 	public class FadeOutElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "polytech.spaceteam.cineditor.CinEditor.FadeOut");
@@ -1045,15 +1075,24 @@ public class CinEditorGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cDurationAssignment_5 = (Assignment)cGroup.eContents().get(5);
 		private final RuleCall cDurationEIntParserRuleCall_5_0 = (RuleCall)cDurationAssignment_5.eContents().get(0);
 		private final Keyword cOnKeyword_6 = (Keyword)cGroup.eContents().get(6);
-		private final Assignment cElementAssignment_7 = (Assignment)cGroup.eContents().get(7);
-		private final CrossReference cElementGraphicalElementCrossReference_7_0 = (CrossReference)cElementAssignment_7.eContents().get(0);
-		private final RuleCall cElementGraphicalElementIDTerminalRuleCall_7_0_1 = (RuleCall)cElementGraphicalElementCrossReference_7_0.eContents().get(1);
+		private final Keyword cLeftSquareBracketKeyword_7 = (Keyword)cGroup.eContents().get(7);
+		private final Assignment cElementsAssignment_8 = (Assignment)cGroup.eContents().get(8);
+		private final CrossReference cElementsGraphicalElementCrossReference_8_0 = (CrossReference)cElementsAssignment_8.eContents().get(0);
+		private final RuleCall cElementsGraphicalElementIDTerminalRuleCall_8_0_1 = (RuleCall)cElementsGraphicalElementCrossReference_8_0.eContents().get(1);
+		private final Group cGroup_9 = (Group)cGroup.eContents().get(9);
+		private final Keyword cCommaKeyword_9_0 = (Keyword)cGroup_9.eContents().get(0);
+		private final Assignment cElementsAssignment_9_1 = (Assignment)cGroup_9.eContents().get(1);
+		private final CrossReference cElementsGraphicalElementCrossReference_9_1_0 = (CrossReference)cElementsAssignment_9_1.eContents().get(0);
+		private final RuleCall cElementsGraphicalElementIDTerminalRuleCall_9_1_0_1 = (RuleCall)cElementsGraphicalElementCrossReference_9_1_0.eContents().get(1);
+		private final Keyword cRightSquareBracketKeyword_10 = (Keyword)cGroup.eContents().get(10);
 		
 		//FadeOut:
-		//	'Effect' name=EString '=' 'FadeOut' 'during' duration=EInt 'on' element=[GraphicalElement];
+		//	'Effect' name=EString '=' 'FadeOut' 'during' duration=EInt 'on' '[' elements+=[GraphicalElement] (','
+		//	elements+=[GraphicalElement])* ']';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'Effect' name=EString '=' 'FadeOut' 'during' duration=EInt 'on' element=[GraphicalElement]
+		//'Effect' name=EString '=' 'FadeOut' 'during' duration=EInt 'on' '[' elements+=[GraphicalElement] (','
+		//elements+=[GraphicalElement])* ']'
 		public Group getGroup() { return cGroup; }
 		
 		//'Effect'
@@ -1083,14 +1122,35 @@ public class CinEditorGrammarAccess extends AbstractGrammarElementFinder {
 		//'on'
 		public Keyword getOnKeyword_6() { return cOnKeyword_6; }
 		
-		//element=[GraphicalElement]
-		public Assignment getElementAssignment_7() { return cElementAssignment_7; }
+		//'['
+		public Keyword getLeftSquareBracketKeyword_7() { return cLeftSquareBracketKeyword_7; }
+		
+		//elements+=[GraphicalElement]
+		public Assignment getElementsAssignment_8() { return cElementsAssignment_8; }
 		
 		//[GraphicalElement]
-		public CrossReference getElementGraphicalElementCrossReference_7_0() { return cElementGraphicalElementCrossReference_7_0; }
+		public CrossReference getElementsGraphicalElementCrossReference_8_0() { return cElementsGraphicalElementCrossReference_8_0; }
 		
 		//ID
-		public RuleCall getElementGraphicalElementIDTerminalRuleCall_7_0_1() { return cElementGraphicalElementIDTerminalRuleCall_7_0_1; }
+		public RuleCall getElementsGraphicalElementIDTerminalRuleCall_8_0_1() { return cElementsGraphicalElementIDTerminalRuleCall_8_0_1; }
+		
+		//(',' elements+=[GraphicalElement])*
+		public Group getGroup_9() { return cGroup_9; }
+		
+		//','
+		public Keyword getCommaKeyword_9_0() { return cCommaKeyword_9_0; }
+		
+		//elements+=[GraphicalElement]
+		public Assignment getElementsAssignment_9_1() { return cElementsAssignment_9_1; }
+		
+		//[GraphicalElement]
+		public CrossReference getElementsGraphicalElementCrossReference_9_1_0() { return cElementsGraphicalElementCrossReference_9_1_0; }
+		
+		//ID
+		public RuleCall getElementsGraphicalElementIDTerminalRuleCall_9_1_0_1() { return cElementsGraphicalElementIDTerminalRuleCall_9_1_0_1; }
+		
+		//']'
+		public Keyword getRightSquareBracketKeyword_10() { return cRightSquareBracketKeyword_10; }
 	}
 	public class TranslateElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "polytech.spaceteam.cineditor.CinEditor.Translate");
@@ -1111,17 +1171,24 @@ public class CinEditorGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cDurationAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
 		private final RuleCall cDurationEIntParserRuleCall_6_1_0 = (RuleCall)cDurationAssignment_6_1.eContents().get(0);
 		private final Keyword cOnKeyword_7 = (Keyword)cGroup.eContents().get(7);
-		private final Assignment cElementAssignment_8 = (Assignment)cGroup.eContents().get(8);
-		private final CrossReference cElementGraphicalElementCrossReference_8_0 = (CrossReference)cElementAssignment_8.eContents().get(0);
-		private final RuleCall cElementGraphicalElementIDTerminalRuleCall_8_0_1 = (RuleCall)cElementGraphicalElementCrossReference_8_0.eContents().get(1);
+		private final Keyword cLeftSquareBracketKeyword_8 = (Keyword)cGroup.eContents().get(8);
+		private final Assignment cElementsAssignment_9 = (Assignment)cGroup.eContents().get(9);
+		private final CrossReference cElementsGraphicalElementCrossReference_9_0 = (CrossReference)cElementsAssignment_9.eContents().get(0);
+		private final RuleCall cElementsGraphicalElementIDTerminalRuleCall_9_0_1 = (RuleCall)cElementsGraphicalElementCrossReference_9_0.eContents().get(1);
+		private final Group cGroup_10 = (Group)cGroup.eContents().get(10);
+		private final Keyword cCommaKeyword_10_0 = (Keyword)cGroup_10.eContents().get(0);
+		private final Assignment cElementsAssignment_10_1 = (Assignment)cGroup_10.eContents().get(1);
+		private final CrossReference cElementsGraphicalElementCrossReference_10_1_0 = (CrossReference)cElementsAssignment_10_1.eContents().get(0);
+		private final RuleCall cElementsGraphicalElementIDTerminalRuleCall_10_1_0_1 = (RuleCall)cElementsGraphicalElementCrossReference_10_1_0.eContents().get(1);
+		private final Keyword cRightSquareBracketKeyword_11 = (Keyword)cGroup.eContents().get(11);
 		
 		//Translate:
 		//	'Effect' name=EString '=' 'Translate' positionToTranslate=Position ('startAt' beginTime=EInt)? ('during'
-		//	duration=EInt)? 'on' element=[GraphicalElement];
+		//	duration=EInt)? 'on' '[' elements+=[GraphicalElement] (',' elements+=[GraphicalElement])* ']';
 		@Override public ParserRule getRule() { return rule; }
 		
 		//'Effect' name=EString '=' 'Translate' positionToTranslate=Position ('startAt' beginTime=EInt)? ('during' duration=EInt)?
-		//'on' element=[GraphicalElement]
+		//'on' '[' elements+=[GraphicalElement] (',' elements+=[GraphicalElement])* ']'
 		public Group getGroup() { return cGroup; }
 		
 		//'Effect'
@@ -1172,14 +1239,35 @@ public class CinEditorGrammarAccess extends AbstractGrammarElementFinder {
 		//'on'
 		public Keyword getOnKeyword_7() { return cOnKeyword_7; }
 		
-		//element=[GraphicalElement]
-		public Assignment getElementAssignment_8() { return cElementAssignment_8; }
+		//'['
+		public Keyword getLeftSquareBracketKeyword_8() { return cLeftSquareBracketKeyword_8; }
+		
+		//elements+=[GraphicalElement]
+		public Assignment getElementsAssignment_9() { return cElementsAssignment_9; }
 		
 		//[GraphicalElement]
-		public CrossReference getElementGraphicalElementCrossReference_8_0() { return cElementGraphicalElementCrossReference_8_0; }
+		public CrossReference getElementsGraphicalElementCrossReference_9_0() { return cElementsGraphicalElementCrossReference_9_0; }
 		
 		//ID
-		public RuleCall getElementGraphicalElementIDTerminalRuleCall_8_0_1() { return cElementGraphicalElementIDTerminalRuleCall_8_0_1; }
+		public RuleCall getElementsGraphicalElementIDTerminalRuleCall_9_0_1() { return cElementsGraphicalElementIDTerminalRuleCall_9_0_1; }
+		
+		//(',' elements+=[GraphicalElement])*
+		public Group getGroup_10() { return cGroup_10; }
+		
+		//','
+		public Keyword getCommaKeyword_10_0() { return cCommaKeyword_10_0; }
+		
+		//elements+=[GraphicalElement]
+		public Assignment getElementsAssignment_10_1() { return cElementsAssignment_10_1; }
+		
+		//[GraphicalElement]
+		public CrossReference getElementsGraphicalElementCrossReference_10_1_0() { return cElementsGraphicalElementCrossReference_10_1_0; }
+		
+		//ID
+		public RuleCall getElementsGraphicalElementIDTerminalRuleCall_10_1_0_1() { return cElementsGraphicalElementIDTerminalRuleCall_10_1_0_1; }
+		
+		//']'
+		public Keyword getRightSquareBracketKeyword_11() { return cRightSquareBracketKeyword_11; }
 	}
 	
 	
@@ -1465,7 +1553,8 @@ public class CinEditorGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//FadeIn:
-	//	'Effect' name=EString '=' 'FadeIn' 'during' duration=EInt 'on' element=[GraphicalElement];
+	//	'Effect' name=EString '=' 'FadeIn' 'during' duration=EInt 'on' '[' elements+=[GraphicalElement] (','
+	//	elements+=[GraphicalElement])* ']';
 	public FadeInElements getFadeInAccess() {
 		return pFadeIn;
 	}
@@ -1475,7 +1564,8 @@ public class CinEditorGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//FadeOut:
-	//	'Effect' name=EString '=' 'FadeOut' 'during' duration=EInt 'on' element=[GraphicalElement];
+	//	'Effect' name=EString '=' 'FadeOut' 'during' duration=EInt 'on' '[' elements+=[GraphicalElement] (','
+	//	elements+=[GraphicalElement])* ']';
 	public FadeOutElements getFadeOutAccess() {
 		return pFadeOut;
 	}
@@ -1486,7 +1576,7 @@ public class CinEditorGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//Translate:
 	//	'Effect' name=EString '=' 'Translate' positionToTranslate=Position ('startAt' beginTime=EInt)? ('during'
-	//	duration=EInt)? 'on' element=[GraphicalElement];
+	//	duration=EInt)? 'on' '[' elements+=[GraphicalElement] (',' elements+=[GraphicalElement])* ']';
 	public TranslateElements getTranslateAccess() {
 		return pTranslate;
 	}

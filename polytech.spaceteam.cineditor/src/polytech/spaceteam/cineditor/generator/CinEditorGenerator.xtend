@@ -67,9 +67,11 @@ class CinEditorGenerator extends AbstractGenerator {
 	private def extractMovieDuration(Movie movie) {
 		for (Layer layer : movie.layers) {
 			for (Element element : layer.elements) {
-				var tmpDuration = element.beginTime + element.duration;
-				if (tmpDuration > totalMovieDuration) {
-					totalMovieDuration = tmpDuration;
+				if (element instanceof AudioElement || element instanceof GraphicalElement) {
+					var tmpDuration = element.beginTime + element.duration;
+					if (tmpDuration > totalMovieDuration) {
+						totalMovieDuration = tmpDuration;
+					}
 				}
 			}
 		}
@@ -276,6 +278,7 @@ class CinEditorGenerator extends AbstractGenerator {
 					+ extractBeginTimeFromElement(element)
 					+ extractDurationFromElement(element)
 					+ extractDimensionFromElement(element)
+					+ extractPositionFromElement(element)
 					+ cropString
 					+ "\n\n";
 		elementsVarNames.add(element.getName());
@@ -284,13 +287,17 @@ class CinEditorGenerator extends AbstractGenerator {
 	
 	private def String extractElement(FadeIn element) {
 		var s = "";
-		
+		for (GraphicalElement elementToApplyEffect : element.elements) {
+			s += elementToApplyEffect.name + " = " + elementToApplyEffect.name + ".crossfadein(" + element.duration + ")\n\n"
+		}
 		return s;
 	}
 	
 	private def String extractElement(FadeOut element) {
 		var s = "";
-		
+		for (GraphicalElement elementToApplyEffect : element.elements) {
+			s += elementToApplyEffect.name + " = " + elementToApplyEffect.name + ".crossfadeout(" + element.duration + ")\n\n"
+		}
 		return s;
 	}
 	

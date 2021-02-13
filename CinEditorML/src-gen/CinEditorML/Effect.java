@@ -2,6 +2,8 @@
  */
 package CinEditorML;
 
+import org.eclipse.emf.common.util.EList;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Effect</b></em>'.
@@ -11,7 +13,7 @@ package CinEditorML;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link CinEditorML.Effect#getElement <em>Element</em>}</li>
+ *   <li>{@link CinEditorML.Effect#getElements <em>Elements</em>}</li>
  * </ul>
  *
  * @see CinEditorML.CinEditorMLPackage#getEffect()
@@ -20,29 +22,19 @@ package CinEditorML;
  */
 public interface Effect extends Element {
 	/**
-	 * Returns the value of the '<em><b>Element</b></em>' reference.
+	 * Returns the value of the '<em><b>Elements</b></em>' reference list.
+	 * The list contents are of type {@link CinEditorML.GraphicalElement}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Element</em>' reference isn't clear,
+	 * If the meaning of the '<em>Elements</em>' reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Element</em>' reference.
-	 * @see #setElement(GraphicalElement)
-	 * @see CinEditorML.CinEditorMLPackage#getEffect_Element()
+	 * @return the value of the '<em>Elements</em>' reference list.
+	 * @see CinEditorML.CinEditorMLPackage#getEffect_Elements()
 	 * @model required="true"
 	 * @generated
 	 */
-	GraphicalElement getElement();
-
-	/**
-	 * Sets the value of the '{@link CinEditorML.Effect#getElement <em>Element</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Element</em>' reference.
-	 * @see #getElement()
-	 * @generated
-	 */
-	void setElement(GraphicalElement value);
+	EList<GraphicalElement> getElements();
 
 } // Effect

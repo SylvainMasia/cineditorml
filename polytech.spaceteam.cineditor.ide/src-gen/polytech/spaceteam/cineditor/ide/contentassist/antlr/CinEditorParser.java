@@ -71,10 +71,13 @@ public class CinEditorParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getRectangleAccess().getGroup_6(), "rule__Rectangle__Group_6__0");
 			builder.put(grammarAccess.getRectangleAccess().getGroup_7(), "rule__Rectangle__Group_7__0");
 			builder.put(grammarAccess.getFadeInAccess().getGroup(), "rule__FadeIn__Group__0");
+			builder.put(grammarAccess.getFadeInAccess().getGroup_9(), "rule__FadeIn__Group_9__0");
 			builder.put(grammarAccess.getFadeOutAccess().getGroup(), "rule__FadeOut__Group__0");
+			builder.put(grammarAccess.getFadeOutAccess().getGroup_9(), "rule__FadeOut__Group_9__0");
 			builder.put(grammarAccess.getTranslateAccess().getGroup(), "rule__Translate__Group__0");
 			builder.put(grammarAccess.getTranslateAccess().getGroup_5(), "rule__Translate__Group_5__0");
 			builder.put(grammarAccess.getTranslateAccess().getGroup_6(), "rule__Translate__Group_6__0");
+			builder.put(grammarAccess.getTranslateAccess().getGroup_10(), "rule__Translate__Group_10__0");
 			builder.put(grammarAccess.getMovieAccess().getNameAssignment_1(), "rule__Movie__NameAssignment_1");
 			builder.put(grammarAccess.getMovieAccess().getDimensionAssignment_2(), "rule__Movie__DimensionAssignment_2");
 			builder.put(grammarAccess.getMovieAccess().getFpsAssignment_3_1(), "rule__Movie__FpsAssignment_3_1");
@@ -125,15 +128,18 @@ public class CinEditorParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getRectangleAccess().getDurationAssignment_7_1(), "rule__Rectangle__DurationAssignment_7_1");
 			builder.put(grammarAccess.getFadeInAccess().getNameAssignment_1(), "rule__FadeIn__NameAssignment_1");
 			builder.put(grammarAccess.getFadeInAccess().getDurationAssignment_5(), "rule__FadeIn__DurationAssignment_5");
-			builder.put(grammarAccess.getFadeInAccess().getElementAssignment_7(), "rule__FadeIn__ElementAssignment_7");
+			builder.put(grammarAccess.getFadeInAccess().getElementsAssignment_8(), "rule__FadeIn__ElementsAssignment_8");
+			builder.put(grammarAccess.getFadeInAccess().getElementsAssignment_9_1(), "rule__FadeIn__ElementsAssignment_9_1");
 			builder.put(grammarAccess.getFadeOutAccess().getNameAssignment_1(), "rule__FadeOut__NameAssignment_1");
 			builder.put(grammarAccess.getFadeOutAccess().getDurationAssignment_5(), "rule__FadeOut__DurationAssignment_5");
-			builder.put(grammarAccess.getFadeOutAccess().getElementAssignment_7(), "rule__FadeOut__ElementAssignment_7");
+			builder.put(grammarAccess.getFadeOutAccess().getElementsAssignment_8(), "rule__FadeOut__ElementsAssignment_8");
+			builder.put(grammarAccess.getFadeOutAccess().getElementsAssignment_9_1(), "rule__FadeOut__ElementsAssignment_9_1");
 			builder.put(grammarAccess.getTranslateAccess().getNameAssignment_1(), "rule__Translate__NameAssignment_1");
 			builder.put(grammarAccess.getTranslateAccess().getPositionToTranslateAssignment_4(), "rule__Translate__PositionToTranslateAssignment_4");
 			builder.put(grammarAccess.getTranslateAccess().getBeginTimeAssignment_5_1(), "rule__Translate__BeginTimeAssignment_5_1");
 			builder.put(grammarAccess.getTranslateAccess().getDurationAssignment_6_1(), "rule__Translate__DurationAssignment_6_1");
-			builder.put(grammarAccess.getTranslateAccess().getElementAssignment_8(), "rule__Translate__ElementAssignment_8");
+			builder.put(grammarAccess.getTranslateAccess().getElementsAssignment_9(), "rule__Translate__ElementsAssignment_9");
+			builder.put(grammarAccess.getTranslateAccess().getElementsAssignment_10_1(), "rule__Translate__ElementsAssignment_10_1");
 		}
 	}
 	

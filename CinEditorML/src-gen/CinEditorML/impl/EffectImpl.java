@@ -5,11 +5,10 @@ package CinEditorML.impl;
 import CinEditorML.CinEditorMLPackage;
 import CinEditorML.Effect;
 import CinEditorML.GraphicalElement;
-import org.eclipse.emf.common.notify.Notification;
+import java.util.Collection;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
-
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -19,21 +18,21 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link CinEditorML.impl.EffectImpl#getElement <em>Element</em>}</li>
+ *   <li>{@link CinEditorML.impl.EffectImpl#getElements <em>Elements</em>}</li>
  * </ul>
  *
  * @generated
  */
 public abstract class EffectImpl extends ElementImpl implements Effect {
 	/**
-	 * The cached value of the '{@link #getElement() <em>Element</em>}' reference.
+	 * The cached value of the '{@link #getElements() <em>Elements</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getElement()
+	 * @see #getElements()
 	 * @generated
 	 * @ordered
 	 */
-	protected GraphicalElement element;
+	protected EList<GraphicalElement> elements;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -59,39 +58,12 @@ public abstract class EffectImpl extends ElementImpl implements Effect {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public GraphicalElement getElement() {
-		if (element != null && element.eIsProxy()) {
-			InternalEObject oldElement = (InternalEObject) element;
-			element = (GraphicalElement) eResolveProxy(oldElement);
-			if (element != oldElement) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, CinEditorMLPackage.EFFECT__ELEMENT,
-							oldElement, element));
-			}
+	public EList<GraphicalElement> getElements() {
+		if (elements == null) {
+			elements = new EObjectResolvingEList<GraphicalElement>(GraphicalElement.class, this,
+					CinEditorMLPackage.EFFECT__ELEMENTS);
 		}
-		return element;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public GraphicalElement basicGetElement() {
-		return element;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setElement(GraphicalElement newElement) {
-		GraphicalElement oldElement = element;
-		element = newElement;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CinEditorMLPackage.EFFECT__ELEMENT, oldElement,
-					element));
+		return elements;
 	}
 
 	/**
@@ -102,10 +74,8 @@ public abstract class EffectImpl extends ElementImpl implements Effect {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case CinEditorMLPackage.EFFECT__ELEMENT:
-			if (resolve)
-				return getElement();
-			return basicGetElement();
+		case CinEditorMLPackage.EFFECT__ELEMENTS:
+			return getElements();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -115,11 +85,13 @@ public abstract class EffectImpl extends ElementImpl implements Effect {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case CinEditorMLPackage.EFFECT__ELEMENT:
-			setElement((GraphicalElement) newValue);
+		case CinEditorMLPackage.EFFECT__ELEMENTS:
+			getElements().clear();
+			getElements().addAll((Collection<? extends GraphicalElement>) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -133,8 +105,8 @@ public abstract class EffectImpl extends ElementImpl implements Effect {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case CinEditorMLPackage.EFFECT__ELEMENT:
-			setElement((GraphicalElement) null);
+		case CinEditorMLPackage.EFFECT__ELEMENTS:
+			getElements().clear();
 			return;
 		}
 		super.eUnset(featureID);
@@ -148,8 +120,8 @@ public abstract class EffectImpl extends ElementImpl implements Effect {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case CinEditorMLPackage.EFFECT__ELEMENT:
-			return element != null;
+		case CinEditorMLPackage.EFFECT__ELEMENTS:
+			return elements != null && !elements.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

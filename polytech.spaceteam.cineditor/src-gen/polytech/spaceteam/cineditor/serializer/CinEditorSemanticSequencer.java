@@ -146,22 +146,10 @@ public class CinEditorSemanticSequencer extends AbstractDelegatingSemanticSequen
 	 *     FadeIn returns FadeIn
 	 *
 	 * Constraint:
-	 *     (name=EString duration=EInt element=[GraphicalElement|ID])
+	 *     (name=EString duration=EInt elements+=[GraphicalElement|ID] elements+=[GraphicalElement|ID]*)
 	 */
 	protected void sequence_FadeIn(ISerializationContext context, FadeIn semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, CinEditorMLPackage.Literals.ELEMENT__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CinEditorMLPackage.Literals.ELEMENT__NAME));
-			if (transientValues.isValueTransient(semanticObject, CinEditorMLPackage.Literals.ELEMENT__DURATION) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CinEditorMLPackage.Literals.ELEMENT__DURATION));
-			if (transientValues.isValueTransient(semanticObject, CinEditorMLPackage.Literals.EFFECT__ELEMENT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CinEditorMLPackage.Literals.EFFECT__ELEMENT));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getFadeInAccess().getNameEStringParserRuleCall_1_0(), semanticObject.getName());
-		feeder.accept(grammarAccess.getFadeInAccess().getDurationEIntParserRuleCall_5_0(), semanticObject.getDuration());
-		feeder.accept(grammarAccess.getFadeInAccess().getElementGraphicalElementIDTerminalRuleCall_7_0_1(), semanticObject.eGet(CinEditorMLPackage.Literals.EFFECT__ELEMENT, false));
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -171,22 +159,10 @@ public class CinEditorSemanticSequencer extends AbstractDelegatingSemanticSequen
 	 *     FadeOut returns FadeOut
 	 *
 	 * Constraint:
-	 *     (name=EString duration=EInt element=[GraphicalElement|ID])
+	 *     (name=EString duration=EInt elements+=[GraphicalElement|ID] elements+=[GraphicalElement|ID]*)
 	 */
 	protected void sequence_FadeOut(ISerializationContext context, FadeOut semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, CinEditorMLPackage.Literals.ELEMENT__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CinEditorMLPackage.Literals.ELEMENT__NAME));
-			if (transientValues.isValueTransient(semanticObject, CinEditorMLPackage.Literals.ELEMENT__DURATION) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CinEditorMLPackage.Literals.ELEMENT__DURATION));
-			if (transientValues.isValueTransient(semanticObject, CinEditorMLPackage.Literals.EFFECT__ELEMENT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CinEditorMLPackage.Literals.EFFECT__ELEMENT));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getFadeOutAccess().getNameEStringParserRuleCall_1_0(), semanticObject.getName());
-		feeder.accept(grammarAccess.getFadeOutAccess().getDurationEIntParserRuleCall_5_0(), semanticObject.getDuration());
-		feeder.accept(grammarAccess.getFadeOutAccess().getElementGraphicalElementIDTerminalRuleCall_7_0_1(), semanticObject.eGet(CinEditorMLPackage.Literals.EFFECT__ELEMENT, false));
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -355,7 +331,14 @@ public class CinEditorSemanticSequencer extends AbstractDelegatingSemanticSequen
 	 *     Translate returns Translate
 	 *
 	 * Constraint:
-	 *     (name=EString positionToTranslate=Position beginTime=EInt? duration=EInt? element=[GraphicalElement|ID])
+	 *     (
+	 *         name=EString 
+	 *         positionToTranslate=Position 
+	 *         beginTime=EInt? 
+	 *         duration=EInt? 
+	 *         elements+=[GraphicalElement|ID] 
+	 *         elements+=[GraphicalElement|ID]*
+	 *     )
 	 */
 	protected void sequence_Translate(ISerializationContext context, Translate semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

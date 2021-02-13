@@ -1807,6 +1807,10 @@ ruleFadeIn returns [EObject current=null]
 		{
 			newLeafNode(otherlv_6, grammarAccess.getFadeInAccess().getOnKeyword_6());
 		}
+		otherlv_7='['
+		{
+			newLeafNode(otherlv_7, grammarAccess.getFadeInAccess().getLeftSquareBracketKeyword_7());
+		}
 		(
 			(
 				{
@@ -1814,12 +1818,35 @@ ruleFadeIn returns [EObject current=null]
 						$current = createModelElement(grammarAccess.getFadeInRule());
 					}
 				}
-				otherlv_7=RULE_ID
+				otherlv_8=RULE_ID
 				{
-					newLeafNode(otherlv_7, grammarAccess.getFadeInAccess().getElementGraphicalElementCrossReference_7_0());
+					newLeafNode(otherlv_8, grammarAccess.getFadeInAccess().getElementsGraphicalElementCrossReference_8_0());
 				}
 			)
 		)
+		(
+			otherlv_9=','
+			{
+				newLeafNode(otherlv_9, grammarAccess.getFadeInAccess().getCommaKeyword_9_0());
+			}
+			(
+				(
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getFadeInRule());
+						}
+					}
+					otherlv_10=RULE_ID
+					{
+						newLeafNode(otherlv_10, grammarAccess.getFadeInAccess().getElementsGraphicalElementCrossReference_9_1_0());
+					}
+				)
+			)
+		)*
+		otherlv_11=']'
+		{
+			newLeafNode(otherlv_11, grammarAccess.getFadeInAccess().getRightSquareBracketKeyword_10());
+		}
 	)
 ;
 
@@ -1897,6 +1924,10 @@ ruleFadeOut returns [EObject current=null]
 		{
 			newLeafNode(otherlv_6, grammarAccess.getFadeOutAccess().getOnKeyword_6());
 		}
+		otherlv_7='['
+		{
+			newLeafNode(otherlv_7, grammarAccess.getFadeOutAccess().getLeftSquareBracketKeyword_7());
+		}
 		(
 			(
 				{
@@ -1904,12 +1935,35 @@ ruleFadeOut returns [EObject current=null]
 						$current = createModelElement(grammarAccess.getFadeOutRule());
 					}
 				}
-				otherlv_7=RULE_ID
+				otherlv_8=RULE_ID
 				{
-					newLeafNode(otherlv_7, grammarAccess.getFadeOutAccess().getElementGraphicalElementCrossReference_7_0());
+					newLeafNode(otherlv_8, grammarAccess.getFadeOutAccess().getElementsGraphicalElementCrossReference_8_0());
 				}
 			)
 		)
+		(
+			otherlv_9=','
+			{
+				newLeafNode(otherlv_9, grammarAccess.getFadeOutAccess().getCommaKeyword_9_0());
+			}
+			(
+				(
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getFadeOutRule());
+						}
+					}
+					otherlv_10=RULE_ID
+					{
+						newLeafNode(otherlv_10, grammarAccess.getFadeOutAccess().getElementsGraphicalElementCrossReference_9_1_0());
+					}
+				)
+			)
+		)*
+		otherlv_11=']'
+		{
+			newLeafNode(otherlv_11, grammarAccess.getFadeOutAccess().getRightSquareBracketKeyword_10());
+		}
 	)
 ;
 
@@ -2033,6 +2087,10 @@ ruleTranslate returns [EObject current=null]
 		{
 			newLeafNode(otherlv_9, grammarAccess.getTranslateAccess().getOnKeyword_7());
 		}
+		otherlv_10='['
+		{
+			newLeafNode(otherlv_10, grammarAccess.getTranslateAccess().getLeftSquareBracketKeyword_8());
+		}
 		(
 			(
 				{
@@ -2040,12 +2098,35 @@ ruleTranslate returns [EObject current=null]
 						$current = createModelElement(grammarAccess.getTranslateRule());
 					}
 				}
-				otherlv_10=RULE_ID
+				otherlv_11=RULE_ID
 				{
-					newLeafNode(otherlv_10, grammarAccess.getTranslateAccess().getElementGraphicalElementCrossReference_8_0());
+					newLeafNode(otherlv_11, grammarAccess.getTranslateAccess().getElementsGraphicalElementCrossReference_9_0());
 				}
 			)
 		)
+		(
+			otherlv_12=','
+			{
+				newLeafNode(otherlv_12, grammarAccess.getTranslateAccess().getCommaKeyword_10_0());
+			}
+			(
+				(
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getTranslateRule());
+						}
+					}
+					otherlv_13=RULE_ID
+					{
+						newLeafNode(otherlv_13, grammarAccess.getTranslateAccess().getElementsGraphicalElementCrossReference_10_1_0());
+					}
+				)
+			)
+		)*
+		otherlv_14=']'
+		{
+			newLeafNode(otherlv_14, grammarAccess.getTranslateAccess().getRightSquareBracketKeyword_11());
+		}
 	)
 ;
 

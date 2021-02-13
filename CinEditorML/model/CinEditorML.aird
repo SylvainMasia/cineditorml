@@ -576,7 +576,7 @@
         </edges>
         <edges xmi:type="notation:Edge" xmi:id="_LIGoIGuBEeu1r4I2iU5B8A" type="4001" element="_LIBInGuBEeu1r4I2iU5B8A" source="_kCBT0GX2Eeuy_q9qJrfeVQ" target="_ZyZu0GuAEeu1r4I2iU5B8A">
           <children xmi:type="notation:Node" xmi:id="_LIHPMGuBEeu1r4I2iU5B8A" type="6001">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_LIHPMWuBEeu1r4I2iU5B8A" x="71" y="14"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_LIHPMWuBEeu1r4I2iU5B8A" x="59" y="10"/>
           </children>
           <children xmi:type="notation:Node" xmi:id="_LIHPMmuBEeu1r4I2iU5B8A" type="6002">
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="_LIHPM2uBEeu1r4I2iU5B8A" x="1" y="10"/>
@@ -1187,9 +1187,9 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC_EReference']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_LIBInGuBEeu1r4I2iU5B8A" name="[1..1] element" sourceNode="_kB9pcGX2Eeuy_q9qJrfeVQ" targetNode="_ZyVdYGuAEeu1r4I2iU5B8A">
-      <target xmi:type="ecore:EReference" href="CinEditorML.ecore#//Effect/element"/>
-      <semanticElements xmi:type="ecore:EReference" href="CinEditorML.ecore#//Effect/element"/>
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_LIBInGuBEeu1r4I2iU5B8A" name="[1..*] elements" sourceNode="_kB9pcGX2Eeuy_q9qJrfeVQ" targetNode="_ZyVdYGuAEeu1r4I2iU5B8A">
+      <target xmi:type="ecore:EReference" href="CinEditorML.ecore#//Effect/elements"/>
+      <semanticElements xmi:type="ecore:EReference" href="CinEditorML.ecore#//Effect/elements"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_fS6fKWuCEeu1r4I2iU5B8A" description="_fS6fJmuCEeu1r4I2iU5B8A" routingStyle="manhattan" strokeColor="0,0,0">
         <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_fS6fK2uCEeu1r4I2iU5B8A" showIcon="false">
           <labelFormat>bold</labelFormat>

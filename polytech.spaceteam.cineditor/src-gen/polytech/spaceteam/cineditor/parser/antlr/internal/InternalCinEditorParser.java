@@ -21,8 +21,9 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalCinEditorParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_STRING", "RULE_ID", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'Movie'", "'fps'", "'Layer'", "'position'", "'('", "','", "')'", "'center'", "'left'", "'right'", "'bottom'", "'top'", "'dimension'", "'x'", "'color'", "'-'", "'.'", "'true'", "'false'", "'Audio'", "'='", "'volume'", "'fadeIn'", "'fadeOut'", "'startAt'", "'cropAt'", "'during'", "'on'", "'Text'", "'fontSize'", "'Picture'", "'Video'", "'audio'", "'Rectangle'", "'Effect'", "'FadeIn'", "'FadeOut'", "'Translate'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_STRING", "RULE_ID", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'Movie'", "'fps'", "'Layer'", "'position'", "'('", "','", "')'", "'center'", "'left'", "'right'", "'bottom'", "'top'", "'dimension'", "'x'", "'color'", "'-'", "'.'", "'true'", "'false'", "'Audio'", "'='", "'volume'", "'fadeIn'", "'fadeOut'", "'startAt'", "'cropAt'", "'during'", "'on'", "'Text'", "'fontSize'", "'Picture'", "'Video'", "'audio'", "'Rectangle'", "'Effect'", "'FadeIn'", "'['", "']'", "'FadeOut'", "'Translate'"
     };
+    public static final int T__50=50;
     public static final int T__19=19;
     public static final int T__15=15;
     public static final int T__16=16;
@@ -61,6 +62,7 @@ public class InternalCinEditorParser extends AbstractInternalAntlrParser {
     public static final int RULE_WS=9;
     public static final int RULE_ANY_OTHER=10;
     public static final int T__48=48;
+    public static final int T__49=49;
     public static final int T__44=44;
     public static final int T__45=45;
     public static final int T__46=46;
@@ -4312,7 +4314,7 @@ public class InternalCinEditorParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleFadeIn"
-    // InternalCinEditor.g:1744:1: ruleFadeIn returns [EObject current=null] : (otherlv_0= 'Effect' ( (lv_name_1_0= ruleEString ) ) otherlv_2= '=' otherlv_3= 'FadeIn' otherlv_4= 'during' ( (lv_duration_5_0= ruleEInt ) ) otherlv_6= 'on' ( (otherlv_7= RULE_ID ) ) ) ;
+    // InternalCinEditor.g:1744:1: ruleFadeIn returns [EObject current=null] : (otherlv_0= 'Effect' ( (lv_name_1_0= ruleEString ) ) otherlv_2= '=' otherlv_3= 'FadeIn' otherlv_4= 'during' ( (lv_duration_5_0= ruleEInt ) ) otherlv_6= 'on' otherlv_7= '[' ( (otherlv_8= RULE_ID ) ) (otherlv_9= ',' ( (otherlv_10= RULE_ID ) ) )* otherlv_11= ']' ) ;
     public final EObject ruleFadeIn() throws RecognitionException {
         EObject current = null;
 
@@ -4322,6 +4324,10 @@ public class InternalCinEditorParser extends AbstractInternalAntlrParser {
         Token otherlv_4=null;
         Token otherlv_6=null;
         Token otherlv_7=null;
+        Token otherlv_8=null;
+        Token otherlv_9=null;
+        Token otherlv_10=null;
+        Token otherlv_11=null;
         AntlrDatatypeRuleToken lv_name_1_0 = null;
 
         AntlrDatatypeRuleToken lv_duration_5_0 = null;
@@ -4331,11 +4337,11 @@ public class InternalCinEditorParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalCinEditor.g:1750:2: ( (otherlv_0= 'Effect' ( (lv_name_1_0= ruleEString ) ) otherlv_2= '=' otherlv_3= 'FadeIn' otherlv_4= 'during' ( (lv_duration_5_0= ruleEInt ) ) otherlv_6= 'on' ( (otherlv_7= RULE_ID ) ) ) )
-            // InternalCinEditor.g:1751:2: (otherlv_0= 'Effect' ( (lv_name_1_0= ruleEString ) ) otherlv_2= '=' otherlv_3= 'FadeIn' otherlv_4= 'during' ( (lv_duration_5_0= ruleEInt ) ) otherlv_6= 'on' ( (otherlv_7= RULE_ID ) ) )
+            // InternalCinEditor.g:1750:2: ( (otherlv_0= 'Effect' ( (lv_name_1_0= ruleEString ) ) otherlv_2= '=' otherlv_3= 'FadeIn' otherlv_4= 'during' ( (lv_duration_5_0= ruleEInt ) ) otherlv_6= 'on' otherlv_7= '[' ( (otherlv_8= RULE_ID ) ) (otherlv_9= ',' ( (otherlv_10= RULE_ID ) ) )* otherlv_11= ']' ) )
+            // InternalCinEditor.g:1751:2: (otherlv_0= 'Effect' ( (lv_name_1_0= ruleEString ) ) otherlv_2= '=' otherlv_3= 'FadeIn' otherlv_4= 'during' ( (lv_duration_5_0= ruleEInt ) ) otherlv_6= 'on' otherlv_7= '[' ( (otherlv_8= RULE_ID ) ) (otherlv_9= ',' ( (otherlv_10= RULE_ID ) ) )* otherlv_11= ']' )
             {
-            // InternalCinEditor.g:1751:2: (otherlv_0= 'Effect' ( (lv_name_1_0= ruleEString ) ) otherlv_2= '=' otherlv_3= 'FadeIn' otherlv_4= 'during' ( (lv_duration_5_0= ruleEInt ) ) otherlv_6= 'on' ( (otherlv_7= RULE_ID ) ) )
-            // InternalCinEditor.g:1752:3: otherlv_0= 'Effect' ( (lv_name_1_0= ruleEString ) ) otherlv_2= '=' otherlv_3= 'FadeIn' otherlv_4= 'during' ( (lv_duration_5_0= ruleEInt ) ) otherlv_6= 'on' ( (otherlv_7= RULE_ID ) )
+            // InternalCinEditor.g:1751:2: (otherlv_0= 'Effect' ( (lv_name_1_0= ruleEString ) ) otherlv_2= '=' otherlv_3= 'FadeIn' otherlv_4= 'during' ( (lv_duration_5_0= ruleEInt ) ) otherlv_6= 'on' otherlv_7= '[' ( (otherlv_8= RULE_ID ) ) (otherlv_9= ',' ( (otherlv_10= RULE_ID ) ) )* otherlv_11= ']' )
+            // InternalCinEditor.g:1752:3: otherlv_0= 'Effect' ( (lv_name_1_0= ruleEString ) ) otherlv_2= '=' otherlv_3= 'FadeIn' otherlv_4= 'during' ( (lv_duration_5_0= ruleEInt ) ) otherlv_6= 'on' otherlv_7= '[' ( (otherlv_8= RULE_ID ) ) (otherlv_9= ',' ( (otherlv_10= RULE_ID ) ) )* otherlv_11= ']'
             {
             otherlv_0=(Token)match(input,45,FOLLOW_3); 
 
@@ -4415,24 +4421,28 @@ public class InternalCinEditorParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_6=(Token)match(input,38,FOLLOW_25); 
+            otherlv_6=(Token)match(input,38,FOLLOW_38); 
 
             			newLeafNode(otherlv_6, grammarAccess.getFadeInAccess().getOnKeyword_6());
             		
-            // InternalCinEditor.g:1810:3: ( (otherlv_7= RULE_ID ) )
-            // InternalCinEditor.g:1811:4: (otherlv_7= RULE_ID )
+            otherlv_7=(Token)match(input,47,FOLLOW_25); 
+
+            			newLeafNode(otherlv_7, grammarAccess.getFadeInAccess().getLeftSquareBracketKeyword_7());
+            		
+            // InternalCinEditor.g:1814:3: ( (otherlv_8= RULE_ID ) )
+            // InternalCinEditor.g:1815:4: (otherlv_8= RULE_ID )
             {
-            // InternalCinEditor.g:1811:4: (otherlv_7= RULE_ID )
-            // InternalCinEditor.g:1812:5: otherlv_7= RULE_ID
+            // InternalCinEditor.g:1815:4: (otherlv_8= RULE_ID )
+            // InternalCinEditor.g:1816:5: otherlv_8= RULE_ID
             {
 
             					if (current==null) {
             						current = createModelElement(grammarAccess.getFadeInRule());
             					}
             				
-            otherlv_7=(Token)match(input,RULE_ID,FOLLOW_2); 
+            otherlv_8=(Token)match(input,RULE_ID,FOLLOW_39); 
 
-            					newLeafNode(otherlv_7, grammarAccess.getFadeInAccess().getElementGraphicalElementCrossReference_7_0());
+            					newLeafNode(otherlv_8, grammarAccess.getFadeInAccess().getElementsGraphicalElementCrossReference_8_0());
             				
 
             }
@@ -4440,6 +4450,59 @@ public class InternalCinEditorParser extends AbstractInternalAntlrParser {
 
             }
 
+            // InternalCinEditor.g:1827:3: (otherlv_9= ',' ( (otherlv_10= RULE_ID ) ) )*
+            loop37:
+            do {
+                int alt37=2;
+                int LA37_0 = input.LA(1);
+
+                if ( (LA37_0==16) ) {
+                    alt37=1;
+                }
+
+
+                switch (alt37) {
+            	case 1 :
+            	    // InternalCinEditor.g:1828:4: otherlv_9= ',' ( (otherlv_10= RULE_ID ) )
+            	    {
+            	    otherlv_9=(Token)match(input,16,FOLLOW_25); 
+
+            	    				newLeafNode(otherlv_9, grammarAccess.getFadeInAccess().getCommaKeyword_9_0());
+            	    			
+            	    // InternalCinEditor.g:1832:4: ( (otherlv_10= RULE_ID ) )
+            	    // InternalCinEditor.g:1833:5: (otherlv_10= RULE_ID )
+            	    {
+            	    // InternalCinEditor.g:1833:5: (otherlv_10= RULE_ID )
+            	    // InternalCinEditor.g:1834:6: otherlv_10= RULE_ID
+            	    {
+
+            	    						if (current==null) {
+            	    							current = createModelElement(grammarAccess.getFadeInRule());
+            	    						}
+            	    					
+            	    otherlv_10=(Token)match(input,RULE_ID,FOLLOW_39); 
+
+            	    						newLeafNode(otherlv_10, grammarAccess.getFadeInAccess().getElementsGraphicalElementCrossReference_9_1_0());
+            	    					
+
+            	    }
+
+
+            	    }
+
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop37;
+                }
+            } while (true);
+
+            otherlv_11=(Token)match(input,48,FOLLOW_2); 
+
+            			newLeafNode(otherlv_11, grammarAccess.getFadeInAccess().getRightSquareBracketKeyword_10());
+            		
 
             }
 
@@ -4463,7 +4526,7 @@ public class InternalCinEditorParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleFadeOut"
-    // InternalCinEditor.g:1827:1: entryRuleFadeOut returns [EObject current=null] : iv_ruleFadeOut= ruleFadeOut EOF ;
+    // InternalCinEditor.g:1854:1: entryRuleFadeOut returns [EObject current=null] : iv_ruleFadeOut= ruleFadeOut EOF ;
     public final EObject entryRuleFadeOut() throws RecognitionException {
         EObject current = null;
 
@@ -4471,8 +4534,8 @@ public class InternalCinEditorParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalCinEditor.g:1827:48: (iv_ruleFadeOut= ruleFadeOut EOF )
-            // InternalCinEditor.g:1828:2: iv_ruleFadeOut= ruleFadeOut EOF
+            // InternalCinEditor.g:1854:48: (iv_ruleFadeOut= ruleFadeOut EOF )
+            // InternalCinEditor.g:1855:2: iv_ruleFadeOut= ruleFadeOut EOF
             {
              newCompositeNode(grammarAccess.getFadeOutRule()); 
             pushFollow(FOLLOW_1);
@@ -4499,7 +4562,7 @@ public class InternalCinEditorParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleFadeOut"
-    // InternalCinEditor.g:1834:1: ruleFadeOut returns [EObject current=null] : (otherlv_0= 'Effect' ( (lv_name_1_0= ruleEString ) ) otherlv_2= '=' otherlv_3= 'FadeOut' otherlv_4= 'during' ( (lv_duration_5_0= ruleEInt ) ) otherlv_6= 'on' ( (otherlv_7= RULE_ID ) ) ) ;
+    // InternalCinEditor.g:1861:1: ruleFadeOut returns [EObject current=null] : (otherlv_0= 'Effect' ( (lv_name_1_0= ruleEString ) ) otherlv_2= '=' otherlv_3= 'FadeOut' otherlv_4= 'during' ( (lv_duration_5_0= ruleEInt ) ) otherlv_6= 'on' otherlv_7= '[' ( (otherlv_8= RULE_ID ) ) (otherlv_9= ',' ( (otherlv_10= RULE_ID ) ) )* otherlv_11= ']' ) ;
     public final EObject ruleFadeOut() throws RecognitionException {
         EObject current = null;
 
@@ -4509,6 +4572,10 @@ public class InternalCinEditorParser extends AbstractInternalAntlrParser {
         Token otherlv_4=null;
         Token otherlv_6=null;
         Token otherlv_7=null;
+        Token otherlv_8=null;
+        Token otherlv_9=null;
+        Token otherlv_10=null;
+        Token otherlv_11=null;
         AntlrDatatypeRuleToken lv_name_1_0 = null;
 
         AntlrDatatypeRuleToken lv_duration_5_0 = null;
@@ -4518,21 +4585,21 @@ public class InternalCinEditorParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalCinEditor.g:1840:2: ( (otherlv_0= 'Effect' ( (lv_name_1_0= ruleEString ) ) otherlv_2= '=' otherlv_3= 'FadeOut' otherlv_4= 'during' ( (lv_duration_5_0= ruleEInt ) ) otherlv_6= 'on' ( (otherlv_7= RULE_ID ) ) ) )
-            // InternalCinEditor.g:1841:2: (otherlv_0= 'Effect' ( (lv_name_1_0= ruleEString ) ) otherlv_2= '=' otherlv_3= 'FadeOut' otherlv_4= 'during' ( (lv_duration_5_0= ruleEInt ) ) otherlv_6= 'on' ( (otherlv_7= RULE_ID ) ) )
+            // InternalCinEditor.g:1867:2: ( (otherlv_0= 'Effect' ( (lv_name_1_0= ruleEString ) ) otherlv_2= '=' otherlv_3= 'FadeOut' otherlv_4= 'during' ( (lv_duration_5_0= ruleEInt ) ) otherlv_6= 'on' otherlv_7= '[' ( (otherlv_8= RULE_ID ) ) (otherlv_9= ',' ( (otherlv_10= RULE_ID ) ) )* otherlv_11= ']' ) )
+            // InternalCinEditor.g:1868:2: (otherlv_0= 'Effect' ( (lv_name_1_0= ruleEString ) ) otherlv_2= '=' otherlv_3= 'FadeOut' otherlv_4= 'during' ( (lv_duration_5_0= ruleEInt ) ) otherlv_6= 'on' otherlv_7= '[' ( (otherlv_8= RULE_ID ) ) (otherlv_9= ',' ( (otherlv_10= RULE_ID ) ) )* otherlv_11= ']' )
             {
-            // InternalCinEditor.g:1841:2: (otherlv_0= 'Effect' ( (lv_name_1_0= ruleEString ) ) otherlv_2= '=' otherlv_3= 'FadeOut' otherlv_4= 'during' ( (lv_duration_5_0= ruleEInt ) ) otherlv_6= 'on' ( (otherlv_7= RULE_ID ) ) )
-            // InternalCinEditor.g:1842:3: otherlv_0= 'Effect' ( (lv_name_1_0= ruleEString ) ) otherlv_2= '=' otherlv_3= 'FadeOut' otherlv_4= 'during' ( (lv_duration_5_0= ruleEInt ) ) otherlv_6= 'on' ( (otherlv_7= RULE_ID ) )
+            // InternalCinEditor.g:1868:2: (otherlv_0= 'Effect' ( (lv_name_1_0= ruleEString ) ) otherlv_2= '=' otherlv_3= 'FadeOut' otherlv_4= 'during' ( (lv_duration_5_0= ruleEInt ) ) otherlv_6= 'on' otherlv_7= '[' ( (otherlv_8= RULE_ID ) ) (otherlv_9= ',' ( (otherlv_10= RULE_ID ) ) )* otherlv_11= ']' )
+            // InternalCinEditor.g:1869:3: otherlv_0= 'Effect' ( (lv_name_1_0= ruleEString ) ) otherlv_2= '=' otherlv_3= 'FadeOut' otherlv_4= 'during' ( (lv_duration_5_0= ruleEInt ) ) otherlv_6= 'on' otherlv_7= '[' ( (otherlv_8= RULE_ID ) ) (otherlv_9= ',' ( (otherlv_10= RULE_ID ) ) )* otherlv_11= ']'
             {
             otherlv_0=(Token)match(input,45,FOLLOW_3); 
 
             			newLeafNode(otherlv_0, grammarAccess.getFadeOutAccess().getEffectKeyword_0());
             		
-            // InternalCinEditor.g:1846:3: ( (lv_name_1_0= ruleEString ) )
-            // InternalCinEditor.g:1847:4: (lv_name_1_0= ruleEString )
+            // InternalCinEditor.g:1873:3: ( (lv_name_1_0= ruleEString ) )
+            // InternalCinEditor.g:1874:4: (lv_name_1_0= ruleEString )
             {
-            // InternalCinEditor.g:1847:4: (lv_name_1_0= ruleEString )
-            // InternalCinEditor.g:1848:5: lv_name_1_0= ruleEString
+            // InternalCinEditor.g:1874:4: (lv_name_1_0= ruleEString )
+            // InternalCinEditor.g:1875:5: lv_name_1_0= ruleEString
             {
 
             					newCompositeNode(grammarAccess.getFadeOutAccess().getNameEStringParserRuleCall_1_0());
@@ -4559,11 +4626,11 @@ public class InternalCinEditorParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_2=(Token)match(input,31,FOLLOW_38); 
+            otherlv_2=(Token)match(input,31,FOLLOW_40); 
 
             			newLeafNode(otherlv_2, grammarAccess.getFadeOutAccess().getEqualsSignKeyword_2());
             		
-            otherlv_3=(Token)match(input,47,FOLLOW_37); 
+            otherlv_3=(Token)match(input,49,FOLLOW_37); 
 
             			newLeafNode(otherlv_3, grammarAccess.getFadeOutAccess().getFadeOutKeyword_3());
             		
@@ -4571,11 +4638,11 @@ public class InternalCinEditorParser extends AbstractInternalAntlrParser {
 
             			newLeafNode(otherlv_4, grammarAccess.getFadeOutAccess().getDuringKeyword_4());
             		
-            // InternalCinEditor.g:1877:3: ( (lv_duration_5_0= ruleEInt ) )
-            // InternalCinEditor.g:1878:4: (lv_duration_5_0= ruleEInt )
+            // InternalCinEditor.g:1904:3: ( (lv_duration_5_0= ruleEInt ) )
+            // InternalCinEditor.g:1905:4: (lv_duration_5_0= ruleEInt )
             {
-            // InternalCinEditor.g:1878:4: (lv_duration_5_0= ruleEInt )
-            // InternalCinEditor.g:1879:5: lv_duration_5_0= ruleEInt
+            // InternalCinEditor.g:1905:4: (lv_duration_5_0= ruleEInt )
+            // InternalCinEditor.g:1906:5: lv_duration_5_0= ruleEInt
             {
 
             					newCompositeNode(grammarAccess.getFadeOutAccess().getDurationEIntParserRuleCall_5_0());
@@ -4602,24 +4669,28 @@ public class InternalCinEditorParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_6=(Token)match(input,38,FOLLOW_25); 
+            otherlv_6=(Token)match(input,38,FOLLOW_38); 
 
             			newLeafNode(otherlv_6, grammarAccess.getFadeOutAccess().getOnKeyword_6());
             		
-            // InternalCinEditor.g:1900:3: ( (otherlv_7= RULE_ID ) )
-            // InternalCinEditor.g:1901:4: (otherlv_7= RULE_ID )
+            otherlv_7=(Token)match(input,47,FOLLOW_25); 
+
+            			newLeafNode(otherlv_7, grammarAccess.getFadeOutAccess().getLeftSquareBracketKeyword_7());
+            		
+            // InternalCinEditor.g:1931:3: ( (otherlv_8= RULE_ID ) )
+            // InternalCinEditor.g:1932:4: (otherlv_8= RULE_ID )
             {
-            // InternalCinEditor.g:1901:4: (otherlv_7= RULE_ID )
-            // InternalCinEditor.g:1902:5: otherlv_7= RULE_ID
+            // InternalCinEditor.g:1932:4: (otherlv_8= RULE_ID )
+            // InternalCinEditor.g:1933:5: otherlv_8= RULE_ID
             {
 
             					if (current==null) {
             						current = createModelElement(grammarAccess.getFadeOutRule());
             					}
             				
-            otherlv_7=(Token)match(input,RULE_ID,FOLLOW_2); 
+            otherlv_8=(Token)match(input,RULE_ID,FOLLOW_39); 
 
-            					newLeafNode(otherlv_7, grammarAccess.getFadeOutAccess().getElementGraphicalElementCrossReference_7_0());
+            					newLeafNode(otherlv_8, grammarAccess.getFadeOutAccess().getElementsGraphicalElementCrossReference_8_0());
             				
 
             }
@@ -4627,6 +4698,59 @@ public class InternalCinEditorParser extends AbstractInternalAntlrParser {
 
             }
 
+            // InternalCinEditor.g:1944:3: (otherlv_9= ',' ( (otherlv_10= RULE_ID ) ) )*
+            loop38:
+            do {
+                int alt38=2;
+                int LA38_0 = input.LA(1);
+
+                if ( (LA38_0==16) ) {
+                    alt38=1;
+                }
+
+
+                switch (alt38) {
+            	case 1 :
+            	    // InternalCinEditor.g:1945:4: otherlv_9= ',' ( (otherlv_10= RULE_ID ) )
+            	    {
+            	    otherlv_9=(Token)match(input,16,FOLLOW_25); 
+
+            	    				newLeafNode(otherlv_9, grammarAccess.getFadeOutAccess().getCommaKeyword_9_0());
+            	    			
+            	    // InternalCinEditor.g:1949:4: ( (otherlv_10= RULE_ID ) )
+            	    // InternalCinEditor.g:1950:5: (otherlv_10= RULE_ID )
+            	    {
+            	    // InternalCinEditor.g:1950:5: (otherlv_10= RULE_ID )
+            	    // InternalCinEditor.g:1951:6: otherlv_10= RULE_ID
+            	    {
+
+            	    						if (current==null) {
+            	    							current = createModelElement(grammarAccess.getFadeOutRule());
+            	    						}
+            	    					
+            	    otherlv_10=(Token)match(input,RULE_ID,FOLLOW_39); 
+
+            	    						newLeafNode(otherlv_10, grammarAccess.getFadeOutAccess().getElementsGraphicalElementCrossReference_9_1_0());
+            	    					
+
+            	    }
+
+
+            	    }
+
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop38;
+                }
+            } while (true);
+
+            otherlv_11=(Token)match(input,48,FOLLOW_2); 
+
+            			newLeafNode(otherlv_11, grammarAccess.getFadeOutAccess().getRightSquareBracketKeyword_10());
+            		
 
             }
 
@@ -4650,7 +4774,7 @@ public class InternalCinEditorParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleTranslate"
-    // InternalCinEditor.g:1917:1: entryRuleTranslate returns [EObject current=null] : iv_ruleTranslate= ruleTranslate EOF ;
+    // InternalCinEditor.g:1971:1: entryRuleTranslate returns [EObject current=null] : iv_ruleTranslate= ruleTranslate EOF ;
     public final EObject entryRuleTranslate() throws RecognitionException {
         EObject current = null;
 
@@ -4658,8 +4782,8 @@ public class InternalCinEditorParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalCinEditor.g:1917:50: (iv_ruleTranslate= ruleTranslate EOF )
-            // InternalCinEditor.g:1918:2: iv_ruleTranslate= ruleTranslate EOF
+            // InternalCinEditor.g:1971:50: (iv_ruleTranslate= ruleTranslate EOF )
+            // InternalCinEditor.g:1972:2: iv_ruleTranslate= ruleTranslate EOF
             {
              newCompositeNode(grammarAccess.getTranslateRule()); 
             pushFollow(FOLLOW_1);
@@ -4686,7 +4810,7 @@ public class InternalCinEditorParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleTranslate"
-    // InternalCinEditor.g:1924:1: ruleTranslate returns [EObject current=null] : (otherlv_0= 'Effect' ( (lv_name_1_0= ruleEString ) ) otherlv_2= '=' otherlv_3= 'Translate' ( (lv_positionToTranslate_4_0= rulePosition ) ) (otherlv_5= 'startAt' ( (lv_beginTime_6_0= ruleEInt ) ) )? (otherlv_7= 'during' ( (lv_duration_8_0= ruleEInt ) ) )? otherlv_9= 'on' ( (otherlv_10= RULE_ID ) ) ) ;
+    // InternalCinEditor.g:1978:1: ruleTranslate returns [EObject current=null] : (otherlv_0= 'Effect' ( (lv_name_1_0= ruleEString ) ) otherlv_2= '=' otherlv_3= 'Translate' ( (lv_positionToTranslate_4_0= rulePosition ) ) (otherlv_5= 'startAt' ( (lv_beginTime_6_0= ruleEInt ) ) )? (otherlv_7= 'during' ( (lv_duration_8_0= ruleEInt ) ) )? otherlv_9= 'on' otherlv_10= '[' ( (otherlv_11= RULE_ID ) ) (otherlv_12= ',' ( (otherlv_13= RULE_ID ) ) )* otherlv_14= ']' ) ;
     public final EObject ruleTranslate() throws RecognitionException {
         EObject current = null;
 
@@ -4697,6 +4821,10 @@ public class InternalCinEditorParser extends AbstractInternalAntlrParser {
         Token otherlv_7=null;
         Token otherlv_9=null;
         Token otherlv_10=null;
+        Token otherlv_11=null;
+        Token otherlv_12=null;
+        Token otherlv_13=null;
+        Token otherlv_14=null;
         AntlrDatatypeRuleToken lv_name_1_0 = null;
 
         EObject lv_positionToTranslate_4_0 = null;
@@ -4710,21 +4838,21 @@ public class InternalCinEditorParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalCinEditor.g:1930:2: ( (otherlv_0= 'Effect' ( (lv_name_1_0= ruleEString ) ) otherlv_2= '=' otherlv_3= 'Translate' ( (lv_positionToTranslate_4_0= rulePosition ) ) (otherlv_5= 'startAt' ( (lv_beginTime_6_0= ruleEInt ) ) )? (otherlv_7= 'during' ( (lv_duration_8_0= ruleEInt ) ) )? otherlv_9= 'on' ( (otherlv_10= RULE_ID ) ) ) )
-            // InternalCinEditor.g:1931:2: (otherlv_0= 'Effect' ( (lv_name_1_0= ruleEString ) ) otherlv_2= '=' otherlv_3= 'Translate' ( (lv_positionToTranslate_4_0= rulePosition ) ) (otherlv_5= 'startAt' ( (lv_beginTime_6_0= ruleEInt ) ) )? (otherlv_7= 'during' ( (lv_duration_8_0= ruleEInt ) ) )? otherlv_9= 'on' ( (otherlv_10= RULE_ID ) ) )
+            // InternalCinEditor.g:1984:2: ( (otherlv_0= 'Effect' ( (lv_name_1_0= ruleEString ) ) otherlv_2= '=' otherlv_3= 'Translate' ( (lv_positionToTranslate_4_0= rulePosition ) ) (otherlv_5= 'startAt' ( (lv_beginTime_6_0= ruleEInt ) ) )? (otherlv_7= 'during' ( (lv_duration_8_0= ruleEInt ) ) )? otherlv_9= 'on' otherlv_10= '[' ( (otherlv_11= RULE_ID ) ) (otherlv_12= ',' ( (otherlv_13= RULE_ID ) ) )* otherlv_14= ']' ) )
+            // InternalCinEditor.g:1985:2: (otherlv_0= 'Effect' ( (lv_name_1_0= ruleEString ) ) otherlv_2= '=' otherlv_3= 'Translate' ( (lv_positionToTranslate_4_0= rulePosition ) ) (otherlv_5= 'startAt' ( (lv_beginTime_6_0= ruleEInt ) ) )? (otherlv_7= 'during' ( (lv_duration_8_0= ruleEInt ) ) )? otherlv_9= 'on' otherlv_10= '[' ( (otherlv_11= RULE_ID ) ) (otherlv_12= ',' ( (otherlv_13= RULE_ID ) ) )* otherlv_14= ']' )
             {
-            // InternalCinEditor.g:1931:2: (otherlv_0= 'Effect' ( (lv_name_1_0= ruleEString ) ) otherlv_2= '=' otherlv_3= 'Translate' ( (lv_positionToTranslate_4_0= rulePosition ) ) (otherlv_5= 'startAt' ( (lv_beginTime_6_0= ruleEInt ) ) )? (otherlv_7= 'during' ( (lv_duration_8_0= ruleEInt ) ) )? otherlv_9= 'on' ( (otherlv_10= RULE_ID ) ) )
-            // InternalCinEditor.g:1932:3: otherlv_0= 'Effect' ( (lv_name_1_0= ruleEString ) ) otherlv_2= '=' otherlv_3= 'Translate' ( (lv_positionToTranslate_4_0= rulePosition ) ) (otherlv_5= 'startAt' ( (lv_beginTime_6_0= ruleEInt ) ) )? (otherlv_7= 'during' ( (lv_duration_8_0= ruleEInt ) ) )? otherlv_9= 'on' ( (otherlv_10= RULE_ID ) )
+            // InternalCinEditor.g:1985:2: (otherlv_0= 'Effect' ( (lv_name_1_0= ruleEString ) ) otherlv_2= '=' otherlv_3= 'Translate' ( (lv_positionToTranslate_4_0= rulePosition ) ) (otherlv_5= 'startAt' ( (lv_beginTime_6_0= ruleEInt ) ) )? (otherlv_7= 'during' ( (lv_duration_8_0= ruleEInt ) ) )? otherlv_9= 'on' otherlv_10= '[' ( (otherlv_11= RULE_ID ) ) (otherlv_12= ',' ( (otherlv_13= RULE_ID ) ) )* otherlv_14= ']' )
+            // InternalCinEditor.g:1986:3: otherlv_0= 'Effect' ( (lv_name_1_0= ruleEString ) ) otherlv_2= '=' otherlv_3= 'Translate' ( (lv_positionToTranslate_4_0= rulePosition ) ) (otherlv_5= 'startAt' ( (lv_beginTime_6_0= ruleEInt ) ) )? (otherlv_7= 'during' ( (lv_duration_8_0= ruleEInt ) ) )? otherlv_9= 'on' otherlv_10= '[' ( (otherlv_11= RULE_ID ) ) (otherlv_12= ',' ( (otherlv_13= RULE_ID ) ) )* otherlv_14= ']'
             {
             otherlv_0=(Token)match(input,45,FOLLOW_3); 
 
             			newLeafNode(otherlv_0, grammarAccess.getTranslateAccess().getEffectKeyword_0());
             		
-            // InternalCinEditor.g:1936:3: ( (lv_name_1_0= ruleEString ) )
-            // InternalCinEditor.g:1937:4: (lv_name_1_0= ruleEString )
+            // InternalCinEditor.g:1990:3: ( (lv_name_1_0= ruleEString ) )
+            // InternalCinEditor.g:1991:4: (lv_name_1_0= ruleEString )
             {
-            // InternalCinEditor.g:1937:4: (lv_name_1_0= ruleEString )
-            // InternalCinEditor.g:1938:5: lv_name_1_0= ruleEString
+            // InternalCinEditor.g:1991:4: (lv_name_1_0= ruleEString )
+            // InternalCinEditor.g:1992:5: lv_name_1_0= ruleEString
             {
 
             					newCompositeNode(grammarAccess.getTranslateAccess().getNameEStringParserRuleCall_1_0());
@@ -4751,24 +4879,24 @@ public class InternalCinEditorParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_2=(Token)match(input,31,FOLLOW_39); 
+            otherlv_2=(Token)match(input,31,FOLLOW_41); 
 
             			newLeafNode(otherlv_2, grammarAccess.getTranslateAccess().getEqualsSignKeyword_2());
             		
-            otherlv_3=(Token)match(input,48,FOLLOW_40); 
+            otherlv_3=(Token)match(input,50,FOLLOW_42); 
 
             			newLeafNode(otherlv_3, grammarAccess.getTranslateAccess().getTranslateKeyword_3());
             		
-            // InternalCinEditor.g:1963:3: ( (lv_positionToTranslate_4_0= rulePosition ) )
-            // InternalCinEditor.g:1964:4: (lv_positionToTranslate_4_0= rulePosition )
+            // InternalCinEditor.g:2017:3: ( (lv_positionToTranslate_4_0= rulePosition ) )
+            // InternalCinEditor.g:2018:4: (lv_positionToTranslate_4_0= rulePosition )
             {
-            // InternalCinEditor.g:1964:4: (lv_positionToTranslate_4_0= rulePosition )
-            // InternalCinEditor.g:1965:5: lv_positionToTranslate_4_0= rulePosition
+            // InternalCinEditor.g:2018:4: (lv_positionToTranslate_4_0= rulePosition )
+            // InternalCinEditor.g:2019:5: lv_positionToTranslate_4_0= rulePosition
             {
 
             					newCompositeNode(grammarAccess.getTranslateAccess().getPositionToTranslatePositionParserRuleCall_4_0());
             				
-            pushFollow(FOLLOW_41);
+            pushFollow(FOLLOW_43);
             lv_positionToTranslate_4_0=rulePosition();
 
             state._fsp--;
@@ -4790,26 +4918,26 @@ public class InternalCinEditorParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalCinEditor.g:1982:3: (otherlv_5= 'startAt' ( (lv_beginTime_6_0= ruleEInt ) ) )?
-            int alt37=2;
-            int LA37_0 = input.LA(1);
+            // InternalCinEditor.g:2036:3: (otherlv_5= 'startAt' ( (lv_beginTime_6_0= ruleEInt ) ) )?
+            int alt39=2;
+            int LA39_0 = input.LA(1);
 
-            if ( (LA37_0==35) ) {
-                alt37=1;
+            if ( (LA39_0==35) ) {
+                alt39=1;
             }
-            switch (alt37) {
+            switch (alt39) {
                 case 1 :
-                    // InternalCinEditor.g:1983:4: otherlv_5= 'startAt' ( (lv_beginTime_6_0= ruleEInt ) )
+                    // InternalCinEditor.g:2037:4: otherlv_5= 'startAt' ( (lv_beginTime_6_0= ruleEInt ) )
                     {
                     otherlv_5=(Token)match(input,35,FOLLOW_6); 
 
                     				newLeafNode(otherlv_5, grammarAccess.getTranslateAccess().getStartAtKeyword_5_0());
                     			
-                    // InternalCinEditor.g:1987:4: ( (lv_beginTime_6_0= ruleEInt ) )
-                    // InternalCinEditor.g:1988:5: (lv_beginTime_6_0= ruleEInt )
+                    // InternalCinEditor.g:2041:4: ( (lv_beginTime_6_0= ruleEInt ) )
+                    // InternalCinEditor.g:2042:5: (lv_beginTime_6_0= ruleEInt )
                     {
-                    // InternalCinEditor.g:1988:5: (lv_beginTime_6_0= ruleEInt )
-                    // InternalCinEditor.g:1989:6: lv_beginTime_6_0= ruleEInt
+                    // InternalCinEditor.g:2042:5: (lv_beginTime_6_0= ruleEInt )
+                    // InternalCinEditor.g:2043:6: lv_beginTime_6_0= ruleEInt
                     {
 
                     						newCompositeNode(grammarAccess.getTranslateAccess().getBeginTimeEIntParserRuleCall_5_1_0());
@@ -4842,26 +4970,26 @@ public class InternalCinEditorParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalCinEditor.g:2007:3: (otherlv_7= 'during' ( (lv_duration_8_0= ruleEInt ) ) )?
-            int alt38=2;
-            int LA38_0 = input.LA(1);
+            // InternalCinEditor.g:2061:3: (otherlv_7= 'during' ( (lv_duration_8_0= ruleEInt ) ) )?
+            int alt40=2;
+            int LA40_0 = input.LA(1);
 
-            if ( (LA38_0==37) ) {
-                alt38=1;
+            if ( (LA40_0==37) ) {
+                alt40=1;
             }
-            switch (alt38) {
+            switch (alt40) {
                 case 1 :
-                    // InternalCinEditor.g:2008:4: otherlv_7= 'during' ( (lv_duration_8_0= ruleEInt ) )
+                    // InternalCinEditor.g:2062:4: otherlv_7= 'during' ( (lv_duration_8_0= ruleEInt ) )
                     {
                     otherlv_7=(Token)match(input,37,FOLLOW_6); 
 
                     				newLeafNode(otherlv_7, grammarAccess.getTranslateAccess().getDuringKeyword_6_0());
                     			
-                    // InternalCinEditor.g:2012:4: ( (lv_duration_8_0= ruleEInt ) )
-                    // InternalCinEditor.g:2013:5: (lv_duration_8_0= ruleEInt )
+                    // InternalCinEditor.g:2066:4: ( (lv_duration_8_0= ruleEInt ) )
+                    // InternalCinEditor.g:2067:5: (lv_duration_8_0= ruleEInt )
                     {
-                    // InternalCinEditor.g:2013:5: (lv_duration_8_0= ruleEInt )
-                    // InternalCinEditor.g:2014:6: lv_duration_8_0= ruleEInt
+                    // InternalCinEditor.g:2067:5: (lv_duration_8_0= ruleEInt )
+                    // InternalCinEditor.g:2068:6: lv_duration_8_0= ruleEInt
                     {
 
                     						newCompositeNode(grammarAccess.getTranslateAccess().getDurationEIntParserRuleCall_6_1_0());
@@ -4894,24 +5022,28 @@ public class InternalCinEditorParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_9=(Token)match(input,38,FOLLOW_25); 
+            otherlv_9=(Token)match(input,38,FOLLOW_38); 
 
             			newLeafNode(otherlv_9, grammarAccess.getTranslateAccess().getOnKeyword_7());
             		
-            // InternalCinEditor.g:2036:3: ( (otherlv_10= RULE_ID ) )
-            // InternalCinEditor.g:2037:4: (otherlv_10= RULE_ID )
+            otherlv_10=(Token)match(input,47,FOLLOW_25); 
+
+            			newLeafNode(otherlv_10, grammarAccess.getTranslateAccess().getLeftSquareBracketKeyword_8());
+            		
+            // InternalCinEditor.g:2094:3: ( (otherlv_11= RULE_ID ) )
+            // InternalCinEditor.g:2095:4: (otherlv_11= RULE_ID )
             {
-            // InternalCinEditor.g:2037:4: (otherlv_10= RULE_ID )
-            // InternalCinEditor.g:2038:5: otherlv_10= RULE_ID
+            // InternalCinEditor.g:2095:4: (otherlv_11= RULE_ID )
+            // InternalCinEditor.g:2096:5: otherlv_11= RULE_ID
             {
 
             					if (current==null) {
             						current = createModelElement(grammarAccess.getTranslateRule());
             					}
             				
-            otherlv_10=(Token)match(input,RULE_ID,FOLLOW_2); 
+            otherlv_11=(Token)match(input,RULE_ID,FOLLOW_39); 
 
-            					newLeafNode(otherlv_10, grammarAccess.getTranslateAccess().getElementGraphicalElementCrossReference_8_0());
+            					newLeafNode(otherlv_11, grammarAccess.getTranslateAccess().getElementsGraphicalElementCrossReference_9_0());
             				
 
             }
@@ -4919,6 +5051,59 @@ public class InternalCinEditorParser extends AbstractInternalAntlrParser {
 
             }
 
+            // InternalCinEditor.g:2107:3: (otherlv_12= ',' ( (otherlv_13= RULE_ID ) ) )*
+            loop41:
+            do {
+                int alt41=2;
+                int LA41_0 = input.LA(1);
+
+                if ( (LA41_0==16) ) {
+                    alt41=1;
+                }
+
+
+                switch (alt41) {
+            	case 1 :
+            	    // InternalCinEditor.g:2108:4: otherlv_12= ',' ( (otherlv_13= RULE_ID ) )
+            	    {
+            	    otherlv_12=(Token)match(input,16,FOLLOW_25); 
+
+            	    				newLeafNode(otherlv_12, grammarAccess.getTranslateAccess().getCommaKeyword_10_0());
+            	    			
+            	    // InternalCinEditor.g:2112:4: ( (otherlv_13= RULE_ID ) )
+            	    // InternalCinEditor.g:2113:5: (otherlv_13= RULE_ID )
+            	    {
+            	    // InternalCinEditor.g:2113:5: (otherlv_13= RULE_ID )
+            	    // InternalCinEditor.g:2114:6: otherlv_13= RULE_ID
+            	    {
+
+            	    						if (current==null) {
+            	    							current = createModelElement(grammarAccess.getTranslateRule());
+            	    						}
+            	    					
+            	    otherlv_13=(Token)match(input,RULE_ID,FOLLOW_39); 
+
+            	    						newLeafNode(otherlv_13, grammarAccess.getTranslateAccess().getElementsGraphicalElementCrossReference_10_1_0());
+            	    					
+
+            	    }
+
+
+            	    }
+
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop41;
+                }
+            } while (true);
+
+            otherlv_14=(Token)match(input,48,FOLLOW_2); 
+
+            			newLeafNode(otherlv_14, grammarAccess.getTranslateAccess().getRightSquareBracketKeyword_11());
+            		
 
             }
 
@@ -4946,8 +5131,8 @@ public class InternalCinEditorParser extends AbstractInternalAntlrParser {
     protected DFA3 dfa3 = new DFA3(this);
     static final String dfa_1s = "\12\uffff";
     static final String dfa_2s = "\1\36\1\uffff\1\4\1\uffff\2\37\1\56\3\uffff";
-    static final String dfa_3s = "\1\55\1\uffff\1\5\1\uffff\2\37\1\60\3\uffff";
-    static final String dfa_4s = "\1\uffff\1\1\1\uffff\1\5\3\uffff\1\2\1\3\1\4";
+    static final String dfa_3s = "\1\55\1\uffff\1\5\1\uffff\2\37\1\62\3\uffff";
+    static final String dfa_4s = "\1\uffff\1\1\1\uffff\1\5\3\uffff\1\3\1\2\1\4";
     static final String dfa_5s = "\12\uffff}>";
     static final String[] dfa_6s = {
             "\1\3\10\uffff\1\1\1\uffff\2\1\1\uffff\1\1\1\2",
@@ -4956,7 +5141,7 @@ public class InternalCinEditorParser extends AbstractInternalAntlrParser {
             "",
             "\1\6",
             "\1\6",
-            "\1\7\1\10\1\11",
+            "\1\10\2\uffff\1\7\1\11",
             "",
             "",
             ""
@@ -5026,8 +5211,10 @@ public class InternalCinEditorParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_36 = new BitSet(new long[]{0x0000400000000000L});
     public static final BitSet FOLLOW_37 = new BitSet(new long[]{0x0000002000000000L});
     public static final BitSet FOLLOW_38 = new BitSet(new long[]{0x0000800000000000L});
-    public static final BitSet FOLLOW_39 = new BitSet(new long[]{0x0001000000000000L});
-    public static final BitSet FOLLOW_40 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_41 = new BitSet(new long[]{0x0000006800000000L});
+    public static final BitSet FOLLOW_39 = new BitSet(new long[]{0x0001000000010000L});
+    public static final BitSet FOLLOW_40 = new BitSet(new long[]{0x0002000000000000L});
+    public static final BitSet FOLLOW_41 = new BitSet(new long[]{0x0004000000000000L});
+    public static final BitSet FOLLOW_42 = new BitSet(new long[]{0x0000000000004000L});
+    public static final BitSet FOLLOW_43 = new BitSet(new long[]{0x0000006800000000L});
 
 }

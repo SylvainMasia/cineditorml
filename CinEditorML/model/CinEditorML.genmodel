@@ -37,7 +37,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CinEditorML.ecore#//Element/name"/>
     </genClasses>
     <genClasses ecoreClass="CinEditorML.ecore#//Effect">
-      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference CinEditorML.ecore#//Effect/element"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference CinEditorML.ecore#//Effect/elements"/>
     </genClasses>
     <genClasses ecoreClass="CinEditorML.ecore#//FadeIn"/>
     <genClasses ecoreClass="CinEditorML.ecore#//FadeOut"/>

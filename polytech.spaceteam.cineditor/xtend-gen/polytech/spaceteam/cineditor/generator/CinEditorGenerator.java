@@ -92,7 +92,7 @@ public class CinEditorGenerator extends AbstractGenerator {
     for (final Layer layer : _layers) {
       EList<Element> _elements = layer.getElements();
       for (final Element element : _elements) {
-        {
+        if (((element instanceof AudioElement) || (element instanceof GraphicalElement))) {
           int _beginTime = element.getBeginTime();
           int _duration = element.getDuration();
           int tmpDuration = (_beginTime + _duration);
@@ -455,19 +455,47 @@ public class CinEditorGenerator extends AbstractGenerator {
     String _plus_13 = (_plus_12 + _extractDurationFromElement);
     String _extractDimensionFromElement = this.extractDimensionFromElement(element);
     String _plus_14 = (_plus_13 + _extractDimensionFromElement);
-    String _plus_15 = (_plus_14 + cropString);
-    String s = (_plus_15 + "\n\n");
+    String _extractPositionFromElement = this.extractPositionFromElement(element);
+    String _plus_15 = (_plus_14 + _extractPositionFromElement);
+    String _plus_16 = (_plus_15 + cropString);
+    String s = (_plus_16 + "\n\n");
     this.elementsVarNames.add(element.getName());
     return s;
   }
   
   private String extractElement(final FadeIn element) {
     String s = "";
+    EList<GraphicalElement> _elements = element.getElements();
+    for (final GraphicalElement elementToApplyEffect : _elements) {
+      String _s = s;
+      String _name = elementToApplyEffect.getName();
+      String _plus = (_name + " = ");
+      String _name_1 = elementToApplyEffect.getName();
+      String _plus_1 = (_plus + _name_1);
+      String _plus_2 = (_plus_1 + ".crossfadein(");
+      int _duration = element.getDuration();
+      String _plus_3 = (_plus_2 + Integer.valueOf(_duration));
+      String _plus_4 = (_plus_3 + ")\n\n");
+      s = (_s + _plus_4);
+    }
     return s;
   }
   
   private String extractElement(final FadeOut element) {
     String s = "";
+    EList<GraphicalElement> _elements = element.getElements();
+    for (final GraphicalElement elementToApplyEffect : _elements) {
+      String _s = s;
+      String _name = elementToApplyEffect.getName();
+      String _plus = (_name + " = ");
+      String _name_1 = elementToApplyEffect.getName();
+      String _plus_1 = (_plus + _name_1);
+      String _plus_2 = (_plus_1 + ".crossfadeout(");
+      int _duration = element.getDuration();
+      String _plus_3 = (_plus_2 + Integer.valueOf(_duration));
+      String _plus_4 = (_plus_3 + ")\n\n");
+      s = (_s + _plus_4);
+    }
     return s;
   }
   

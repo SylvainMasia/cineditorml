@@ -1,0 +1,12 @@
+Movie scenario_transition_fade dimension 1280 x 720 fps 30
+	Layer
+		Rectangle background = color '000' dimension -1 x -1
+		Audio music = './assets/music.mp3' volume 0.5 fadeIn 1 fadeOut 1 on background
+	Layer
+		Rectangle rec1 = color 'fff' dimension -1 x -1 during 2
+		Rectangle rec2 = color 'ba2026' dimension 1280 x 720 startAt 2 during 2
+		Rectangle rec3 = color 'ffed00' dimension 1280 x 720 startAt 4 during 2
+		Rectangle rec4 = color '00ad5e' dimension 1280 x 720 startAt 6 during 2
+		Effect out = FadeOut during 1 on [rec1, rec2, rec3]
+		Effect in = FadeIn during 1 on [rec2, rec3, rec4]
+

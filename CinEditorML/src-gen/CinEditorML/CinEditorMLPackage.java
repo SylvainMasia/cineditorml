@@ -605,13 +605,13 @@ public interface CinEditorMLPackage extends EPackage {
 	int EFFECT__NAME = ELEMENT__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Element</b></em>' reference.
+	 * The feature id for the '<em><b>Elements</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EFFECT__ELEMENT = ELEMENT_FEATURE_COUNT + 0;
+	int EFFECT__ELEMENTS = ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Effect</em>' class.
@@ -669,13 +669,13 @@ public interface CinEditorMLPackage extends EPackage {
 	int FADE_IN__NAME = EFFECT__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Element</b></em>' reference.
+	 * The feature id for the '<em><b>Elements</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FADE_IN__ELEMENT = EFFECT__ELEMENT;
+	int FADE_IN__ELEMENTS = EFFECT__ELEMENTS;
 
 	/**
 	 * The number of structural features of the '<em>Fade In</em>' class.
@@ -733,13 +733,13 @@ public interface CinEditorMLPackage extends EPackage {
 	int FADE_OUT__NAME = EFFECT__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Element</b></em>' reference.
+	 * The feature id for the '<em><b>Elements</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FADE_OUT__ELEMENT = EFFECT__ELEMENT;
+	int FADE_OUT__ELEMENTS = EFFECT__ELEMENTS;
 
 	/**
 	 * The number of structural features of the '<em>Fade Out</em>' class.
@@ -797,13 +797,13 @@ public interface CinEditorMLPackage extends EPackage {
 	int TRANSLATE__NAME = EFFECT__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Element</b></em>' reference.
+	 * The feature id for the '<em><b>Elements</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TRANSLATE__ELEMENT = EFFECT__ELEMENT;
+	int TRANSLATE__ELEMENTS = EFFECT__ELEMENTS;
 
 	/**
 	 * The feature id for the '<em><b>Position To Translate</b></em>' containment reference.
@@ -1572,15 +1572,15 @@ public interface CinEditorMLPackage extends EPackage {
 	EClass getEffect();
 
 	/**
-	 * Returns the meta object for the reference '{@link CinEditorML.Effect#getElement <em>Element</em>}'.
+	 * Returns the meta object for the reference list '{@link CinEditorML.Effect#getElements <em>Elements</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Element</em>'.
-	 * @see CinEditorML.Effect#getElement()
+	 * @return the meta object for the reference list '<em>Elements</em>'.
+	 * @see CinEditorML.Effect#getElements()
 	 * @see #getEffect()
 	 * @generated
 	 */
-	EReference getEffect_Element();
+	EReference getEffect_Elements();
 
 	/**
 	 * Returns the meta object for class '{@link CinEditorML.FadeIn <em>Fade In</em>}'.
@@ -2113,12 +2113,12 @@ public interface CinEditorMLPackage extends EPackage {
 		EClass EFFECT = eINSTANCE.getEffect();
 
 		/**
-		 * The meta object literal for the '<em><b>Element</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Elements</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference EFFECT__ELEMENT = eINSTANCE.getEffect_Element();
+		EReference EFFECT__ELEMENTS = eINSTANCE.getEffect_Elements();
 
 		/**
 		 * The meta object literal for the '{@link CinEditorML.impl.FadeInImpl <em>Fade In</em>}' class.

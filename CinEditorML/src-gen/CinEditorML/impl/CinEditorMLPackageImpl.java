@@ -449,7 +449,7 @@ public class CinEditorMLPackageImpl extends EPackageImpl implements CinEditorMLP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getEffect_Element() {
+	public EReference getEffect_Elements() {
 		return (EReference) effectEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -780,7 +780,7 @@ public class CinEditorMLPackageImpl extends EPackageImpl implements CinEditorMLP
 		createEAttribute(elementEClass, ELEMENT__NAME);
 
 		effectEClass = createEClass(EFFECT);
-		createEReference(effectEClass, EFFECT__ELEMENT);
+		createEReference(effectEClass, EFFECT__ELEMENTS);
 
 		fadeInEClass = createEClass(FADE_IN);
 
@@ -921,7 +921,7 @@ public class CinEditorMLPackageImpl extends EPackageImpl implements CinEditorMLP
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(effectEClass, Effect.class, "Effect", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getEffect_Element(), this.getGraphicalElement(), null, "element", null, 1, 1, Effect.class,
+		initEReference(getEffect_Elements(), this.getGraphicalElement(), null, "elements", null, 1, -1, Effect.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
