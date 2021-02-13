@@ -1,18 +1,12 @@
-Movie richard_a_la_campagne dimension 1280 x 720 fps 30
+Movie bob_and_alice_holiday dimension 1280 x 720 fps 30
 	Layer
-		Rectangle background = color '000' dimension -1 x -1
-		Audio music = './assets/music.mp3' volume 0.9 fadeIn 2 fadeOut 2 on background
+		Rectangle audio_fake = color '000000' dimension 0 x 0
+		Audio sound = './assets/scenario1/wind.mp3' fadeOut 2 startAt 13 cropAt 3 during 10 on audio_fake // start audio at 13 seconds of the movie, but crop the first 3 seconds of music, during 10 seconds with 2 seconds fadeout
 	Layer
-		Rectangle rec1 = color '3E6BC5' dimension -1 x -1 during 2
-		Effect e1 = FadeOut during 2 on rec1
-		Rectangle rec2 = color '3EC590' dimension 1280 x 720 at 2 during 2
-		Effect e2 = FadeIn during 2 on rec2
-		Rectangle petitRec = color 'ffffff' position (10, 10) dimension 50 x 50 during 4
+		Rectangle background = color '000000' during 10
+		Text title = 'Nos vacances a la montagne' fontSize 50 position(center, center) during 10 color 'fff'
 	Layer
-		Video video = './assets/video.mp4' from 2 during 2 dimension 405 x 720
+		Video intro = './assets/scenario1/intro.mp4' dimension 1280 x 720 startAt 10 //video during 3 seconds
+		Video second = './assets/scenario1/montagne.mp4' dimension 1280 x 720 startAt 13 during 10 // start at 13 but crop the video from 0 to 10 seconds
 	Layer
-		Text title = 'C\'est notre film' fontSize 70 position (center, bottom) during 2 color 'ffffff'
-		Text bonjour = 'Bonjour ricardo, triagon et sylvano' fontSize 50 position (-5, 20) color 'ff0000'
-	Layer
-		Picture pic1 = './assets/1.png' position(center, center) dimension 200 x 200 during 4
-	
+		Text bye = 'Merci d\'avoir regardé notre vidéo' fontSize 50 position(center, center) startAt 22 during 15 color '0000ff' // default video background is black so no need to add a background element

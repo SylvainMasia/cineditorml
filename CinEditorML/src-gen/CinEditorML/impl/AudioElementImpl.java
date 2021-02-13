@@ -26,6 +26,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *   <li>{@link CinEditorML.impl.AudioElementImpl#getFadeIn <em>Fade In</em>}</li>
  *   <li>{@link CinEditorML.impl.AudioElementImpl#getFadeOut <em>Fade Out</em>}</li>
  *   <li>{@link CinEditorML.impl.AudioElementImpl#getVolume <em>Volume</em>}</li>
+ *   <li>{@link CinEditorML.impl.AudioElementImpl#getBeginCropTime <em>Begin Crop Time</em>}</li>
  * </ul>
  *
  * @generated
@@ -120,6 +121,26 @@ public class AudioElementImpl extends ElementImpl implements AudioElement {
 	 * @ordered
 	 */
 	protected float volume = VOLUME_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getBeginCropTime() <em>Begin Crop Time</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getBeginCropTime()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int BEGIN_CROP_TIME_EDEFAULT = 0;
+
+	/**
+	 * The cached value of the '{@link #getBeginCropTime() <em>Begin Crop Time</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getBeginCropTime()
+	 * @generated
+	 * @ordered
+	 */
+	protected int beginCropTime = BEGIN_CROP_TIME_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -272,6 +293,28 @@ public class AudioElementImpl extends ElementImpl implements AudioElement {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public int getBeginCropTime() {
+		return beginCropTime;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setBeginCropTime(int newBeginCropTime) {
+		int oldBeginCropTime = beginCropTime;
+		beginCropTime = newBeginCropTime;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CinEditorMLPackage.AUDIO_ELEMENT__BEGIN_CROP_TIME,
+					oldBeginCropTime, beginCropTime));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -287,6 +330,8 @@ public class AudioElementImpl extends ElementImpl implements AudioElement {
 			return getFadeOut();
 		case CinEditorMLPackage.AUDIO_ELEMENT__VOLUME:
 			return getVolume();
+		case CinEditorMLPackage.AUDIO_ELEMENT__BEGIN_CROP_TIME:
+			return getBeginCropTime();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -313,6 +358,9 @@ public class AudioElementImpl extends ElementImpl implements AudioElement {
 			return;
 		case CinEditorMLPackage.AUDIO_ELEMENT__VOLUME:
 			setVolume((Float) newValue);
+			return;
+		case CinEditorMLPackage.AUDIO_ELEMENT__BEGIN_CROP_TIME:
+			setBeginCropTime((Integer) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -341,6 +389,9 @@ public class AudioElementImpl extends ElementImpl implements AudioElement {
 		case CinEditorMLPackage.AUDIO_ELEMENT__VOLUME:
 			setVolume(VOLUME_EDEFAULT);
 			return;
+		case CinEditorMLPackage.AUDIO_ELEMENT__BEGIN_CROP_TIME:
+			setBeginCropTime(BEGIN_CROP_TIME_EDEFAULT);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -363,6 +414,8 @@ public class AudioElementImpl extends ElementImpl implements AudioElement {
 			return fadeOut != FADE_OUT_EDEFAULT;
 		case CinEditorMLPackage.AUDIO_ELEMENT__VOLUME:
 			return volume != VOLUME_EDEFAULT;
+		case CinEditorMLPackage.AUDIO_ELEMENT__BEGIN_CROP_TIME:
+			return beginCropTime != BEGIN_CROP_TIME_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -386,6 +439,8 @@ public class AudioElementImpl extends ElementImpl implements AudioElement {
 		result.append(fadeOut);
 		result.append(", volume: ");
 		result.append(volume);
+		result.append(", beginCropTime: ");
+		result.append(beginCropTime);
 		result.append(')');
 		return result.toString();
 	}

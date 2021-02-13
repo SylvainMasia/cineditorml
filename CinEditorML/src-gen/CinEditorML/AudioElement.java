@@ -16,6 +16,7 @@ package CinEditorML;
  *   <li>{@link CinEditorML.AudioElement#getFadeIn <em>Fade In</em>}</li>
  *   <li>{@link CinEditorML.AudioElement#getFadeOut <em>Fade Out</em>}</li>
  *   <li>{@link CinEditorML.AudioElement#getVolume <em>Volume</em>}</li>
+ *   <li>{@link CinEditorML.AudioElement#getBeginCropTime <em>Begin Crop Time</em>}</li>
  * </ul>
  *
  * @see CinEditorML.CinEditorMLPackage#getAudioElement()
@@ -155,5 +156,32 @@ public interface AudioElement extends Element {
 	 * @generated
 	 */
 	void setVolume(float value);
+
+	/**
+	 * Returns the value of the '<em><b>Begin Crop Time</b></em>' attribute.
+	 * The default value is <code>"0"</code>.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Begin Crop Time</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Begin Crop Time</em>' attribute.
+	 * @see #setBeginCropTime(int)
+	 * @see CinEditorML.CinEditorMLPackage#getAudioElement_BeginCropTime()
+	 * @model default="0"
+	 * @generated
+	 */
+	int getBeginCropTime();
+
+	/**
+	 * Sets the value of the '{@link CinEditorML.AudioElement#getBeginCropTime <em>Begin Crop Time</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Begin Crop Time</em>' attribute.
+	 * @see #getBeginCropTime()
+	 * @generated
+	 */
+	void setBeginCropTime(int value);
 
 } // AudioElement

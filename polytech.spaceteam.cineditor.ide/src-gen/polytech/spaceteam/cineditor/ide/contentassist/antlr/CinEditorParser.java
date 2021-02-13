@@ -54,6 +54,7 @@ public class CinEditorParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getAudioElementAccess().getGroup_6(), "rule__AudioElement__Group_6__0");
 			builder.put(grammarAccess.getAudioElementAccess().getGroup_7(), "rule__AudioElement__Group_7__0");
 			builder.put(grammarAccess.getAudioElementAccess().getGroup_8(), "rule__AudioElement__Group_8__0");
+			builder.put(grammarAccess.getAudioElementAccess().getGroup_9(), "rule__AudioElement__Group_9__0");
 			builder.put(grammarAccess.getTextAccess().getGroup(), "rule__Text__Group__0");
 			builder.put(grammarAccess.getTextAccess().getGroup_4(), "rule__Text__Group_4__0");
 			builder.put(grammarAccess.getTextAccess().getGroup_6(), "rule__Text__Group_6__0");
@@ -63,8 +64,8 @@ public class CinEditorParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getPictureAccess().getGroup_7(), "rule__Picture__Group_7__0");
 			builder.put(grammarAccess.getVideoAccess().getGroup(), "rule__Video__Group__0");
 			builder.put(grammarAccess.getVideoAccess().getGroup_4(), "rule__Video__Group_4__0");
-			builder.put(grammarAccess.getVideoAccess().getGroup_5(), "rule__Video__Group_5__0");
-			builder.put(grammarAccess.getVideoAccess().getGroup_6(), "rule__Video__Group_6__0");
+			builder.put(grammarAccess.getVideoAccess().getGroup_7(), "rule__Video__Group_7__0");
+			builder.put(grammarAccess.getVideoAccess().getGroup_8(), "rule__Video__Group_8__0");
 			builder.put(grammarAccess.getVideoAccess().getGroup_9(), "rule__Video__Group_9__0");
 			builder.put(grammarAccess.getRectangleAccess().getGroup(), "rule__Rectangle__Group__0");
 			builder.put(grammarAccess.getRectangleAccess().getGroup_6(), "rule__Rectangle__Group_6__0");
@@ -92,8 +93,9 @@ public class CinEditorParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getAudioElementAccess().getFadeInAssignment_5_1(), "rule__AudioElement__FadeInAssignment_5_1");
 			builder.put(grammarAccess.getAudioElementAccess().getFadeOutAssignment_6_1(), "rule__AudioElement__FadeOutAssignment_6_1");
 			builder.put(grammarAccess.getAudioElementAccess().getBeginTimeAssignment_7_1(), "rule__AudioElement__BeginTimeAssignment_7_1");
-			builder.put(grammarAccess.getAudioElementAccess().getDurationAssignment_8_1(), "rule__AudioElement__DurationAssignment_8_1");
-			builder.put(grammarAccess.getAudioElementAccess().getElementAssignment_10(), "rule__AudioElement__ElementAssignment_10");
+			builder.put(grammarAccess.getAudioElementAccess().getBeginCropTimeAssignment_8_1(), "rule__AudioElement__BeginCropTimeAssignment_8_1");
+			builder.put(grammarAccess.getAudioElementAccess().getDurationAssignment_9_1(), "rule__AudioElement__DurationAssignment_9_1");
+			builder.put(grammarAccess.getAudioElementAccess().getElementAssignment_11(), "rule__AudioElement__ElementAssignment_11");
 			builder.put(grammarAccess.getTextAccess().getNameAssignment_1(), "rule__Text__NameAssignment_1");
 			builder.put(grammarAccess.getTextAccess().getTextAssignment_3(), "rule__Text__TextAssignment_3");
 			builder.put(grammarAccess.getTextAccess().getFontSizeAssignment_4_1(), "rule__Text__FontSizeAssignment_4_1");
@@ -110,11 +112,11 @@ public class CinEditorParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getVideoAccess().getNameAssignment_1(), "rule__Video__NameAssignment_1");
 			builder.put(grammarAccess.getVideoAccess().getUrlAssignment_3(), "rule__Video__UrlAssignment_3");
 			builder.put(grammarAccess.getVideoAccess().getEnableAudioAssignment_4_1(), "rule__Video__EnableAudioAssignment_4_1");
-			builder.put(grammarAccess.getVideoAccess().getBeginCropTimeAssignment_5_1(), "rule__Video__BeginCropTimeAssignment_5_1");
-			builder.put(grammarAccess.getVideoAccess().getDurationAssignment_6_1(), "rule__Video__DurationAssignment_6_1");
-			builder.put(grammarAccess.getVideoAccess().getPositionAssignment_7(), "rule__Video__PositionAssignment_7");
-			builder.put(grammarAccess.getVideoAccess().getDimensionAssignment_8(), "rule__Video__DimensionAssignment_8");
-			builder.put(grammarAccess.getVideoAccess().getBeginTimeAssignment_9_1(), "rule__Video__BeginTimeAssignment_9_1");
+			builder.put(grammarAccess.getVideoAccess().getPositionAssignment_5(), "rule__Video__PositionAssignment_5");
+			builder.put(grammarAccess.getVideoAccess().getDimensionAssignment_6(), "rule__Video__DimensionAssignment_6");
+			builder.put(grammarAccess.getVideoAccess().getBeginTimeAssignment_7_1(), "rule__Video__BeginTimeAssignment_7_1");
+			builder.put(grammarAccess.getVideoAccess().getBeginCropTimeAssignment_8_1(), "rule__Video__BeginCropTimeAssignment_8_1");
+			builder.put(grammarAccess.getVideoAccess().getDurationAssignment_9_1(), "rule__Video__DurationAssignment_9_1");
 			builder.put(grammarAccess.getRectangleAccess().getNameAssignment_1(), "rule__Rectangle__NameAssignment_1");
 			builder.put(grammarAccess.getRectangleAccess().getColorAssignment_3(), "rule__Rectangle__ColorAssignment_3");
 			builder.put(grammarAccess.getRectangleAccess().getPositionAssignment_4(), "rule__Rectangle__PositionAssignment_4");

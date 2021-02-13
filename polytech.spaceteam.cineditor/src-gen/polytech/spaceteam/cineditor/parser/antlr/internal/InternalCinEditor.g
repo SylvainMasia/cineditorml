@@ -952,9 +952,9 @@ ruleAudioElement returns [EObject current=null]
 			)
 		)?
 		(
-			otherlv_10='at'
+			otherlv_10='startAt'
 			{
-				newLeafNode(otherlv_10, grammarAccess.getAudioElementAccess().getAtKeyword_7_0());
+				newLeafNode(otherlv_10, grammarAccess.getAudioElementAccess().getStartAtKeyword_7_0());
 			}
 			(
 				(
@@ -977,16 +977,41 @@ ruleAudioElement returns [EObject current=null]
 			)
 		)?
 		(
-			otherlv_12='during'
+			otherlv_12='cropAt'
 			{
-				newLeafNode(otherlv_12, grammarAccess.getAudioElementAccess().getDuringKeyword_8_0());
+				newLeafNode(otherlv_12, grammarAccess.getAudioElementAccess().getCropAtKeyword_8_0());
 			}
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getAudioElementAccess().getDurationEIntParserRuleCall_8_1_0());
+						newCompositeNode(grammarAccess.getAudioElementAccess().getBeginCropTimeEIntParserRuleCall_8_1_0());
 					}
-					lv_duration_13_0=ruleEInt
+					lv_beginCropTime_13_0=ruleEInt
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getAudioElementRule());
+						}
+						set(
+							$current,
+							"beginCropTime",
+							lv_beginCropTime_13_0,
+							"polytech.spaceteam.cineditor.CinEditor.EInt");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)?
+		(
+			otherlv_14='during'
+			{
+				newLeafNode(otherlv_14, grammarAccess.getAudioElementAccess().getDuringKeyword_9_0());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getAudioElementAccess().getDurationEIntParserRuleCall_9_1_0());
+					}
+					lv_duration_15_0=ruleEInt
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getAudioElementRule());
@@ -994,16 +1019,16 @@ ruleAudioElement returns [EObject current=null]
 						set(
 							$current,
 							"duration",
-							lv_duration_13_0,
+							lv_duration_15_0,
 							"polytech.spaceteam.cineditor.CinEditor.EInt");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)
 		)?
-		otherlv_14='on'
+		otherlv_16='on'
 		{
-			newLeafNode(otherlv_14, grammarAccess.getAudioElementAccess().getOnKeyword_9());
+			newLeafNode(otherlv_16, grammarAccess.getAudioElementAccess().getOnKeyword_10());
 		}
 		(
 			(
@@ -1012,9 +1037,9 @@ ruleAudioElement returns [EObject current=null]
 						$current = createModelElement(grammarAccess.getAudioElementRule());
 					}
 				}
-				otherlv_15=RULE_ID
+				otherlv_17=RULE_ID
 				{
-					newLeafNode(otherlv_15, grammarAccess.getAudioElementAccess().getElementGraphicalElementCrossReference_10_0());
+					newLeafNode(otherlv_17, grammarAccess.getAudioElementAccess().getElementGraphicalElementCrossReference_11_0());
 				}
 			)
 		)
@@ -1128,9 +1153,9 @@ ruleText returns [EObject current=null]
 			)
 		)?
 		(
-			otherlv_7='at'
+			otherlv_7='startAt'
 			{
-				newLeafNode(otherlv_7, grammarAccess.getTextAccess().getAtKeyword_6_0());
+				newLeafNode(otherlv_7, grammarAccess.getTextAccess().getStartAtKeyword_6_0());
 			}
 			(
 				(
@@ -1300,9 +1325,9 @@ rulePicture returns [EObject current=null]
 			)
 		)?
 		(
-			otherlv_6='at'
+			otherlv_6='startAt'
 			{
-				newLeafNode(otherlv_6, grammarAccess.getPictureAccess().getAtKeyword_6_0());
+				newLeafNode(otherlv_6, grammarAccess.getPictureAccess().getStartAtKeyword_6_0());
 			}
 			(
 				(
@@ -1440,61 +1465,11 @@ ruleVideo returns [EObject current=null]
 			)
 		)?
 		(
-			otherlv_6='from'
-			{
-				newLeafNode(otherlv_6, grammarAccess.getVideoAccess().getFromKeyword_5_0());
-			}
-			(
-				(
-					{
-						newCompositeNode(grammarAccess.getVideoAccess().getBeginCropTimeEIntParserRuleCall_5_1_0());
-					}
-					lv_beginCropTime_7_0=ruleEInt
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getVideoRule());
-						}
-						set(
-							$current,
-							"beginCropTime",
-							lv_beginCropTime_7_0,
-							"polytech.spaceteam.cineditor.CinEditor.EInt");
-						afterParserOrEnumRuleCall();
-					}
-				)
-			)
-		)?
-		(
-			otherlv_8='during'
-			{
-				newLeafNode(otherlv_8, grammarAccess.getVideoAccess().getDuringKeyword_6_0());
-			}
-			(
-				(
-					{
-						newCompositeNode(grammarAccess.getVideoAccess().getDurationEIntParserRuleCall_6_1_0());
-					}
-					lv_duration_9_0=ruleEInt
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getVideoRule());
-						}
-						set(
-							$current,
-							"duration",
-							lv_duration_9_0,
-							"polytech.spaceteam.cineditor.CinEditor.EInt");
-						afterParserOrEnumRuleCall();
-					}
-				)
-			)
-		)?
-		(
 			(
 				{
-					newCompositeNode(grammarAccess.getVideoAccess().getPositionPositionParserRuleCall_7_0());
+					newCompositeNode(grammarAccess.getVideoAccess().getPositionPositionParserRuleCall_5_0());
 				}
-				lv_position_10_0=rulePosition
+				lv_position_6_0=rulePosition
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getVideoRule());
@@ -1502,7 +1477,7 @@ ruleVideo returns [EObject current=null]
 					set(
 						$current,
 						"position",
-						lv_position_10_0,
+						lv_position_6_0,
 						"polytech.spaceteam.cineditor.CinEditor.Position");
 					afterParserOrEnumRuleCall();
 				}
@@ -1511,9 +1486,9 @@ ruleVideo returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getVideoAccess().getDimensionDimensionParserRuleCall_8_0());
+					newCompositeNode(grammarAccess.getVideoAccess().getDimensionDimensionParserRuleCall_6_0());
 				}
-				lv_dimension_11_0=ruleDimension
+				lv_dimension_7_0=ruleDimension
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getVideoRule());
@@ -1521,23 +1496,23 @@ ruleVideo returns [EObject current=null]
 					set(
 						$current,
 						"dimension",
-						lv_dimension_11_0,
+						lv_dimension_7_0,
 						"polytech.spaceteam.cineditor.CinEditor.Dimension");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)
 		(
-			otherlv_12='at'
+			otherlv_8='startAt'
 			{
-				newLeafNode(otherlv_12, grammarAccess.getVideoAccess().getAtKeyword_9_0());
+				newLeafNode(otherlv_8, grammarAccess.getVideoAccess().getStartAtKeyword_7_0());
 			}
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getVideoAccess().getBeginTimeEIntParserRuleCall_9_1_0());
+						newCompositeNode(grammarAccess.getVideoAccess().getBeginTimeEIntParserRuleCall_7_1_0());
 					}
-					lv_beginTime_13_0=ruleEInt
+					lv_beginTime_9_0=ruleEInt
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getVideoRule());
@@ -1545,7 +1520,57 @@ ruleVideo returns [EObject current=null]
 						set(
 							$current,
 							"beginTime",
-							lv_beginTime_13_0,
+							lv_beginTime_9_0,
+							"polytech.spaceteam.cineditor.CinEditor.EInt");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)?
+		(
+			otherlv_10='cropAt'
+			{
+				newLeafNode(otherlv_10, grammarAccess.getVideoAccess().getCropAtKeyword_8_0());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getVideoAccess().getBeginCropTimeEIntParserRuleCall_8_1_0());
+					}
+					lv_beginCropTime_11_0=ruleEInt
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getVideoRule());
+						}
+						set(
+							$current,
+							"beginCropTime",
+							lv_beginCropTime_11_0,
+							"polytech.spaceteam.cineditor.CinEditor.EInt");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)?
+		(
+			otherlv_12='during'
+			{
+				newLeafNode(otherlv_12, grammarAccess.getVideoAccess().getDuringKeyword_9_0());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getVideoAccess().getDurationEIntParserRuleCall_9_1_0());
+					}
+					lv_duration_13_0=ruleEInt
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getVideoRule());
+						}
+						set(
+							$current,
+							"duration",
+							lv_duration_13_0,
 							"polytech.spaceteam.cineditor.CinEditor.EInt");
 						afterParserOrEnumRuleCall();
 					}
@@ -1656,9 +1681,9 @@ ruleRectangle returns [EObject current=null]
 			)
 		)?
 		(
-			otherlv_6='at'
+			otherlv_6='startAt'
 			{
-				newLeafNode(otherlv_6, grammarAccess.getRectangleAccess().getAtKeyword_6_0());
+				newLeafNode(otherlv_6, grammarAccess.getRectangleAccess().getStartAtKeyword_6_0());
 			}
 			(
 				(
@@ -1955,9 +1980,9 @@ ruleTranslate returns [EObject current=null]
 			)
 		)
 		(
-			otherlv_5='at'
+			otherlv_5='startAt'
 			{
-				newLeafNode(otherlv_5, grammarAccess.getTranslateAccess().getAtKeyword_5_0());
+				newLeafNode(otherlv_5, grammarAccess.getTranslateAccess().getStartAtKeyword_5_0());
 			}
 			(
 				(

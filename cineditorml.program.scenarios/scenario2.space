@@ -1,0 +1,14 @@
+Movie alice_cast dimension 1280 x 720 fps 30
+	Layer
+		Rectangle background = color '000000' during 10
+		Text title = 'Le setup d\'alice pour le télétravail' fontSize 35 position(center, center) during 10 color 'e3e3e3'
+	Layer
+		Video clip1a = './assets/scenario2/alice_cast.mp4' dimension 1280 x 720 startAt 10 cropAt 23 during 84 //video starts at 10 seconds of the movie, we only keep 00:23 to 01:47
+		Text s1 = 'L\'ordinateur pour travailler' fontSize 35 position(center, bottom) startAt 10 during 10 color 'fff'
+		Text s2 = 'Mes super pops' fontSize 25 position(center, bottom) startAt 50 during 10 color 'fff'
+		
+	Layer
+		Video clip1b = './assets/scenario2/alice_cast.mp4' dimension 1280 x 720 startAt 94 cropAt 121 during 20 // video starts at 94 seconds of the movie, we only keep 02:01 to 02:21
+		Text s3 = 'Video sur les mathematiques' fontSize 35 position(center, bottom) startAt 89 during 15 color 'e3e3e3'
+	Layer
+		Text bye = 'C\'était le setup d\'Alice' fontSize 50 position(center, center) startAt 114 during 15 color '0000ff' // default video background is black so no need to add a background element

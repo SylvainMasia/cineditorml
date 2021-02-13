@@ -1,6 +1,6 @@
 # CinEditorML
 
-CinEditorML, the most powerful video editor on earth
+CinEditorML, the most powerful video editor on earth. [TP HERE](https://www.i3s.unice.fr/~deantoni/teaching_resources/SI5/DSL/current/TDs/lab2/dsl_lab2.pdf)
 
 # Team
 

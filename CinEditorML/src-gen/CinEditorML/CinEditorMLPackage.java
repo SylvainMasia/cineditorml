@@ -1310,13 +1310,22 @@ public interface CinEditorMLPackage extends EPackage {
 	int AUDIO_ELEMENT__VOLUME = ELEMENT_FEATURE_COUNT + 4;
 
 	/**
+	 * The feature id for the '<em><b>Begin Crop Time</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AUDIO_ELEMENT__BEGIN_CROP_TIME = ELEMENT_FEATURE_COUNT + 5;
+
+	/**
 	 * The number of structural features of the '<em>Audio Element</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int AUDIO_ELEMENT_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 5;
+	int AUDIO_ELEMENT_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 6;
 
 	/**
 	 * The number of operations of the '<em>Audio Element</em>' class.
@@ -1880,6 +1889,17 @@ public interface CinEditorMLPackage extends EPackage {
 	EAttribute getAudioElement_Volume();
 
 	/**
+	 * Returns the meta object for the attribute '{@link CinEditorML.AudioElement#getBeginCropTime <em>Begin Crop Time</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Begin Crop Time</em>'.
+	 * @see CinEditorML.AudioElement#getBeginCropTime()
+	 * @see #getAudioElement()
+	 * @generated
+	 */
+	EAttribute getAudioElement_BeginCropTime();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2357,6 +2377,14 @@ public interface CinEditorMLPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute AUDIO_ELEMENT__VOLUME = eINSTANCE.getAudioElement_Volume();
+
+		/**
+		 * The meta object literal for the '<em><b>Begin Crop Time</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute AUDIO_ELEMENT__BEGIN_CROP_TIME = eINSTANCE.getAudioElement_BeginCropTime();
 
 	}
 

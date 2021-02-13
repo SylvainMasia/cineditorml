@@ -719,6 +719,15 @@ public class CinEditorMLPackageImpl extends EPackageImpl implements CinEditorMLP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getAudioElement_BeginCropTime() {
+		return (EAttribute) audioElementEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public CinEditorMLFactory getCinEditorMLFactory() {
 		return (CinEditorMLFactory) getEFactoryInstance();
 	}
@@ -814,6 +823,7 @@ public class CinEditorMLPackageImpl extends EPackageImpl implements CinEditorMLP
 		createEAttribute(audioElementEClass, AUDIO_ELEMENT__FADE_IN);
 		createEAttribute(audioElementEClass, AUDIO_ELEMENT__FADE_OUT);
 		createEAttribute(audioElementEClass, AUDIO_ELEMENT__VOLUME);
+		createEAttribute(audioElementEClass, AUDIO_ELEMENT__BEGIN_CROP_TIME);
 	}
 
 	/**
@@ -992,6 +1002,9 @@ public class CinEditorMLPackageImpl extends EPackageImpl implements CinEditorMLP
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAudioElement_Volume(), ecorePackage.getEFloat(), "volume", "1", 0, 1, AudioElement.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAudioElement_BeginCropTime(), ecorePackage.getEInt(), "beginCropTime", "0", 0, 1,
+				AudioElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

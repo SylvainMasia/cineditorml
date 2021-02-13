@@ -28,6 +28,7 @@ import java.awt.Color;
 import java.util.ArrayList;
 import java.util.List;
 import javax.inject.Inject;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.xtext.generator.AbstractGenerator;
@@ -51,7 +52,7 @@ public class CinEditorGenerator extends AbstractGenerator {
   
   private final ArrayList<Object> elementsVarNames = new ArrayList<Object>();
   
-  private final int totalMovieDuration = 10;
+  private int totalMovieDuration = 0;
   
   @Inject
   @Extension
@@ -72,6 +73,7 @@ public class CinEditorGenerator extends AbstractGenerator {
   }
   
   private String compile(final Movie movie) {
+    this.extractMovieDuration(movie);
     String movieString = this.loadImports();
     String _movieString = movieString;
     String _extractMovieSize = this.extractMovieSize(movie);
@@ -83,6 +85,23 @@ public class CinEditorGenerator extends AbstractGenerator {
     String _extractFinalCut = this.extractFinalCut(movie);
     movieString = (_movieString_2 + _extractFinalCut);
     return movieString;
+  }
+  
+  private void extractMovieDuration(final Movie movie) {
+    EList<Layer> _layers = movie.getLayers();
+    for (final Layer layer : _layers) {
+      EList<Element> _elements = layer.getElements();
+      for (final Element element : _elements) {
+        {
+          int _beginTime = element.getBeginTime();
+          int _duration = element.getDuration();
+          int tmpDuration = (_beginTime + _duration);
+          if ((tmpDuration > this.totalMovieDuration)) {
+            this.totalMovieDuration = tmpDuration;
+          }
+        }
+      }
+    }
   }
   
   private String extractFinalCut(final Movie movie) {
@@ -99,11 +118,11 @@ public class CinEditorGenerator extends AbstractGenerator {
       }
     }
     String _sFinal = sFinal;
-    sFinal = (_sFinal + (((("], size=(" + this.varMovieWidth) + ",") + this.varMovieHeight) + ")).set_duration(10)\n"));
+    sFinal = (_sFinal + (((((("], size=(" + this.varMovieWidth) + ",") + this.varMovieHeight) + ")).set_duration(") + Integer.valueOf(this.totalMovieDuration)) + ")\n"));
     String _sFinal_1 = sFinal;
     String _name = movie.getName();
     String _plus = ("video.write_videofile(\'./" + _name);
-    String _plus_1 = (_plus + ".mp4\', codec=\'mpeg4\', fps=");
+    String _plus_1 = (_plus + ".mp4\', codec=\'mpeg4\', bitrate=\'5000k\', fps=");
     int _fps = movie.getFps();
     String _plus_2 = (_plus_1 + Integer.valueOf(_fps));
     String _plus_3 = (_plus_2 + ")");
@@ -195,19 +214,29 @@ public class CinEditorGenerator extends AbstractGenerator {
       }
     }
     if ((duration != (-1))) {
-      String _s = s;
-      s = (_s + (("\\\n\t.set_duration(" + Integer.valueOf(duration)) + ")"));
+      if ((element instanceof Video)) {
+        Video video = ((Video) element);
+        int _beginCropTime = video.getBeginCropTime();
+        boolean _equals = (_beginCropTime == 0);
+        if (_equals) {
+          String _s = s;
+          s = (_s + (("\\\n\t.set_duration(" + Integer.valueOf(duration)) + ")"));
+        }
+      } else {
+        String _s_1 = s;
+        s = (_s_1 + (("\\\n\t.set_duration(" + Integer.valueOf(duration)) + ")"));
+      }
     }
     return s;
   }
   
   private String extractDimensionFromElement(final GraphicalElement element) {
     String s = "";
+    String width = "0";
+    String height = "0";
     Dimension _dimension = element.getDimension();
     boolean _tripleNotEquals = (_dimension != null);
     if (_tripleNotEquals) {
-      String width = "0";
-      String height = "0";
       int _width = element.getDimension().getWidth();
       boolean _lessThan = (_width < 0);
       if (_lessThan) {
@@ -226,13 +255,16 @@ public class CinEditorGenerator extends AbstractGenerator {
         String _plus_1 = (Integer.valueOf(_height_1) + "");
         height = _plus_1;
       }
-      if ((element instanceof Shape)) {
-        String _s = s;
-        s = (_s + (((("(" + width) + ", ") + height) + ")"));
-      } else {
-        String _s_1 = s;
-        s = (_s_1 + (((("\\\n\t.resize((" + width) + ", ") + height) + "))"));
-      }
+    } else {
+      width = this.varMovieWidth;
+      height = this.varMovieWidth;
+    }
+    if ((element instanceof Shape)) {
+      String _s = s;
+      s = (_s + (((("(" + width) + ", ") + height) + ")"));
+    } else {
+      String _s_1 = s;
+      s = (_s_1 + (((("\\\n\t.resize((" + width) + ", ") + height) + "))"));
     }
     return s;
   }
@@ -318,6 +350,7 @@ public class CinEditorGenerator extends AbstractGenerator {
     String volume = "";
     String fadeIn = "";
     String fadeOut = "";
+    String cropString = "";
     float _volume = element.getVolume();
     boolean _notEquals = (_volume != 1);
     if (_notEquals) {
@@ -342,31 +375,45 @@ public class CinEditorGenerator extends AbstractGenerator {
       String _plus_5 = (_plus_4 + ")");
       fadeOut = _plus_5;
     }
+    int _beginCropTime = element.getBeginCropTime();
+    boolean _greaterThan = (_beginCropTime > (-1));
+    if (_greaterThan) {
+      int _beginCropTime_1 = element.getBeginCropTime();
+      String _plus_6 = ("\\\n\t.subclip(" + Integer.valueOf(_beginCropTime_1));
+      String _plus_7 = (_plus_6 + ", ");
+      int _beginCropTime_2 = element.getBeginCropTime();
+      int _duration = element.getDuration();
+      int _plus_8 = (_beginCropTime_2 + _duration);
+      String _plus_9 = (_plus_7 + Integer.valueOf(_plus_8));
+      String _plus_10 = (_plus_9 + ")");
+      cropString = _plus_10;
+    }
     String _name = element.getName();
-    String _plus_6 = (_name + " = AudioFileClip(");
-    String _plus_7 = (_plus_6 + "\"");
+    String _plus_11 = (_name + " = AudioFileClip(");
+    String _plus_12 = (_plus_11 + "\"");
     String _url = element.getUrl();
-    String _plus_8 = (_plus_7 + _url);
-    String _plus_9 = (_plus_8 + "\"");
-    String _plus_10 = (_plus_9 + ")");
+    String _plus_13 = (_plus_12 + _url);
+    String _plus_14 = (_plus_13 + "\"");
+    String _plus_15 = (_plus_14 + ")");
     String _extractBeginTimeFromElement = this.extractBeginTimeFromElement(element);
-    String _plus_11 = (_plus_10 + _extractBeginTimeFromElement);
+    String _plus_16 = (_plus_15 + _extractBeginTimeFromElement);
     String _extractDurationFromElement = this.extractDurationFromElement(element);
-    String _plus_12 = (_plus_11 + _extractDurationFromElement);
-    String _plus_13 = (_plus_12 + volume);
-    String _plus_14 = (_plus_13 + fadeIn);
-    String _plus_15 = (_plus_14 + fadeOut);
-    String s = (_plus_15 + "\n");
+    String _plus_17 = (_plus_16 + _extractDurationFromElement);
+    String _plus_18 = (_plus_17 + cropString);
+    String _plus_19 = (_plus_18 + volume);
+    String _plus_20 = (_plus_19 + fadeIn);
+    String _plus_21 = (_plus_20 + fadeOut);
+    String s = (_plus_21 + "\n");
     String _s = s;
     String _name_1 = element.getElement().getName();
-    String _plus_16 = (_name_1 + " = ");
+    String _plus_22 = (_name_1 + " = ");
     String _name_2 = element.getElement().getName();
-    String _plus_17 = (_plus_16 + _name_2);
-    String _plus_18 = (_plus_17 + ".set_audio(");
+    String _plus_23 = (_plus_22 + _name_2);
+    String _plus_24 = (_plus_23 + ".set_audio(");
     String _name_3 = element.getName();
-    String _plus_19 = (_plus_18 + _name_3);
-    String _plus_20 = (_plus_19 + ")\n\n");
-    s = (_s + _plus_20);
+    String _plus_25 = (_plus_24 + _name_3);
+    String _plus_26 = (_plus_25 + ")\n\n");
+    s = (_s + _plus_26);
     return s;
   }
   
@@ -386,7 +433,8 @@ public class CinEditorGenerator extends AbstractGenerator {
       cropString = _plus_4;
     }
     String audio = "";
-    boolean _equals = Boolean.valueOf(element.isEnableAudio()).equals("true");
+    boolean _isEnableAudio = element.isEnableAudio();
+    boolean _equals = (_isEnableAudio == true);
     if (_equals) {
       audio = "True";
     } else {
@@ -522,9 +570,11 @@ public class CinEditorGenerator extends AbstractGenerator {
   }
   
   private String loadImports() {
-    String s = "from moviepy.editor import *\n";
+    String s = "# -*- coding: ISO-8859-1 -*-\n\n";
     String _s = s;
-    s = (_s + "\n");
+    s = (_s + "from moviepy.editor import *\n");
+    String _s_1 = s;
+    s = (_s_1 + "\n");
     return s;
   }
 }

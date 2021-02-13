@@ -24,10 +24,8 @@ petitRec = ColorClip(size=(50, 50), col=[255,255,255])\
 	.set_duration(4)\
 	.set_pos((10, 10))
 
-video = VideoFileClip("./assets/video.mp4", audio=False)\
-	.set_duration(2)\
-	.resize((405, 720))\
-	.subclip(2, 4)
+video = VideoFileClip("./assets/video2.mp4", audio=True)\
+	.resize((1280, 720))
 
 title = TextClip("C'est notre film", color='#ffffff', fontsize=70)\
 	.set_duration(2)\

@@ -109,6 +109,7 @@ public class CinEditorSemanticSequencer extends AbstractDelegatingSemanticSequen
 	 *         fadeIn=EInt? 
 	 *         fadeOut=EInt? 
 	 *         beginTime=EInt? 
+	 *         beginCropTime=EInt? 
 	 *         duration=EInt? 
 	 *         element=[GraphicalElement|ID]
 	 *     )
@@ -372,11 +373,11 @@ public class CinEditorSemanticSequencer extends AbstractDelegatingSemanticSequen
 	 *         name=EString 
 	 *         url=EString 
 	 *         enableAudio=EBoolean? 
-	 *         beginCropTime=EInt? 
-	 *         duration=EInt? 
 	 *         position=Position? 
 	 *         dimension=Dimension 
-	 *         beginTime=EInt?
+	 *         beginTime=EInt? 
+	 *         beginCropTime=EInt? 
+	 *         duration=EInt?
 	 *     )
 	 */
 	protected void sequence_Video(ISerializationContext context, Video semanticObject) {

@@ -76,6 +76,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CinEditorML.ecore#//AudioElement/fadeIn"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CinEditorML.ecore#//AudioElement/fadeOut"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CinEditorML.ecore#//AudioElement/volume"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CinEditorML.ecore#//AudioElement/beginCropTime"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

@@ -49,6 +49,7 @@ public class AudioElementItemProvider extends ElementItemProvider {
 			addFadeInPropertyDescriptor(object);
 			addFadeOutPropertyDescriptor(object);
 			addVolumePropertyDescriptor(object);
+			addBeginCropTimePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -133,6 +134,22 @@ public class AudioElementItemProvider extends ElementItemProvider {
 	}
 
 	/**
+	 * This adds a property descriptor for the Begin Crop Time feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addBeginCropTimePropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_AudioElement_beginCropTime_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_AudioElement_beginCropTime_feature",
+								"_UI_AudioElement_type"),
+						CinEditorMLPackage.Literals.AUDIO_ELEMENT__BEGIN_CROP_TIME, true, false, false,
+						ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null));
+	}
+
+	/**
 	 * This returns AudioElement.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -182,6 +199,7 @@ public class AudioElementItemProvider extends ElementItemProvider {
 		case CinEditorMLPackage.AUDIO_ELEMENT__FADE_IN:
 		case CinEditorMLPackage.AUDIO_ELEMENT__FADE_OUT:
 		case CinEditorMLPackage.AUDIO_ELEMENT__VOLUME:
+		case CinEditorMLPackage.AUDIO_ELEMENT__BEGIN_CROP_TIME:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 			return;
 		}
