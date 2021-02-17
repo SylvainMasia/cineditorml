@@ -22,6 +22,7 @@ import CinEditorML.Picture;
 import CinEditorML.Position;
 import CinEditorML.Rectangle;
 import CinEditorML.Shape;
+import CinEditorML.TemporalPosition;
 import CinEditorML.Text;
 import CinEditorML.Translate;
 import CinEditorML.Video;
@@ -187,6 +188,13 @@ public class CinEditorMLPackageImpl extends EPackageImpl implements CinEditorMLP
 	 * @generated
 	 */
 	private EClass marginEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass temporalPositionEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -438,7 +446,7 @@ public class CinEditorMLPackageImpl extends EPackageImpl implements CinEditorMLP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getElement_BeginTime() {
+	public EAttribute getElement_Name() {
 		return (EAttribute) elementEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -447,8 +455,17 @@ public class CinEditorMLPackageImpl extends EPackageImpl implements CinEditorMLP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getElement_Name() {
-		return (EAttribute) elementEClass.getEStructuralFeatures().get(2);
+	public EReference getElement_TemporalPosition() {
+		return (EReference) elementEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getElement_EndingTime() {
+		return (EAttribute) elementEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -708,17 +725,8 @@ public class CinEditorMLPackageImpl extends EPackageImpl implements CinEditorMLP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getAudioElement_Element() {
-		return (EReference) audioElementEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getAudioElement_FadeIn() {
-		return (EAttribute) audioElementEClass.getEStructuralFeatures().get(2);
+		return (EAttribute) audioElementEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -727,7 +735,7 @@ public class CinEditorMLPackageImpl extends EPackageImpl implements CinEditorMLP
 	 * @generated
 	 */
 	public EAttribute getAudioElement_FadeOut() {
-		return (EAttribute) audioElementEClass.getEStructuralFeatures().get(3);
+		return (EAttribute) audioElementEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -736,7 +744,7 @@ public class CinEditorMLPackageImpl extends EPackageImpl implements CinEditorMLP
 	 * @generated
 	 */
 	public EAttribute getAudioElement_Volume() {
-		return (EAttribute) audioElementEClass.getEStructuralFeatures().get(4);
+		return (EAttribute) audioElementEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -745,7 +753,7 @@ public class CinEditorMLPackageImpl extends EPackageImpl implements CinEditorMLP
 	 * @generated
 	 */
 	public EAttribute getAudioElement_BeginCropTime() {
-		return (EAttribute) audioElementEClass.getEStructuralFeatures().get(5);
+		return (EAttribute) audioElementEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -791,6 +799,33 @@ public class CinEditorMLPackageImpl extends EPackageImpl implements CinEditorMLP
 	 */
 	public EAttribute getMargin_MarginColorOpacity() {
 		return (EAttribute) marginEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getTemporalPosition() {
+		return temporalPositionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getTemporalPosition_BeginTime() {
+		return (EAttribute) temporalPositionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getTemporalPosition_ElementToStartAfter() {
+		return (EReference) temporalPositionEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -855,8 +890,9 @@ public class CinEditorMLPackageImpl extends EPackageImpl implements CinEditorMLP
 
 		elementEClass = createEClass(ELEMENT);
 		createEAttribute(elementEClass, ELEMENT__DURATION);
-		createEAttribute(elementEClass, ELEMENT__BEGIN_TIME);
 		createEAttribute(elementEClass, ELEMENT__NAME);
+		createEReference(elementEClass, ELEMENT__TEMPORAL_POSITION);
+		createEAttribute(elementEClass, ELEMENT__ENDING_TIME);
 
 		effectEClass = createEClass(EFFECT);
 		createEReference(effectEClass, EFFECT__ELEMENTS);
@@ -899,7 +935,6 @@ public class CinEditorMLPackageImpl extends EPackageImpl implements CinEditorMLP
 
 		audioElementEClass = createEClass(AUDIO_ELEMENT);
 		createEAttribute(audioElementEClass, AUDIO_ELEMENT__URL);
-		createEReference(audioElementEClass, AUDIO_ELEMENT__ELEMENT);
 		createEAttribute(audioElementEClass, AUDIO_ELEMENT__FADE_IN);
 		createEAttribute(audioElementEClass, AUDIO_ELEMENT__FADE_OUT);
 		createEAttribute(audioElementEClass, AUDIO_ELEMENT__VOLUME);
@@ -910,6 +945,10 @@ public class CinEditorMLPackageImpl extends EPackageImpl implements CinEditorMLP
 		createEAttribute(marginEClass, MARGIN__SIZE);
 		createEReference(marginEClass, MARGIN__MARGIN_COLOR);
 		createEAttribute(marginEClass, MARGIN__MARGIN_COLOR_OPACITY);
+
+		temporalPositionEClass = createEClass(TEMPORAL_POSITION);
+		createEAttribute(temporalPositionEClass, TEMPORAL_POSITION__BEGIN_TIME);
+		createEReference(temporalPositionEClass, TEMPORAL_POSITION__ELEMENT_TO_START_AFTER);
 
 		// Create enums
 		margiN_NAMEEEnum = createEEnum(MARGIN_NAME);
@@ -1004,10 +1043,13 @@ public class CinEditorMLPackageImpl extends EPackageImpl implements CinEditorMLP
 		initEClass(elementEClass, Element.class, "Element", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getElement_Duration(), ecorePackage.getEInt(), "duration", "-1", 0, 1, Element.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getElement_BeginTime(), ecorePackage.getEInt(), "beginTime", "0", 0, 1, Element.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getElement_Name(), ecorePackage.getEString(), "name", null, 1, 1, Element.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getElement_TemporalPosition(), this.getTemporalPosition(), null, "temporalPosition", null, 0, 1,
+				Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getElement_EndingTime(), ecorePackage.getEInt(), "endingTime", "0", 0, 1, Element.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(effectEClass, Effect.class, "Effect", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getEffect_Elements(), this.getGraphicalElement(), null, "elements", null, 1, -1, Effect.class,
@@ -1043,9 +1085,9 @@ public class CinEditorMLPackageImpl extends EPackageImpl implements CinEditorMLP
 
 		initEClass(dimensionEClass, Dimension.class, "Dimension", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getDimension_Width(), ecorePackage.getEInt(), "width", "0", 1, 1, Dimension.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getDimension_Height(), ecorePackage.getEInt(), "height", "0", 1, 1, Dimension.class,
+		initEAttribute(getDimension_Width(), ecorePackage.getEInt(), "width", "-1", 1, 1, Dimension.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDimension_Height(), ecorePackage.getEInt(), "height", "-1", 1, 1, Dimension.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(hexadecimalColorEClass, HexadecimalColor.class, "HexadecimalColor", !IS_ABSTRACT, !IS_INTERFACE,
@@ -1085,9 +1127,6 @@ public class CinEditorMLPackageImpl extends EPackageImpl implements CinEditorMLP
 				IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getAudioElement_Url(), ecorePackage.getEString(), "url", null, 1, 1, AudioElement.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getAudioElement_Element(), this.getGraphicalElement(), null, "element", null, 1, 1,
-				AudioElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAudioElement_FadeIn(), ecorePackage.getEInt(), "fadeIn", "0", 0, 1, AudioElement.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAudioElement_FadeOut(), ecorePackage.getEInt(), "fadeOut", "0", 0, 1, AudioElement.class,
@@ -1109,6 +1148,15 @@ public class CinEditorMLPackageImpl extends EPackageImpl implements CinEditorMLP
 		initEAttribute(getMargin_MarginColorOpacity(), ecorePackage.getEFloat(), "marginColorOpacity", "1.0", 0, 1,
 				Margin.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
 				!IS_DERIVED, IS_ORDERED);
+
+		initEClass(temporalPositionEClass, TemporalPosition.class, "TemporalPosition", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getTemporalPosition_BeginTime(), ecorePackage.getEInt(), "beginTime", "0", 0, 1,
+				TemporalPosition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
+		initEReference(getTemporalPosition_ElementToStartAfter(), this.getElement(), null, "elementToStartAfter", null,
+				0, 1, TemporalPosition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
+				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(margiN_NAMEEEnum, CinEditorML.MARGIN_NAME.class, "MARGIN_NAME");

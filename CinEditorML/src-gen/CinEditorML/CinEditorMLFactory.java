@@ -175,6 +175,15 @@ public interface CinEditorMLFactory extends EFactory {
 	Margin createMargin();
 
 	/**
+	 * Returns a new object of class '<em>Temporal Position</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Temporal Position</em>'.
+	 * @generated
+	 */
+	TemporalPosition createTemporalPosition();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

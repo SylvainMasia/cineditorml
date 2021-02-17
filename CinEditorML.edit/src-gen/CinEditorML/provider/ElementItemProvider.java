@@ -2,6 +2,7 @@
  */
 package CinEditorML.provider;
 
+import CinEditorML.CinEditorMLFactory;
 import CinEditorML.CinEditorMLPackage;
 import CinEditorML.Element;
 
@@ -12,6 +13,7 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -53,8 +55,8 @@ public class ElementItemProvider extends ItemProviderAdapter implements IEditing
 			super.getPropertyDescriptors(object);
 
 			addDurationPropertyDescriptor(object);
-			addBeginTimePropertyDescriptor(object);
 			addNamePropertyDescriptor(object);
+			addEndingTimePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -76,22 +78,6 @@ public class ElementItemProvider extends ItemProviderAdapter implements IEditing
 	}
 
 	/**
-	 * This adds a property descriptor for the Begin Time feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addBeginTimePropertyDescriptor(Object object) {
-		itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_Element_beginTime_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_Element_beginTime_feature",
-								"_UI_Element_type"),
-						CinEditorMLPackage.Literals.ELEMENT__BEGIN_TIME, true, false, false,
-						ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null));
-	}
-
-	/**
 	 * This adds a property descriptor for the Name feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -104,6 +90,52 @@ public class ElementItemProvider extends ItemProviderAdapter implements IEditing
 						getString("_UI_PropertyDescriptor_description", "_UI_Element_name_feature", "_UI_Element_type"),
 						CinEditorMLPackage.Literals.ELEMENT__NAME, true, false, false,
 						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Ending Time feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addEndingTimePropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_Element_endingTime_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Element_endingTime_feature",
+								"_UI_Element_type"),
+						CinEditorMLPackage.Literals.ELEMENT__ENDING_TIME, true, false, false,
+						ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
+	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
+	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
+		if (childrenFeatures == null) {
+			super.getChildrenFeatures(object);
+			childrenFeatures.add(CinEditorMLPackage.Literals.ELEMENT__TEMPORAL_POSITION);
+		}
+		return childrenFeatures;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected EStructuralFeature getChildFeature(Object object, Object child) {
+		// Check the type of the specified child object and return the proper feature to use for
+		// adding (see {@link AddCommand}) it as a child.
+
+		return super.getChildFeature(object, child);
 	}
 
 	/**
@@ -153,9 +185,12 @@ public class ElementItemProvider extends ItemProviderAdapter implements IEditing
 
 		switch (notification.getFeatureID(Element.class)) {
 		case CinEditorMLPackage.ELEMENT__DURATION:
-		case CinEditorMLPackage.ELEMENT__BEGIN_TIME:
 		case CinEditorMLPackage.ELEMENT__NAME:
+		case CinEditorMLPackage.ELEMENT__ENDING_TIME:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+			return;
+		case CinEditorMLPackage.ELEMENT__TEMPORAL_POSITION:
+			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 			return;
 		}
 		super.notifyChanged(notification);
@@ -171,6 +206,9 @@ public class ElementItemProvider extends ItemProviderAdapter implements IEditing
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+
+		newChildDescriptors.add(createChildParameter(CinEditorMLPackage.Literals.ELEMENT__TEMPORAL_POSITION,
+				CinEditorMLFactory.eINSTANCE.createTemporalPosition()));
 	}
 
 	/**

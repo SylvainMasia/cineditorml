@@ -5,15 +5,12 @@ from moviepy.editor import *
 movie_height = 720
 movie_width = 1280
 
-background = ColorClip(size=(movie_width, movie_width), col=[0,0,0])\
-	.set_duration(4)
-
 music = AudioFileClip("./assets/music.mp3")\
 	.set_duration(4)\
 	.volumex(0.9)\
 	.audio_fadein(2)\
 	.audio_fadeout(2)
-background = background.set_audio(music)
+music_fake_audio_attached = ColorClip(size=(0, 0), col=[0,0,0]).set_audio(music)
 
 rec1 = ColorClip(size=(movie_width, movie_width), col=[62,107,197])\
 	.set_duration(2)
@@ -39,9 +36,9 @@ bonjour = TextClip("Bonjour ricardo, triagon et sylvano", color='#ff0000', fonts
 
 pic1 = ImageClip("./assets/1.png")\
 	.set_duration(4)\
-	.set_pos(('center', 'top'))\
+	.set_pos(('center', 'center'))\
 	.resize((200, 200))
 
 
-video = CompositeVideoClip([background, rec1, rec2, petitRec, video, title, bonjour, pic1], size=(movie_width,movie_height)).set_duration(4)
-video.write_videofile('./scenario_example.mp4', codec='mpeg4', bitrate='5000k', fps=30)
+final_video = CompositeVideoClip([music_fake_audio_attached, rec1, rec2, petitRec, video, title, bonjour, pic1], size=(movie_width,movie_height)).set_duration(4)
+final_video.write_videofile('./scenario_example.mp4', codec='mpeg4', bitrate='5000k', fps=30)

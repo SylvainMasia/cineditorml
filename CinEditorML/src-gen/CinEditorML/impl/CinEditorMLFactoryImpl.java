@@ -91,6 +91,8 @@ public class CinEditorMLFactoryImpl extends EFactoryImpl implements CinEditorMLF
 			return createAudioElement();
 		case CinEditorMLPackage.MARGIN:
 			return createMargin();
+		case CinEditorMLPackage.TEMPORAL_POSITION:
+			return createTemporalPosition();
 		default:
 			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -294,6 +296,16 @@ public class CinEditorMLFactoryImpl extends EFactoryImpl implements CinEditorMLF
 	public Margin createMargin() {
 		MarginImpl margin = new MarginImpl();
 		return margin;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public TemporalPosition createTemporalPosition() {
+		TemporalPositionImpl temporalPosition = new TemporalPositionImpl();
+		return temporalPosition;
 	}
 
 	/**

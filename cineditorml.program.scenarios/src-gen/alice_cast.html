@@ -29,16 +29,24 @@
 			#timeline-indicator {
 				margin-left: 100px;
 				height: 15px;
-				position: relative;
 				background-color: #e3e3e3;
 			}
-			.timeline-indicator-element {
-				width: 2px;
-				height: 100%;
-				position: absolute;
-				background-color: #000;
+			#container-timeline-indicator {
+				height: 15px;
+				position: relative;
+				left: 100px;
+				width: calc(100% - 100px);
+				top: -15px;
 			}
-			body {
+			.timeline-indicator-element {
+				height: 100%;
+				top: 100%;
+				transform: translate(-50%, 0);
+				position: absolute;
+			}
+			.timeline-indicator-element::before {
+				content: "";				width: 2px;				height: 100%;				left: 50%;				position: absolute;
+				background-color: black;				top: -100%;}			body {
 				margin: 0;
 				padding: 0;
 				padding: 0;
@@ -81,7 +89,7 @@ s2
 			<div class="layer-element" style=" width:80%; background-color: #000; margin-left:376%; height:27px;">
 clip1b
 			</div>
-			<div class="layer-element" style=" width:60%; background-color: #000; margin-left:356%; height:27px;">
+			<div class="layer-element" style=" width:60%; background-color: #000; margin-left:396%; height:27px;">
 s3
 			</div>
 			</div>
@@ -95,7 +103,8 @@ bye
 			</div>
 			</div>
 		</div>
-		<div id="timeline-indicator" style="width:516%;">
-<div class="timeline-indicator-element" style="left: calc(0% -  0px);">0s</div><div class="timeline-indicator-element" style="left: calc(20% -  500px);">5s</div><div class="timeline-indicator-element" style="left: calc(40% -  1000px);">10s</div><div class="timeline-indicator-element" style="left: calc(60% -  1500px);">15s</div><div class="timeline-indicator-element" style="left: calc(80% -  2000px);">20s</div><div class="timeline-indicator-element" style="left: calc(100% -  2500px);">25s</div><div class="timeline-indicator-element" style="left: calc(120% -  3000px);">30s</div><div class="timeline-indicator-element" style="left: calc(140% -  3500px);">35s</div><div class="timeline-indicator-element" style="left: calc(160% -  4000px);">40s</div><div class="timeline-indicator-element" style="left: calc(180% -  4500px);">45s</div><div class="timeline-indicator-element" style="left: calc(200% -  5000px);">50s</div><div class="timeline-indicator-element" style="left: calc(220% -  5500px);">55s</div><div class="timeline-indicator-element" style="left: calc(240% -  6000px);">60s</div><div class="timeline-indicator-element" style="left: calc(260% -  6500px);">65s</div><div class="timeline-indicator-element" style="left: calc(280% -  7000px);">70s</div><div class="timeline-indicator-element" style="left: calc(300% -  7500px);">75s</div><div class="timeline-indicator-element" style="left: calc(320% -  8000px);">80s</div><div class="timeline-indicator-element" style="left: calc(340% -  8500px);">85s</div><div class="timeline-indicator-element" style="left: calc(360% -  9000px);">90s</div><div class="timeline-indicator-element" style="left: calc(380% -  9500px);">95s</div><div class="timeline-indicator-element" style="left: calc(400% -  10000px);">100s</div><div class="timeline-indicator-element" style="left: calc(420% -  10500px);">105s</div><div class="timeline-indicator-element" style="left: calc(440% -  11000px);">110s</div><div class="timeline-indicator-element" style="left: calc(460% -  11500px);">115s</div><div class="timeline-indicator-element" style="left: calc(480% -  12000px);">120s</div><div class="timeline-indicator-element" style="left: calc(500% -  12500px);">125s</div></div>
+		<div id="timeline-indicator" style="width: calc(516% - 516px);"></div>
+		<div id="container-timeline-indicator">
+			<div class="timeline-indicator-element" style="left: 0%;">0s</div>			<div class="timeline-indicator-element" style="left: 12%;">3s</div>			<div class="timeline-indicator-element" style="left: 24%;">6s</div>			<div class="timeline-indicator-element" style="left: 36%;">9s</div>			<div class="timeline-indicator-element" style="left: 48%;">12s</div>			<div class="timeline-indicator-element" style="left: 60%;">15s</div>			<div class="timeline-indicator-element" style="left: 72%;">18s</div>			<div class="timeline-indicator-element" style="left: 84%;">21s</div>			<div class="timeline-indicator-element" style="left: 96%;">24s</div>			<div class="timeline-indicator-element" style="left: 108%;">27s</div>			<div class="timeline-indicator-element" style="left: 120%;">30s</div>			<div class="timeline-indicator-element" style="left: 132%;">33s</div>			<div class="timeline-indicator-element" style="left: 144%;">36s</div>			<div class="timeline-indicator-element" style="left: 156%;">39s</div>			<div class="timeline-indicator-element" style="left: 168%;">42s</div>			<div class="timeline-indicator-element" style="left: 180%;">45s</div>			<div class="timeline-indicator-element" style="left: 192%;">48s</div>			<div class="timeline-indicator-element" style="left: 204%;">51s</div>			<div class="timeline-indicator-element" style="left: 216%;">54s</div>			<div class="timeline-indicator-element" style="left: 228%;">57s</div>			<div class="timeline-indicator-element" style="left: 240%;">60s</div>			<div class="timeline-indicator-element" style="left: 252%;">63s</div>			<div class="timeline-indicator-element" style="left: 264%;">66s</div>			<div class="timeline-indicator-element" style="left: 276%;">69s</div>			<div class="timeline-indicator-element" style="left: 288%;">72s</div>			<div class="timeline-indicator-element" style="left: 300%;">75s</div>			<div class="timeline-indicator-element" style="left: 312%;">78s</div>			<div class="timeline-indicator-element" style="left: 324%;">81s</div>			<div class="timeline-indicator-element" style="left: 336%;">84s</div>			<div class="timeline-indicator-element" style="left: 348%;">87s</div>			<div class="timeline-indicator-element" style="left: 360%;">90s</div>			<div class="timeline-indicator-element" style="left: 372%;">93s</div>			<div class="timeline-indicator-element" style="left: 384%;">96s</div>			<div class="timeline-indicator-element" style="left: 396%;">99s</div>			<div class="timeline-indicator-element" style="left: 408%;">102s</div>			<div class="timeline-indicator-element" style="left: 420%;">105s</div>			<div class="timeline-indicator-element" style="left: 432%;">108s</div>			<div class="timeline-indicator-element" style="left: 444%;">111s</div>			<div class="timeline-indicator-element" style="left: 456%;">114s</div>			<div class="timeline-indicator-element" style="left: 468%;">117s</div>			<div class="timeline-indicator-element" style="left: 480%;">120s</div>			<div class="timeline-indicator-element" style="left: 492%;">123s</div>			<div class="timeline-indicator-element" style="left: 504%;">126s</div>			<div class="timeline-indicator-element" style="left: 516%">129s</div>		</div>
 	</body>
 </html>

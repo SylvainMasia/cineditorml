@@ -24,7 +24,7 @@ import org.eclipse.emf.ecore.EObject;
 public interface Dimension extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Width</b></em>' attribute.
-	 * The default value is <code>"0"</code>.
+	 * The default value is <code>"-1"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Width</em>' attribute isn't clear,
@@ -34,7 +34,7 @@ public interface Dimension extends EObject {
 	 * @return the value of the '<em>Width</em>' attribute.
 	 * @see #setWidth(int)
 	 * @see CinEditorML.CinEditorMLPackage#getDimension_Width()
-	 * @model default="0" required="true"
+	 * @model default="-1" required="true"
 	 * @generated
 	 */
 	int getWidth();
@@ -51,7 +51,7 @@ public interface Dimension extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Height</b></em>' attribute.
-	 * The default value is <code>"0"</code>.
+	 * The default value is <code>"-1"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Height</em>' attribute isn't clear,
@@ -61,7 +61,7 @@ public interface Dimension extends EObject {
 	 * @return the value of the '<em>Height</em>' attribute.
 	 * @see #setHeight(int)
 	 * @see CinEditorML.CinEditorMLPackage#getDimension_Height()
-	 * @model default="0" required="true"
+	 * @model default="-1" required="true"
 	 * @generated
 	 */
 	int getHeight();

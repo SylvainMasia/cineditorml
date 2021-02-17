@@ -45,7 +45,6 @@ public class AudioElementItemProvider extends ElementItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addUrlPropertyDescriptor(object);
-			addElementPropertyDescriptor(object);
 			addFadeInPropertyDescriptor(object);
 			addFadeOutPropertyDescriptor(object);
 			addVolumePropertyDescriptor(object);
@@ -68,21 +67,6 @@ public class AudioElementItemProvider extends ElementItemProvider {
 								"_UI_AudioElement_type"),
 						CinEditorMLPackage.Literals.AUDIO_ELEMENT__URL, true, false, false,
 						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Element feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addElementPropertyDescriptor(Object object) {
-		itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_AudioElement_element_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_AudioElement_element_feature",
-								"_UI_AudioElement_type"),
-						CinEditorMLPackage.Literals.AUDIO_ELEMENT__ELEMENT, true, false, true, null, null, null));
 	}
 
 	/**

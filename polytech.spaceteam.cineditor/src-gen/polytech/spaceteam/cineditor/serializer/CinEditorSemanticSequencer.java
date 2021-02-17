@@ -17,6 +17,7 @@ import CinEditorML.Movie;
 import CinEditorML.Picture;
 import CinEditorML.Position;
 import CinEditorML.Rectangle;
+import CinEditorML.TemporalPosition;
 import CinEditorML.Text;
 import CinEditorML.Translate;
 import CinEditorML.Video;
@@ -86,6 +87,9 @@ public class CinEditorSemanticSequencer extends AbstractDelegatingSemanticSequen
 			case CinEditorMLPackage.RECTANGLE:
 				sequence_Rectangle(context, (Rectangle) semanticObject); 
 				return; 
+			case CinEditorMLPackage.TEMPORAL_POSITION:
+				sequence_TemporalPosition(context, (TemporalPosition) semanticObject); 
+				return; 
 			case CinEditorMLPackage.TEXT:
 				sequence_Text(context, (Text) semanticObject); 
 				return; 
@@ -112,10 +116,9 @@ public class CinEditorSemanticSequencer extends AbstractDelegatingSemanticSequen
 	 *         volume=EFloat? 
 	 *         fadeIn=EInt? 
 	 *         fadeOut=EInt? 
-	 *         beginTime=EInt? 
+	 *         temporalPosition=TemporalPosition? 
 	 *         beginCropTime=EInt? 
-	 *         duration=EInt? 
-	 *         element=[GraphicalElement|ID]
+	 *         duration=EInt
 	 *     )
 	 */
 	protected void sequence_AudioElement(ISerializationContext context, AudioElement semanticObject) {
@@ -269,7 +272,7 @@ public class CinEditorSemanticSequencer extends AbstractDelegatingSemanticSequen
 	 *         position=Position? 
 	 *         dimension=Dimension? 
 	 *         margins+=Margin* 
-	 *         beginTime=EInt? 
+	 *         temporalPosition=TemporalPosition? 
 	 *         duration=EInt?
 	 *     )
 	 */
@@ -312,11 +315,23 @@ public class CinEditorSemanticSequencer extends AbstractDelegatingSemanticSequen
 	 *         position=Position? 
 	 *         dimension=Dimension? 
 	 *         margins+=Margin* 
-	 *         beginTime=EInt? 
+	 *         temporalPosition=TemporalPosition? 
 	 *         duration=EInt?
 	 *     )
 	 */
 	protected void sequence_Rectangle(ISerializationContext context, Rectangle semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     TemporalPosition returns TemporalPosition
+	 *
+	 * Constraint:
+	 *     ((beginTime=EInt elementToStartAfter=[Element|ID]) | beginTime=EInt | elementToStartAfter=[Element|ID])
+	 */
+	protected void sequence_TemporalPosition(ISerializationContext context, TemporalPosition semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -334,7 +349,7 @@ public class CinEditorSemanticSequencer extends AbstractDelegatingSemanticSequen
 	 *         fontSize=EInt? 
 	 *         position=Position? 
 	 *         margins+=Margin* 
-	 *         beginTime=EInt? 
+	 *         temporalPosition=TemporalPosition? 
 	 *         duration=EInt? 
 	 *         color=HexadecimalColor
 	 *     )
@@ -353,7 +368,7 @@ public class CinEditorSemanticSequencer extends AbstractDelegatingSemanticSequen
 	 *     (
 	 *         name=EString 
 	 *         positionToTranslate=Position 
-	 *         beginTime=EInt? 
+	 *         temporalPosition=TemporalPosition? 
 	 *         duration=EInt? 
 	 *         elements+=[GraphicalElement|ID] 
 	 *         elements+=[GraphicalElement|ID]*
@@ -378,7 +393,7 @@ public class CinEditorSemanticSequencer extends AbstractDelegatingSemanticSequen
 	 *         position=Position? 
 	 *         dimension=Dimension? 
 	 *         margins+=Margin* 
-	 *         beginTime=EInt? 
+	 *         temporalPosition=TemporalPosition? 
 	 *         beginCropTime=EInt? 
 	 *         duration=EInt
 	 *     )

@@ -18,4 +18,6 @@
 <fullyQualifiedTypeName name="CinEditorML.FadeOut"/>
 <fullyQualifiedTypeName name="CinEditorML.FadeIn"/>
 <fullyQualifiedTypeName name="CinEditorML.GraphicalElement"/>
+<fullyQualifiedTypeName name="org.eclipse.xtext.generator.AbstractGenerator"/>
+<fullyQualifiedTypeName name="com.google.inject.Inject"/>
 </qualifiedTypeNameHistroy>

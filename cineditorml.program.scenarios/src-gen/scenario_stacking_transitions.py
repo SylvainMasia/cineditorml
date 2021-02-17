@@ -5,16 +5,13 @@ from moviepy.editor import *
 movie_height = 720
 movie_width = 1280
 
-background = ColorClip(size=(movie_width, movie_width), col=[0,0,0])\
-	.set_duration(44)
-
 text = TextClip("Introduction", color='#fff', fontsize=35)\
 	.set_duration(7)\
 	.set_pos(('center', 'center'))
 
 voix = AudioFileClip("./assets/scenario_stacking/voix.mp3")\
 	.set_duration(44)
-background = background.set_audio(voix)
+voix_fake_audio_attached = ColorClip(size=(0, 0), col=[0,0,0]).set_audio(voix)
 
 backgroundvideo = VideoFileClip("./assets/scenario_stacking/rugby.mp4", audio=False)\
 	.set_start(7)\
@@ -48,5 +45,5 @@ bobvideo = VideoFileClip("./assets/scenario_stacking/bob.mp4", audio=False)\
 	.subclip(12, 56)
 
 
-video = CompositeVideoClip([background, text, backgroundvideo, backgroundvideo2, backgroundvideo3, bobvideo], size=(movie_width,movie_height)).set_duration(44)
-video.write_videofile('./scenario_stacking_transitions.mp4', codec='mpeg4', bitrate='5000k', fps=30)
+final_video = CompositeVideoClip([text, voix_fake_audio_attached, backgroundvideo, backgroundvideo2, backgroundvideo3, bobvideo], size=(movie_width,movie_height)).set_duration(44)
+final_video.write_videofile('./scenario_stacking_transitions.mp4', codec='mpeg4', bitrate='5000k', fps=30)

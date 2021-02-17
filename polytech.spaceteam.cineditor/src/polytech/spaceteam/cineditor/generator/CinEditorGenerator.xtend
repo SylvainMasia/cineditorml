@@ -76,7 +76,19 @@ class CinEditorGenerator extends AbstractGenerator {
 		for (Layer layer : movie.layers) {
 			for (Element element : layer.elements) {
 				if (element instanceof AudioElement || element instanceof GraphicalElement) {
-					var tmpDuration = element.beginTime + element.duration;
+					var tmpDuration = 0;
+					if (element.duration > 0) {
+						tmpDuration = element.duration;
+					}
+					if (element.temporalPosition !== null) {
+						if (element.temporalPosition.elementToStartAfter !== null) {
+							tmpDuration += element.temporalPosition.elementToStartAfter.endingTime;
+						}
+						if (element.temporalPosition.beginTime > 0) {
+							tmpDuration += element.temporalPosition.beginTime;
+						}
+					}
+					element.endingTime = tmpDuration;
 					if (tmpDuration > totalMovieDuration) {
 						totalMovieDuration = tmpDuration;
 					}
@@ -126,8 +138,17 @@ class CinEditorGenerator extends AbstractGenerator {
 	
 	private def String extractBeginTimeFromElement(Element element) {
 		var s = "";
-		if (element.getBeginTime() > 0) {
-			s += "\\\n\t.set_start(" + element.getBeginTime() + ")";
+		var duration = 0;
+		if (element.temporalPosition !== null) {
+			if (element.temporalPosition.elementToStartAfter !== null) {
+				duration += element.temporalPosition.elementToStartAfter.endingTime;
+			}
+			if (element.temporalPosition.beginTime > 0) {
+				duration += element.temporalPosition.beginTime;
+			}
+		}
+		if (duration > 0) {
+			s += "\\\n\t.set_start(" + duration + ")";
 		}
 		return s;
 	}
@@ -144,7 +165,13 @@ class CinEditorGenerator extends AbstractGenerator {
 			var video = element as Video;
 			if (video.beginCropTime == 0) {
 				s += "\\\n\t.set_duration(" + duration + ")";
-			} 
+			}
+		else if (element instanceof AudioElement) {
+			var audio = element as AudioElement;
+			if (audio.beginCropTime == 0) {
+				s += "\\\n\t.set_duration(" + duration + ")";
+			}
+		} 
 		} else {
 			s += "\\\n\t.set_duration(" + duration + ")";
 		}
@@ -275,8 +302,7 @@ class CinEditorGenerator extends AbstractGenerator {
 		if (element.beginCropTime > -1) {
 			cropString = "\\\n\t.subclip(" + element.beginCropTime + ", " + (element.beginCropTime + element.duration) + ")";
 		}
-		
-		var s = element.getName() 
+		var s = element.name 
 				+ " = AudioFileClip(" + "\"" +element.url + "\"" + ")"
 					+ extractBeginTimeFromElement(element)
 					+ extractDurationFromElement(element)
@@ -285,7 +311,8 @@ class CinEditorGenerator extends AbstractGenerator {
 					+ fadeIn
 					+ fadeOut
 					+ "\n";
-		s += element.element.name + " = " + element.element.name + ".set_audio(" + element.getName() + ")\n\n";
+		s += element.name + "_fake_audio_attached = ColorClip(size=(0, 0), col=[0,0,0]).set_audio(" + element.name + ")\n\n";
+		elementsVarNames.add(element.name + "_fake_audio_attached");
 		return s;
 	}
 	
@@ -427,15 +454,30 @@ class CinEditorGenerator extends AbstractGenerator {
 		s += "\t\t\t#timeline-indicator {\n"
 			+ "\t\t\t\tmargin-left: 100px;\n"
 			+ "\t\t\t\theight: 15px;\n"
-			+ "\t\t\t\tposition: relative;\n"
 			+ "\t\t\t\tbackground-color: #e3e3e3;\n"
 			+ "\t\t\t}\n";
-		s += "\t\t\t.timeline-indicator-element {\n"
-			+ "\t\t\t\twidth: 2px;\n"
-			+ "\t\t\t\theight: 100%;\n"
-			+ "\t\t\t\tposition: absolute;\n"
-			+ "\t\t\t\tbackground-color: #000;\n"
+		s += "\t\t\t#container-timeline-indicator {\n"
+			+ "\t\t\t\theight: 15px;\n"
+			+ "\t\t\t\tposition: relative;\n"
+			+ "\t\t\t\tleft: 100px;\n"
+			+ "\t\t\t\twidth: calc(100% - 100px);\n"
+			+ "\t\t\t\ttop: -15px;\n"
 			+ "\t\t\t}\n";
+		s += "\t\t\t.timeline-indicator-element {\n"
+			+ "\t\t\t\theight: 100%;\n"
+			+ "\t\t\t\ttop: 100%;\n"
+			+ "\t\t\t\ttransform: translate(-50%, 0);\n"
+			+ "\t\t\t\tposition: absolute;\n"
+			+ "\t\t\t}\n";
+		s += "\t\t\t.timeline-indicator-element::before {\n"
+			+ "\t\t\t\tcontent: \"\";"
+			+ "\t\t\t\twidth: 2px;"
+			+ "\t\t\t\theight: 100%;"
+			+ "\t\t\t\tleft: 50%;"
+			+ "\t\t\t\tposition: absolute;\n"
+			+ "\t\t\t\tbackground-color: black;"
+			+ "\t\t\t\ttop: -100%;"
+			+ "}";
 		s += "\t\t\tbody {\n"
 			+ "\t\t\t\tmargin: 0;\n"
 			+ "\t\t\t\tpadding: 0;\n"
@@ -482,9 +524,27 @@ class CinEditorGenerator extends AbstractGenerator {
 						} else {
 							duration = totalMovieDuration;
 						}
+						var beginTime = 0;
+						if (element.temporalPosition !== null) {
+							beginTime += element.temporalPosition.beginTime;
+							if (element.temporalPosition.elementToStartAfter !== null) {
+								beginTime += element.temporalPosition.elementToStartAfter.endingTime;
+							}
+						}
+						if (element instanceof AudioElement) {
+							var borderTopLeft = 4;
+							var borderTopRight = 4;
+							if (element.fadeIn > 0) {
+								borderTopLeft = 1 + element.fadeIn * 10 * ratio;
+							}
+							if (element.fadeOut > 0) {
+								borderTopRight = 1 + element.fadeOut * 10 * ratio;
+							}
+							s += " border-radius: " + borderTopLeft + "px " + borderTopRight + "px 0 0;"
+						}
 						s += " width:" + duration * ratio + "%;";
 						s += " background-color: #000;";
-						s += " margin-left:" + element.beginTime * ratio + "%;";
+						s += " margin-left:" + beginTime * ratio + "%;";
 						s += " height:" + timelineElementHeight + "px;";
 						s += "\">\n";
 						s += element.name + "\n"
@@ -493,12 +553,14 @@ class CinEditorGenerator extends AbstractGenerator {
 				s += "\t\t\t</div>\n"
 			s += "\t\t</div>\n";
 		}
-		s += "\t\t<div id=\"timeline-indicator\" style=\"width: calc(" + (totalMovieDuration * ratio) + "% - " + totalMovieDuration * ratio + "px);\">\n";
-		for (var i = 0; i < totalMovieDuration; i += 5) {
-			s += "<div class=\"timeline-indicator-element\" style=\"left: calc(" + (i * ratio) + "% -  " + (i * totalMovieDuration * ratio) +"px);\">" + i + "s</div>";
-		}
-		s += "</div>\n";
+		s += "\t\t<div id=\"timeline-indicator\" style=\"width: calc(" + (totalMovieDuration * ratio) + "% - " + totalMovieDuration * ratio + "px);\"></div>\n";
 		
+		s += "\t\t<div id=\"container-timeline-indicator\">\n";
+		for (var i = 0; i < totalMovieDuration; i += 3) {
+			s += "\t\t\t<div class=\"timeline-indicator-element\" style=\"left: " + (i * ratio) + "%;\">" + i + "s</div>";
+		}
+		s += "\t\t\t<div class=\"timeline-indicator-element\" style=\"left: " + (totalMovieDuration * ratio) +"%\">" + totalMovieDuration + "s</div>";
+		s += "\t\t</div>\n";
 		
 		s += "\t</body>\n"
 			 + "</html>\n"

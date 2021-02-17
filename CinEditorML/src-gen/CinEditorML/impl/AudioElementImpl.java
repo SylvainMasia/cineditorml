@@ -4,13 +4,9 @@ package CinEditorML.impl;
 
 import CinEditorML.AudioElement;
 import CinEditorML.CinEditorMLPackage;
-
-import CinEditorML.GraphicalElement;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
-
-import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
@@ -22,7 +18,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * </p>
  * <ul>
  *   <li>{@link CinEditorML.impl.AudioElementImpl#getUrl <em>Url</em>}</li>
- *   <li>{@link CinEditorML.impl.AudioElementImpl#getElement <em>Element</em>}</li>
  *   <li>{@link CinEditorML.impl.AudioElementImpl#getFadeIn <em>Fade In</em>}</li>
  *   <li>{@link CinEditorML.impl.AudioElementImpl#getFadeOut <em>Fade Out</em>}</li>
  *   <li>{@link CinEditorML.impl.AudioElementImpl#getVolume <em>Volume</em>}</li>
@@ -51,16 +46,6 @@ public class AudioElementImpl extends ElementImpl implements AudioElement {
 	 * @ordered
 	 */
 	protected String url = URL_EDEFAULT;
-
-	/**
-	 * The cached value of the '{@link #getElement() <em>Element</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getElement()
-	 * @generated
-	 * @ordered
-	 */
-	protected GraphicalElement element;
 
 	/**
 	 * The default value of the '{@link #getFadeIn() <em>Fade In</em>}' attribute.
@@ -187,46 +172,6 @@ public class AudioElementImpl extends ElementImpl implements AudioElement {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public GraphicalElement getElement() {
-		if (element != null && element.eIsProxy()) {
-			InternalEObject oldElement = (InternalEObject) element;
-			element = (GraphicalElement) eResolveProxy(oldElement);
-			if (element != oldElement) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, CinEditorMLPackage.AUDIO_ELEMENT__ELEMENT,
-							oldElement, element));
-			}
-		}
-		return element;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public GraphicalElement basicGetElement() {
-		return element;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setElement(GraphicalElement newElement) {
-		GraphicalElement oldElement = element;
-		element = newElement;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CinEditorMLPackage.AUDIO_ELEMENT__ELEMENT, oldElement,
-					element));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public int getFadeIn() {
 		return fadeIn;
 	}
@@ -320,10 +265,6 @@ public class AudioElementImpl extends ElementImpl implements AudioElement {
 		switch (featureID) {
 		case CinEditorMLPackage.AUDIO_ELEMENT__URL:
 			return getUrl();
-		case CinEditorMLPackage.AUDIO_ELEMENT__ELEMENT:
-			if (resolve)
-				return getElement();
-			return basicGetElement();
 		case CinEditorMLPackage.AUDIO_ELEMENT__FADE_IN:
 			return getFadeIn();
 		case CinEditorMLPackage.AUDIO_ELEMENT__FADE_OUT:
@@ -346,9 +287,6 @@ public class AudioElementImpl extends ElementImpl implements AudioElement {
 		switch (featureID) {
 		case CinEditorMLPackage.AUDIO_ELEMENT__URL:
 			setUrl((String) newValue);
-			return;
-		case CinEditorMLPackage.AUDIO_ELEMENT__ELEMENT:
-			setElement((GraphicalElement) newValue);
 			return;
 		case CinEditorMLPackage.AUDIO_ELEMENT__FADE_IN:
 			setFadeIn((Integer) newValue);
@@ -377,9 +315,6 @@ public class AudioElementImpl extends ElementImpl implements AudioElement {
 		case CinEditorMLPackage.AUDIO_ELEMENT__URL:
 			setUrl(URL_EDEFAULT);
 			return;
-		case CinEditorMLPackage.AUDIO_ELEMENT__ELEMENT:
-			setElement((GraphicalElement) null);
-			return;
 		case CinEditorMLPackage.AUDIO_ELEMENT__FADE_IN:
 			setFadeIn(FADE_IN_EDEFAULT);
 			return;
@@ -406,8 +341,6 @@ public class AudioElementImpl extends ElementImpl implements AudioElement {
 		switch (featureID) {
 		case CinEditorMLPackage.AUDIO_ELEMENT__URL:
 			return URL_EDEFAULT == null ? url != null : !URL_EDEFAULT.equals(url);
-		case CinEditorMLPackage.AUDIO_ELEMENT__ELEMENT:
-			return element != null;
 		case CinEditorMLPackage.AUDIO_ELEMENT__FADE_IN:
 			return fadeIn != FADE_IN_EDEFAULT;
 		case CinEditorMLPackage.AUDIO_ELEMENT__FADE_OUT:

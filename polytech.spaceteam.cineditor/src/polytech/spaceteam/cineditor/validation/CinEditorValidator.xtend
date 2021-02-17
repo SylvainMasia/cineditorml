@@ -16,6 +16,7 @@ import CinEditorML.Video
 import CinEditorML.Effect
 import CinEditorML.GraphicalElement
 import CinEditorML.Margin
+import CinEditorML.Element
 
 /**
  * This class contains custom validation rules. 
@@ -144,7 +145,14 @@ class CinEditorValidator extends AbstractCinEditorValidator {
 		}
 	}
 	
-	
+	@Check
+	def checkTemporalPosition(Element element) {
+		if (element.temporalPosition !== null && element.temporalPosition.elementToStartAfter !== null) {
+			if (element.name.equals(element.temporalPosition.elementToStartAfter.name)) {
+				error('The element to start after can not be the same element', CinEditorMLPackage.Literals.ELEMENT__TEMPORAL_POSITION);
+			}
+		}
+	}
 	
 	@Check
 	def checkShapeColor(HexadecimalColor color) {

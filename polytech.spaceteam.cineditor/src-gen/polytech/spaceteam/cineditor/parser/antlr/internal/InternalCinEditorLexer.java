@@ -24,6 +24,7 @@ public class InternalCinEditorLexer extends Lexer {
     public static final int T__14=14;
     public static final int T__51=51;
     public static final int T__52=52;
+    public static final int T__53=53;
     public static final int RULE_ID=5;
     public static final int T__26=26;
     public static final int T__27=27;
@@ -392,10 +393,10 @@ public class InternalCinEditorLexer extends Lexer {
         try {
             int _type = T__26;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalCinEditor.g:26:7: ( 'opacity' )
-            // InternalCinEditor.g:26:9: 'opacity'
+            // InternalCinEditor.g:26:7: ( 'startAt' )
+            // InternalCinEditor.g:26:9: 'startAt'
             {
-            match("opacity"); 
+            match("startAt"); 
 
 
             }
@@ -413,10 +414,11 @@ public class InternalCinEditorLexer extends Lexer {
         try {
             int _type = T__27;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalCinEditor.g:27:7: ( '-' )
-            // InternalCinEditor.g:27:9: '-'
+            // InternalCinEditor.g:27:7: ( 'startAfter' )
+            // InternalCinEditor.g:27:9: 'startAfter'
             {
-            match('-'); 
+            match("startAfter"); 
+
 
             }
 
@@ -433,10 +435,11 @@ public class InternalCinEditorLexer extends Lexer {
         try {
             int _type = T__28;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalCinEditor.g:28:7: ( '.' )
-            // InternalCinEditor.g:28:9: '.'
+            // InternalCinEditor.g:28:7: ( 'opacity' )
+            // InternalCinEditor.g:28:9: 'opacity'
             {
-            match('.'); 
+            match("opacity"); 
+
 
             }
 
@@ -453,11 +456,10 @@ public class InternalCinEditorLexer extends Lexer {
         try {
             int _type = T__29;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalCinEditor.g:29:7: ( 'true' )
-            // InternalCinEditor.g:29:9: 'true'
+            // InternalCinEditor.g:29:7: ( '-' )
+            // InternalCinEditor.g:29:9: '-'
             {
-            match("true"); 
-
+            match('-'); 
 
             }
 
@@ -474,11 +476,10 @@ public class InternalCinEditorLexer extends Lexer {
         try {
             int _type = T__30;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalCinEditor.g:30:7: ( 'false' )
-            // InternalCinEditor.g:30:9: 'false'
+            // InternalCinEditor.g:30:7: ( '.' )
+            // InternalCinEditor.g:30:9: '.'
             {
-            match("false"); 
-
+            match('.'); 
 
             }
 
@@ -495,10 +496,10 @@ public class InternalCinEditorLexer extends Lexer {
         try {
             int _type = T__31;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalCinEditor.g:31:7: ( 'Audio' )
-            // InternalCinEditor.g:31:9: 'Audio'
+            // InternalCinEditor.g:31:7: ( 'true' )
+            // InternalCinEditor.g:31:9: 'true'
             {
-            match("Audio"); 
+            match("true"); 
 
 
             }
@@ -516,10 +517,11 @@ public class InternalCinEditorLexer extends Lexer {
         try {
             int _type = T__32;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalCinEditor.g:32:7: ( '=' )
-            // InternalCinEditor.g:32:9: '='
+            // InternalCinEditor.g:32:7: ( 'false' )
+            // InternalCinEditor.g:32:9: 'false'
             {
-            match('='); 
+            match("false"); 
+
 
             }
 
@@ -536,10 +538,10 @@ public class InternalCinEditorLexer extends Lexer {
         try {
             int _type = T__33;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalCinEditor.g:33:7: ( 'volume' )
-            // InternalCinEditor.g:33:9: 'volume'
+            // InternalCinEditor.g:33:7: ( 'Audio' )
+            // InternalCinEditor.g:33:9: 'Audio'
             {
-            match("volume"); 
+            match("Audio"); 
 
 
             }
@@ -557,11 +559,10 @@ public class InternalCinEditorLexer extends Lexer {
         try {
             int _type = T__34;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalCinEditor.g:34:7: ( 'fadeIn' )
-            // InternalCinEditor.g:34:9: 'fadeIn'
+            // InternalCinEditor.g:34:7: ( '=' )
+            // InternalCinEditor.g:34:9: '='
             {
-            match("fadeIn"); 
-
+            match('='); 
 
             }
 
@@ -578,10 +579,10 @@ public class InternalCinEditorLexer extends Lexer {
         try {
             int _type = T__35;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalCinEditor.g:35:7: ( 'fadeOut' )
-            // InternalCinEditor.g:35:9: 'fadeOut'
+            // InternalCinEditor.g:35:7: ( 'volume' )
+            // InternalCinEditor.g:35:9: 'volume'
             {
-            match("fadeOut"); 
+            match("volume"); 
 
 
             }
@@ -599,10 +600,10 @@ public class InternalCinEditorLexer extends Lexer {
         try {
             int _type = T__36;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalCinEditor.g:36:7: ( 'startAt' )
-            // InternalCinEditor.g:36:9: 'startAt'
+            // InternalCinEditor.g:36:7: ( 'fadeIn' )
+            // InternalCinEditor.g:36:9: 'fadeIn'
             {
-            match("startAt"); 
+            match("fadeIn"); 
 
 
             }
@@ -620,10 +621,10 @@ public class InternalCinEditorLexer extends Lexer {
         try {
             int _type = T__37;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalCinEditor.g:37:7: ( 'cropAt' )
-            // InternalCinEditor.g:37:9: 'cropAt'
+            // InternalCinEditor.g:37:7: ( 'fadeOut' )
+            // InternalCinEditor.g:37:9: 'fadeOut'
             {
-            match("cropAt"); 
+            match("fadeOut"); 
 
 
             }
@@ -641,10 +642,10 @@ public class InternalCinEditorLexer extends Lexer {
         try {
             int _type = T__38;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalCinEditor.g:38:7: ( 'during' )
-            // InternalCinEditor.g:38:9: 'during'
+            // InternalCinEditor.g:38:7: ( 'cropAt' )
+            // InternalCinEditor.g:38:9: 'cropAt'
             {
-            match("during"); 
+            match("cropAt"); 
 
 
             }
@@ -662,10 +663,10 @@ public class InternalCinEditorLexer extends Lexer {
         try {
             int _type = T__39;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalCinEditor.g:39:7: ( 'on' )
-            // InternalCinEditor.g:39:9: 'on'
+            // InternalCinEditor.g:39:7: ( 'during' )
+            // InternalCinEditor.g:39:9: 'during'
             {
-            match("on"); 
+            match("during"); 
 
 
             }
@@ -872,10 +873,11 @@ public class InternalCinEditorLexer extends Lexer {
         try {
             int _type = T__49;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalCinEditor.g:49:7: ( '[' )
-            // InternalCinEditor.g:49:9: '['
+            // InternalCinEditor.g:49:7: ( 'on' )
+            // InternalCinEditor.g:49:9: 'on'
             {
-            match('['); 
+            match("on"); 
+
 
             }
 
@@ -892,10 +894,10 @@ public class InternalCinEditorLexer extends Lexer {
         try {
             int _type = T__50;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalCinEditor.g:50:7: ( ']' )
-            // InternalCinEditor.g:50:9: ']'
+            // InternalCinEditor.g:50:7: ( '[' )
+            // InternalCinEditor.g:50:9: '['
             {
-            match(']'); 
+            match('['); 
 
             }
 
@@ -912,11 +914,10 @@ public class InternalCinEditorLexer extends Lexer {
         try {
             int _type = T__51;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalCinEditor.g:51:7: ( 'FadeOut' )
-            // InternalCinEditor.g:51:9: 'FadeOut'
+            // InternalCinEditor.g:51:7: ( ']' )
+            // InternalCinEditor.g:51:9: ']'
             {
-            match("FadeOut"); 
-
+            match(']'); 
 
             }
 
@@ -933,10 +934,10 @@ public class InternalCinEditorLexer extends Lexer {
         try {
             int _type = T__52;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalCinEditor.g:52:7: ( 'Translate' )
-            // InternalCinEditor.g:52:9: 'Translate'
+            // InternalCinEditor.g:52:7: ( 'FadeOut' )
+            // InternalCinEditor.g:52:9: 'FadeOut'
             {
-            match("Translate"); 
+            match("FadeOut"); 
 
 
             }
@@ -949,15 +950,36 @@ public class InternalCinEditorLexer extends Lexer {
     }
     // $ANTLR end "T__52"
 
+    // $ANTLR start "T__53"
+    public final void mT__53() throws RecognitionException {
+        try {
+            int _type = T__53;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // InternalCinEditor.g:53:7: ( 'Translate' )
+            // InternalCinEditor.g:53:9: 'Translate'
+            {
+            match("Translate"); 
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "T__53"
+
     // $ANTLR start "RULE_ID"
     public final void mRULE_ID() throws RecognitionException {
         try {
             int _type = RULE_ID;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalCinEditor.g:2400:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
-            // InternalCinEditor.g:2400:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // InternalCinEditor.g:2454:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
+            // InternalCinEditor.g:2454:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             {
-            // InternalCinEditor.g:2400:11: ( '^' )?
+            // InternalCinEditor.g:2454:11: ( '^' )?
             int alt1=2;
             int LA1_0 = input.LA(1);
 
@@ -966,7 +988,7 @@ public class InternalCinEditorLexer extends Lexer {
             }
             switch (alt1) {
                 case 1 :
-                    // InternalCinEditor.g:2400:11: '^'
+                    // InternalCinEditor.g:2454:11: '^'
                     {
                     match('^'); 
 
@@ -984,7 +1006,7 @@ public class InternalCinEditorLexer extends Lexer {
                 recover(mse);
                 throw mse;}
 
-            // InternalCinEditor.g:2400:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // InternalCinEditor.g:2454:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             loop2:
             do {
                 int alt2=2;
@@ -1033,10 +1055,10 @@ public class InternalCinEditorLexer extends Lexer {
         try {
             int _type = RULE_INT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalCinEditor.g:2402:10: ( ( '0' .. '9' )+ )
-            // InternalCinEditor.g:2402:12: ( '0' .. '9' )+
+            // InternalCinEditor.g:2456:10: ( ( '0' .. '9' )+ )
+            // InternalCinEditor.g:2456:12: ( '0' .. '9' )+
             {
-            // InternalCinEditor.g:2402:12: ( '0' .. '9' )+
+            // InternalCinEditor.g:2456:12: ( '0' .. '9' )+
             int cnt3=0;
             loop3:
             do {
@@ -1050,7 +1072,7 @@ public class InternalCinEditorLexer extends Lexer {
 
                 switch (alt3) {
             	case 1 :
-            	    // InternalCinEditor.g:2402:13: '0' .. '9'
+            	    // InternalCinEditor.g:2456:13: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -1082,10 +1104,10 @@ public class InternalCinEditorLexer extends Lexer {
         try {
             int _type = RULE_STRING;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalCinEditor.g:2404:13: ( ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
-            // InternalCinEditor.g:2404:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // InternalCinEditor.g:2458:13: ( ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
+            // InternalCinEditor.g:2458:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             {
-            // InternalCinEditor.g:2404:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // InternalCinEditor.g:2458:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             int alt6=2;
             int LA6_0 = input.LA(1);
 
@@ -1103,10 +1125,10 @@ public class InternalCinEditorLexer extends Lexer {
             }
             switch (alt6) {
                 case 1 :
-                    // InternalCinEditor.g:2404:16: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
+                    // InternalCinEditor.g:2458:16: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
                     {
                     match('\"'); 
-                    // InternalCinEditor.g:2404:20: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
+                    // InternalCinEditor.g:2458:20: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
                     loop4:
                     do {
                         int alt4=3;
@@ -1122,7 +1144,7 @@ public class InternalCinEditorLexer extends Lexer {
 
                         switch (alt4) {
                     	case 1 :
-                    	    // InternalCinEditor.g:2404:21: '\\\\' .
+                    	    // InternalCinEditor.g:2458:21: '\\\\' .
                     	    {
                     	    match('\\'); 
                     	    matchAny(); 
@@ -1130,7 +1152,7 @@ public class InternalCinEditorLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // InternalCinEditor.g:2404:28: ~ ( ( '\\\\' | '\"' ) )
+                    	    // InternalCinEditor.g:2458:28: ~ ( ( '\\\\' | '\"' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -1155,10 +1177,10 @@ public class InternalCinEditorLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // InternalCinEditor.g:2404:48: '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
+                    // InternalCinEditor.g:2458:48: '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
                     {
                     match('\''); 
-                    // InternalCinEditor.g:2404:53: ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )*
+                    // InternalCinEditor.g:2458:53: ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )*
                     loop5:
                     do {
                         int alt5=3;
@@ -1174,7 +1196,7 @@ public class InternalCinEditorLexer extends Lexer {
 
                         switch (alt5) {
                     	case 1 :
-                    	    // InternalCinEditor.g:2404:54: '\\\\' .
+                    	    // InternalCinEditor.g:2458:54: '\\\\' .
                     	    {
                     	    match('\\'); 
                     	    matchAny(); 
@@ -1182,7 +1204,7 @@ public class InternalCinEditorLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // InternalCinEditor.g:2404:61: ~ ( ( '\\\\' | '\\'' ) )
+                    	    // InternalCinEditor.g:2458:61: ~ ( ( '\\\\' | '\\'' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='&')||(input.LA(1)>='(' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -1225,12 +1247,12 @@ public class InternalCinEditorLexer extends Lexer {
         try {
             int _type = RULE_ML_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalCinEditor.g:2406:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
-            // InternalCinEditor.g:2406:19: '/*' ( options {greedy=false; } : . )* '*/'
+            // InternalCinEditor.g:2460:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
+            // InternalCinEditor.g:2460:19: '/*' ( options {greedy=false; } : . )* '*/'
             {
             match("/*"); 
 
-            // InternalCinEditor.g:2406:24: ( options {greedy=false; } : . )*
+            // InternalCinEditor.g:2460:24: ( options {greedy=false; } : . )*
             loop7:
             do {
                 int alt7=2;
@@ -1255,7 +1277,7 @@ public class InternalCinEditorLexer extends Lexer {
 
                 switch (alt7) {
             	case 1 :
-            	    // InternalCinEditor.g:2406:52: .
+            	    // InternalCinEditor.g:2460:52: .
             	    {
             	    matchAny(); 
 
@@ -1285,12 +1307,12 @@ public class InternalCinEditorLexer extends Lexer {
         try {
             int _type = RULE_SL_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalCinEditor.g:2408:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
-            // InternalCinEditor.g:2408:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
+            // InternalCinEditor.g:2462:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
+            // InternalCinEditor.g:2462:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
             {
             match("//"); 
 
-            // InternalCinEditor.g:2408:24: (~ ( ( '\\n' | '\\r' ) ) )*
+            // InternalCinEditor.g:2462:24: (~ ( ( '\\n' | '\\r' ) ) )*
             loop8:
             do {
                 int alt8=2;
@@ -1303,7 +1325,7 @@ public class InternalCinEditorLexer extends Lexer {
 
                 switch (alt8) {
             	case 1 :
-            	    // InternalCinEditor.g:2408:24: ~ ( ( '\\n' | '\\r' ) )
+            	    // InternalCinEditor.g:2462:24: ~ ( ( '\\n' | '\\r' ) )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -1323,7 +1345,7 @@ public class InternalCinEditorLexer extends Lexer {
                 }
             } while (true);
 
-            // InternalCinEditor.g:2408:40: ( ( '\\r' )? '\\n' )?
+            // InternalCinEditor.g:2462:40: ( ( '\\r' )? '\\n' )?
             int alt10=2;
             int LA10_0 = input.LA(1);
 
@@ -1332,9 +1354,9 @@ public class InternalCinEditorLexer extends Lexer {
             }
             switch (alt10) {
                 case 1 :
-                    // InternalCinEditor.g:2408:41: ( '\\r' )? '\\n'
+                    // InternalCinEditor.g:2462:41: ( '\\r' )? '\\n'
                     {
-                    // InternalCinEditor.g:2408:41: ( '\\r' )?
+                    // InternalCinEditor.g:2462:41: ( '\\r' )?
                     int alt9=2;
                     int LA9_0 = input.LA(1);
 
@@ -1343,7 +1365,7 @@ public class InternalCinEditorLexer extends Lexer {
                     }
                     switch (alt9) {
                         case 1 :
-                            // InternalCinEditor.g:2408:41: '\\r'
+                            // InternalCinEditor.g:2462:41: '\\r'
                             {
                             match('\r'); 
 
@@ -1375,10 +1397,10 @@ public class InternalCinEditorLexer extends Lexer {
         try {
             int _type = RULE_WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalCinEditor.g:2410:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
-            // InternalCinEditor.g:2410:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // InternalCinEditor.g:2464:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
+            // InternalCinEditor.g:2464:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             {
-            // InternalCinEditor.g:2410:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // InternalCinEditor.g:2464:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             int cnt11=0;
             loop11:
             do {
@@ -1432,8 +1454,8 @@ public class InternalCinEditorLexer extends Lexer {
         try {
             int _type = RULE_ANY_OTHER;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalCinEditor.g:2412:16: ( . )
-            // InternalCinEditor.g:2412:18: .
+            // InternalCinEditor.g:2466:16: ( . )
+            // InternalCinEditor.g:2466:18: .
             {
             matchAny(); 
 
@@ -1448,8 +1470,8 @@ public class InternalCinEditorLexer extends Lexer {
     // $ANTLR end "RULE_ANY_OTHER"
 
     public void mTokens() throws RecognitionException {
-        // InternalCinEditor.g:1:8: ( T__11 | T__12 | T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | T__42 | T__43 | T__44 | T__45 | T__46 | T__47 | T__48 | T__49 | T__50 | T__51 | T__52 | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER )
-        int alt12=49;
+        // InternalCinEditor.g:1:8: ( T__11 | T__12 | T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | T__42 | T__43 | T__44 | T__45 | T__46 | T__47 | T__48 | T__49 | T__50 | T__51 | T__52 | T__53 | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER )
+        int alt12=50;
         alt12 = dfa12.predict(input);
         switch (alt12) {
             case 1 :
@@ -1747,49 +1769,56 @@ public class InternalCinEditorLexer extends Lexer {
                 }
                 break;
             case 43 :
-                // InternalCinEditor.g:1:262: RULE_ID
+                // InternalCinEditor.g:1:262: T__53
+                {
+                mT__53(); 
+
+                }
+                break;
+            case 44 :
+                // InternalCinEditor.g:1:268: RULE_ID
                 {
                 mRULE_ID(); 
 
                 }
                 break;
-            case 44 :
-                // InternalCinEditor.g:1:270: RULE_INT
+            case 45 :
+                // InternalCinEditor.g:1:276: RULE_INT
                 {
                 mRULE_INT(); 
 
                 }
                 break;
-            case 45 :
-                // InternalCinEditor.g:1:279: RULE_STRING
+            case 46 :
+                // InternalCinEditor.g:1:285: RULE_STRING
                 {
                 mRULE_STRING(); 
 
                 }
                 break;
-            case 46 :
-                // InternalCinEditor.g:1:291: RULE_ML_COMMENT
+            case 47 :
+                // InternalCinEditor.g:1:297: RULE_ML_COMMENT
                 {
                 mRULE_ML_COMMENT(); 
 
                 }
                 break;
-            case 47 :
-                // InternalCinEditor.g:1:307: RULE_SL_COMMENT
+            case 48 :
+                // InternalCinEditor.g:1:313: RULE_SL_COMMENT
                 {
                 mRULE_SL_COMMENT(); 
 
                 }
                 break;
-            case 48 :
-                // InternalCinEditor.g:1:323: RULE_WS
+            case 49 :
+                // InternalCinEditor.g:1:329: RULE_WS
                 {
                 mRULE_WS(); 
 
                 }
                 break;
-            case 49 :
-                // InternalCinEditor.g:1:331: RULE_ANY_OTHER
+            case 50 :
+                // InternalCinEditor.g:1:337: RULE_ANY_OTHER
                 {
                 mRULE_ANY_OTHER(); 
 
@@ -1803,19 +1832,19 @@ public class InternalCinEditorLexer extends Lexer {
 
     protected DFA12 dfa12 = new DFA12(this);
     static final String DFA12_eotS =
-        "\1\uffff\4\51\3\uffff\6\51\1\74\1\51\2\uffff\1\51\1\uffff\12\51\2\uffff\1\47\2\uffff\3\47\2\uffff\1\51\1\uffff\5\51\3\uffff\12\51\1\uffff\1\51\1\147\2\uffff\1\51\1\uffff\13\51\7\uffff\1\51\1\165\13\51\1\u0081\4\51\1\uffff\15\51\1\uffff\10\51\1\u009c\2\51\1\uffff\1\u009f\6\51\1\u00a6\10\51\1\u00b0\1\u00b1\3\51\1\u00b5\2\51\1\u00b8\1\51\1\uffff\1\u00ba\1\51\1\uffff\3\51\1\u00bf\2\51\1\uffff\3\51\1\u00c5\1\u00c6\4\51\2\uffff\1\u00cb\2\51\1\uffff\1\51\1\u00cf\1\uffff\1\u00d0\1\uffff\1\u00d1\1\51\1\u00d3\1\51\1\uffff\1\u00d5\4\51\2\uffff\1\51\1\u00db\1\u00dc\1\51\1\uffff\1\u00de\2\51\3\uffff\1\51\1\uffff\1\u00e2\1\uffff\1\u00e3\2\51\1\u00e6\1\51\2\uffff\1\u00e8\1\uffff\1\u00e9\1\u00ea\1\51\2\uffff\1\51\2\uffff\1\51\3\uffff\1\u00ee\1\u00ef\1\u00f0\3\uffff";
+        "\1\uffff\4\51\3\uffff\6\51\1\74\2\51\2\uffff\1\51\1\uffff\11\51\2\uffff\1\47\2\uffff\3\47\2\uffff\1\51\1\uffff\5\51\3\uffff\12\51\1\uffff\2\51\1\150\2\uffff\1\51\1\uffff\12\51\7\uffff\1\51\1\165\13\51\1\u0081\5\51\1\uffff\14\51\1\uffff\10\51\1\u009c\2\51\1\uffff\1\u009f\6\51\1\u00a6\10\51\1\u00b0\1\u00b1\3\51\1\u00b5\2\51\1\u00b8\1\51\1\uffff\1\u00ba\1\51\1\uffff\4\51\1\u00c0\1\51\1\uffff\3\51\1\u00c5\1\u00c6\4\51\2\uffff\1\u00cb\2\51\1\uffff\1\51\1\u00cf\1\uffff\1\u00d0\1\uffff\1\u00d1\1\51\1\u00d3\2\51\1\uffff\1\u00d7\3\51\2\uffff\1\51\1\u00dc\1\u00dd\1\51\1\uffff\1\u00df\2\51\3\uffff\1\51\1\uffff\1\u00e3\1\51\1\u00e5\1\uffff\2\51\1\u00e8\1\51\2\uffff\1\u00ea\1\uffff\1\u00eb\1\u00ec\1\51\1\uffff\1\51\1\uffff\1\51\2\uffff\1\51\3\uffff\1\u00f1\1\51\1\u00f3\1\u00f4\1\uffff\1\u00f5\3\uffff";
     static final String DFA12_eofS =
-        "\u00f1\uffff";
+        "\u00f6\uffff";
     static final String DFA12_minS =
-        "\1\0\1\157\2\141\1\157\3\uffff\2\145\1\151\2\157\1\151\1\60\1\156\2\uffff\1\165\1\uffff\1\157\1\164\1\145\1\141\2\151\1\165\1\145\1\146\1\141\2\uffff\1\101\2\uffff\2\0\1\52\2\uffff\1\166\1\uffff\1\163\1\144\1\156\1\171\1\163\3\uffff\1\156\1\154\1\157\1\146\1\147\1\164\1\160\1\165\1\155\1\162\1\uffff\1\141\1\60\2\uffff\1\144\1\uffff\1\154\1\141\1\170\1\141\1\162\1\143\2\144\1\143\1\146\1\144\7\uffff\1\151\1\60\1\163\1\145\1\164\1\145\1\151\1\164\1\157\1\160\1\164\1\150\1\164\1\60\2\145\1\151\1\143\1\uffff\1\151\1\165\1\162\1\164\1\156\1\147\1\164\1\145\1\151\1\164\3\145\1\uffff\1\145\1\111\1\123\1\162\1\164\1\145\1\162\1\101\1\60\1\164\1\157\1\uffff\1\60\2\156\1\151\1\157\1\155\1\164\1\60\1\163\1\151\1\165\2\157\1\141\1\143\1\111\2\60\1\156\1\165\1\151\1\60\1\151\1\162\1\60\1\164\1\uffff\1\60\1\155\1\uffff\1\163\1\147\1\164\1\60\1\145\1\101\1\uffff\1\154\1\156\1\162\2\60\1\156\1\164\1\156\1\165\2\uffff\1\60\1\164\1\172\1\uffff\1\157\1\60\1\uffff\1\60\1\uffff\1\60\1\151\1\60\1\171\1\uffff\1\60\1\164\1\141\1\163\1\145\2\uffff\1\147\2\60\1\164\1\uffff\1\60\1\145\1\156\3\uffff\1\157\1\uffff\1\60\1\uffff\1\60\1\164\1\50\1\60\1\154\2\uffff\1\60\1\uffff\2\60\1\156\2\uffff\1\145\2\uffff\1\145\3\uffff\3\60\3\uffff";
+        "\1\0\1\157\2\141\1\157\3\uffff\2\145\1\151\2\157\1\151\1\60\1\164\1\156\2\uffff\1\165\1\uffff\1\157\1\145\1\141\2\151\1\165\1\145\1\146\1\141\2\uffff\1\101\2\uffff\2\0\1\52\2\uffff\1\166\1\uffff\1\163\1\144\1\156\1\171\1\163\3\uffff\1\156\1\154\1\157\1\146\1\147\1\164\1\160\1\165\1\155\1\162\1\uffff\2\141\1\60\2\uffff\1\144\1\uffff\1\154\1\170\1\141\1\162\1\143\2\144\1\143\1\146\1\144\7\uffff\1\151\1\60\1\163\1\145\1\164\1\145\1\151\1\164\1\157\1\160\1\164\1\150\1\164\1\60\2\145\1\151\1\162\1\143\1\uffff\1\151\1\165\1\164\1\156\1\147\1\164\1\145\1\151\1\164\3\145\1\uffff\1\145\1\111\1\123\1\162\1\164\1\145\1\162\1\101\1\60\1\164\1\157\1\uffff\1\60\2\156\1\164\1\151\1\157\1\155\1\60\1\163\1\151\1\165\2\157\1\141\1\143\1\111\2\60\1\156\1\165\1\151\1\60\1\151\1\162\1\60\1\164\1\uffff\1\60\1\155\1\uffff\1\163\1\147\1\101\1\164\1\60\1\145\1\uffff\1\154\1\156\1\162\2\60\1\156\1\164\1\156\1\165\2\uffff\1\60\1\164\1\172\1\uffff\1\157\1\60\1\uffff\1\60\1\uffff\1\60\1\151\1\60\1\146\1\171\1\uffff\1\60\1\141\1\163\1\145\2\uffff\1\147\2\60\1\164\1\uffff\1\60\1\145\1\156\3\uffff\1\157\1\uffff\1\60\1\164\1\60\1\uffff\1\164\1\50\1\60\1\154\2\uffff\1\60\1\uffff\2\60\1\156\1\uffff\1\145\1\uffff\1\145\2\uffff\1\145\3\uffff\1\60\1\162\2\60\1\uffff\1\60\3\uffff";
     static final String DFA12_maxS =
-        "\1\uffff\1\157\1\160\1\141\1\157\3\uffff\1\162\1\145\1\151\1\157\1\162\1\165\1\172\1\160\2\uffff\1\165\1\uffff\1\157\1\164\1\162\1\141\2\151\1\165\1\145\1\146\1\141\2\uffff\1\172\2\uffff\2\uffff\1\57\2\uffff\1\166\1\uffff\1\163\1\154\1\156\1\171\1\163\3\uffff\1\156\1\154\1\157\1\146\1\147\1\164\1\160\1\165\1\155\1\162\1\uffff\1\141\1\172\2\uffff\1\144\1\uffff\1\154\1\141\1\170\1\141\1\162\1\143\2\144\1\143\1\146\1\144\7\uffff\1\151\1\172\1\163\1\145\1\164\1\145\1\151\1\164\1\157\1\160\1\164\1\150\1\164\1\172\2\145\1\151\1\143\1\uffff\1\151\1\165\1\162\1\164\1\156\1\147\1\164\1\145\1\151\1\164\3\145\1\uffff\1\145\1\117\1\123\1\162\1\164\1\145\1\162\1\101\1\172\1\164\1\157\1\uffff\1\172\2\156\1\151\1\157\1\155\1\164\1\172\1\163\1\151\1\165\2\157\1\141\1\143\1\117\2\172\1\156\1\165\1\151\1\172\1\151\1\162\1\172\1\164\1\uffff\1\172\1\155\1\uffff\1\163\1\147\1\164\1\172\1\145\1\101\1\uffff\1\154\1\156\1\162\2\172\1\156\1\164\1\156\1\165\2\uffff\1\172\1\164\1\172\1\uffff\1\157\1\172\1\uffff\1\172\1\uffff\1\172\1\151\1\172\1\171\1\uffff\1\172\1\164\1\141\1\163\1\145\2\uffff\1\147\2\172\1\164\1\uffff\1\172\1\145\1\156\3\uffff\1\157\1\uffff\1\172\1\uffff\1\172\1\164\1\50\1\172\1\154\2\uffff\1\172\1\uffff\2\172\1\156\2\uffff\1\145\2\uffff\1\145\3\uffff\3\172\3\uffff";
+        "\1\uffff\1\157\1\160\1\141\1\157\3\uffff\1\162\1\145\1\151\1\157\1\162\1\165\1\172\1\164\1\160\2\uffff\1\165\1\uffff\1\157\1\162\1\141\2\151\1\165\1\145\1\146\1\141\2\uffff\1\172\2\uffff\2\uffff\1\57\2\uffff\1\166\1\uffff\1\163\1\154\1\156\1\171\1\163\3\uffff\1\156\1\154\1\157\1\146\1\147\1\164\1\160\1\165\1\155\1\162\1\uffff\2\141\1\172\2\uffff\1\144\1\uffff\1\154\1\170\1\141\1\162\1\143\2\144\1\143\1\146\1\144\7\uffff\1\151\1\172\1\163\1\145\1\164\1\145\1\151\1\164\1\157\1\160\1\164\1\150\1\164\1\172\2\145\1\151\1\162\1\143\1\uffff\1\151\1\165\1\164\1\156\1\147\1\164\1\145\1\151\1\164\3\145\1\uffff\1\145\1\117\1\123\1\162\1\164\1\145\1\162\1\101\1\172\1\164\1\157\1\uffff\1\172\2\156\1\164\1\151\1\157\1\155\1\172\1\163\1\151\1\165\2\157\1\141\1\143\1\117\2\172\1\156\1\165\1\151\1\172\1\151\1\162\1\172\1\164\1\uffff\1\172\1\155\1\uffff\1\163\1\147\1\101\1\164\1\172\1\145\1\uffff\1\154\1\156\1\162\2\172\1\156\1\164\1\156\1\165\2\uffff\1\172\1\164\1\172\1\uffff\1\157\1\172\1\uffff\1\172\1\uffff\1\172\1\151\1\172\1\164\1\171\1\uffff\1\172\1\141\1\163\1\145\2\uffff\1\147\2\172\1\164\1\uffff\1\172\1\145\1\156\3\uffff\1\157\1\uffff\1\172\1\164\1\172\1\uffff\1\164\1\50\1\172\1\154\2\uffff\1\172\1\uffff\2\172\1\156\1\uffff\1\145\1\uffff\1\145\2\uffff\1\145\3\uffff\1\172\1\162\2\172\1\uffff\1\172\3\uffff";
     static final String DFA12_acceptS =
-        "\5\uffff\1\5\1\6\1\7\10\uffff\1\21\1\22\1\uffff\1\26\12\uffff\1\47\1\50\1\uffff\1\53\1\54\3\uffff\1\60\1\61\1\uffff\1\53\5\uffff\1\5\1\6\1\7\12\uffff\1\16\2\uffff\1\21\1\22\1\uffff\1\26\13\uffff\1\47\1\50\1\54\1\55\1\56\1\57\1\60\22\uffff\1\35\15\uffff\1\2\13\uffff\1\14\32\uffff\1\11\2\uffff\1\23\6\uffff\1\36\11\uffff\1\1\1\24\3\uffff\1\3\2\uffff\1\17\1\uffff\1\12\4\uffff\1\25\5\uffff\1\42\1\43\4\uffff\1\30\3\uffff\1\10\1\33\1\13\1\uffff\1\34\1\uffff\1\27\5\uffff\1\45\1\46\1\uffff\1\31\3\uffff\1\20\1\32\1\uffff\1\40\1\41\1\uffff\1\51\1\37\1\4\3\uffff\1\15\1\52\1\44";
+        "\5\uffff\1\5\1\6\1\7\11\uffff\1\23\1\24\1\uffff\1\30\11\uffff\1\50\1\51\1\uffff\1\54\1\55\3\uffff\1\61\1\62\1\uffff\1\54\5\uffff\1\5\1\6\1\7\12\uffff\1\16\3\uffff\1\23\1\24\1\uffff\1\30\12\uffff\1\50\1\51\1\55\1\56\1\57\1\60\1\61\23\uffff\1\47\14\uffff\1\2\13\uffff\1\14\32\uffff\1\11\2\uffff\1\25\6\uffff\1\36\11\uffff\1\1\1\26\3\uffff\1\3\2\uffff\1\17\1\uffff\1\12\5\uffff\1\27\4\uffff\1\42\1\43\4\uffff\1\32\3\uffff\1\10\1\34\1\13\1\uffff\1\35\3\uffff\1\31\4\uffff\1\45\1\46\1\uffff\1\33\3\uffff\1\20\1\uffff\1\22\1\uffff\1\40\1\41\1\uffff\1\52\1\37\1\4\4\uffff\1\15\1\uffff\1\53\1\44\1\21";
     static final String DFA12_specialS =
-        "\1\0\42\uffff\1\1\1\2\u00cc\uffff}>";
+        "\1\2\42\uffff\1\1\1\0\u00d1\uffff}>";
     static final String[] DFA12_transitionS = {
-            "\11\47\2\46\2\47\1\46\22\47\1\46\1\47\1\43\4\47\1\44\1\5\1\7\2\47\1\6\1\20\1\21\1\45\12\42\3\47\1\23\3\47\1\22\3\41\1\34\1\35\5\41\1\3\1\1\2\41\1\30\1\41\1\33\1\41\1\26\1\41\1\31\4\41\1\36\1\47\1\37\1\40\1\41\1\47\1\32\1\13\1\10\1\15\1\41\1\2\5\41\1\11\1\27\1\41\1\17\1\4\1\41\1\12\1\25\1\14\1\41\1\24\1\41\1\16\2\41\uff85\47",
+            "\11\47\2\46\2\47\1\46\22\47\1\46\1\47\1\43\4\47\1\44\1\5\1\7\2\47\1\6\1\21\1\22\1\45\12\42\3\47\1\24\3\47\1\23\3\41\1\34\1\35\5\41\1\3\1\1\2\41\1\30\1\41\1\33\1\41\1\26\1\41\1\31\4\41\1\36\1\47\1\37\1\40\1\41\1\47\1\32\1\13\1\10\1\15\1\41\1\2\5\41\1\11\1\27\1\41\1\20\1\4\1\41\1\12\1\17\1\14\1\41\1\25\1\41\1\16\2\41\uff85\47",
             "\1\50",
             "\1\53\15\uffff\1\54\1\52",
             "\1\55",
@@ -1830,12 +1859,12 @@ public class InternalCinEditorLexer extends Lexer {
             "\1\70\2\uffff\1\71",
             "\1\72\13\uffff\1\73",
             "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
-            "\1\76\1\uffff\1\75",
+            "\1\75",
+            "\1\77\1\uffff\1\76",
             "",
             "",
-            "\1\101",
+            "\1\102",
             "",
-            "\1\103",
             "\1\104",
             "\1\105\14\uffff\1\106",
             "\1\107",
@@ -1877,12 +1906,12 @@ public class InternalCinEditorLexer extends Lexer {
             "\1\145",
             "",
             "\1\146",
+            "\1\147",
             "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
             "",
             "",
-            "\1\150",
-            "",
             "\1\151",
+            "",
             "\1\152",
             "\1\153",
             "\1\154",
@@ -1918,8 +1947,8 @@ public class InternalCinEditorLexer extends Lexer {
             "\1\u0083",
             "\1\u0084",
             "\1\u0085",
-            "",
             "\1\u0086",
+            "",
             "\1\u0087",
             "\1\u0088",
             "\1\u0089",
@@ -1978,8 +2007,8 @@ public class InternalCinEditorLexer extends Lexer {
             "\1\u00bc",
             "\1\u00bd",
             "\1\u00be",
+            "\1\u00bf",
             "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
-            "\1\u00c0",
             "\1\u00c1",
             "",
             "\1\u00c2",
@@ -2005,53 +2034,58 @@ public class InternalCinEditorLexer extends Lexer {
             "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
             "\1\u00d2",
             "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
-            "\1\u00d4",
+            "\1\u00d5\15\uffff\1\u00d4",
+            "\1\u00d6",
             "",
             "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
-            "\1\u00d6",
-            "\1\u00d7",
             "\1\u00d8",
             "\1\u00d9",
-            "",
-            "",
             "\1\u00da",
+            "",
+            "",
+            "\1\u00db",
             "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
             "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
-            "\1\u00dd",
+            "\1\u00de",
             "",
             "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
-            "\1\u00df",
             "\1\u00e0",
-            "",
-            "",
-            "",
             "\1\u00e1",
             "",
-            "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
+            "",
+            "",
+            "\1\u00e2",
             "",
             "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
             "\1\u00e4",
-            "\1\u00e5",
             "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
+            "",
+            "\1\u00e6",
             "\1\u00e7",
+            "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
+            "\1\u00e9",
             "",
             "",
             "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
             "",
             "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
             "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
-            "\1\u00eb",
-            "",
-            "",
-            "\1\u00ec",
-            "",
-            "",
             "\1\u00ed",
             "",
+            "\1\u00ee",
+            "",
+            "\1\u00ef",
+            "",
+            "",
+            "\1\u00f0",
+            "",
             "",
             "",
             "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
+            "\1\u00f2",
             "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
+            "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
+            "",
             "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
             "",
             "",
@@ -2088,13 +2122,33 @@ public class InternalCinEditorLexer extends Lexer {
             this.transition = DFA12_transition;
         }
         public String getDescription() {
-            return "1:1: Tokens : ( T__11 | T__12 | T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | T__42 | T__43 | T__44 | T__45 | T__46 | T__47 | T__48 | T__49 | T__50 | T__51 | T__52 | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER );";
+            return "1:1: Tokens : ( T__11 | T__12 | T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | T__42 | T__43 | T__44 | T__45 | T__46 | T__47 | T__48 | T__49 | T__50 | T__51 | T__52 | T__53 | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER );";
         }
         public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
             IntStream input = _input;
         	int _s = s;
             switch ( s ) {
                     case 0 : 
+                        int LA12_36 = input.LA(1);
+
+                        s = -1;
+                        if ( ((LA12_36>='\u0000' && LA12_36<='\uFFFF')) ) {s = 81;}
+
+                        else s = 39;
+
+                        if ( s>=0 ) return s;
+                        break;
+                    case 1 : 
+                        int LA12_35 = input.LA(1);
+
+                        s = -1;
+                        if ( ((LA12_35>='\u0000' && LA12_35<='\uFFFF')) ) {s = 81;}
+
+                        else s = 39;
+
+                        if ( s>=0 ) return s;
+                        break;
+                    case 2 : 
                         int LA12_0 = input.LA(1);
 
                         s = -1;
@@ -2126,19 +2180,19 @@ public class InternalCinEditorLexer extends Lexer {
 
                         else if ( (LA12_0=='x') ) {s = 14;}
 
-                        else if ( (LA12_0=='o') ) {s = 15;}
+                        else if ( (LA12_0=='s') ) {s = 15;}
 
-                        else if ( (LA12_0=='-') ) {s = 16;}
+                        else if ( (LA12_0=='o') ) {s = 16;}
 
-                        else if ( (LA12_0=='.') ) {s = 17;}
+                        else if ( (LA12_0=='-') ) {s = 17;}
 
-                        else if ( (LA12_0=='A') ) {s = 18;}
+                        else if ( (LA12_0=='.') ) {s = 18;}
 
-                        else if ( (LA12_0=='=') ) {s = 19;}
+                        else if ( (LA12_0=='A') ) {s = 19;}
 
-                        else if ( (LA12_0=='v') ) {s = 20;}
+                        else if ( (LA12_0=='=') ) {s = 20;}
 
-                        else if ( (LA12_0=='s') ) {s = 21;}
+                        else if ( (LA12_0=='v') ) {s = 21;}
 
                         else if ( (LA12_0=='T') ) {s = 22;}
 
@@ -2175,26 +2229,6 @@ public class InternalCinEditorLexer extends Lexer {
                         else if ( ((LA12_0>='\t' && LA12_0<='\n')||LA12_0=='\r'||LA12_0==' ') ) {s = 38;}
 
                         else if ( ((LA12_0>='\u0000' && LA12_0<='\b')||(LA12_0>='\u000B' && LA12_0<='\f')||(LA12_0>='\u000E' && LA12_0<='\u001F')||LA12_0=='!'||(LA12_0>='#' && LA12_0<='&')||(LA12_0>='*' && LA12_0<='+')||(LA12_0>=':' && LA12_0<='<')||(LA12_0>='>' && LA12_0<='@')||LA12_0=='\\'||LA12_0=='`'||(LA12_0>='{' && LA12_0<='\uFFFF')) ) {s = 39;}
-
-                        if ( s>=0 ) return s;
-                        break;
-                    case 1 : 
-                        int LA12_35 = input.LA(1);
-
-                        s = -1;
-                        if ( ((LA12_35>='\u0000' && LA12_35<='\uFFFF')) ) {s = 81;}
-
-                        else s = 39;
-
-                        if ( s>=0 ) return s;
-                        break;
-                    case 2 : 
-                        int LA12_36 = input.LA(1);
-
-                        s = -1;
-                        if ( ((LA12_36>='\u0000' && LA12_36<='\uFFFF')) ) {s = 81;}
-
-                        else s = 39;
 
                         if ( s>=0 ) return s;
                         break;

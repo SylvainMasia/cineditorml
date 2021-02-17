@@ -33,7 +33,7 @@ clip1b = VideoFileClip("./assets/scenario2/alice_cast.mp4", audio=True)\
 	.subclip(121, 141)
 
 s3 = TextClip("Video sur les mathematiques", color='#e3e3e3', fontsize=35)\
-	.set_start(89)\
+	.set_start(99)\
 	.set_duration(15)\
 	.set_pos(('center', 'bottom'))
 
@@ -43,5 +43,5 @@ bye = TextClip("C'était le setup d'Alice", color='#0000ff', fontsize=50)\
 	.set_pos(('center', 'center'))
 
 
-video = CompositeVideoClip([background, title, clip1a, s1, s2, clip1b, s3, bye], size=(movie_width,movie_height)).set_duration(129)
-video.write_videofile('./alice_cast.mp4', codec='mpeg4', bitrate='5000k', fps=30)
+final_video = CompositeVideoClip([background, title, clip1a, s1, s2, clip1b, s3, bye], size=(movie_width,movie_height)).set_duration(129)
+final_video.write_videofile('./alice_cast.mp4', codec='mpeg4', bitrate='5000k', fps=30)

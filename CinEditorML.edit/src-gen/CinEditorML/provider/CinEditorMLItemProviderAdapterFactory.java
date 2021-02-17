@@ -464,6 +464,29 @@ public class CinEditorMLItemProviderAdapterFactory extends CinEditorMLAdapterFac
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link CinEditorML.TemporalPosition} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected TemporalPositionItemProvider temporalPositionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link CinEditorML.TemporalPosition}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createTemporalPositionAdapter() {
+		if (temporalPositionItemProvider == null) {
+			temporalPositionItemProvider = new TemporalPositionItemProvider(this);
+		}
+
+		return temporalPositionItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -596,6 +619,8 @@ public class CinEditorMLItemProviderAdapterFactory extends CinEditorMLAdapterFac
 			audioElementItemProvider.dispose();
 		if (marginItemProvider != null)
 			marginItemProvider.dispose();
+		if (temporalPositionItemProvider != null)
+			temporalPositionItemProvider.dispose();
 	}
 
 }

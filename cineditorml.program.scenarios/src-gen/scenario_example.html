@@ -29,16 +29,24 @@
 			#timeline-indicator {
 				margin-left: 100px;
 				height: 15px;
-				position: relative;
 				background-color: #e3e3e3;
 			}
-			.timeline-indicator-element {
-				width: 2px;
-				height: 100%;
-				position: absolute;
-				background-color: #000;
+			#container-timeline-indicator {
+				height: 15px;
+				position: relative;
+				left: 100px;
+				width: calc(100% - 100px);
+				top: -15px;
 			}
-			body {
+			.timeline-indicator-element {
+				height: 100%;
+				top: 100%;
+				transform: translate(-50%, 0);
+				position: absolute;
+			}
+			.timeline-indicator-element::before {
+				content: "";				width: 2px;				height: 100%;				left: 50%;				position: absolute;
+				background-color: black;				top: -100%;}			body {
 				margin: 0;
 				padding: 0;
 				padding: 0;
@@ -48,19 +56,16 @@
 	</head>
 	<body>
 		<div class="layer">
-			<div class="layer-name" style=" top: 0px; height: 56px;">				Layer 0
+			<div class="layer-name" style=" top: 0px; height: 28px;">				Layer 0
 			</div>
 			<div class="layer-timeline">
-			<div class="layer-element" style=" width:24%; background-color: #000; margin-left:0%; height:27px;">
-background
-			</div>
 			<div class="layer-element" style=" width:24%; background-color: #000; margin-left:0%; height:27px;">
 music
 			</div>
 			</div>
 		</div>
 		<div class="layer">
-			<div class="layer-name" style=" top: 57px; height: 84px;">				Layer 1
+			<div class="layer-name" style=" top: 29px; height: 84px;">				Layer 1
 			</div>
 			<div class="layer-timeline">
 			<div class="layer-element" style=" width:12%; background-color: #000; margin-left:0%; height:27px;">
@@ -75,7 +80,7 @@ petitRec
 			</div>
 		</div>
 		<div class="layer">
-			<div class="layer-name" style=" top: 142px; height: 28px;">				Layer 2
+			<div class="layer-name" style=" top: 114px; height: 28px;">				Layer 2
 			</div>
 			<div class="layer-timeline">
 			<div class="layer-element" style=" width:18%; background-color: #000; margin-left:0%; height:27px;">
@@ -84,7 +89,7 @@ video
 			</div>
 		</div>
 		<div class="layer">
-			<div class="layer-name" style=" top: 171px; height: 56px;">				Layer 3
+			<div class="layer-name" style=" top: 143px; height: 56px;">				Layer 3
 			</div>
 			<div class="layer-timeline">
 			<div class="layer-element" style=" width:12%; background-color: #000; margin-left:0%; height:27px;">
@@ -96,7 +101,7 @@ bonjour
 			</div>
 		</div>
 		<div class="layer">
-			<div class="layer-name" style=" top: 228px; height: 28px;">				Layer 4
+			<div class="layer-name" style=" top: 200px; height: 28px;">				Layer 4
 			</div>
 			<div class="layer-timeline">
 			<div class="layer-element" style=" width:24%; background-color: #000; margin-left:0%; height:27px;">
@@ -104,7 +109,8 @@ pic1
 			</div>
 			</div>
 		</div>
-		<div id="timeline-indicator" style="width: calc(24% - 24px);">
-<div class="timeline-indicator-element" style="left: calc(0% -  0px);">0s</div></div>
+		<div id="timeline-indicator" style="width: calc(24% - 24px);"></div>
+		<div id="container-timeline-indicator">
+			<div class="timeline-indicator-element" style="left: 0%;">0s</div>			<div class="timeline-indicator-element" style="left: 18%;">3s</div>			<div class="timeline-indicator-element" style="left: 24%">4s</div>		</div>
 	</body>
 </html>

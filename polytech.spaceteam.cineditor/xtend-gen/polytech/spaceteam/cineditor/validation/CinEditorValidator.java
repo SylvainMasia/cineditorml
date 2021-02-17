@@ -184,6 +184,16 @@ public class CinEditorValidator extends AbstractCinEditorValidator {
   }
   
   @Check
+  public void checkTemporalPosition(final Element element) {
+    if (((element.getTemporalPosition() != null) && (element.getTemporalPosition().getElementToStartAfter() != null))) {
+      boolean _equals = element.getName().equals(element.getTemporalPosition().getElementToStartAfter().getName());
+      if (_equals) {
+        this.error("The element to start after can not be the same element", CinEditorMLPackage.Literals.ELEMENT__TEMPORAL_POSITION);
+      }
+    }
+  }
+  
+  @Check
   public void checkShapeColor(final HexadecimalColor color) {
     final Pattern p = Pattern.compile("^([a-fA-F0-9]{6}|[a-fA-F0-9]{3})$");
     final Matcher m = p.matcher(color.getHexadecimalValue());

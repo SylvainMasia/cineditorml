@@ -1,11 +1,10 @@
 Movie scenario_stacking_transitions dimension 1280 x 720 fps 30
 	Layer
-		Rectangle background = color '000' during 44
 		Text text = 'Introduction' fontSize 35 position (center, center) during 7 color 'fff'
-		Audio voix = './assets/scenario_stacking/voix.mp3' on background
-		Video backgroundvideo = './assets/scenario_stacking/rugby.mp4' audio false dimension 1280 x 720 startAt 7 during 10
-		Video backgroundvideo2 = './assets/scenario_stacking/rugby.mp4' audio false dimension 1280 x 720 startAt 17 cropAt 20 during 10
-		Video backgroundvideo3 = './assets/scenario_stacking/rugby.mp4' audio false dimension 1280 x 720 startAt 27 cropAt 133 during 10
+		Audio voix = './assets/scenario_stacking/voix.mp3' during 44
+		Video backgroundvideo = './assets/scenario_stacking/rugby.mp4' audio false dimension 1280 x 720 startAfter text during 10
+		Video backgroundvideo2 = './assets/scenario_stacking/rugby.mp4' audio false dimension 1280 x 720 startAfter backgroundvideo cropAt 20 during 10
+		Video backgroundvideo3 = './assets/scenario_stacking/rugby.mp4' audio false dimension 1280 x 720 startAfter backgroundvideo2 cropAt 133 during 10
 		Effect out = FadeOut during 1 on [backgroundvideo, backgroundvideo2]
 		Effect in = FadeIn during 1 on [backgroundvideo, backgroundvideo2, backgroundvideo3] 
 		Video bobvideo = './assets/scenario_stacking/bob.mp4' 

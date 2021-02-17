@@ -178,22 +178,31 @@ public interface CinEditorMLPackage extends EPackage {
 	int ELEMENT__DURATION = 0;
 
 	/**
-	 * The feature id for the '<em><b>Begin Time</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ELEMENT__BEGIN_TIME = 1;
-
-	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT__NAME = 2;
+	int ELEMENT__NAME = 1;
+
+	/**
+	 * The feature id for the '<em><b>Temporal Position</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ELEMENT__TEMPORAL_POSITION = 2;
+
+	/**
+	 * The feature id for the '<em><b>Ending Time</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ELEMENT__ENDING_TIME = 3;
 
 	/**
 	 * The number of structural features of the '<em>Element</em>' class.
@@ -202,7 +211,7 @@ public interface CinEditorMLPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_FEATURE_COUNT = 3;
+	int ELEMENT_FEATURE_COUNT = 4;
 
 	/**
 	 * The number of operations of the '<em>Element</em>' class.
@@ -233,15 +242,6 @@ public interface CinEditorMLPackage extends EPackage {
 	int GRAPHICAL_ELEMENT__DURATION = ELEMENT__DURATION;
 
 	/**
-	 * The feature id for the '<em><b>Begin Time</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GRAPHICAL_ELEMENT__BEGIN_TIME = ELEMENT__BEGIN_TIME;
-
-	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -249,6 +249,24 @@ public interface CinEditorMLPackage extends EPackage {
 	 * @ordered
 	 */
 	int GRAPHICAL_ELEMENT__NAME = ELEMENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Temporal Position</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GRAPHICAL_ELEMENT__TEMPORAL_POSITION = ELEMENT__TEMPORAL_POSITION;
+
+	/**
+	 * The feature id for the '<em><b>Ending Time</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GRAPHICAL_ELEMENT__ENDING_TIME = ELEMENT__ENDING_TIME;
 
 	/**
 	 * The feature id for the '<em><b>Position</b></em>' containment reference.
@@ -315,15 +333,6 @@ public interface CinEditorMLPackage extends EPackage {
 	int TEXT__DURATION = GRAPHICAL_ELEMENT__DURATION;
 
 	/**
-	 * The feature id for the '<em><b>Begin Time</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TEXT__BEGIN_TIME = GRAPHICAL_ELEMENT__BEGIN_TIME;
-
-	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -331,6 +340,24 @@ public interface CinEditorMLPackage extends EPackage {
 	 * @ordered
 	 */
 	int TEXT__NAME = GRAPHICAL_ELEMENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Temporal Position</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT__TEMPORAL_POSITION = GRAPHICAL_ELEMENT__TEMPORAL_POSITION;
+
+	/**
+	 * The feature id for the '<em><b>Ending Time</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT__ENDING_TIME = GRAPHICAL_ELEMENT__ENDING_TIME;
 
 	/**
 	 * The feature id for the '<em><b>Position</b></em>' containment reference.
@@ -424,15 +451,6 @@ public interface CinEditorMLPackage extends EPackage {
 	int PICTURE__DURATION = GRAPHICAL_ELEMENT__DURATION;
 
 	/**
-	 * The feature id for the '<em><b>Begin Time</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PICTURE__BEGIN_TIME = GRAPHICAL_ELEMENT__BEGIN_TIME;
-
-	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -440,6 +458,24 @@ public interface CinEditorMLPackage extends EPackage {
 	 * @ordered
 	 */
 	int PICTURE__NAME = GRAPHICAL_ELEMENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Temporal Position</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PICTURE__TEMPORAL_POSITION = GRAPHICAL_ELEMENT__TEMPORAL_POSITION;
+
+	/**
+	 * The feature id for the '<em><b>Ending Time</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PICTURE__ENDING_TIME = GRAPHICAL_ELEMENT__ENDING_TIME;
 
 	/**
 	 * The feature id for the '<em><b>Position</b></em>' containment reference.
@@ -515,15 +551,6 @@ public interface CinEditorMLPackage extends EPackage {
 	int VIDEO__DURATION = GRAPHICAL_ELEMENT__DURATION;
 
 	/**
-	 * The feature id for the '<em><b>Begin Time</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VIDEO__BEGIN_TIME = GRAPHICAL_ELEMENT__BEGIN_TIME;
-
-	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -531,6 +558,24 @@ public interface CinEditorMLPackage extends EPackage {
 	 * @ordered
 	 */
 	int VIDEO__NAME = GRAPHICAL_ELEMENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Temporal Position</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIDEO__TEMPORAL_POSITION = GRAPHICAL_ELEMENT__TEMPORAL_POSITION;
+
+	/**
+	 * The feature id for the '<em><b>Ending Time</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIDEO__ENDING_TIME = GRAPHICAL_ELEMENT__ENDING_TIME;
 
 	/**
 	 * The feature id for the '<em><b>Position</b></em>' containment reference.
@@ -624,15 +669,6 @@ public interface CinEditorMLPackage extends EPackage {
 	int EFFECT__DURATION = ELEMENT__DURATION;
 
 	/**
-	 * The feature id for the '<em><b>Begin Time</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EFFECT__BEGIN_TIME = ELEMENT__BEGIN_TIME;
-
-	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -640,6 +676,24 @@ public interface CinEditorMLPackage extends EPackage {
 	 * @ordered
 	 */
 	int EFFECT__NAME = ELEMENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Temporal Position</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EFFECT__TEMPORAL_POSITION = ELEMENT__TEMPORAL_POSITION;
+
+	/**
+	 * The feature id for the '<em><b>Ending Time</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EFFECT__ENDING_TIME = ELEMENT__ENDING_TIME;
 
 	/**
 	 * The feature id for the '<em><b>Elements</b></em>' reference list.
@@ -688,15 +742,6 @@ public interface CinEditorMLPackage extends EPackage {
 	int FADE_IN__DURATION = EFFECT__DURATION;
 
 	/**
-	 * The feature id for the '<em><b>Begin Time</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FADE_IN__BEGIN_TIME = EFFECT__BEGIN_TIME;
-
-	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -704,6 +749,24 @@ public interface CinEditorMLPackage extends EPackage {
 	 * @ordered
 	 */
 	int FADE_IN__NAME = EFFECT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Temporal Position</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FADE_IN__TEMPORAL_POSITION = EFFECT__TEMPORAL_POSITION;
+
+	/**
+	 * The feature id for the '<em><b>Ending Time</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FADE_IN__ENDING_TIME = EFFECT__ENDING_TIME;
 
 	/**
 	 * The feature id for the '<em><b>Elements</b></em>' reference list.
@@ -752,15 +815,6 @@ public interface CinEditorMLPackage extends EPackage {
 	int FADE_OUT__DURATION = EFFECT__DURATION;
 
 	/**
-	 * The feature id for the '<em><b>Begin Time</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FADE_OUT__BEGIN_TIME = EFFECT__BEGIN_TIME;
-
-	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -768,6 +822,24 @@ public interface CinEditorMLPackage extends EPackage {
 	 * @ordered
 	 */
 	int FADE_OUT__NAME = EFFECT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Temporal Position</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FADE_OUT__TEMPORAL_POSITION = EFFECT__TEMPORAL_POSITION;
+
+	/**
+	 * The feature id for the '<em><b>Ending Time</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FADE_OUT__ENDING_TIME = EFFECT__ENDING_TIME;
 
 	/**
 	 * The feature id for the '<em><b>Elements</b></em>' reference list.
@@ -816,15 +888,6 @@ public interface CinEditorMLPackage extends EPackage {
 	int TRANSLATE__DURATION = EFFECT__DURATION;
 
 	/**
-	 * The feature id for the '<em><b>Begin Time</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRANSLATE__BEGIN_TIME = EFFECT__BEGIN_TIME;
-
-	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -832,6 +895,24 @@ public interface CinEditorMLPackage extends EPackage {
 	 * @ordered
 	 */
 	int TRANSLATE__NAME = EFFECT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Temporal Position</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRANSLATE__TEMPORAL_POSITION = EFFECT__TEMPORAL_POSITION;
+
+	/**
+	 * The feature id for the '<em><b>Ending Time</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRANSLATE__ENDING_TIME = EFFECT__ENDING_TIME;
 
 	/**
 	 * The feature id for the '<em><b>Elements</b></em>' reference list.
@@ -889,15 +970,6 @@ public interface CinEditorMLPackage extends EPackage {
 	int SHAPE__DURATION = GRAPHICAL_ELEMENT__DURATION;
 
 	/**
-	 * The feature id for the '<em><b>Begin Time</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SHAPE__BEGIN_TIME = GRAPHICAL_ELEMENT__BEGIN_TIME;
-
-	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -905,6 +977,24 @@ public interface CinEditorMLPackage extends EPackage {
 	 * @ordered
 	 */
 	int SHAPE__NAME = GRAPHICAL_ELEMENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Temporal Position</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SHAPE__TEMPORAL_POSITION = GRAPHICAL_ELEMENT__TEMPORAL_POSITION;
+
+	/**
+	 * The feature id for the '<em><b>Ending Time</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SHAPE__ENDING_TIME = GRAPHICAL_ELEMENT__ENDING_TIME;
 
 	/**
 	 * The feature id for the '<em><b>Position</b></em>' containment reference.
@@ -1026,15 +1116,6 @@ public interface CinEditorMLPackage extends EPackage {
 	int RECTANGLE__DURATION = SHAPE__DURATION;
 
 	/**
-	 * The feature id for the '<em><b>Begin Time</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RECTANGLE__BEGIN_TIME = SHAPE__BEGIN_TIME;
-
-	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1042,6 +1123,24 @@ public interface CinEditorMLPackage extends EPackage {
 	 * @ordered
 	 */
 	int RECTANGLE__NAME = SHAPE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Temporal Position</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RECTANGLE__TEMPORAL_POSITION = SHAPE__TEMPORAL_POSITION;
+
+	/**
+	 * The feature id for the '<em><b>Ending Time</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RECTANGLE__ENDING_TIME = SHAPE__ENDING_TIME;
 
 	/**
 	 * The feature id for the '<em><b>Position</b></em>' containment reference.
@@ -1302,15 +1401,6 @@ public interface CinEditorMLPackage extends EPackage {
 	int AUDIO_ELEMENT__DURATION = ELEMENT__DURATION;
 
 	/**
-	 * The feature id for the '<em><b>Begin Time</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int AUDIO_ELEMENT__BEGIN_TIME = ELEMENT__BEGIN_TIME;
-
-	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1318,6 +1408,24 @@ public interface CinEditorMLPackage extends EPackage {
 	 * @ordered
 	 */
 	int AUDIO_ELEMENT__NAME = ELEMENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Temporal Position</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AUDIO_ELEMENT__TEMPORAL_POSITION = ELEMENT__TEMPORAL_POSITION;
+
+	/**
+	 * The feature id for the '<em><b>Ending Time</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AUDIO_ELEMENT__ENDING_TIME = ELEMENT__ENDING_TIME;
 
 	/**
 	 * The feature id for the '<em><b>Url</b></em>' attribute.
@@ -1329,22 +1437,13 @@ public interface CinEditorMLPackage extends EPackage {
 	int AUDIO_ELEMENT__URL = ELEMENT_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Element</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int AUDIO_ELEMENT__ELEMENT = ELEMENT_FEATURE_COUNT + 1;
-
-	/**
 	 * The feature id for the '<em><b>Fade In</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int AUDIO_ELEMENT__FADE_IN = ELEMENT_FEATURE_COUNT + 2;
+	int AUDIO_ELEMENT__FADE_IN = ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Fade Out</b></em>' attribute.
@@ -1353,7 +1452,7 @@ public interface CinEditorMLPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AUDIO_ELEMENT__FADE_OUT = ELEMENT_FEATURE_COUNT + 3;
+	int AUDIO_ELEMENT__FADE_OUT = ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Volume</b></em>' attribute.
@@ -1362,7 +1461,7 @@ public interface CinEditorMLPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AUDIO_ELEMENT__VOLUME = ELEMENT_FEATURE_COUNT + 4;
+	int AUDIO_ELEMENT__VOLUME = ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Begin Crop Time</b></em>' attribute.
@@ -1371,7 +1470,7 @@ public interface CinEditorMLPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AUDIO_ELEMENT__BEGIN_CROP_TIME = ELEMENT_FEATURE_COUNT + 5;
+	int AUDIO_ELEMENT__BEGIN_CROP_TIME = ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of structural features of the '<em>Audio Element</em>' class.
@@ -1380,7 +1479,7 @@ public interface CinEditorMLPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AUDIO_ELEMENT_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 6;
+	int AUDIO_ELEMENT_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of operations of the '<em>Audio Element</em>' class.
@@ -1456,6 +1555,52 @@ public interface CinEditorMLPackage extends EPackage {
 	int MARGIN_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link CinEditorML.impl.TemporalPositionImpl <em>Temporal Position</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see CinEditorML.impl.TemporalPositionImpl
+	 * @see CinEditorML.impl.CinEditorMLPackageImpl#getTemporalPosition()
+	 * @generated
+	 */
+	int TEMPORAL_POSITION = 21;
+
+	/**
+	 * The feature id for the '<em><b>Begin Time</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEMPORAL_POSITION__BEGIN_TIME = 0;
+
+	/**
+	 * The feature id for the '<em><b>Element To Start After</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEMPORAL_POSITION__ELEMENT_TO_START_AFTER = 1;
+
+	/**
+	 * The number of structural features of the '<em>Temporal Position</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEMPORAL_POSITION_FEATURE_COUNT = 2;
+
+	/**
+	 * The number of operations of the '<em>Temporal Position</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEMPORAL_POSITION_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link CinEditorML.MARGIN_NAME <em>MARGIN NAME</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1463,7 +1608,7 @@ public interface CinEditorMLPackage extends EPackage {
 	 * @see CinEditorML.impl.CinEditorMLPackageImpl#getMARGIN_NAME()
 	 * @generated
 	 */
-	int MARGIN_NAME = 21;
+	int MARGIN_NAME = 22;
 
 	/**
 	 * Returns the meta object for class '{@link CinEditorML.Movie <em>Movie</em>}'.
@@ -1669,17 +1814,6 @@ public interface CinEditorMLPackage extends EPackage {
 	EAttribute getElement_Duration();
 
 	/**
-	 * Returns the meta object for the attribute '{@link CinEditorML.Element#getBeginTime <em>Begin Time</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Begin Time</em>'.
-	 * @see CinEditorML.Element#getBeginTime()
-	 * @see #getElement()
-	 * @generated
-	 */
-	EAttribute getElement_BeginTime();
-
-	/**
 	 * Returns the meta object for the attribute '{@link CinEditorML.Element#getName <em>Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1689,6 +1823,28 @@ public interface CinEditorMLPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getElement_Name();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link CinEditorML.Element#getTemporalPosition <em>Temporal Position</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Temporal Position</em>'.
+	 * @see CinEditorML.Element#getTemporalPosition()
+	 * @see #getElement()
+	 * @generated
+	 */
+	EReference getElement_TemporalPosition();
+
+	/**
+	 * Returns the meta object for the attribute '{@link CinEditorML.Element#getEndingTime <em>Ending Time</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Ending Time</em>'.
+	 * @see CinEditorML.Element#getEndingTime()
+	 * @see #getElement()
+	 * @generated
+	 */
+	EAttribute getElement_EndingTime();
 
 	/**
 	 * Returns the meta object for class '{@link CinEditorML.Effect <em>Effect</em>}'.
@@ -1985,17 +2141,6 @@ public interface CinEditorMLPackage extends EPackage {
 	EAttribute getAudioElement_Url();
 
 	/**
-	 * Returns the meta object for the reference '{@link CinEditorML.AudioElement#getElement <em>Element</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Element</em>'.
-	 * @see CinEditorML.AudioElement#getElement()
-	 * @see #getAudioElement()
-	 * @generated
-	 */
-	EReference getAudioElement_Element();
-
-	/**
 	 * Returns the meta object for the attribute '{@link CinEditorML.AudioElement#getFadeIn <em>Fade In</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2092,6 +2237,38 @@ public interface CinEditorMLPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getMargin_MarginColorOpacity();
+
+	/**
+	 * Returns the meta object for class '{@link CinEditorML.TemporalPosition <em>Temporal Position</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Temporal Position</em>'.
+	 * @see CinEditorML.TemporalPosition
+	 * @generated
+	 */
+	EClass getTemporalPosition();
+
+	/**
+	 * Returns the meta object for the attribute '{@link CinEditorML.TemporalPosition#getBeginTime <em>Begin Time</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Begin Time</em>'.
+	 * @see CinEditorML.TemporalPosition#getBeginTime()
+	 * @see #getTemporalPosition()
+	 * @generated
+	 */
+	EAttribute getTemporalPosition_BeginTime();
+
+	/**
+	 * Returns the meta object for the reference '{@link CinEditorML.TemporalPosition#getElementToStartAfter <em>Element To Start After</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Element To Start After</em>'.
+	 * @see CinEditorML.TemporalPosition#getElementToStartAfter()
+	 * @see #getTemporalPosition()
+	 * @generated
+	 */
+	EReference getTemporalPosition_ElementToStartAfter();
 
 	/**
 	 * Returns the meta object for enum '{@link CinEditorML.MARGIN_NAME <em>MARGIN NAME</em>}'.
@@ -2291,20 +2468,28 @@ public interface CinEditorMLPackage extends EPackage {
 		EAttribute ELEMENT__DURATION = eINSTANCE.getElement_Duration();
 
 		/**
-		 * The meta object literal for the '<em><b>Begin Time</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute ELEMENT__BEGIN_TIME = eINSTANCE.getElement_BeginTime();
-
-		/**
 		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EAttribute ELEMENT__NAME = eINSTANCE.getElement_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Temporal Position</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ELEMENT__TEMPORAL_POSITION = eINSTANCE.getElement_TemporalPosition();
+
+		/**
+		 * The meta object literal for the '<em><b>Ending Time</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ELEMENT__ENDING_TIME = eINSTANCE.getElement_EndingTime();
 
 		/**
 		 * The meta object literal for the '{@link CinEditorML.impl.EffectImpl <em>Effect</em>}' class.
@@ -2559,14 +2744,6 @@ public interface CinEditorMLPackage extends EPackage {
 		EAttribute AUDIO_ELEMENT__URL = eINSTANCE.getAudioElement_Url();
 
 		/**
-		 * The meta object literal for the '<em><b>Element</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference AUDIO_ELEMENT__ELEMENT = eINSTANCE.getAudioElement_Element();
-
-		/**
 		 * The meta object literal for the '<em><b>Fade In</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2639,6 +2816,32 @@ public interface CinEditorMLPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute MARGIN__MARGIN_COLOR_OPACITY = eINSTANCE.getMargin_MarginColorOpacity();
+
+		/**
+		 * The meta object literal for the '{@link CinEditorML.impl.TemporalPositionImpl <em>Temporal Position</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see CinEditorML.impl.TemporalPositionImpl
+		 * @see CinEditorML.impl.CinEditorMLPackageImpl#getTemporalPosition()
+		 * @generated
+		 */
+		EClass TEMPORAL_POSITION = eINSTANCE.getTemporalPosition();
+
+		/**
+		 * The meta object literal for the '<em><b>Begin Time</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TEMPORAL_POSITION__BEGIN_TIME = eINSTANCE.getTemporalPosition_BeginTime();
+
+		/**
+		 * The meta object literal for the '<em><b>Element To Start After</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TEMPORAL_POSITION__ELEMENT_TO_START_AFTER = eINSTANCE.getTemporalPosition_ElementToStartAfter();
 
 		/**
 		 * The meta object literal for the '{@link CinEditorML.MARGIN_NAME <em>MARGIN NAME</em>}' enum.

@@ -12,7 +12,6 @@ package CinEditorML;
  * </p>
  * <ul>
  *   <li>{@link CinEditorML.AudioElement#getUrl <em>Url</em>}</li>
- *   <li>{@link CinEditorML.AudioElement#getElement <em>Element</em>}</li>
  *   <li>{@link CinEditorML.AudioElement#getFadeIn <em>Fade In</em>}</li>
  *   <li>{@link CinEditorML.AudioElement#getFadeOut <em>Fade Out</em>}</li>
  *   <li>{@link CinEditorML.AudioElement#getVolume <em>Volume</em>}</li>
@@ -49,32 +48,6 @@ public interface AudioElement extends Element {
 	 * @generated
 	 */
 	void setUrl(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Element</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Element</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Element</em>' reference.
-	 * @see #setElement(GraphicalElement)
-	 * @see CinEditorML.CinEditorMLPackage#getAudioElement_Element()
-	 * @model required="true"
-	 * @generated
-	 */
-	GraphicalElement getElement();
-
-	/**
-	 * Sets the value of the '{@link CinEditorML.AudioElement#getElement <em>Element</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Element</em>' reference.
-	 * @see #getElement()
-	 * @generated
-	 */
-	void setElement(GraphicalElement value);
 
 	/**
 	 * Returns the value of the '<em><b>Fade In</b></em>' attribute.

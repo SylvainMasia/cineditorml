@@ -35,9 +35,11 @@
   <eClassifiers xsi:type="ecore:EClass" name="Element" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="duration" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
         defaultValueLiteral="-1"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="beginTime" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
-        defaultValueLiteral="0"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="temporalPosition" eType="#//TemporalPosition"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="endingTime" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+        defaultValueLiteral="0"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Effect" abstract="true" eSuperTypes="#//Element">
     <eStructuralFeatures xsi:type="ecore:EReference" name="elements" lowerBound="1"
@@ -62,9 +64,9 @@
   <eClassifiers xsi:type="ecore:EClass" name="Rectangle" eSuperTypes="#//Shape"/>
   <eClassifiers xsi:type="ecore:EClass" name="Dimension">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="width" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
-        defaultValueLiteral="0"/>
+        defaultValueLiteral="-1"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="height" lowerBound="1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" defaultValueLiteral="0"/>
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" defaultValueLiteral="-1"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="HexadecimalColor">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="hexadecimalValue" lowerBound="1"
@@ -89,8 +91,6 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AudioElement" eSuperTypes="#//Element">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="url" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="element" lowerBound="1"
-        eType="#//GraphicalElement"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="fadeIn" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
         defaultValueLiteral="0"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="fadeOut" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
@@ -114,5 +114,10 @@
     <eLiterals name="RIGHT" value="1"/>
     <eLiterals name="TOP" value="2"/>
     <eLiterals name="BOTTOM" value="3"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TemporalPosition">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="beginTime" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+        defaultValueLiteral="0"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="elementToStartAfter" eType="#//Element"/>
   </eClassifiers>
 </ecore:EPackage>

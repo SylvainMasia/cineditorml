@@ -22,6 +22,7 @@ import CinEditorML.Picture;
 import CinEditorML.Position;
 import CinEditorML.Rectangle;
 import CinEditorML.Shape;
+import CinEditorML.TemporalPosition;
 import CinEditorML.Text;
 import CinEditorML.Translate;
 import CinEditorML.Video;
@@ -99,9 +100,31 @@ public class CinEditorGenerator extends AbstractGenerator {
       EList<Element> _elements = layer.getElements();
       for (final Element element : _elements) {
         if (((element instanceof AudioElement) || (element instanceof GraphicalElement))) {
-          int _beginTime = element.getBeginTime();
+          int tmpDuration = 0;
           int _duration = element.getDuration();
-          int tmpDuration = (_beginTime + _duration);
+          boolean _greaterThan = (_duration > 0);
+          if (_greaterThan) {
+            tmpDuration = element.getDuration();
+          }
+          TemporalPosition _temporalPosition = element.getTemporalPosition();
+          boolean _tripleNotEquals = (_temporalPosition != null);
+          if (_tripleNotEquals) {
+            Element _elementToStartAfter = element.getTemporalPosition().getElementToStartAfter();
+            boolean _tripleNotEquals_1 = (_elementToStartAfter != null);
+            if (_tripleNotEquals_1) {
+              int _tmpDuration = tmpDuration;
+              int _endingTime = element.getTemporalPosition().getElementToStartAfter().getEndingTime();
+              tmpDuration = (_tmpDuration + _endingTime);
+            }
+            int _beginTime = element.getTemporalPosition().getBeginTime();
+            boolean _greaterThan_1 = (_beginTime > 0);
+            if (_greaterThan_1) {
+              int _tmpDuration_1 = tmpDuration;
+              int _beginTime_1 = element.getTemporalPosition().getBeginTime();
+              tmpDuration = (_tmpDuration_1 + _beginTime_1);
+            }
+          }
+          element.setEndingTime(tmpDuration);
           if ((tmpDuration > this.totalMovieDuration)) {
             this.totalMovieDuration = tmpDuration;
           }
@@ -188,14 +211,28 @@ public class CinEditorGenerator extends AbstractGenerator {
   
   private String extractBeginTimeFromElement(final Element element) {
     String s = "";
-    int _beginTime = element.getBeginTime();
-    boolean _greaterThan = (_beginTime > 0);
-    if (_greaterThan) {
+    int duration = 0;
+    TemporalPosition _temporalPosition = element.getTemporalPosition();
+    boolean _tripleNotEquals = (_temporalPosition != null);
+    if (_tripleNotEquals) {
+      Element _elementToStartAfter = element.getTemporalPosition().getElementToStartAfter();
+      boolean _tripleNotEquals_1 = (_elementToStartAfter != null);
+      if (_tripleNotEquals_1) {
+        int _duration = duration;
+        int _endingTime = element.getTemporalPosition().getElementToStartAfter().getEndingTime();
+        duration = (_duration + _endingTime);
+      }
+      int _beginTime = element.getTemporalPosition().getBeginTime();
+      boolean _greaterThan = (_beginTime > 0);
+      if (_greaterThan) {
+        int _duration_1 = duration;
+        int _beginTime_1 = element.getTemporalPosition().getBeginTime();
+        duration = (_duration_1 + _beginTime_1);
+      }
+    }
+    if ((duration > 0)) {
       String _s = s;
-      int _beginTime_1 = element.getBeginTime();
-      String _plus = ("\\\n\t.set_start(" + Integer.valueOf(_beginTime_1));
-      String _plus_1 = (_plus + ")");
-      s = (_s + _plus_1);
+      s = (_s + (("\\\n\t.set_start(" + Integer.valueOf(duration)) + ")"));
     }
     return s;
   }
@@ -217,10 +254,20 @@ public class CinEditorGenerator extends AbstractGenerator {
       if (_equals) {
         String _s = s;
         s = (_s + (("\\\n\t.set_duration(" + Integer.valueOf(duration)) + ")"));
+      } else {
+        if ((element instanceof AudioElement)) {
+          AudioElement audio = ((AudioElement) element);
+          int _beginCropTime_1 = audio.getBeginCropTime();
+          boolean _equals_1 = (_beginCropTime_1 == 0);
+          if (_equals_1) {
+            String _s_1 = s;
+            s = (_s_1 + (("\\\n\t.set_duration(" + Integer.valueOf(duration)) + ")"));
+          }
+        }
       }
     } else {
-      String _s_1 = s;
-      s = (_s_1 + (("\\\n\t.set_duration(" + Integer.valueOf(duration)) + ")"));
+      String _s_2 = s;
+      s = (_s_2 + (("\\\n\t.set_duration(" + Integer.valueOf(duration)) + ")"));
     }
     return s;
   }
@@ -464,15 +511,15 @@ public class CinEditorGenerator extends AbstractGenerator {
     String _plus_21 = (_plus_20 + fadeOut);
     String s = (_plus_21 + "\n");
     String _s = s;
-    String _name_1 = element.getElement().getName();
-    String _plus_22 = (_name_1 + " = ");
-    String _name_2 = element.getElement().getName();
+    String _name_1 = element.getName();
+    String _plus_22 = (_name_1 + "_fake_audio_attached = ColorClip(size=(0, 0), col=[0,0,0]).set_audio(");
+    String _name_2 = element.getName();
     String _plus_23 = (_plus_22 + _name_2);
-    String _plus_24 = (_plus_23 + ".set_audio(");
+    String _plus_24 = (_plus_23 + ")\n\n");
+    s = (_s + _plus_24);
     String _name_3 = element.getName();
-    String _plus_25 = (_plus_24 + _name_3);
-    String _plus_26 = (_plus_25 + ")\n\n");
-    s = (_s + _plus_26);
+    String _plus_25 = (_name_3 + "_fake_audio_attached");
+    this.elementsVarNames.add(_plus_25);
     return s;
   }
   
@@ -684,11 +731,15 @@ public class CinEditorGenerator extends AbstractGenerator {
     String _s_2 = s;
     s = (_s_2 + ((("\t\t\t.layer {\n" + "\t\t\t\tmargin-bottom: 1px;\n") + "\t\t\t\tdisplay: flex;\n") + "\t\t\t}\n"));
     String _s_3 = s;
-    s = (_s_3 + ((((("\t\t\t#timeline-indicator {\n" + "\t\t\t\tmargin-left: 100px;\n") + "\t\t\t\theight: 15px;\n") + "\t\t\t\tposition: relative;\n") + "\t\t\t\tbackground-color: #e3e3e3;\n") + "\t\t\t}\n"));
+    s = (_s_3 + (((("\t\t\t#timeline-indicator {\n" + "\t\t\t\tmargin-left: 100px;\n") + "\t\t\t\theight: 15px;\n") + "\t\t\t\tbackground-color: #e3e3e3;\n") + "\t\t\t}\n"));
     String _s_4 = s;
-    s = (_s_4 + ((((("\t\t\t.timeline-indicator-element {\n" + "\t\t\t\twidth: 2px;\n") + "\t\t\t\theight: 100%;\n") + "\t\t\t\tposition: absolute;\n") + "\t\t\t\tbackground-color: #000;\n") + "\t\t\t}\n"));
+    s = (_s_4 + (((((("\t\t\t#container-timeline-indicator {\n" + "\t\t\t\theight: 15px;\n") + "\t\t\t\tposition: relative;\n") + "\t\t\t\tleft: 100px;\n") + "\t\t\t\twidth: calc(100% - 100px);\n") + "\t\t\t\ttop: -15px;\n") + "\t\t\t}\n"));
     String _s_5 = s;
-    s = (_s_5 + ((((("\t\t\tbody {\n" + "\t\t\t\tmargin: 0;\n") + "\t\t\t\tpadding: 0;\n") + "\t\t\t\tpadding: 0;\n") + "\t\t\t\toverflow: auto;\n") + "\t\t\t}\n"));
+    s = (_s_5 + ((((("\t\t\t.timeline-indicator-element {\n" + "\t\t\t\theight: 100%;\n") + "\t\t\t\ttop: 100%;\n") + "\t\t\t\ttransform: translate(-50%, 0);\n") + "\t\t\t\tposition: absolute;\n") + "\t\t\t}\n"));
+    String _s_6 = s;
+    s = (_s_6 + (((((((("\t\t\t.timeline-indicator-element::before {\n" + "\t\t\t\tcontent: \"\";") + "\t\t\t\twidth: 2px;") + "\t\t\t\theight: 100%;") + "\t\t\t\tleft: 50%;") + "\t\t\t\tposition: absolute;\n") + "\t\t\t\tbackground-color: black;") + "\t\t\t\ttop: -100%;") + "}"));
+    String _s_7 = s;
+    s = (_s_7 + ((((("\t\t\tbody {\n" + "\t\t\t\tmargin: 0;\n") + "\t\t\t\tpadding: 0;\n") + "\t\t\t\tpadding: 0;\n") + "\t\t\t\toverflow: auto;\n") + "\t\t\t}\n"));
     return s;
   }
   
@@ -746,26 +797,61 @@ public class CinEditorGenerator extends AbstractGenerator {
             } else {
               duration = this.totalMovieDuration;
             }
-            String _s_9 = s;
-            s = (_s_9 + ((" width:" + Integer.valueOf((duration * this.ratio))) + "%;"));
+            int beginTime = 0;
+            TemporalPosition _temporalPosition = element.getTemporalPosition();
+            boolean _tripleNotEquals = (_temporalPosition != null);
+            if (_tripleNotEquals) {
+              int _beginTime = beginTime;
+              int _beginTime_1 = element.getTemporalPosition().getBeginTime();
+              beginTime = (_beginTime + _beginTime_1);
+              Element _elementToStartAfter = element.getTemporalPosition().getElementToStartAfter();
+              boolean _tripleNotEquals_1 = (_elementToStartAfter != null);
+              if (_tripleNotEquals_1) {
+                int _beginTime_2 = beginTime;
+                int _endingTime = element.getTemporalPosition().getElementToStartAfter().getEndingTime();
+                beginTime = (_beginTime_2 + _endingTime);
+              }
+            }
+            if ((element instanceof AudioElement)) {
+              int borderTopLeft = 4;
+              int borderTopRight = 4;
+              int _fadeIn = ((AudioElement)element).getFadeIn();
+              boolean _greaterThan_1 = (_fadeIn > 0);
+              if (_greaterThan_1) {
+                int _fadeIn_1 = ((AudioElement)element).getFadeIn();
+                int _multiply_2 = (_fadeIn_1 * 10);
+                int _multiply_3 = (_multiply_2 * this.ratio);
+                int _plus_6 = (1 + _multiply_3);
+                borderTopLeft = _plus_6;
+              }
+              int _fadeOut = ((AudioElement)element).getFadeOut();
+              boolean _greaterThan_2 = (_fadeOut > 0);
+              if (_greaterThan_2) {
+                int _fadeOut_1 = ((AudioElement)element).getFadeOut();
+                int _multiply_4 = (_fadeOut_1 * 10);
+                int _multiply_5 = (_multiply_4 * this.ratio);
+                int _plus_7 = (1 + _multiply_5);
+                borderTopRight = _plus_7;
+              }
+              String _s_9 = s;
+              s = (_s_9 + ((((" border-radius: " + Integer.valueOf(borderTopLeft)) + "px ") + Integer.valueOf(borderTopRight)) + "px 0 0;"));
+            }
             String _s_10 = s;
-            s = (_s_10 + " background-color: #000;");
+            s = (_s_10 + ((" width:" + Integer.valueOf((duration * this.ratio))) + "%;"));
             String _s_11 = s;
-            int _beginTime = element.getBeginTime();
-            int _multiply_2 = (_beginTime * this.ratio);
-            String _plus_6 = (" margin-left:" + Integer.valueOf(_multiply_2));
-            String _plus_7 = (_plus_6 + "%;");
-            s = (_s_11 + _plus_7);
+            s = (_s_11 + " background-color: #000;");
             String _s_12 = s;
-            s = (_s_12 + ((" height:" + Integer.valueOf(this.timelineElementHeight)) + "px;"));
+            s = (_s_12 + ((" margin-left:" + Integer.valueOf((beginTime * this.ratio))) + "%;"));
             String _s_13 = s;
-            s = (_s_13 + "\">\n");
+            s = (_s_13 + ((" height:" + Integer.valueOf(this.timelineElementHeight)) + "px;"));
             String _s_14 = s;
+            s = (_s_14 + "\">\n");
+            String _s_15 = s;
             String _name = element.getName();
             String _plus_8 = (_name + "\n");
-            s = (_s_14 + _plus_8);
-            String _s_15 = s;
-            s = (_s_15 + "\t\t\t</div>\n");
+            s = (_s_15 + _plus_8);
+            String _s_16 = s;
+            s = (_s_16 + "\t\t\t</div>\n");
           }
         }
         String _s_8 = s;
@@ -775,22 +861,26 @@ public class CinEditorGenerator extends AbstractGenerator {
       }
     }
     String _s = s;
-    s = (_s + (((("\t\t<div id=\"timeline-indicator\" style=\"width: calc(" + Integer.valueOf((this.totalMovieDuration * this.ratio))) + "% - ") + Integer.valueOf((this.totalMovieDuration * this.ratio))) + "px);\">\n"));
+    s = (_s + (((("\t\t<div id=\"timeline-indicator\" style=\"width: calc(" + Integer.valueOf((this.totalMovieDuration * this.ratio))) + "% - ") + Integer.valueOf((this.totalMovieDuration * this.ratio))) + "px);\"></div>\n"));
+    String _s_1 = s;
+    s = (_s_1 + "\t\t<div id=\"container-timeline-indicator\">\n");
     {
       int i = 0;
       boolean _while = (i < this.totalMovieDuration);
       while (_while) {
-        String _s_1 = s;
-        s = (_s_1 + (((((("<div class=\"timeline-indicator-element\" style=\"left: calc(" + Integer.valueOf((i * this.ratio))) + "% -  ") + Integer.valueOf(((i * this.totalMovieDuration) * this.ratio))) + "px);\">") + Integer.valueOf(i)) + "s</div>"));
+        String _s_2 = s;
+        s = (_s_2 + (((("\t\t\t<div class=\"timeline-indicator-element\" style=\"left: " + Integer.valueOf((i * this.ratio))) + "%;\">") + Integer.valueOf(i)) + "s</div>"));
         int _i = i;
-        i = (_i + 5);
+        i = (_i + 3);
         _while = (i < this.totalMovieDuration);
       }
     }
-    String _s_1 = s;
-    s = (_s_1 + "</div>\n");
     String _s_2 = s;
-    s = (_s_2 + ("\t</body>\n" + "</html>\n"));
+    s = (_s_2 + (((("\t\t\t<div class=\"timeline-indicator-element\" style=\"left: " + Integer.valueOf((this.totalMovieDuration * this.ratio))) + "%\">") + Integer.valueOf(this.totalMovieDuration)) + "s</div>"));
+    String _s_3 = s;
+    s = (_s_3 + "\t\t</div>\n");
+    String _s_4 = s;
+    s = (_s_4 + ("\t</body>\n" + "</html>\n"));
     return s;
   }
 }

@@ -172,6 +172,11 @@ public class CinEditorMLAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
+		public Adapter caseTemporalPosition(TemporalPosition object) {
+			return createTemporalPositionAdapter();
+		}
+
+		@Override
 		public Adapter defaultCase(EObject object) {
 			return createEObjectAdapter();
 		}
@@ -481,6 +486,20 @@ public class CinEditorMLAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createMarginAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link CinEditorML.TemporalPosition <em>Temporal Position</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see CinEditorML.TemporalPosition
+	 * @generated
+	 */
+	public Adapter createTemporalPositionAdapter() {
 		return null;
 	}
 
