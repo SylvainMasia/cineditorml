@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<style>
+			.layer-timeline {
+				position: relative;
+				margin-left: 100px;
+				width: 100%;
+			}
+			.layer-name {
+				z-index: 2;
+				position: fixed;
+				width: 100px;
+				background-color: #18abad;
+				color: #fff;
+				font-size: 18pt;
+			}
+			.layer-element {
+				color: #fff;
+				font-size: 15pt;
+				margin-left: 10px;
+				margin-bottom: 1px;
+				border-radius: 4px;
+			}
+			.layer {
+				margin-bottom: 1px;
+				display: flex;
+			}
+			#timeline-indicator {
+				margin-left: 100px;
+				height: 15px;
+				position: relative;
+				background-color: #e3e3e3;
+			}
+			.timeline-indicator-element {
+				width: 2px;
+				height: 100%;
+				position: absolute;
+				background-color: #000;
+			}
+			body {
+				margin: 0;
+				padding: 0;
+				padding: 0;
+				overflow: auto;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="layer">
+			<div class="layer-name" style=" top: 0px; height: 56px;">				Layer 0
+			</div>
+			<div class="layer-timeline">
+			<div class="layer-element" style=" width:48%; background-color: #000; margin-left:0%; height:27px;">
+background
+			</div>
+			<div class="layer-element" style=" width:48%; background-color: #000; margin-left:0%; height:27px;">
+music
+			</div>
+			</div>
+		</div>
+		<div class="layer">
+			<div class="layer-name" style=" top: 57px; height: 168px;">				Layer 1
+			</div>
+			<div class="layer-timeline">
+			<div class="layer-element" style=" width:12%; background-color: #000; margin-left:0%; height:27px;">
+rec1
+			</div>
+			<div class="layer-element" style=" width:12%; background-color: #000; margin-left:12%; height:27px;">
+rec2
+			</div>
+			<div class="layer-element" style=" width:12%; background-color: #000; margin-left:24%; height:27px;">
+rec3
+			</div>
+			<div class="layer-element" style=" width:12%; background-color: #000; margin-left:36%; height:27px;">
+rec4
+			</div>
+			<div class="layer-element" style=" width:6%; background-color: #000; margin-left:0%; height:27px;">
+out
+			</div>
+			<div class="layer-element" style=" width:6%; background-color: #000; margin-left:0%; height:27px;">
+in
+			</div>
+			</div>
+		</div>
+		<div id="timeline-indicator" style="width:48%;">
+<div class="timeline-indicator-element" style="left: calc(0% -  0px);">0s</div><div class="timeline-indicator-element" style="left: calc(30% -  500px);">5s</div></div>
+	</body>
+</html>

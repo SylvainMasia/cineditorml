@@ -6,7 +6,7 @@ Movie bob_and_alice_holiday dimension 1280 x 720 fps 30
 		Rectangle background = color '000000' during 10
 		Text title = 'Nos vacances a la montagne' fontSize 50 position(center, center) during 10 color 'fff'
 	Layer
-		Video intro = './assets/scenario1/intro.mp4' dimension 1280 x 720 startAt 10 //video during 3 seconds
+		Video intro = './assets/scenario1/intro.mp4' dimension 1280 x 720 startAt 10 during 3 //video during 3 seconds
 		Video second = './assets/scenario1/montagne.mp4' dimension 1280 x 720 startAt 13 during 10 // start at 13 but crop the video from 0 to 10 seconds
 	Layer
 		Text bye = 'Merci d\'avoir regardé notre vidéo' fontSize 50 position(center, center) startAt 22 during 15 color '0000ff' // default video background is black so no need to add a background element

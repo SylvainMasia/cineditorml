@@ -62,7 +62,6 @@ public class CinEditorGenerator extends AbstractGenerator {
   
   @Override
   public void doGenerate(final Resource resource, final IFileSystemAccess2 fsa, final IGeneratorContext context) {
-    this.elementsVarNames.clear();
     Iterable<Movie> _filter = Iterables.<Movie>filter(IteratorExtensions.<EObject>toIterable(resource.getAllContents()), Movie.class);
     for (final Movie movie : _filter) {
       {
@@ -70,6 +69,11 @@ public class CinEditorGenerator extends AbstractGenerator {
         String _plus = (_fullyQualifiedName + ".py");
         fsa.generateFile(_plus, 
           this.compile(movie));
+        String _plus_1 = (_fullyQualifiedName + ".html");
+        fsa.generateFile(_plus_1, 
+          this.compileTimeline(movie));
+        this.elementsVarNames.clear();
+        this.totalMovieDuration = 0;
       }
     }
   }
@@ -107,7 +111,7 @@ public class CinEditorGenerator extends AbstractGenerator {
   }
   
   private String extractFinalCut(final Movie movie) {
-    String sFinal = "\nvideo = CompositeVideoClip([";
+    String sFinal = "\nfinal_video = CompositeVideoClip([";
     for (int i = 0; (i < this.elementsVarNames.size()); i++) {
       {
         if ((i != 0)) {
@@ -123,7 +127,7 @@ public class CinEditorGenerator extends AbstractGenerator {
     sFinal = (_sFinal + (((((("], size=(" + this.varMovieWidth) + ",") + this.varMovieHeight) + ")).set_duration(") + Integer.valueOf(this.totalMovieDuration)) + ")\n"));
     String _sFinal_1 = sFinal;
     String _name = movie.getName();
-    String _plus = ("video.write_videofile(\'./" + _name);
+    String _plus = ("final_video.write_videofile(\'./" + _name);
     String _plus_1 = (_plus + ".mp4\', codec=\'mpeg4\', bitrate=\'5000k\', fps=");
     int _fps = movie.getFps();
     String _plus_2 = (_plus_1 + Integer.valueOf(_fps));
@@ -204,30 +208,19 @@ public class CinEditorGenerator extends AbstractGenerator {
     if (_greaterThan) {
       duration = element.getDuration();
     } else {
-      if ((element instanceof AudioElement)) {
-        duration = ((AudioElement) element).getElement().getDuration();
-        if ((duration < 0)) {
-          duration = this.totalMovieDuration;
-        }
-      } else {
-        if ((!(element instanceof Video))) {
-          duration = this.totalMovieDuration;
-        }
-      }
+      duration = this.totalMovieDuration;
     }
-    if ((duration != (-1))) {
-      if ((element instanceof Video)) {
-        Video video = ((Video) element);
-        int _beginCropTime = video.getBeginCropTime();
-        boolean _equals = (_beginCropTime == 0);
-        if (_equals) {
-          String _s = s;
-          s = (_s + (("\\\n\t.set_duration(" + Integer.valueOf(duration)) + ")"));
-        }
-      } else {
-        String _s_1 = s;
-        s = (_s_1 + (("\\\n\t.set_duration(" + Integer.valueOf(duration)) + ")"));
+    if ((element instanceof Video)) {
+      Video video = ((Video) element);
+      int _beginCropTime = video.getBeginCropTime();
+      boolean _equals = (_beginCropTime == 0);
+      if (_equals) {
+        String _s = s;
+        s = (_s + (("\\\n\t.set_duration(" + Integer.valueOf(duration)) + ")"));
       }
+    } else {
+      String _s_1 = s;
+      s = (_s_1 + (("\\\n\t.set_duration(" + Integer.valueOf(duration)) + ")"));
     }
     return s;
   }
@@ -673,6 +666,131 @@ public class CinEditorGenerator extends AbstractGenerator {
     s = (_s + "from moviepy.editor import *\n");
     String _s_1 = s;
     s = (_s_1 + "\n");
+    return s;
+  }
+  
+  private final int timelineElementHeight = 27;
+  
+  private final int timelineElementHeightWithMargin = 28;
+  
+  private int ratio = 8;
+  
+  private String compileCss() {
+    String s = (((("\t\t\t.layer-timeline {\n" + "\t\t\t\tposition: relative;\n") + "\t\t\t\tmargin-left: 100px;\n") + "\t\t\t\twidth: 100%;\n") + "\t\t\t}\n");
+    String _s = s;
+    s = (_s + ((((((("\t\t\t.layer-name {\n" + "\t\t\t\tz-index: 2;\n") + "\t\t\t\tposition: fixed;\n") + "\t\t\t\twidth: 100px;\n") + "\t\t\t\tbackground-color: #18abad;\n") + "\t\t\t\tcolor: #fff;\n") + "\t\t\t\tfont-size: 18pt;\n") + "\t\t\t}\n"));
+    String _s_1 = s;
+    s = (_s_1 + (((((("\t\t\t.layer-element {\n" + "\t\t\t\tcolor: #fff;\n") + "\t\t\t\tfont-size: 15pt;\n") + "\t\t\t\tmargin-left: 10px;\n") + "\t\t\t\tmargin-bottom: 1px;\n") + "\t\t\t\tborder-radius: 4px;\n") + "\t\t\t}\n"));
+    String _s_2 = s;
+    s = (_s_2 + ((("\t\t\t.layer {\n" + "\t\t\t\tmargin-bottom: 1px;\n") + "\t\t\t\tdisplay: flex;\n") + "\t\t\t}\n"));
+    String _s_3 = s;
+    s = (_s_3 + ((((("\t\t\t#timeline-indicator {\n" + "\t\t\t\tmargin-left: 100px;\n") + "\t\t\t\theight: 15px;\n") + "\t\t\t\tposition: relative;\n") + "\t\t\t\tbackground-color: #e3e3e3;\n") + "\t\t\t}\n"));
+    String _s_4 = s;
+    s = (_s_4 + ((((("\t\t\t.timeline-indicator-element {\n" + "\t\t\t\twidth: 2px;\n") + "\t\t\t\theight: 100%;\n") + "\t\t\t\tposition: absolute;\n") + "\t\t\t\tbackground-color: #000;\n") + "\t\t\t}\n"));
+    String _s_5 = s;
+    s = (_s_5 + ((((("\t\t\tbody {\n" + "\t\t\t\tmargin: 0;\n") + "\t\t\t\tpadding: 0;\n") + "\t\t\t\tpadding: 0;\n") + "\t\t\t\toverflow: auto;\n") + "\t\t\t}\n"));
+    return s;
+  }
+  
+  private String compileTimeline(final Movie movie) {
+    if ((this.totalMovieDuration > 30)) {
+      this.ratio = (3 * (100 / this.totalMovieDuration));
+      if ((this.ratio < 4)) {
+        this.ratio = 4;
+      }
+    }
+    String _compileCss = this.compileCss();
+    String _plus = (((("<!DOCTYPE html>\n" + "<html>\n") + "\t<head>\n") + "\t\t<style>\n") + _compileCss);
+    String _plus_1 = (_plus + "\t\t</style>\n");
+    String _plus_2 = (_plus_1 + "\t</head>\n");
+    String s = (_plus_2 + "\t<body>\n");
+    int top = 0;
+    for (int i = 0; (i < movie.getLayers().size()); i++) {
+      {
+        Layer layer = movie.getLayers().get(i);
+        String _s = s;
+        s = (_s + "\t\t<div class=\"layer\">\n");
+        String _s_1 = s;
+        s = (_s_1 + "\t\t\t<div class=\"layer-name\" style=\"");
+        String _s_2 = s;
+        s = (_s_2 + ((" top: " + Integer.valueOf(top)) + "px;"));
+        String _s_3 = s;
+        int _size = layer.getElements().size();
+        int _multiply = (_size * this.timelineElementHeightWithMargin);
+        String _plus_3 = (" height: " + Integer.valueOf(_multiply));
+        String _plus_4 = (_plus_3 + "px;");
+        s = (_s_3 + _plus_4);
+        int _p = top;
+        int _size_1 = layer.getElements().size();
+        int _multiply_1 = (_size_1 * this.timelineElementHeightWithMargin);
+        int _plus_5 = (_multiply_1 + 1);
+        top = (_p + _plus_5);
+        String _s_4 = s;
+        s = (_s_4 + "\">");
+        String _s_5 = s;
+        s = (_s_5 + (("\t\t\t\tLayer " + Integer.valueOf(i)) + "\n"));
+        String _s_6 = s;
+        s = (_s_6 + "\t\t\t</div>\n");
+        String _s_7 = s;
+        s = (_s_7 + "\t\t\t<div class=\"layer-timeline\">\n");
+        EList<Element> _elements = layer.getElements();
+        for (final Element element : _elements) {
+          {
+            String _s_8 = s;
+            s = (_s_8 + "\t\t\t<div class=\"layer-element\" style=\"");
+            int duration = (-1);
+            int _duration = element.getDuration();
+            boolean _greaterThan = (_duration > 0);
+            if (_greaterThan) {
+              duration = element.getDuration();
+            } else {
+              duration = this.totalMovieDuration;
+            }
+            String _s_9 = s;
+            s = (_s_9 + ((" width:" + Integer.valueOf((duration * this.ratio))) + "%;"));
+            String _s_10 = s;
+            s = (_s_10 + " background-color: #000;");
+            String _s_11 = s;
+            int _beginTime = element.getBeginTime();
+            int _multiply_2 = (_beginTime * this.ratio);
+            String _plus_6 = (" margin-left:" + Integer.valueOf(_multiply_2));
+            String _plus_7 = (_plus_6 + "%;");
+            s = (_s_11 + _plus_7);
+            String _s_12 = s;
+            s = (_s_12 + ((" height:" + Integer.valueOf(this.timelineElementHeight)) + "px;"));
+            String _s_13 = s;
+            s = (_s_13 + "\">\n");
+            String _s_14 = s;
+            String _name = element.getName();
+            String _plus_8 = (_name + "\n");
+            s = (_s_14 + _plus_8);
+            String _s_15 = s;
+            s = (_s_15 + "\t\t\t</div>\n");
+          }
+        }
+        String _s_8 = s;
+        s = (_s_8 + "\t\t\t</div>\n");
+        String _s_9 = s;
+        s = (_s_9 + "\t\t</div>\n");
+      }
+    }
+    String _s = s;
+    s = (_s + (((("\t\t<div id=\"timeline-indicator\" style=\"width: calc(" + Integer.valueOf((this.totalMovieDuration * this.ratio))) + "% - ") + Integer.valueOf((this.totalMovieDuration * this.ratio))) + "px);\">\n"));
+    {
+      int i = 0;
+      boolean _while = (i < this.totalMovieDuration);
+      while (_while) {
+        String _s_1 = s;
+        s = (_s_1 + (((((("<div class=\"timeline-indicator-element\" style=\"left: calc(" + Integer.valueOf((i * this.ratio))) + "% -  ") + Integer.valueOf(((i * this.totalMovieDuration) * this.ratio))) + "px);\">") + Integer.valueOf(i)) + "s</div>"));
+        int _i = i;
+        i = (_i + 5);
+        _while = (i < this.totalMovieDuration);
+      }
+    }
+    String _s_1 = s;
+    s = (_s_1 + "</div>\n");
+    String _s_2 = s;
+    s = (_s_2 + ("\t</body>\n" + "</html>\n"));
     return s;
   }
 }

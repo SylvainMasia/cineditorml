@@ -28,7 +28,6 @@ intro = VideoFileClip("./assets/scenario1/intro.mp4", audio=True)\
 
 second = VideoFileClip("./assets/scenario1/montagne.mp4", audio=True)\
 	.set_start(13)\
-	.set_duration(10)\
 	.resize((1280, 720))
 
 bye = TextClip("Merci d'avoir regardé notre vidéo", color='#0000ff', fontsize=50)\

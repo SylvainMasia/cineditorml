@@ -6,11 +6,10 @@ movie_height = 720
 movie_width = 1280
 
 background = ColorClip(size=(movie_width, movie_width), col=[0,0,0])\
-	.set_duration(44)
+	.set_duration(4)
 
 music = AudioFileClip("./assets/music.mp3")\
-	.set_duration(44)\
-	.subclip(0, -1)\
+	.set_duration(4)\
 	.volumex(0.9)\
 	.audio_fadein(2)\
 	.audio_fadeout(2)
@@ -35,14 +34,14 @@ title = TextClip("C'est notre film", color='#ffffff', fontsize=70)\
 	.set_pos(('center', 'bottom'))
 
 bonjour = TextClip("Bonjour ricardo, triagon et sylvano", color='#ff0000', fontsize=50)\
-	.set_duration(44)\
+	.set_duration(4)\
 	.set_pos((-5, 20))
 
 pic1 = ImageClip("./assets/1.png")\
 	.set_duration(4)\
-	.set_pos(('center', 'center'))\
+	.set_pos(('center', 'top'))\
 	.resize((200, 200))
 
 
-video = CompositeVideoClip([background, rec1, rec2, petitRec, video, title, bonjour, pic1], size=(movie_width,movie_height)).set_duration(44)
+video = CompositeVideoClip([background, rec1, rec2, petitRec, video, title, bonjour, pic1], size=(movie_width,movie_height)).set_duration(4)
 video.write_videofile('./scenario_example.mp4', codec='mpeg4', bitrate='5000k', fps=30)

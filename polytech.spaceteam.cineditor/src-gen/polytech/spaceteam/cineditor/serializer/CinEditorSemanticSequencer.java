@@ -380,7 +380,7 @@ public class CinEditorSemanticSequencer extends AbstractDelegatingSemanticSequen
 	 *         margins+=Margin* 
 	 *         beginTime=EInt? 
 	 *         beginCropTime=EInt? 
-	 *         duration=EInt?
+	 *         duration=EInt
 	 *     )
 	 */
 	protected void sequence_Video(ISerializationContext context, Video semanticObject) {

@@ -47,14 +47,20 @@ class CinEditorGenerator extends AbstractGenerator {
 	@Inject extension IQualifiedNameProvider
 	
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
-		elementsVarNames.clear();
 		for (movie : resource.allContents.toIterable.filter(Movie)) {
 			val _fullyQualifiedName = this._iQualifiedNameProvider.getFullyQualifiedName(movie);
 			fsa.generateFile(
             	_fullyQualifiedName + ".py",
-            	compile(movie))
+            	compile(movie));
+			fsa.generateFile(
+            	_fullyQualifiedName + ".html",
+            	compileTimeline(movie));
+        	elementsVarNames.clear();
+			totalMovieDuration = 0;
 		}
-	
+//		fsa.generateFile(
+//            	"cinEditorMovie.css",
+//            	compileCss());
 	}
 	
 	private def String compile(Movie movie) {
@@ -80,7 +86,7 @@ class CinEditorGenerator extends AbstractGenerator {
 	}
 	
 	private def String extractFinalCut(Movie movie) {
-		var sFinal = "\nvideo = CompositeVideoClip([";
+		var sFinal = "\nfinal_video = CompositeVideoClip([";
 		for (var i = 0; i < elementsVarNames.size(); i++) {
 			if (i != 0) {
 				sFinal += ", ";
@@ -88,7 +94,7 @@ class CinEditorGenerator extends AbstractGenerator {
 			sFinal += elementsVarNames.get(i);
 		}
 		sFinal += "], size=(" + varMovieWidth + "," + varMovieHeight + ")).set_duration(" + totalMovieDuration + ")\n"; //TODO when no video set a calculated duration
-		sFinal += "video.write_videofile('./" + movie.getName()  + ".mp4', codec='mpeg4', bitrate='5000k', fps=" + movie.getFps() +")";
+		sFinal += "final_video.write_videofile('./" + movie.getName()  + ".mp4', codec='mpeg4', bitrate='5000k', fps=" + movie.getFps() +")";
 		return sFinal;
 	}
 	
@@ -131,23 +137,16 @@ class CinEditorGenerator extends AbstractGenerator {
 		var duration = -1;
 		if (element.duration > 0) {
 			duration = element.duration;
-		} else if (element instanceof AudioElement) {
-			duration = (element as AudioElement).element.duration;
-			if (duration < 0) { // in case the element.duration is during the whole film
-				duration = totalMovieDuration;
-			}
-		} else if (!(element instanceof Video)) {
+		} else {
 			duration = totalMovieDuration;
 		}
-		if (duration != -1) {
-			if (element instanceof Video) {
-				var video = element as Video;
-				if (video.beginCropTime == 0) {
-					s += "\\\n\t.set_duration(" + duration + ")";
-				} 
-			} else {
+		if (element instanceof Video) {
+			var video = element as Video;
+			if (video.beginCropTime == 0) {
 				s += "\\\n\t.set_duration(" + duration + ")";
-			}
+			} 
+		} else {
+			s += "\\\n\t.set_duration(" + duration + ")";
 		}
 		return s;
 	}
@@ -393,6 +392,116 @@ class CinEditorGenerator extends AbstractGenerator {
 		var s = "# -*- coding: ISO-8859-1 -*-\n\n"
 		s += "from moviepy.editor import *\n";
 		s += "\n";
+		return s;
+	}
+	
+	val timelineElementHeight = 27;
+	val timelineElementHeightWithMargin = 28;
+	var ratio = 8
+	
+	private def String compileCss() {
+		var s = "\t\t\t.layer-timeline {\n"
+				+ "\t\t\t\tposition: relative;\n"
+				+ "\t\t\t\tmargin-left: 100px;\n"
+				+ "\t\t\t\twidth: 100%;\n"
+				+ "\t\t\t}\n";
+		s += "\t\t\t.layer-name {\n"
+			+ "\t\t\t\tz-index: 2;\n"
+			+ "\t\t\t\tposition: fixed;\n"
+			+ "\t\t\t\twidth: 100px;\n"
+			+ "\t\t\t\tbackground-color: #18abad;\n"
+			+ "\t\t\t\tcolor: #fff;\n"
+			+ "\t\t\t\tfont-size: 18pt;\n"
+			+ "\t\t\t}\n";
+		s += "\t\t\t.layer-element {\n"
+			+ "\t\t\t\tcolor: #fff;\n"
+			+ "\t\t\t\tfont-size: 15pt;\n"
+			+ "\t\t\t\tmargin-left: 10px;\n"
+			+ "\t\t\t\tmargin-bottom: 1px;\n"
+			+ "\t\t\t\tborder-radius: 4px;\n"
+			+ "\t\t\t}\n";
+		s += "\t\t\t.layer {\n"
+			+ "\t\t\t\tmargin-bottom: 1px;\n"
+			+ "\t\t\t\tdisplay: flex;\n"
+			+ "\t\t\t}\n";
+		s += "\t\t\t#timeline-indicator {\n"
+			+ "\t\t\t\tmargin-left: 100px;\n"
+			+ "\t\t\t\theight: 15px;\n"
+			+ "\t\t\t\tposition: relative;\n"
+			+ "\t\t\t\tbackground-color: #e3e3e3;\n"
+			+ "\t\t\t}\n";
+		s += "\t\t\t.timeline-indicator-element {\n"
+			+ "\t\t\t\twidth: 2px;\n"
+			+ "\t\t\t\theight: 100%;\n"
+			+ "\t\t\t\tposition: absolute;\n"
+			+ "\t\t\t\tbackground-color: #000;\n"
+			+ "\t\t\t}\n";
+		s += "\t\t\tbody {\n"
+			+ "\t\t\t\tmargin: 0;\n"
+			+ "\t\t\t\tpadding: 0;\n"
+			+ "\t\t\t\tpadding: 0;\n"
+			+ "\t\t\t\toverflow: auto;\n"
+			+ "\t\t\t}\n";
+		return s;
+	}
+	
+	private def String compileTimeline(Movie movie) {
+		if (totalMovieDuration > 30) {
+			ratio = 3 * (100 / totalMovieDuration);
+			if (ratio < 4) {
+				ratio = 4;
+			}
+		}
+		var s = "<!DOCTYPE html>\n"
+			 + "<html>\n"
+			 + "\t<head>\n"
+			 + "\t\t<style>\n"
+			 + compileCss()
+			 + "\t\t</style>\n"
+			 + "\t</head>\n"
+			 + "\t<body>\n";
+		var top = 0;
+		for (var i = 0; i < movie.layers.size(); i++) {
+			var layer = movie.layers.get(i);
+			s += "\t\t<div class=\"layer\">\n";
+			
+				s += "\t\t\t<div class=\"layer-name\" style=\"";
+				s += " top: " + top + "px;"
+				s += " height: " + layer.elements.size * timelineElementHeightWithMargin + "px;"
+				top += (layer.elements.size * timelineElementHeightWithMargin) + 1 
+				s += "\">";
+				
+				s += "\t\t\t\tLayer " + i + "\n"
+				s += "\t\t\t</div>\n"
+				s += "\t\t\t<div class=\"layer-timeline\">\n";
+					for (Element element : layer.elements) {
+						s += "\t\t\t<div class=\"layer-element\" style=\"";
+						var duration = -1;
+						if (element.duration > 0) {
+							duration = element.duration;
+						} else {
+							duration = totalMovieDuration;
+						}
+						s += " width:" + duration * ratio + "%;";
+						s += " background-color: #000;";
+						s += " margin-left:" + element.beginTime * ratio + "%;";
+						s += " height:" + timelineElementHeight + "px;";
+						s += "\">\n";
+						s += element.name + "\n"
+						s += "\t\t\t</div>\n"						
+					}
+				s += "\t\t\t</div>\n"
+			s += "\t\t</div>\n";
+		}
+		s += "\t\t<div id=\"timeline-indicator\" style=\"width: calc(" + (totalMovieDuration * ratio) + "% - " + totalMovieDuration * ratio + "px);\">\n";
+		for (var i = 0; i < totalMovieDuration; i += 5) {
+			s += "<div class=\"timeline-indicator-element\" style=\"left: calc(" + (i * ratio) + "% -  " + (i * totalMovieDuration * ratio) +"px);\">" + i + "s</div>";
+		}
+		s += "</div>\n";
+		
+		
+		s += "\t</body>\n"
+			 + "</html>\n"
 		return s;
 	}
 }

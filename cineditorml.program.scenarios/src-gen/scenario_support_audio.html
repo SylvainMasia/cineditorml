@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<style>
+			.layer-timeline {
+				position: relative;
+				margin-left: 100px;
+				width: 100%;
+			}
+			.layer-name {
+				z-index: 2;
+				position: fixed;
+				width: 100px;
+				background-color: #18abad;
+				color: #fff;
+				font-size: 18pt;
+			}
+			.layer-element {
+				color: #fff;
+				font-size: 15pt;
+				margin-left: 10px;
+				margin-bottom: 1px;
+				border-radius: 4px;
+			}
+			.layer {
+				margin-bottom: 1px;
+				display: flex;
+			}
+			#timeline-indicator {
+				margin-left: 100px;
+				height: 15px;
+				position: relative;
+				background-color: #e3e3e3;
+			}
+			.timeline-indicator-element {
+				width: 2px;
+				height: 100%;
+				position: absolute;
+				background-color: #000;
+			}
+			body {
+				margin: 0;
+				padding: 0;
+				padding: 0;
+				overflow: auto;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="layer">
+			<div class="layer-name" style=" top: 0px; height: 196px;">				Layer 0
+			</div>
+			<div class="layer-timeline">
+			<div class="layer-element" style=" width:60%; background-color: #000; margin-left:0%; height:27px;">
+background1
+			</div>
+			<div class="layer-element" style=" width:60%; background-color: #000; margin-left:0%; height:27px;">
+background2
+			</div>
+			<div class="layer-element" style=" width:144%; background-color: #000; margin-left:0%; height:27px;">
+background3
+			</div>
+			<div class="layer-element" style=" width:60%; background-color: #000; margin-left:0%; height:27px;">
+voix
+			</div>
+			<div class="layer-element" style=" width:270%; background-color: #000; margin-left:60%; height:27px;">
+voix2
+			</div>
+			<div class="layer-element" style=" width:270%; background-color: #000; margin-left:120%; height:27px;">
+voix3
+			</div>
+			<div class="layer-element" style=" width:270%; background-color: #000; margin-left:0%; height:27px;">
+backgroundvideo
+			</div>
+			</div>
+		</div>
+		<div id="timeline-indicator" style="width:270%;">
+<div class="timeline-indicator-element" style="left: calc(0% -  0px);">0s</div><div class="timeline-indicator-element" style="left: calc(30% -  500px);">5s</div><div class="timeline-indicator-element" style="left: calc(60% -  1000px);">10s</div><div class="timeline-indicator-element" style="left: calc(90% -  1500px);">15s</div><div class="timeline-indicator-element" style="left: calc(120% -  2000px);">20s</div><div class="timeline-indicator-element" style="left: calc(150% -  2500px);">25s</div><div class="timeline-indicator-element" style="left: calc(180% -  3000px);">30s</div><div class="timeline-indicator-element" style="left: calc(210% -  3500px);">35s</div><div class="timeline-indicator-element" style="left: calc(240% -  4000px);">40s</div></div>
+	</body>
+</html>

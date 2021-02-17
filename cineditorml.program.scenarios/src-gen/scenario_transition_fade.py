@@ -10,7 +10,6 @@ background = ColorClip(size=(movie_width, movie_width), col=[0,0,0])\
 
 music = AudioFileClip("./assets/music.mp3")\
 	.set_duration(8)\
-	.subclip(0, -1)\
 	.volumex(0.5)\
 	.audio_fadein(1)\
 	.audio_fadeout(1)

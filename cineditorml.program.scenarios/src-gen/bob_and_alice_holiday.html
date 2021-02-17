@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<style>
+			.layer-timeline {
+				position: relative;
+				margin-left: 100px;
+				width: 100%;
+			}
+			.layer-name {
+				z-index: 2;
+				position: fixed;
+				width: 100px;
+				background-color: #18abad;
+				color: #fff;
+				font-size: 18pt;
+			}
+			.layer-element {
+				color: #fff;
+				font-size: 15pt;
+				margin-left: 10px;
+				margin-bottom: 1px;
+				border-radius: 4px;
+			}
+			.layer {
+				margin-bottom: 1px;
+				display: flex;
+			}
+			#timeline-indicator {
+				margin-left: 100px;
+				height: 15px;
+				position: relative;
+				background-color: #e3e3e3;
+			}
+			.timeline-indicator-element {
+				width: 2px;
+				height: 100%;
+				position: absolute;
+				background-color: #000;
+			}
+			body {
+				margin: 0;
+				padding: 0;
+				padding: 0;
+				overflow: auto;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="layer">
+			<div class="layer-name" style=" top: 0px; height: 56px;">				Layer 0
+			</div>
+			<div class="layer-timeline">
+			<div class="layer-element" style=" width:222%; background-color: #000; margin-left:0%; height:27px;">
+audio_fake
+			</div>
+			<div class="layer-element" style=" width:60%; background-color: #000; margin-left:78%; height:27px;">
+sound
+			</div>
+			</div>
+		</div>
+		<div class="layer">
+			<div class="layer-name" style=" top: 57px; height: 56px;">				Layer 1
+			</div>
+			<div class="layer-timeline">
+			<div class="layer-element" style=" width:60%; background-color: #000; margin-left:0%; height:27px;">
+background
+			</div>
+			<div class="layer-element" style=" width:60%; background-color: #000; margin-left:0%; height:27px;">
+title
+			</div>
+			</div>
+		</div>
+		<div class="layer">
+			<div class="layer-name" style=" top: 114px; height: 56px;">				Layer 2
+			</div>
+			<div class="layer-timeline">
+			<div class="layer-element" style=" width:18%; background-color: #000; margin-left:60%; height:27px;">
+intro
+			</div>
+			<div class="layer-element" style=" width:60%; background-color: #000; margin-left:78%; height:27px;">
+second
+			</div>
+			</div>
+		</div>
+		<div class="layer">
+			<div class="layer-name" style=" top: 171px; height: 28px;">				Layer 3
+			</div>
+			<div class="layer-timeline">
+			<div class="layer-element" style=" width:90%; background-color: #000; margin-left:132%; height:27px;">
+bye
+			</div>
+			</div>
+		</div>
+		<div id="timeline-indicator" style="width: calc(222% - 222px);">
+<div class="timeline-indicator-element" style="left: calc(0% -  0px);">0s</div><div class="timeline-indicator-element" style="left: calc(30% -  1110px);">5s</div><div class="timeline-indicator-element" style="left: calc(60% -  2220px);">10s</div><div class="timeline-indicator-element" style="left: calc(90% -  3330px);">15s</div><div class="timeline-indicator-element" style="left: calc(120% -  4440px);">20s</div><div class="timeline-indicator-element" style="left: calc(150% -  5550px);">25s</div><div class="timeline-indicator-element" style="left: calc(180% -  6660px);">30s</div><div class="timeline-indicator-element" style="left: calc(210% -  7770px);">35s</div></div>
+	</body>
+</html>

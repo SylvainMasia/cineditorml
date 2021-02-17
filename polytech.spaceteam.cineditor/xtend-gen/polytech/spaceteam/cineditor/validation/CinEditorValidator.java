@@ -145,8 +145,10 @@ public class CinEditorValidator extends AbstractCinEditorValidator {
   
   @Check
   public void checkVideo(final Video element) {
-    if (((element.getBeginCropTime() > (-1)) && (element.getDuration() < 0))) {
-      this.error("To crop a video you must set the duration", CinEditorMLPackage.Literals.VIDEO__BEGIN_CROP_TIME);
+    int _duration = element.getDuration();
+    boolean _lessThan = (_duration < (-1));
+    if (_lessThan) {
+      this.error("For a video you need to specify the duration", CinEditorMLPackage.Literals.ELEMENT__DURATION);
     }
   }
   

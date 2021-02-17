@@ -1749,31 +1749,29 @@ ruleVideo returns [EObject current=null]
 				)
 			)
 		)?
+		otherlv_15='during'
+		{
+			newLeafNode(otherlv_15, grammarAccess.getVideoAccess().getDuringKeyword_10());
+		}
 		(
-			otherlv_15='during'
-			{
-				newLeafNode(otherlv_15, grammarAccess.getVideoAccess().getDuringKeyword_10_0());
-			}
 			(
-				(
-					{
-						newCompositeNode(grammarAccess.getVideoAccess().getDurationEIntParserRuleCall_10_1_0());
+				{
+					newCompositeNode(grammarAccess.getVideoAccess().getDurationEIntParserRuleCall_11_0());
+				}
+				lv_duration_16_0=ruleEInt
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getVideoRule());
 					}
-					lv_duration_16_0=ruleEInt
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getVideoRule());
-						}
-						set(
-							$current,
-							"duration",
-							lv_duration_16_0,
-							"polytech.spaceteam.cineditor.CinEditor.EInt");
-						afterParserOrEnumRuleCall();
-					}
-				)
+					set(
+						$current,
+						"duration",
+						lv_duration_16_0,
+						"polytech.spaceteam.cineditor.CinEditor.EInt");
+					afterParserOrEnumRuleCall();
+				}
 			)
-		)?
+		)
 	)
 ;
 

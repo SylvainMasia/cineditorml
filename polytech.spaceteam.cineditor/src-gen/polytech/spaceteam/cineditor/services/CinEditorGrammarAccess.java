@@ -904,19 +904,17 @@ public class CinEditorGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cCropAtKeyword_9_0 = (Keyword)cGroup_9.eContents().get(0);
 		private final Assignment cBeginCropTimeAssignment_9_1 = (Assignment)cGroup_9.eContents().get(1);
 		private final RuleCall cBeginCropTimeEIntParserRuleCall_9_1_0 = (RuleCall)cBeginCropTimeAssignment_9_1.eContents().get(0);
-		private final Group cGroup_10 = (Group)cGroup.eContents().get(10);
-		private final Keyword cDuringKeyword_10_0 = (Keyword)cGroup_10.eContents().get(0);
-		private final Assignment cDurationAssignment_10_1 = (Assignment)cGroup_10.eContents().get(1);
-		private final RuleCall cDurationEIntParserRuleCall_10_1_0 = (RuleCall)cDurationAssignment_10_1.eContents().get(0);
+		private final Keyword cDuringKeyword_10 = (Keyword)cGroup.eContents().get(10);
+		private final Assignment cDurationAssignment_11 = (Assignment)cGroup.eContents().get(11);
+		private final RuleCall cDurationEIntParserRuleCall_11_0 = (RuleCall)cDurationAssignment_11.eContents().get(0);
 		
 		//Video:
 		//	'Video' name=EString '=' url=EString ('audio' enableAudio=EBoolean)? position=Position? dimension=Dimension?
-		//	('margins(' margins+=Margin+ ')')? ('startAt' beginTime=EInt)? ('cropAt' beginCropTime=EInt)? ('during'
-		//	duration=EInt)?;
+		//	('margins(' margins+=Margin+ ')')? ('startAt' beginTime=EInt)? ('cropAt' beginCropTime=EInt)? 'during' duration=EInt;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//'Video' name=EString '=' url=EString ('audio' enableAudio=EBoolean)? position=Position? dimension=Dimension? ('margins('
-		//margins+=Margin+ ')')? ('startAt' beginTime=EInt)? ('cropAt' beginCropTime=EInt)? ('during' duration=EInt)?
+		//margins+=Margin+ ')')? ('startAt' beginTime=EInt)? ('cropAt' beginCropTime=EInt)? 'during' duration=EInt
 		public Group getGroup() { return cGroup; }
 		
 		//'Video'
@@ -1000,17 +998,14 @@ public class CinEditorGrammarAccess extends AbstractGrammarElementFinder {
 		//EInt
 		public RuleCall getBeginCropTimeEIntParserRuleCall_9_1_0() { return cBeginCropTimeEIntParserRuleCall_9_1_0; }
 		
-		//('during' duration=EInt)?
-		public Group getGroup_10() { return cGroup_10; }
-		
 		//'during'
-		public Keyword getDuringKeyword_10_0() { return cDuringKeyword_10_0; }
+		public Keyword getDuringKeyword_10() { return cDuringKeyword_10; }
 		
 		//duration=EInt
-		public Assignment getDurationAssignment_10_1() { return cDurationAssignment_10_1; }
+		public Assignment getDurationAssignment_11() { return cDurationAssignment_11; }
 		
 		//EInt
-		public RuleCall getDurationEIntParserRuleCall_10_1_0() { return cDurationEIntParserRuleCall_10_1_0; }
+		public RuleCall getDurationEIntParserRuleCall_11_0() { return cDurationEIntParserRuleCall_11_0; }
 	}
 	public class RectangleElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "polytech.spaceteam.cineditor.CinEditor.Rectangle");
@@ -1742,8 +1737,7 @@ public class CinEditorGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//Video:
 	//	'Video' name=EString '=' url=EString ('audio' enableAudio=EBoolean)? position=Position? dimension=Dimension?
-	//	('margins(' margins+=Margin+ ')')? ('startAt' beginTime=EInt)? ('cropAt' beginCropTime=EInt)? ('during'
-	//	duration=EInt)?;
+	//	('margins(' margins+=Margin+ ')')? ('startAt' beginTime=EInt)? ('cropAt' beginCropTime=EInt)? 'during' duration=EInt;
 	public VideoElements getVideoAccess() {
 		return pVideo;
 	}

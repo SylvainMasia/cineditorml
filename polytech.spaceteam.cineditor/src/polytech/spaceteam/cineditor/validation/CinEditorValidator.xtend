@@ -111,9 +111,12 @@ class CinEditorValidator extends AbstractCinEditorValidator {
 	
 	@Check
 	def checkVideo(Video element) {
-		if (element.beginCropTime > -1 && element.duration < 0) {
-			error('To crop a video you must set the duration', CinEditorMLPackage.Literals.VIDEO__BEGIN_CROP_TIME);
+		if (element.duration < -1) {
+			error('For a video you need to specify the duration', CinEditorMLPackage.Literals.ELEMENT__DURATION);
 		}
+//		if (element.beginCropTime > -1 && element.duration < 0) {
+//			error('To crop a video you must set the duration', CinEditorMLPackage.Literals.VIDEO__BEGIN_CROP_TIME);
+//		}
 	}
 	
 	@Check

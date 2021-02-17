@@ -66,7 +66,7 @@ Picture returns Picture:
 	'Picture' name=EString '=' url=EString position=Position? dimension=Dimension? ('margins(' margins+=Margin+ ')')? ('startAt' beginTime=EInt)? ('during' duration=EInt)?;
 
 Video returns Video:
-	'Video' name=EString '=' url=EString ('audio' enableAudio=EBoolean)? position=Position? dimension=Dimension? ('margins(' margins+=Margin+ ')')? ('startAt' beginTime=EInt)? ('cropAt' beginCropTime=EInt)? ('during' duration=EInt)?;
+	'Video' name=EString '=' url=EString ('audio' enableAudio=EBoolean)? position=Position? dimension=Dimension? ('margins(' margins+=Margin+ ')')? ('startAt' beginTime=EInt)? ('cropAt' beginCropTime=EInt)? 'during' duration=EInt;
 	
 Rectangle returns Rectangle:
 	'Rectangle' name=EString '=' color=HexadecimalColor position=Position? dimension=Dimension? ('margins(' margins+=Margin+ ')')? ('startAt' beginTime=EInt)? ('during' duration=EInt)?;
