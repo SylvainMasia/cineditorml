@@ -1,0 +1,9 @@
+Movie final_cut dimension 1920 x 1080 fps 30
+	Layer
+		Video intro = './assets/final_cut/prise_0.mp4' dimension 1920 x 1080 cropAt 4 during 55
+		Video prise1 = './assets/final_cut/prise_1_crop_40s.mp4' dimension 1920 x 1080 startAfter intro during 40
+		Video prise2 = './assets/final_cut/prise_2_crop_1.15s.mp4' dimension 1920 x 1080 startAfter prise1 cropAt 0 during 75
+		Video prise3 = './assets/final_cut/prise_3_crop_18s.mp4' dimension 1920 x 1080 startAfter prise2 cropAt 0 during 19
+		Video prise4 = './assets/final_cut/prise_4_crop_23s.mp4' dimension 1920 x 1080 startAfter prise3 cropAt 0 during 24
+		Effect out = FadeOut during 1 on [intro, prise1, prise2, prise3, prise4]
+

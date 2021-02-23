@@ -20,7 +20,7 @@ also known as "Spaceteam"
 - In order to launch moviepy with every dependencies :
   - `docker pull dkarchmervue/moviepy`
   - `docker run --rm -ti -v C:\dev\courses\cineditorml\cineditorml.program.scenarios\src-gen:/work dkarchmervue/moviepy /bin/bash`
-    - `python file.py`
+    - `python yourscript.py`
 
 # Warning
-When using Audio with moviepy, the audio must not have a cover because it will crash. An issue has been open to fix that (https://github.com/Zulko/moviepy/issues/448) but it seems that it has not been fixed.
+When using Audio with moviepy, the audio must not have a cover (such as .mp3 can have a picture) because it will crash. An issue has been open to fix that (https://github.com/Zulko/moviepy/issues/448) but it seems that it has not been fixed.

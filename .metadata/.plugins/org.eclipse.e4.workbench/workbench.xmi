@@ -210,10 +210,10 @@
               </children>
             </children>
             <children xsi:type="basic:PartSashContainer" xmi:id="_5N7kgHEFEeuchZGAusMKqg" containerData="8241" selectedElement="__pK9bGXzEeuy_q9qJrfeVQ">
-              <children xsi:type="advanced:Placeholder" xmi:id="__pK9a2XzEeuy_q9qJrfeVQ" elementId="org.eclipse.ui.editorss" containerData="5319" ref="_nnlMoGXzEeuy_q9qJrfeVQ">
+              <children xsi:type="advanced:Placeholder" xmi:id="__pK9a2XzEeuy_q9qJrfeVQ" elementId="org.eclipse.ui.editorss" containerData="7706" ref="_nnlMoGXzEeuy_q9qJrfeVQ">
                 <tags>Maximized</tags>
               </children>
-              <children xsi:type="basic:PartStack" xmi:id="__pK9bGXzEeuy_q9qJrfeVQ" elementId="bottom" containerData="4681" selectedElement="__pK9b2XzEeuy_q9qJrfeVQ">
+              <children xsi:type="basic:PartStack" xmi:id="__pK9bGXzEeuy_q9qJrfeVQ" elementId="bottom" containerData="2294" selectedElement="__pK9b2XzEeuy_q9qJrfeVQ">
                 <tags>MinimizedByZoom</tags>
                 <tags>Java</tags>
                 <tags>General</tags>
@@ -287,7 +287,7 @@
           <tags>removeOnHide</tags>
         </children>
         <children xsi:type="basic:Part" xmi:id="_BEdWAGX8EeuGHL9WBY1IRQ" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="CinEditor.xtext" iconURI="platform:/plugin/org.eclipse.xtext.xtext.ui/icons/editor.gif" closeable="true">
-          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.eclipse.xtext.Xtext&quot; name=&quot;CinEditor.xtext&quot; partName=&quot;CinEditor.xtext&quot; title=&quot;CinEditor.xtext&quot; tooltip=&quot;polytech.spaceteam.cineditor/src/polytech/spaceteam/cineditor/CinEditor.xtext&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/polytech.spaceteam.cineditor/src/polytech/spaceteam/cineditor/CinEditor.xtext&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;1994&quot; selectionTopPixel=&quot;1026&quot;/>&#xD;&#xA;&lt;/editor>"/>
+          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.eclipse.xtext.Xtext&quot; name=&quot;CinEditor.xtext&quot; partName=&quot;CinEditor.xtext&quot; title=&quot;CinEditor.xtext&quot; tooltip=&quot;polytech.spaceteam.cineditor/src/polytech/spaceteam/cineditor/CinEditor.xtext&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/polytech.spaceteam.cineditor/src/polytech/spaceteam/cineditor/CinEditor.xtext&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;3311&quot; selectionTopPixel=&quot;672&quot;/>&#xD;&#xA;&lt;/editor>"/>
           <tags>Editor</tags>
           <tags>org.eclipse.xtext.Xtext</tags>
           <tags>removeOnHide</tags>
@@ -299,7 +299,7 @@
           <tags>removeOnHide</tags>
         </children>
         <children xsi:type="basic:Part" xmi:id="_nE2wwGybEeuQwdR_NaSXjQ" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="CinEditorGenerator.xtend" iconURI="platform:/plugin/org.eclipse.xtend.ide/icons/xtend_file.png" closeable="true">
-          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.eclipse.xtend.core.Xtend&quot; name=&quot;CinEditorGenerator.xtend&quot; partName=&quot;CinEditorGenerator.xtend&quot; title=&quot;CinEditorGenerator.xtend&quot; tooltip=&quot;polytech.spaceteam.cineditor/src/polytech/spaceteam/cineditor/generator/CinEditorGenerator.xtend&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/polytech.spaceteam.cineditor/src/polytech/spaceteam/cineditor/generator/CinEditorGenerator.xtend&quot;/>&#xD;&#xA;&lt;editorState HANDLER_IDENTIFIER=&quot;=polytech.spaceteam.cineditor/xtend-gen&amp;lt;polytech.spaceteam.cineditor.generator{CinEditorGenerator.java&quot; selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;16737&quot; selectionTopPixel=&quot;9781&quot;/>&#xD;&#xA;&lt;/editor>"/>
+          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.eclipse.xtend.core.Xtend&quot; name=&quot;CinEditorGenerator.xtend&quot; partName=&quot;CinEditorGenerator.xtend&quot; title=&quot;CinEditorGenerator.xtend&quot; tooltip=&quot;polytech.spaceteam.cineditor/src/polytech/spaceteam/cineditor/generator/CinEditorGenerator.xtend&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/polytech.spaceteam.cineditor/src/polytech/spaceteam/cineditor/generator/CinEditorGenerator.xtend&quot;/>&#xD;&#xA;&lt;editorState HANDLER_IDENTIFIER=&quot;=polytech.spaceteam.cineditor/xtend-gen&amp;lt;polytech.spaceteam.cineditor.generator{CinEditorGenerator.java&quot; selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;3726&quot; selectionTopPixel=&quot;1577&quot;/>&#xD;&#xA;&lt;/editor>"/>
           <tags>Editor</tags>
           <tags>org.eclipse.xtend.core.Xtend</tags>
           <tags>removeOnHide</tags>
@@ -500,7 +500,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_nkNvkGXzEeuy_q9qJrfeVQ" elementId="org.eclipse.ui.workbench.file">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_aHbzIHDwEeuchZGAusMKqg" elementId="print" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" command="_m6ak32XzEeuy_q9qJrfeVQ"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_F6uqkHRkEeugYfUoG-jnXw" elementId="print" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" command="_m6ak32XzEeuy_q9qJrfeVQ"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_nkNvkWXzEeuy_q9qJrfeVQ" elementId="group.edit" toBeRendered="false">
         <tags>toolbarSeparator</tags>
@@ -531,7 +531,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_nkNvmGXzEeuy_q9qJrfeVQ" elementId="org.eclipse.ui.workbench.navigate">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_aHdoUHDwEeuchZGAusMKqg" elementId="org.eclipse.ui.window.pinEditor" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" type="Check" command="_m6Z-fmXzEeuy_q9qJrfeVQ"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_F6wfxHRkEeugYfUoG-jnXw" elementId="org.eclipse.ui.window.pinEditor" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" type="Check" command="_m6Z-fmXzEeuy_q9qJrfeVQ"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_nkNvmWXzEeuy_q9qJrfeVQ" elementId="group.editor" toBeRendered="false">
         <tags>toolbarSeparator</tags>
@@ -2860,7 +2860,7 @@
   <addons xmi:id="_m6DYVGXzEeuy_q9qJrfeVQ" elementId="MinMax Addon" contributorURI="platform:/plugin/org.eclipse.ui.workbench" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.addons.swt/org.eclipse.e4.ui.workbench.addons.minmax.MinMaxAddon"/>
   <addons xmi:id="_m6DYVWXzEeuy_q9qJrfeVQ" elementId="org.eclipse.ui.workbench.addon.0" contributorURI="platform:/plugin/org.eclipse.ui.workbench" contributionURI="bundleclass://org.eclipse.e4.ui.workbench/org.eclipse.e4.ui.internal.workbench.addons.HandlerProcessingAddon"/>
   <addons xmi:id="_m6HpsGXzEeuy_q9qJrfeVQ" elementId="SplitterAddon" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.addons.swt/org.eclipse.e4.ui.workbench.addons.splitteraddon.SplitterAddon"/>
-  <addons xmi:id="_IYS0IKimEeS11vbz3f9ezw" elementId="org.eclipse.ui.ide.addon.0" contributorURI="platform:/plugin/org.eclipse.ui.ide" contributionURI="bundleclass://org.eclipse.ui.ide/org.eclipse.ui.internal.ide.addons.SaveAllDirtyPartsAddon"/>
+  <addons xmi:id="_FT1CoXRkEeugYfUoG-jnXw" elementId="org.eclipse.ui.ide.addon.0" contributionURI="bundleclass://org.eclipse.ui.ide/org.eclipse.ui.internal.ide.addons.SaveAllDirtyPartsAddon"/>
   <addons xmi:id="_dz0JgGOlEeSMMaPQU2nlzw" elementId="org.eclipse.ui.ide.application.addon.0" contributorURI="platform:/plugin/org.eclipse.ui.ide.application" contributionURI="bundleclass://org.eclipse.ui.ide.application/org.eclipse.ui.internal.ide.application.addons.ModelCleanupAddon"/>
   <categories xmi:id="_m6VsIGXzEeuy_q9qJrfeVQ" elementId="org.eclipse.team.ui.category.team" name="Team" description="Actions that apply when working with a Team"/>
   <categories xmi:id="_m6VsIWXzEeuy_q9qJrfeVQ" elementId="org.eclipse.ui.category.views" name="Views" description="Commands for opening views"/>
