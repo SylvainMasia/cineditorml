@@ -8,7 +8,7 @@ CinEditorMl, a powerful video editor language developed by :
 - Masia Sylvain
 - Montoya Damien
 - Peres Richard
-- Rigaut François
+- Rigaut François  
 also known as "Spaceteam"
 
 # Architecture
