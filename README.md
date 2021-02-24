@@ -7,7 +7,7 @@ CinEditorML, the most powerful video editor on earth. [TP HERE](https://www.i3s.
 CinEditorMl, a powerful video editor language developed by :
 - Masia Sylvain
 - Montoya Damien
-- Perez Richard
+- Peres Richard
 - Rigaut François
 also known as "Spaceteam"
 
