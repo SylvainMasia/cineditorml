@@ -72,7 +72,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="hexadecimalValue" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" defaultValueLiteral="#000"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="GraphicalElement" eSuperTypes="#//Element">
+  <eClassifiers xsi:type="ecore:EClass" name="GraphicalElement" abstract="true" eSuperTypes="#//Element">
     <eStructuralFeatures xsi:type="ecore:EReference" name="position" eType="#//Position"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="dimension" eType="#//Dimension"

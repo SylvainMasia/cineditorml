@@ -349,29 +349,6 @@ public class CinEditorMLItemProviderAdapterFactory extends CinEditorMLAdapterFac
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link CinEditorML.GraphicalElement} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected GraphicalElementItemProvider graphicalElementItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link CinEditorML.GraphicalElement}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createGraphicalElementAdapter() {
-		if (graphicalElementItemProvider == null) {
-			graphicalElementItemProvider = new GraphicalElementItemProvider(this);
-		}
-
-		return graphicalElementItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link CinEditorML.ItemPositionInt} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -609,8 +586,6 @@ public class CinEditorMLItemProviderAdapterFactory extends CinEditorMLAdapterFac
 			dimensionItemProvider.dispose();
 		if (hexadecimalColorItemProvider != null)
 			hexadecimalColorItemProvider.dispose();
-		if (graphicalElementItemProvider != null)
-			graphicalElementItemProvider.dispose();
 		if (itemPositionIntItemProvider != null)
 			itemPositionIntItemProvider.dispose();
 		if (itemPositionStringItemProvider != null)

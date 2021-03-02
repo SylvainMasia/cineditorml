@@ -35,7 +35,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class GraphicalElementImpl extends ElementImpl implements GraphicalElement {
+public abstract class GraphicalElementImpl extends ElementImpl implements GraphicalElement {
 	/**
 	 * The cached value of the '{@link #getPosition() <em>Position</em>}' containment reference.
 	 * <!-- begin-user-doc -->

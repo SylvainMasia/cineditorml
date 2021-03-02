@@ -19,7 +19,7 @@ import org.eclipse.emf.common.util.EList;
  * </ul>
  *
  * @see CinEditorML.CinEditorMLPackage#getGraphicalElement()
- * @model
+ * @model abstract="true"
  * @generated
  */
 public interface GraphicalElement extends Element {

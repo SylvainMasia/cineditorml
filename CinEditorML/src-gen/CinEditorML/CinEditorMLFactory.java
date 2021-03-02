@@ -130,15 +130,6 @@ public interface CinEditorMLFactory extends EFactory {
 	HexadecimalColor createHexadecimalColor();
 
 	/**
-	 * Returns a new object of class '<em>Graphical Element</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Graphical Element</em>'.
-	 * @generated
-	 */
-	GraphicalElement createGraphicalElement();
-
-	/**
 	 * Returns a new object of class '<em>Item Position Int</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

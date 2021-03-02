@@ -81,8 +81,6 @@ public class CinEditorMLFactoryImpl extends EFactoryImpl implements CinEditorMLF
 			return createDimension();
 		case CinEditorMLPackage.HEXADECIMAL_COLOR:
 			return createHexadecimalColor();
-		case CinEditorMLPackage.GRAPHICAL_ELEMENT:
-			return createGraphicalElement();
 		case CinEditorMLPackage.ITEM_POSITION_INT:
 			return createItemPositionInt();
 		case CinEditorMLPackage.ITEM_POSITION_STRING:
@@ -246,16 +244,6 @@ public class CinEditorMLFactoryImpl extends EFactoryImpl implements CinEditorMLF
 	public HexadecimalColor createHexadecimalColor() {
 		HexadecimalColorImpl hexadecimalColor = new HexadecimalColorImpl();
 		return hexadecimalColor;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public GraphicalElement createGraphicalElement() {
-		GraphicalElementImpl graphicalElement = new GraphicalElementImpl();
-		return graphicalElement;
 	}
 
 	/**

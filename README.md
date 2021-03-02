@@ -27,7 +27,8 @@ When using Audio with moviepy, the audio must not have a cover (such as .mp3 can
 
 # BNF Syntax
 
-```<int>       :=  ("-")? [0-9]+
+```
+<int>       :=  ("-")? [0-9]+
 <float>     :=  [0-9]+ (("." | ",") <int>+)?
 <bool>      :=  "true" | "false"
 
