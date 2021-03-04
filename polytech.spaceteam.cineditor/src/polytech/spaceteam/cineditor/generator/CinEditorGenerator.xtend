@@ -509,46 +509,81 @@ class CinEditorGenerator extends AbstractGenerator {
 			
 				s += "\t\t\t<div class=\"layer-name\" style=\"";
 				s += " top: " + top + "px;"
-				s += " height: " + layer.elements.size * timelineElementHeightWithMargin + "px;"
-				top += (layer.elements.size * timelineElementHeightWithMargin) + 1 
+				var numberElements = 0;
+				for (Element element : layer.elements) {
+					if (element instanceof Effect) {
+						for (Element elementInEffect : (element as Effect).elements) {
+							numberElements += 1;
+						}
+					} else {
+						numberElements += 1;
+					}
+				}
+				top += (numberElements * timelineElementHeightWithMargin) + 1;
+				s += " height: " + numberElements * timelineElementHeightWithMargin + "px;" 
 				s += "\">";
 				
 				s += "\t\t\t\tLayer " + i + "\n"
 				s += "\t\t\t</div>\n"
 				s += "\t\t\t<div class=\"layer-timeline\">\n";
 					for (Element element : layer.elements) {
-						s += "\t\t\t<div class=\"layer-element\" style=\"";
 						var duration = -1;
-						if (element.duration > 0) {
-							duration = element.duration;
+							if (element.duration > 0) {
+								duration = element.duration;
+							} else {
+								duration = totalMovieDuration;
+							}
+						if (element instanceof Effect) {
+							val finalElement = element as Effect;
+							for (Element elementInEffect : finalElement.elements) {
+								var beginTime = 0;
+								if (finalElement instanceof FadeIn) {
+									if (elementInEffect.temporalPosition !== null) {
+										beginTime += elementInEffect.temporalPosition.beginTime;
+										if (elementInEffect.temporalPosition.elementToStartAfter !== null) {
+											beginTime += elementInEffect.temporalPosition.elementToStartAfter.endingTime;
+										}
+									}
+								} else if (finalElement instanceof FadeOut) {
+									beginTime = elementInEffect.endingTime - duration;	
+								}
+								s += "\t\t\t<div class=\"layer-element\" style=\"";
+								s += " width:" + duration * ratio + "%;";
+								s += " background-color: #000;";
+								s += " margin-left:" + beginTime * ratio + "%;";
+								s += " height:" + timelineElementHeight + "px;";
+								s += "\">\n";
+								s += element.name + "\n"
+								s += "\t\t\t</div>\n"	
+							}
 						} else {
-							duration = totalMovieDuration;
-						}
-						var beginTime = 0;
-						if (element.temporalPosition !== null) {
-							beginTime += element.temporalPosition.beginTime;
-							if (element.temporalPosition.elementToStartAfter !== null) {
-								beginTime += element.temporalPosition.elementToStartAfter.endingTime;
+							s += "\t\t\t<div class=\"layer-element\" style=\"";
+							var beginTime = 0;
+							if (element.temporalPosition !== null) {
+								beginTime += element.temporalPosition.beginTime;
+								if (element.temporalPosition.elementToStartAfter !== null) {
+									beginTime += element.temporalPosition.elementToStartAfter.endingTime;
+								}
 							}
-						}
-						if (element instanceof AudioElement) {
-							var borderTopLeft = 4;
-							var borderTopRight = 4;
-							if (element.fadeIn > 0) {
-								borderTopLeft = 1 + element.fadeIn * 10 * ratio;
+							if (element instanceof AudioElement) {
+								var borderTopLeft = 4;
+								var borderTopRight = 4;
+								if (element.fadeIn > 0) {
+									borderTopLeft = 1 + element.fadeIn * 10 * ratio;
+								}
+								if (element.fadeOut > 0) {
+									borderTopRight = 1 + element.fadeOut * 10 * ratio;
+								}
+								s += " border-radius: " + borderTopLeft + "px " + borderTopRight + "px 0 0;"
 							}
-							if (element.fadeOut > 0) {
-								borderTopRight = 1 + element.fadeOut * 10 * ratio;
-							}
-							s += " border-radius: " + borderTopLeft + "px " + borderTopRight + "px 0 0;"
+							s += " width:" + duration * ratio + "%;";
+							s += " background-color: #000;";
+							s += " margin-left:" + beginTime * ratio + "%;";
+							s += " height:" + timelineElementHeight + "px;";
+							s += "\">\n";
+							s += element.name + "\n"
+							s += "\t\t\t</div>\n"				
 						}
-						s += " width:" + duration * ratio + "%;";
-						s += " background-color: #000;";
-						s += " margin-left:" + beginTime * ratio + "%;";
-						s += " height:" + timelineElementHeight + "px;";
-						s += "\">\n";
-						s += element.name + "\n"
-						s += "\t\t\t</div>\n"						
 					}
 				s += "\t\t\t</div>\n"
 			s += "\t\t</div>\n";

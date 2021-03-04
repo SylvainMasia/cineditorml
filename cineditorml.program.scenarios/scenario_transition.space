@@ -8,4 +8,3 @@ Movie scenario_transition_fade dimension 1280 x 720 fps 30
 		Rectangle rec4 = color '00ad5e' dimension 1280 x 720 startAfter rec3 during 2
 		Effect out = FadeOut during 1 on [rec1, rec2, rec3]
 		Effect in = FadeIn during 1 on [rec2, rec3, rec4]
-

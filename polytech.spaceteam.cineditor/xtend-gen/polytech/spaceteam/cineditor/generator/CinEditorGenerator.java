@@ -765,17 +765,24 @@ public class CinEditorGenerator extends AbstractGenerator {
         s = (_s_1 + "\t\t\t<div class=\"layer-name\" style=\"");
         String _s_2 = s;
         s = (_s_2 + ((" top: " + Integer.valueOf(top)) + "px;"));
-        String _s_3 = s;
-        int _size = layer.getElements().size();
-        int _multiply = (_size * this.timelineElementHeightWithMargin);
-        String _plus_3 = (" height: " + Integer.valueOf(_multiply));
-        String _plus_4 = (_plus_3 + "px;");
-        s = (_s_3 + _plus_4);
+        int numberElements = 0;
+        EList<Element> _elements = layer.getElements();
+        for (final Element element : _elements) {
+          if ((element instanceof Effect)) {
+            EList<GraphicalElement> _elements_1 = ((Effect) element).getElements();
+            for (final Element elementInEffect : _elements_1) {
+              int _numberElements = numberElements;
+              numberElements = (_numberElements + 1);
+            }
+          } else {
+            int _numberElements_1 = numberElements;
+            numberElements = (_numberElements_1 + 1);
+          }
+        }
         int _p = top;
-        int _size_1 = layer.getElements().size();
-        int _multiply_1 = (_size_1 * this.timelineElementHeightWithMargin);
-        int _plus_5 = (_multiply_1 + 1);
-        top = (_p + _plus_5);
+        top = (_p + ((numberElements * this.timelineElementHeightWithMargin) + 1));
+        String _s_3 = s;
+        s = (_s_3 + ((" height: " + Integer.valueOf((numberElements * this.timelineElementHeightWithMargin))) + "px;"));
         String _s_4 = s;
         s = (_s_4 + "\">");
         String _s_5 = s;
@@ -784,74 +791,124 @@ public class CinEditorGenerator extends AbstractGenerator {
         s = (_s_6 + "\t\t\t</div>\n");
         String _s_7 = s;
         s = (_s_7 + "\t\t\t<div class=\"layer-timeline\">\n");
-        EList<Element> _elements = layer.getElements();
-        for (final Element element : _elements) {
+        EList<Element> _elements_2 = layer.getElements();
+        for (final Element element_1 : _elements_2) {
           {
-            String _s_8 = s;
-            s = (_s_8 + "\t\t\t<div class=\"layer-element\" style=\"");
             int duration = (-1);
-            int _duration = element.getDuration();
+            int _duration = element_1.getDuration();
             boolean _greaterThan = (_duration > 0);
             if (_greaterThan) {
-              duration = element.getDuration();
+              duration = element_1.getDuration();
             } else {
               duration = this.totalMovieDuration;
             }
-            int beginTime = 0;
-            TemporalPosition _temporalPosition = element.getTemporalPosition();
-            boolean _tripleNotEquals = (_temporalPosition != null);
-            if (_tripleNotEquals) {
-              int _beginTime = beginTime;
-              int _beginTime_1 = element.getTemporalPosition().getBeginTime();
-              beginTime = (_beginTime + _beginTime_1);
-              Element _elementToStartAfter = element.getTemporalPosition().getElementToStartAfter();
-              boolean _tripleNotEquals_1 = (_elementToStartAfter != null);
-              if (_tripleNotEquals_1) {
-                int _beginTime_2 = beginTime;
-                int _endingTime = element.getTemporalPosition().getElementToStartAfter().getEndingTime();
-                beginTime = (_beginTime_2 + _endingTime);
+            if ((element_1 instanceof Effect)) {
+              final Effect finalElement = ((Effect) element_1);
+              EList<GraphicalElement> _elements_3 = finalElement.getElements();
+              for (final Element elementInEffect_1 : _elements_3) {
+                {
+                  int beginTime = 0;
+                  if ((finalElement instanceof FadeIn)) {
+                    TemporalPosition _temporalPosition = elementInEffect_1.getTemporalPosition();
+                    boolean _tripleNotEquals = (_temporalPosition != null);
+                    if (_tripleNotEquals) {
+                      int _beginTime = beginTime;
+                      int _beginTime_1 = elementInEffect_1.getTemporalPosition().getBeginTime();
+                      beginTime = (_beginTime + _beginTime_1);
+                      Element _elementToStartAfter = elementInEffect_1.getTemporalPosition().getElementToStartAfter();
+                      boolean _tripleNotEquals_1 = (_elementToStartAfter != null);
+                      if (_tripleNotEquals_1) {
+                        int _beginTime_2 = beginTime;
+                        int _endingTime = elementInEffect_1.getTemporalPosition().getElementToStartAfter().getEndingTime();
+                        beginTime = (_beginTime_2 + _endingTime);
+                      }
+                    }
+                  } else {
+                    if ((finalElement instanceof FadeOut)) {
+                      int _endingTime_1 = elementInEffect_1.getEndingTime();
+                      int _minus = (_endingTime_1 - duration);
+                      beginTime = _minus;
+                    }
+                  }
+                  String _s_8 = s;
+                  s = (_s_8 + "\t\t\t<div class=\"layer-element\" style=\"");
+                  String _s_9 = s;
+                  s = (_s_9 + ((" width:" + Integer.valueOf((duration * this.ratio))) + "%;"));
+                  String _s_10 = s;
+                  s = (_s_10 + " background-color: #000;");
+                  String _s_11 = s;
+                  s = (_s_11 + ((" margin-left:" + Integer.valueOf((beginTime * this.ratio))) + "%;"));
+                  String _s_12 = s;
+                  s = (_s_12 + ((" height:" + Integer.valueOf(this.timelineElementHeight)) + "px;"));
+                  String _s_13 = s;
+                  s = (_s_13 + "\">\n");
+                  String _s_14 = s;
+                  String _name = ((Effect)element_1).getName();
+                  String _plus_3 = (_name + "\n");
+                  s = (_s_14 + _plus_3);
+                  String _s_15 = s;
+                  s = (_s_15 + "\t\t\t</div>\n");
+                }
               }
+            } else {
+              String _s_8 = s;
+              s = (_s_8 + "\t\t\t<div class=\"layer-element\" style=\"");
+              int beginTime = 0;
+              TemporalPosition _temporalPosition = element_1.getTemporalPosition();
+              boolean _tripleNotEquals = (_temporalPosition != null);
+              if (_tripleNotEquals) {
+                int _beginTime = beginTime;
+                int _beginTime_1 = element_1.getTemporalPosition().getBeginTime();
+                beginTime = (_beginTime + _beginTime_1);
+                Element _elementToStartAfter = element_1.getTemporalPosition().getElementToStartAfter();
+                boolean _tripleNotEquals_1 = (_elementToStartAfter != null);
+                if (_tripleNotEquals_1) {
+                  int _beginTime_2 = beginTime;
+                  int _endingTime = element_1.getTemporalPosition().getElementToStartAfter().getEndingTime();
+                  beginTime = (_beginTime_2 + _endingTime);
+                }
+              }
+              if ((element_1 instanceof AudioElement)) {
+                int borderTopLeft = 4;
+                int borderTopRight = 4;
+                int _fadeIn = ((AudioElement)element_1).getFadeIn();
+                boolean _greaterThan_1 = (_fadeIn > 0);
+                if (_greaterThan_1) {
+                  int _fadeIn_1 = ((AudioElement)element_1).getFadeIn();
+                  int _multiply = (_fadeIn_1 * 10);
+                  int _multiply_1 = (_multiply * this.ratio);
+                  int _plus_3 = (1 + _multiply_1);
+                  borderTopLeft = _plus_3;
+                }
+                int _fadeOut = ((AudioElement)element_1).getFadeOut();
+                boolean _greaterThan_2 = (_fadeOut > 0);
+                if (_greaterThan_2) {
+                  int _fadeOut_1 = ((AudioElement)element_1).getFadeOut();
+                  int _multiply_2 = (_fadeOut_1 * 10);
+                  int _multiply_3 = (_multiply_2 * this.ratio);
+                  int _plus_4 = (1 + _multiply_3);
+                  borderTopRight = _plus_4;
+                }
+                String _s_9 = s;
+                s = (_s_9 + ((((" border-radius: " + Integer.valueOf(borderTopLeft)) + "px ") + Integer.valueOf(borderTopRight)) + "px 0 0;"));
+              }
+              String _s_10 = s;
+              s = (_s_10 + ((" width:" + Integer.valueOf((duration * this.ratio))) + "%;"));
+              String _s_11 = s;
+              s = (_s_11 + " background-color: #000;");
+              String _s_12 = s;
+              s = (_s_12 + ((" margin-left:" + Integer.valueOf((beginTime * this.ratio))) + "%;"));
+              String _s_13 = s;
+              s = (_s_13 + ((" height:" + Integer.valueOf(this.timelineElementHeight)) + "px;"));
+              String _s_14 = s;
+              s = (_s_14 + "\">\n");
+              String _s_15 = s;
+              String _name = element_1.getName();
+              String _plus_5 = (_name + "\n");
+              s = (_s_15 + _plus_5);
+              String _s_16 = s;
+              s = (_s_16 + "\t\t\t</div>\n");
             }
-            if ((element instanceof AudioElement)) {
-              int borderTopLeft = 4;
-              int borderTopRight = 4;
-              int _fadeIn = ((AudioElement)element).getFadeIn();
-              boolean _greaterThan_1 = (_fadeIn > 0);
-              if (_greaterThan_1) {
-                int _fadeIn_1 = ((AudioElement)element).getFadeIn();
-                int _multiply_2 = (_fadeIn_1 * 10);
-                int _multiply_3 = (_multiply_2 * this.ratio);
-                int _plus_6 = (1 + _multiply_3);
-                borderTopLeft = _plus_6;
-              }
-              int _fadeOut = ((AudioElement)element).getFadeOut();
-              boolean _greaterThan_2 = (_fadeOut > 0);
-              if (_greaterThan_2) {
-                int _fadeOut_1 = ((AudioElement)element).getFadeOut();
-                int _multiply_4 = (_fadeOut_1 * 10);
-                int _multiply_5 = (_multiply_4 * this.ratio);
-                int _plus_7 = (1 + _multiply_5);
-                borderTopRight = _plus_7;
-              }
-              String _s_9 = s;
-              s = (_s_9 + ((((" border-radius: " + Integer.valueOf(borderTopLeft)) + "px ") + Integer.valueOf(borderTopRight)) + "px 0 0;"));
-            }
-            String _s_10 = s;
-            s = (_s_10 + ((" width:" + Integer.valueOf((duration * this.ratio))) + "%;"));
-            String _s_11 = s;
-            s = (_s_11 + " background-color: #000;");
-            String _s_12 = s;
-            s = (_s_12 + ((" margin-left:" + Integer.valueOf((beginTime * this.ratio))) + "%;"));
-            String _s_13 = s;
-            s = (_s_13 + ((" height:" + Integer.valueOf(this.timelineElementHeight)) + "px;"));
-            String _s_14 = s;
-            s = (_s_14 + "\">\n");
-            String _s_15 = s;
-            String _name = element.getName();
-            String _plus_8 = (_name + "\n");
-            s = (_s_15 + _plus_8);
-            String _s_16 = s;
-            s = (_s_16 + "\t\t\t</div>\n");
           }
         }
         String _s_8 = s;
