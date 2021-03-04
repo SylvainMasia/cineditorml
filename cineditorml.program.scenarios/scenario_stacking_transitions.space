@@ -17,4 +17,3 @@ Movie scenario_stacking_transitions dimension 1280 x 720 fps 30
 			)
 			cropAt 12 
 			during 44
-	

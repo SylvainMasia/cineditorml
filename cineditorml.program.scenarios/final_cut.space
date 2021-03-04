@@ -6,4 +6,3 @@ Movie final_cut dimension 1920 x 1080 fps 30
 		Video prise3 = './assets/final_cut/prise_3_crop_18s.mp4' dimension 1920 x 1080 startAfter prise2 cropAt 0 during 19
 		Video prise4 = './assets/final_cut/prise_4_crop_23s.mp4' dimension 1920 x 1080 startAfter prise3 cropAt 0 during 24
 		Effect out = FadeOut during 1 on [intro, prise1, prise2, prise3, prise4]
-
